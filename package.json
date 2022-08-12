@@ -1,0 +1,68 @@
+{
+	"name": "biasmuseuem",
+	"description": "Page for the bias museuem",
+	"version": "1.0.0",
+	"private": true,
+	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
+	"license": "MIT",
+	"keywords": [
+		"nextjs",
+		"threejs",
+		"typescript"
+	],
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"type-check": "tsc",
+		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+		"postinstall": "husky install",
+		"commit": "cz"
+	},
+	"lint-staged": {
+		"./src/**/*.{ts,js,jsx,tsx}": [
+			"yarn lint --fix",
+			"yarn format"
+		]
+	},
+	"dependencies": {
+		"@react-three/drei": "9.16.0",
+		"@react-three/fiber": "8.0.27",
+		"@react-three/postprocessing": "2.4.4",
+		"@types/three": "0.141.0",
+		"immer": "^9.0.15",
+		"leva": "^0.9.28",
+		"nanoid": "^4.0.0",
+		"next": "12.2.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"three": "0.142.0",
+		"three-stdlib": "^2.12.1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "17.0.3",
+		"@commitlint/config-conventional": "17.0.3",
+		"@types/node": "18.0.1",
+		"@types/react": "18.0.14",
+		"@types/react-dom": "18.0.5",
+		"@typescript-eslint/eslint-plugin": "5.30.4",
+		"@typescript-eslint/parser": "5.30.4",
+		"autoprefixer": "10.4.7",
+		"commitizen": "4.2.4",
+		"cz-conventional-changelog": "3.3.0",
+		"eslint": "8.19.0",
+		"eslint-config-next": "12.2.0",
+		"eslint-config-prettier": "8.5.0",
+		"eslint-import-resolver-typescript": "3.2.1",
+		"eslint-plugin-prettier": "4.2.1",
+		"husky": "8.0.1",
+		"lint-staged": "13.0.3",
+		"prettier": "2.7.1"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	}
+}
