@@ -3,6 +3,7 @@ import React from "react"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router-dom"
 import App from "./app"
+import "./styles/inter.css"
 import "./styles/globals.css"
 
 const container = document.getElementById("root")
