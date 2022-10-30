@@ -1,11 +1,14 @@
 import { Route, Routes } from "react-router-dom"
-import Scene from "@/components/scenes/scene"
+import Door from "./pages/door"
+import Game from "./pages/game"
 
 const App = () => {
 	return (
 		<>
 			<Routes>
-				<Route path="/" element={<Scene />} />
+				<Route path="/" element={<Door />} />
+				<Route path="/door" element={<Door />} />
+				<Route path="/game" element={<Game />} />
 			</Routes>
 		</>
 	)
