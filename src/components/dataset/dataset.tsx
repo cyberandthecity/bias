@@ -39,7 +39,6 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 						fontSize: "32px",
 						fontWeight: 500,
 						color: selected ? "white" : InterfaceColor,
-						opacity: selected ? 1 : 0.8,
 					}}
 				>
 					{title}
