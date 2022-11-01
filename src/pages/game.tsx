@@ -1,3 +1,4 @@
+import AI from "@/components/ai/ai"
 import Background from "@/components/background/background"
 import DatasetSelector from "@/components/datasetSelector/datasetSelector"
 import Title from "@/components/title/title"
@@ -25,6 +26,7 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 					justifyContent: "center",
 				}}
 			>
+				<AI />
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
