@@ -30,7 +30,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({ title, datas
 					background: BackgroundColor,
 				}}
 			>
-				<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor, opacity: 0.8 }}>{title}</p>
+				<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
 
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 					{datasets.map((dataset, index) => (
