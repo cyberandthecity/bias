@@ -8,9 +8,17 @@ interface DatasetSelectorProps {
 	title: string
 	datasets: DS[]
 	confirmDataset: (index: number) => void
+	isChecking: boolean
+	correctDataset: number
 }
 
-const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({ title, datasets, confirmDataset }) => {
+const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
+	title,
+	datasets,
+	confirmDataset,
+	isChecking,
+	correctDataset,
+}) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
 
 	return (
@@ -39,7 +47,8 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({ title, datas
 							key={"dataset_" + index}
 							title={dataset.title}
 							images={dataset.images}
-							selected={selectedDataset == index}
+							selected={!isChecking && selectedDataset == index}
+							correct={isChecking && correctDataset == index}
 							onClick={(index) => {
 								setSelectedDataset(index)
 							}}
@@ -71,15 +80,17 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({ title, datas
 				>
 					<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>Wähle einen Datensatz aus</p>
 				</div>
-				<Slider
-					startIndex={selectedDataset}
-					onSelection={(index) => {
-						setSelectedDataset(index)
-					}}
-					confirmDataset={() => {
-						confirmDataset(selectedDataset)
-					}}
-				/>
+				{!isChecking && (
+					<Slider
+						startIndex={selectedDataset}
+						onSelection={(index) => {
+							setSelectedDataset(index)
+						}}
+						confirmDataset={() => {
+							confirmDataset(selectedDataset)
+						}}
+					/>
+				)}
 			</div>
 			<div
 				style={{

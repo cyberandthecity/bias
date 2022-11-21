@@ -10,8 +10,9 @@ interface GameProps {}
 const Game: FunctionComponent<GameProps> = ({}) => {
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
-
 	const progressLevel = useGame((state) => state.actions.progressLevel)
+
+	const [isChecking, setIsChecking] = useState(false)
 
 	return (
 		<Background offset={800}>
@@ -32,8 +33,11 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 					datasets={datasets}
 					confirmDataset={(index) => {
 						//TODO: Implement
-						progressLevel()
+						// progressLevel()
+						setIsChecking(true)
 					}}
+					isChecking={isChecking}
+					correctDataset={level.correctDataset}
 				/>
 			</div>
 		</Background>
