@@ -9,11 +9,12 @@ interface DatasetProps {
 	selected?: boolean
 	onClick: (index: number) => void
 	correct: boolean
+	notcorrect: boolean
 }
 
 const showImages = true
 
-const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClick, correct, selected = true }) => {
+const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClick, correct, notcorrect,selected = true }) => {
 	return (
 		<div
 			style={{
@@ -31,7 +32,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 					padding: "10px 40px 5px 15px",
 					flexDirection: "column",
 					borderRadius: "20px 20px 0px 0px",
-					background: correct ? "green" : selected ? InterfaceColor : "white",
+					background: correct ? "green" : notcorrect ? "red" : selected ? InterfaceColor : "white",
 					cursor: "pointer",
 				}}
 			>
@@ -50,7 +51,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 				style={{
 					display: "flex",
 					flexDirection: "row",
-					background: correct ? "green" : selected ? InterfaceColor : "white",
+					background: correct ? "green" : notcorrect ? "red" : selected ? InterfaceColor : "white",
 					padding: "10px",
 					borderRadius: "0px 20px 20px 20px",
 					overflow: "hidden",
