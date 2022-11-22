@@ -7,6 +7,7 @@ interface AIProps {}
 const messages: Message[] = [
 	{
 		id: "1",
+		author: "Die KI:",
 		text: "Hilf mir einen Datensatz auszuwählen!",
 		delay: 0,
 		decay: 0,
@@ -14,14 +15,16 @@ const messages: Message[] = [
 	},
 	{
 		id: "2",
-		text: "Der Datensatz soll am besten zwischen Professoren von Studenten unterscheiden und gleichzeitg nicht diskreminieren.",
+		author: "",
+		text: "Der Datensatz soll am besten zwischen Professoren von Studenten unterscheiden und gleichzeitg nicht diskriminieren.",
 		delay: 2000,
 		decay: 0,
 		type: MessageType.Normal,
 	},
 	{
 		id: "3",
-		text: "Wähle einen der unteren Datensatz aus!",
+		author: "",
+		text: "Wähle einen der unteren Datensätze aus!",
 		delay: 2000,
 		decay: 0,
 		type: MessageType.Instruction,

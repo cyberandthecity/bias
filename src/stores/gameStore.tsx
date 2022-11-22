@@ -29,15 +29,21 @@ export const useGame = create<Store>(
 		levels: [
 			{
 				title: "Datenselektion 1",
-				imageDir: "gender_2x2",
-				correctDataset: 0,
-				dimension: [2, 2],
+				imageDir: "gender_3x2",
+				correctDataset: 2,
+				dimension: [2, 3],
 			},
 			{
 				title: "Datenselektion 2",
-				imageDir: "glasses_3x3",
+				imageDir: "glasses_4x3",
 				correctDataset: 0,
-				dimension: [3, 3],
+				dimension: [3, 4],
+			},
+			{
+				title: "Datenselektion 3",
+				imageDir: "tech_5x4",
+				correctDataset: 0,
+				dimension: [4, 5],
 			},
 		],
 		currentLevel: 0,
