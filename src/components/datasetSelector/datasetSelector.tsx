@@ -49,6 +49,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							images={dataset.images}
 							selected={!isChecking && selectedDataset == index}
 							correct={isChecking && correctDataset == index}
+							notcorrect={isChecking && correctDataset != index}
 							onClick={(index) => {
 								setSelectedDataset(index)
 							}}
