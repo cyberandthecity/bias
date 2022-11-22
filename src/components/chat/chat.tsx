@@ -40,8 +40,8 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 					gap: "30px",
 				}}
 			>
-				{Object.values(displayedMessages).map(({ id, text, delay, type }) => {
-					return <ChatMessage key={id} id={id} text={text} orientation={orientation} type={type} />
+				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
+					return <ChatMessage key={id} id={id} author={author} text={text} orientation={orientation} type={type} />
 				})}
 			</div>
 		</AnimatePresence>

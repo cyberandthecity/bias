@@ -12,6 +12,7 @@ export enum MessageType {
 
 export interface Message {
 	id: string
+	author: string
 	text: string
 	delay: number
 	decay: number
@@ -20,6 +21,7 @@ export interface Message {
 
 interface MessageProps {
 	id: string
+	author: string
 	text: string
 	orientation?: ChatOrientation
 	type?: MessageType
@@ -46,6 +48,7 @@ const variants = {
 
 const ChatMessage: FunctionComponent<MessageProps> = ({
 	id,
+	author,
 	text,
 	orientation = ChatOrientation.Right,
 	type = MessageType.Normal,
@@ -71,6 +74,12 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 					backdropFilter: "blur(20px)",
 				}}
 			>
+				<pre
+				style={{
+					color: "Aqua"
+				}}>
+					{author}
+				</pre>
 				{text}
 			</div>
 		</motion.div>
