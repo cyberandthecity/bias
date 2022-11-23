@@ -1,7 +1,9 @@
 import AI from "@/components/ai/ai"
 import Background from "@/components/background/background"
 import DatasetSelector from "@/components/datasetSelector/datasetSelector"
+import { Message } from "@/components/message/message"
 import Title from "@/components/title/title"
+import { AIPrompt } from "@/data/aiPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 
@@ -13,6 +15,12 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 	const progressLevel = useGame((state) => state.actions.progressLevel)
 
 	const [isChecking, setIsChecking] = useState(false)
+	const [messages, setMessages] = useState<Message[]>(level.aiPrompt.prompt)
+
+	useEffect(() => {
+		setIsChecking(false)
+		setMessages(level.aiPrompt.prompt)
+	}, [level])
 
 	return (
 		<Background offset={800}>
@@ -27,14 +35,20 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 					justifyContent: "center",
 				}}
 			>
-				<AI />
+				<AI messages={messages} />
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
 					confirmDataset={(index) => {
-						//TODO: Implement
-						// progressLevel()
 						setIsChecking(true)
+						if (index == level.correctDataset) {
+							setMessages(level.aiPrompt.correctAnswer)
+						} else {
+							setMessages(level.aiPrompt.wrongAnswers)
+						}
+					}}
+					nextLevel={() => {
+						progressLevel()
 					}}
 					isChecking={isChecking}
 					correctDataset={level.correctDataset}

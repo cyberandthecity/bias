@@ -1,3 +1,5 @@
+import { Message } from "@/components/message/message"
+import { AIPrompt, levelText } from "@/data/aiPrompt"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
@@ -10,12 +12,12 @@ export interface Dataset {
 	title: string
 	images: string[][]
 }
-
 export interface Level {
 	title: string
 	imageDir: string
 	correctDataset: number
 	dimension: [row: number, column: number]
+	aiPrompt: AIPrompt
 }
 
 type Store = {
@@ -32,18 +34,21 @@ export const useGame = create<Store>(
 				imageDir: "gender_3x2",
 				correctDataset: 2,
 				dimension: [2, 3],
+				aiPrompt: levelText[0],
 			},
 			{
 				title: "Datenselektion 2",
 				imageDir: "glasses_4x3",
 				correctDataset: 0,
 				dimension: [3, 4],
+				aiPrompt: levelText[1],
 			},
 			{
 				title: "Datenselektion 3",
 				imageDir: "tech_5x4",
 				correctDataset: 0,
 				dimension: [4, 5],
+				aiPrompt: levelText[2],
 			},
 		],
 		currentLevel: 0,
