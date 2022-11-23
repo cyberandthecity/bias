@@ -1,4 +1,4 @@
-import { BackgroundColor, InterfaceColor } from "@/utils/theme"
+import { BackgroundColor, CorrectColor, InterfaceColor, WrongColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import ImageTile from "../imageTile/imageTile"
 
@@ -14,7 +14,15 @@ interface DatasetProps {
 
 const showImages = true
 
-const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClick, correct, notcorrect,selected = true }) => {
+const Dataset: FunctionComponent<DatasetProps> = ({
+	index,
+	title,
+	images,
+	onClick,
+	correct,
+	notcorrect,
+	selected = true,
+}) => {
 	return (
 		<div
 			style={{
@@ -32,7 +40,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 					padding: "10px 40px 5px 15px",
 					flexDirection: "column",
 					borderRadius: "20px 20px 0px 0px",
-					background: correct ? "green" : notcorrect ? "red" : selected ? InterfaceColor : "white",
+					background: correct ? CorrectColor : notcorrect ? WrongColor : selected ? InterfaceColor : "white",
 					cursor: "pointer",
 				}}
 			>
@@ -40,7 +48,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 					style={{
 						fontSize: "32px",
 						fontWeight: 500,
-						color: selected ? "white" : InterfaceColor,
+						color: selected || correct || notcorrect ? "white" : InterfaceColor,
 					}}
 				>
 					{title}
@@ -51,7 +59,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 				style={{
 					display: "flex",
 					flexDirection: "row",
-					background: correct ? "green" : notcorrect ? "red" : selected ? InterfaceColor : "white",
+					background: correct ? CorrectColor : notcorrect ? WrongColor : selected ? InterfaceColor : "white",
 					padding: "10px",
 					borderRadius: "0px 20px 20px 20px",
 					overflow: "hidden",
@@ -61,12 +69,12 @@ const Dataset: FunctionComponent<DatasetProps> = ({ index, title, images, onClic
 					cursor: "pointer",
 				}}
 			>
-				{images.map((images, index) => (
+				{images.map((imagesRow, index) => (
 					<div
 						key={"column_" + index}
 						style={{ display: "flex", flexDirection: "column", padding: "0px", gap: "10px" }}
 					>
-						{images.map((image) => (
+						{imagesRow.map((image) => (
 							<ImageTile key={image} url={image} show={showImages} scale={600 / images.length} />
 						))}
 					</div>

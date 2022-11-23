@@ -7,16 +7,18 @@ import Slider from "../slider/slider"
 interface DatasetSelectorProps {
 	title: string
 	datasets: DS[]
-	confirmDataset: (index: number) => void
 	isChecking: boolean
 	correctDataset: number
+	confirmDataset: (index: number) => void
+	nextLevel: () => void
 }
 
 const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	title,
 	datasets,
-	confirmDataset,
+	nextLevel,
 	isChecking,
+	confirmDataset,
 	correctDataset,
 }) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
@@ -49,9 +51,11 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							images={dataset.images}
 							selected={!isChecking && selectedDataset == index}
 							correct={isChecking && correctDataset == index}
-							notcorrect={isChecking && correctDataset != index}
+							notcorrect={isChecking && selectedDataset == index && correctDataset != index}
 							onClick={(index) => {
-								setSelectedDataset(index)
+								if (!isChecking) {
+									setSelectedDataset(index)
+								}
 							}}
 						/>
 					))}
@@ -59,7 +63,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 			</div>
 			<div
 				style={{
-					height: "180px",
+					height: isChecking ? "60px" : "180px",
 					paddingLeft: "65px",
 					paddingRight: "65px",
 					paddingTop: "25px",
@@ -79,7 +83,9 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 						alignItems: "center",
 					}}
 				>
-					<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>Wähle einen Datensatz aus</p>
+					<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>
+						{!isChecking && "Wähle einen Datensatz aus"}
+					</p>
 				</div>
 				{!isChecking && (
 					<Slider
@@ -96,12 +102,36 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 			<div
 				style={{
 					height: "100px",
-					paddingLeft: "65px",
-					paddingRight: "65px",
+					width: "100%",
+					display: "flex",
+					justifyContent: "center",
 					paddingTop: "25px",
 					background: BackgroundColor,
 				}}
-			/>
+			>
+				{isChecking && (
+					<div
+						style={{
+							background: InterfaceColor,
+							height: "45px",
+							padding: "18px 30px 8px 30px",
+							borderRadius: "10px",
+							width: "fit-content",
+							fontSize: "32px",
+							fontWeight: 500,
+							color: "white",
+							boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
+							cursor: "pointer",
+						}}
+						onClick={() => {
+							setSelectedDataset(0)
+							nextLevel()
+						}}
+					>
+						Nächste Aufgabe
+					</div>
+				)}
+			</div>
 		</div>
 	)
 }

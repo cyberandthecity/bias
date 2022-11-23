@@ -1,37 +1,13 @@
+import { WrongColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
 import Chat from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 
-interface AIProps {}
+interface AIProps {
+	messages: Message[]
+}
 
-const messages: Message[] = [
-	{
-		id: "1",
-		author: "Die KI:",
-		text: "Hilf mir einen Datensatz auszuwählen!",
-		delay: 0,
-		decay: 0,
-		type: MessageType.Normal,
-	},
-	{
-		id: "2",
-		author: "",
-		text: "Der Datensatz soll am besten zwischen Professoren von Studenten unterscheiden und gleichzeitg nicht diskriminieren.",
-		delay: 2000,
-		decay: 0,
-		type: MessageType.Normal,
-	},
-	{
-		id: "3",
-		author: "",
-		text: "Wähle einen der unteren Datensätze aus!",
-		delay: 2000,
-		decay: 0,
-		type: MessageType.Instruction,
-	},
-]
-
-const AI: FunctionComponent<AIProps> = ({}) => {
+const AI: FunctionComponent<AIProps> = ({ messages }) => {
 	return (
 		<div
 			style={{
@@ -56,7 +32,7 @@ const AI: FunctionComponent<AIProps> = ({}) => {
 				<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
 			</div>
 
-			<div style={{ position: "absolute", background: "red", bottom: "140px", left: "300px", height: "1000px" }}>
+			<div style={{ position: "absolute", background: WrongColor, bottom: "140px", left: "300px", height: "1000px" }}>
 				<Chat messages={messages} />
 			</div>
 		</div>
