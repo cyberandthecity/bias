@@ -1,9 +1,11 @@
 import AI from "@/components/ai/ai"
+import HINT from "@/components/hint/hint"
 import Background from "@/components/background/background"
 import DatasetSelector from "@/components/datasetSelector/datasetSelector"
 import { Message } from "@/components/message/message"
 import Title from "@/components/title/title"
 import { AIPrompt } from "@/data/aiPrompt"
+import { HintPrompt } from "@/data/hintPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 
@@ -36,6 +38,7 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 				}}
 			>
 				<AI messages={messages} />
+				<HINT messages={messages} />
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}

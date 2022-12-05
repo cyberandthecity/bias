@@ -8,30 +8,30 @@ interface HintProps {
 }
 
 
-const Hint: FunctionComponent<HintProps> = ({ messages }) => {
+const HINT: FunctionComponent<HintProps> = ({ messages }) => {
     return (
-        // TODO: Fix positioning and design of hint + add icon for hint
+        // TODO: Fix design of hint + timing
 		<div
 			style={{
 				position: "absolute",
-				top: "900px",
-				left: "100px",
-				display: "flex",
-				flexDirection: "row",
+				top: "1200px",// abhängig von der Höhe der Überschrift "Datenselektion"
+				right: "50px",
+				//display: "flex",
+				//flexDirection: "row",
 			}}
 		>
 			<div
 				style={{
-					width: "250px",
-					height: "250px",
-					borderRadius: "1000px",
-					overflow: "hidden",
+					width: "120px",
+					height: "120px",
+					borderRadius: "100px",
+					overflow: "scroll",
 					display: "flex",
 					justifyContent: "center",
 					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
 				}}
 			>
-                <video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
+                <video autoPlay loop muted playsInline src="/videos/idee.mp4" style={{}} />
 			</div>
             
 
@@ -41,3 +41,5 @@ const Hint: FunctionComponent<HintProps> = ({ messages }) => {
 		</div>
 	)
 }
+
+export default HINT
