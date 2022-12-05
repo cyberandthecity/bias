@@ -47,6 +47,8 @@ const variants = {
 	},
 }
 
+// TODO: add const hintMessage to fix positioning??
+
 const ChatMessage: FunctionComponent<MessageProps> = ({
 	id,
 	author,
