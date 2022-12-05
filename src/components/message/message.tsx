@@ -8,6 +8,7 @@ export enum MessageType {
 	Normal,
 	Warning,
 	Instruction,
+	Hint,
 }
 
 export interface Message {
