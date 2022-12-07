@@ -3,9 +3,10 @@ import { InterfaceColor } from "@/utils/theme"
 
 interface TitleProps {
 	title: string
+	isInAI?: boolean
 }
 
-const Title: FunctionComponent<TitleProps> = ({ title }) => {
+const Title: FunctionComponent<TitleProps> = ({ title, isInAI = false }) => {
 	return (
 		<div
 			style={{
@@ -15,7 +16,16 @@ const Title: FunctionComponent<TitleProps> = ({ title }) => {
 				position: "absolute",
 			}}
 		>
-			<p style={{ fontSize: "82px", fontWeight: "bold", color: InterfaceColor, opacity: 0.2 }}>{title}</p>
+			<p
+				style={{
+					fontSize: "82px",
+					fontWeight: "bold",
+					color: isInAI ? InterfaceColor : "white",
+					opacity: isInAI ? 0.2 : 0.8,
+				}}
+			>
+				{title}
+			</p>
 		</div>
 	)
 }
