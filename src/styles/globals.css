@@ -12,7 +12,7 @@ html {
 	margin-left: 0;
 	touch-action: none;
 	transform-origin: top left;
-	transform: scale(0.5e);
+	transform: scale(0.5);
 }
 body {
 	top: 0;
