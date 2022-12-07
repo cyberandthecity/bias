@@ -5,7 +5,15 @@
 	user-select: none;
 }
 
-html,
+html {
+	top: 0;
+	left: 0;
+	margin-top: 0;
+	margin-left: 0;
+	touch-action: none;
+	transform-origin: top left;
+	transform: scale(0.5e);
+}
 body {
 	top: 0;
 	left: 0;
