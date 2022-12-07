@@ -25,7 +25,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages }) => {
 					width: "120px",
 					height: "120px",
 					borderRadius: "100px",
-					overflow: "scroll",
+					overflow: "hidden",
 					display: "flex",
 					justifyContent: "center",
 					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
