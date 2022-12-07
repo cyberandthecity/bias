@@ -10,7 +10,7 @@
     "typescript"
   ],
   "scripts": {
-    "start": "HTTPS=false craco start",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "type-check": "tsc",
