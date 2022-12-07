@@ -1,5 +1,5 @@
 import Camera from "@/components/camera/camera"
-import Environment from "@/components/environment/environment"
+import ClubEnvironment from "@/components/environments/clubEnvironment"
 import { MapControls, OrbitControls, Stats } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Box } from "@react-three/drei"
@@ -16,15 +16,15 @@ studio.extend(extension)
 
 interface SceneProps {}
 
-const demoSheet = getProject("Demo Project").sheet("Demo Sheet")
+const clubSceneSheet = getProject("Demo Project").sheet("Demo Sheet")
 
-const Scene: FunctionComponent<SceneProps> = ({}) => {
+const ClubScene: FunctionComponent<SceneProps> = ({}) => {
 	useEffect(() => {
-		demoSheet.sequence.play({ iterationCount: Infinity, range: [0, 1] })
+		clubSceneSheet.sequence.play({ iterationCount: Infinity, range: [0, 1] })
 	}, [])
 
 	return (
-		<div style={{ position: "absolute", width: "100vw", height: "100vh" }}>
+		<div style={{ position: "absolute", width: "100vw", height: "100vh", background: "green" }}>
 			<Canvas
 				shadows
 				dpr={[1, 2]}
@@ -34,9 +34,9 @@ const Scene: FunctionComponent<SceneProps> = ({}) => {
 					gl.outputEncoding = sRGBEncoding
 				}}
 			>
-				<SheetProvider sheet={demoSheet}>
+				<SheetProvider sheet={clubSceneSheet}>
 					<Camera />
-					<Environment />
+					<ClubEnvironment />
 					{/* <Stats /> */}
 					{/* <Postprocessing /> */}
 				</SheetProvider>
@@ -45,4 +45,4 @@ const Scene: FunctionComponent<SceneProps> = ({}) => {
 	)
 }
 
-export default Scene
+export default ClubScene

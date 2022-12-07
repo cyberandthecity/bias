@@ -6,7 +6,7 @@ import { MathUtils, Mesh } from "three"
 import PaperClip from "../models/PaperClip"
 import Photo from "../photo/photo"
 
-const Environment = () => {
+const ClubEnvironment = () => {
 	return (
 		<>
 			<EnvironmentLight preset="city" />
@@ -32,4 +32,4 @@ const Environment = () => {
 	)
 }
 
-export default Environment
+export default ClubEnvironment
