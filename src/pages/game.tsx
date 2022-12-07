@@ -27,8 +27,8 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 	}, [level])
 
 	return (
-		<Background offset={800}>
-			<Title title="Bias & KI" />
+		<Background offset={800} isInAI>
+			<Title title="Bias & KI" isInAI />
 			<div
 				style={{
 					position: "absolute",
@@ -41,7 +41,7 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 			>
 				<AI messages={messages} />
 				<HINT messages={messages} />
-				<ProgressBar percentage={pageNumber}/> 
+				<ProgressBar percentage={pageNumber} />
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
