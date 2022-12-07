@@ -10,11 +10,11 @@ interface HintProps {
 
 const HINT: FunctionComponent<HintProps> = ({ messages }) => {
     return (
-        // TODO: Fix design of hint + timing
+        // TODO: Fix design of hint + timing + position of message
 		<div
 			style={{
 				position: "absolute",
-				top: "1200px",// abhängig von der Höhe der Überschrift "Datenselektion"
+				top: "1200px",
 				right: "50px",
 				//display: "flex",
 				//flexDirection: "row",
