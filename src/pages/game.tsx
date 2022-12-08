@@ -13,7 +13,7 @@ import { FunctionComponent, useEffect, useState } from "react"
 interface GameProps {}
 
 const Game: FunctionComponent<GameProps> = ({}) => {
-	const pageNumber = 2
+	const pageNumber = 2 
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
 	const progressLevel = useGame((state) => state.actions.progressLevel)
@@ -41,7 +41,8 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 			>
 				<AI messages={messages} />
 				<HINT messages={messages} />
-				<ProgressBar percentage={pageNumber}/> 
+				<ProgressBar percentage={pageNumber} //TODO: Change into useful percentage measure 
+				/> 
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
