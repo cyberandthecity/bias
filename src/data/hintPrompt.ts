@@ -4,7 +4,7 @@ export interface HintPrompt {
 	hint: Message[]
 }
 
-export const levelText: HintPrompt[] = [
+export const levelHint: HintPrompt[] = [
 	{
         // Level 1
 		hint: [
