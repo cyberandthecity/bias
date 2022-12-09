@@ -3,13 +3,15 @@ import ClubScene from "@/components/scenes/clubScene"
 import Title from "@/components/title/title"
 import { FunctionComponent } from "react"
 
-interface ExplanationProps {}
+interface ExplanationProps {
+	scale?: number
+}
 
-const Explanation: FunctionComponent<ExplanationProps> = ({}) => {
+const Explanation: FunctionComponent<ExplanationProps> = ({ scale = 1.0 }) => {
 	return (
-		<Background offset={800}>
+		<Background offset={800} scale={scale}>
 			<Title title="Club Entrance" />
-			{/* <ClubScene /> */}
+			<ClubScene />
 		</Background>
 	)
 }

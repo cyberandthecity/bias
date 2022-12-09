@@ -10,6 +10,7 @@ import studio from "@theatre/studio"
 import extension from "@theatre/r3f/dist/extension"
 import { editable as e, SheetProvider } from "@theatre/r3f"
 import { getProject } from "@theatre/core"
+import Scale from "../scale/scale"
 
 studio.initialize()
 studio.extend(extension)
@@ -24,7 +25,13 @@ const ClubScene: FunctionComponent<SceneProps> = ({}) => {
 	}, [])
 
 	return (
-		<div style={{ position: "absolute", width: "100vw", height: "100vh", background: "green" }}>
+		<div
+			style={{
+				width: "2160px",
+				height: "3840px",
+				background: "green",
+			}}
+		>
 			<Canvas
 				shadows
 				dpr={[1, 2]}
@@ -34,6 +41,7 @@ const ClubScene: FunctionComponent<SceneProps> = ({}) => {
 					gl.outputEncoding = sRGBEncoding
 				}}
 			>
+				<Scale width={2160} height={3840} />
 				<SheetProvider sheet={clubSceneSheet}>
 					<Camera />
 					<ClubEnvironment />

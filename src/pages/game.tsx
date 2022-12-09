@@ -10,9 +10,11 @@ import { HintPrompt } from "@/data/hintPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 
-interface GameProps {}
+interface GameProps {
+	scale?: number
+}
 
-const Game: FunctionComponent<GameProps> = ({}) => {
+const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 	const pageNumber = 2
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
@@ -27,7 +29,7 @@ const Game: FunctionComponent<GameProps> = ({}) => {
 	}, [level])
 
 	return (
-		<Background offset={800} isInAI>
+		<Background offset={800} isInAI scale={scale}>
 			<Title title="Bias & KI" isInAI />
 			<div
 				style={{

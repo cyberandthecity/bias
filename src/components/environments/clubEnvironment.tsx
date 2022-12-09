@@ -18,6 +18,7 @@ const ClubEnvironment = () => {
 
 			{
 				//@ts-ignore
+
 				<e.mesh theatreKey="Screen">
 					<boxGeometry args={[0.68, 1.21, 0.02]} />
 					<meshStandardMaterial attach="material" color="green" />
