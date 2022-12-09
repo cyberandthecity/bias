@@ -1,4 +1,6 @@
+import AI from "@/components/ai/ai"
 import Door from "@/components/door/door"
+import { useGame } from "@/stores/gameStore"
 import { InterfaceColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
@@ -8,7 +10,10 @@ interface EntranceProps {
 }
 
 const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0 }) => {
+	const messages = useGame((state) => state.entranceInfo.aiMessages)
+
 	let navigate = useNavigate()
+
 	const progessToNextScreen = () => {
 		navigate("/explanation")
 	}
@@ -22,6 +27,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0 }) => {
 				transformOrigin: "left top",
 			}}
 		>
+			<AI messages={messages} />
 			<div
 				style={{
 					position: "absolute",

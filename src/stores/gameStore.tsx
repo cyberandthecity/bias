@@ -1,5 +1,5 @@
 import { Message } from "@/components/message/message"
-import { AIPrompt, levelText } from "@/data/aiPrompt"
+import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
@@ -20,7 +20,17 @@ export interface Level {
 	aiPrompt: AIPrompt
 }
 
+export interface EntranceInfo {
+	aiMessages: Message[]
+}
+
+export interface ExplanationInfo {
+	aiMessages: Message[]
+}
+
 type Store = {
+	entranceInfo: EntranceInfo
+	explanationInfo: ExplanationInfo
 	levels: Level[]
 	currentLevel: number
 	actions: Actions
@@ -28,6 +38,12 @@ type Store = {
 
 export const useGame = create<Store>(
 	immerStore((set, get) => ({
+		entranceInfo: {
+			aiMessages: entranceText,
+		},
+		explanationInfo: {
+			aiMessages: explanationText,
+		},
 		levels: [
 			{
 				title: "Datenselektion 1",
