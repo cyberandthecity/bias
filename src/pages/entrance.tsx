@@ -27,7 +27,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0 }) => {
 				transformOrigin: "left top",
 			}}
 		>
-			<AI messages={messages} />
+			<AI messages={messages} position={{ x: 900, y: 100 }} />
 			<div
 				style={{
 					position: "absolute",

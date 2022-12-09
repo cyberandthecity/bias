@@ -41,7 +41,7 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 					justifyContent: "center",
 				}}
 			>
-				<AI messages={messages} />
+				<AI messages={messages} position={{ x: 900, y: 100 }} chatOffset={{ x: 300, y: 140 }} scale={1.65} />
 				<HINT messages={messages} />
 				<ProgressBar percentage={pageNumber} />
 				<DatasetSelector
