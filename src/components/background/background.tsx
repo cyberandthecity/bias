@@ -6,9 +6,10 @@ interface BackgroundProps {
 	offset: number
 	children?: React.ReactNode
 	isInAI?: boolean
+	scale?: number
 }
 
-const Background: FunctionComponent<BackgroundProps> = ({ offset, children, isInAI = false }) => {
+const Background: FunctionComponent<BackgroundProps> = ({ offset, children, isInAI = false, scale = 1.0 }) => {
 	return (
 		<div
 			style={{
@@ -18,6 +19,8 @@ const Background: FunctionComponent<BackgroundProps> = ({ offset, children, isIn
 				background: isInAI ? AILightGradient : AIDarkGradient,
 				overflow: "hidden",
 				zIndex: 0,
+				transform: "scale(" + scale + ")",
+				transformOrigin: "left top",
 			}}
 		>
 			{isInAI && (

@@ -7,7 +7,6 @@ const Camera = () => {
 	return (
 		<>
 			<EditableCamera theatreKey="Camera" makeDefault zoom={1000} />
-			<MapControls />
 		</>
 	)
 }
