@@ -179,3 +179,25 @@ export const levelText: AIPrompt[] = [
 		],
 	},
 ]
+
+export const entranceText: Message[] = [
+	{
+		id: "1",
+		author: "",
+		text: "Okay, wir sollten anfangen?",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Instruction,
+	},
+]
+
+export const explanationText: Message[] = [
+	{
+		id: "1",
+		author: "",
+		text: "",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Instruction,
+	},
+]
