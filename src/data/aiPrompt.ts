@@ -184,10 +184,10 @@ export const entranceText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "Okay, wir sollten anfangen?",
+		text: "Bitte helf mir!",
 		delay: 0,
 		decay: 0,
-		type: MessageType.Instruction,
+		type: MessageType.Normal,
 	},
 ]
 
