@@ -65,13 +65,14 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({percentage}) => {
                         position: "relative",
                         width: "43px",
                         height: "43px",
-                        left: "20%",
-                        top: "0%",
+                        left: "23%",
+                        top: "7%",
                         background: InterfaceColor,
                         border: "5px solid #FFFFFF",
-                        borderRadius: "2000px"
+                        borderRadius: "2000px",
                     }}
-                >
+                >   <div style={{fontSize: "42px", fontWeight: 500, color:InterfaceColor, opacity:1}}
+                    > 30%</div>
                 </div>
             </div>
     

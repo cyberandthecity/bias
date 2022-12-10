@@ -1,5 +1,6 @@
 import { Message } from "@/components/message/message"
 import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
+import { HintPrompt, levelHint } from "@/data/hintPrompt"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
@@ -18,6 +19,7 @@ export interface Level {
 	correctDataset: number
 	dimension: [row: number, column: number]
 	aiPrompt: AIPrompt
+	hintPrompt: HintPrompt
 }
 
 export interface EntranceInfo {
@@ -51,6 +53,7 @@ export const useGame = create<Store>(
 				correctDataset: 2,
 				dimension: [2, 3],
 				aiPrompt: levelText[0],
+				hintPrompt: levelHint[0],
 			},
 			{
 				title: "Datenselektion 2",
@@ -58,6 +61,7 @@ export const useGame = create<Store>(
 				correctDataset: 0,
 				dimension: [3, 4],
 				aiPrompt: levelText[1],
+				hintPrompt: levelHint[1],
 			},
 			{
 				title: "Datenselektion 3",
@@ -65,6 +69,7 @@ export const useGame = create<Store>(
 				correctDataset: 0,
 				dimension: [4, 5],
 				aiPrompt: levelText[2],
+				hintPrompt: levelHint[2],
 			},
 		],
 		currentLevel: 0,
