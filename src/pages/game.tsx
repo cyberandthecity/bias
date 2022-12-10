@@ -43,7 +43,9 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 			>
 				<AI messages={messages} position={{ x: 100, y: 900 }} chatOffset={{ x: 300, y: 140 }} />
 				<HINT messages={messages} />
-				<ProgressBar percentage={pageNumber} />
+				<ProgressBar
+					percentage={pageNumber} //TODO: Change into useful percentage measure
+				/>
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
