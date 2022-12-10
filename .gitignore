@@ -43,3 +43,6 @@ yarn-error.log*
 
 *.crt
 *.key
+
+# video 
+/videos/party.mp4
