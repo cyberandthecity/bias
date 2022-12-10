@@ -2,11 +2,14 @@ import { Dataset as DS } from "@/stores/gameStore"
 import { BackgroundColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
 import Dataset from "../dataset/dataset"
+import HINT from "../hint/hint"
+import { Message } from "../message/message"
 import Slider from "../slider/slider"
 
 interface DatasetSelectorProps {
 	title: string
 	datasets: DS[]
+	hintMessages: Message[]
 	isChecking: boolean
 	correctDataset: number
 	confirmDataset: (index: number) => void
@@ -20,6 +23,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	isChecking,
 	confirmDataset,
 	correctDataset,
+	hintMessages,
 }) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
 
@@ -40,7 +44,17 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					background: BackgroundColor,
 				}}
 			>
-				<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-between",
+						alignItems: "center",
+					}}
+				>
+					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
+					<HINT messages={hintMessages} isChecking={isChecking} />
+				</div>
 
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 					{datasets.map((dataset, index) => (
@@ -128,7 +142,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							nextLevel()
 						}}
 					>
-						Nächste Aufgabe
+						Nächstes Level
 					</div>
 				)}
 			</div>

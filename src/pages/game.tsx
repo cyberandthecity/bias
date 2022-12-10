@@ -21,11 +21,13 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 	const progressLevel = useGame((state) => state.actions.progressLevel)
 
 	const [isChecking, setIsChecking] = useState(false)
-	const [messages, setMessages] = useState<Message[]>(level.aiPrompt.prompt)
+	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
+	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
 
 	useEffect(() => {
 		setIsChecking(false)
-		setMessages(level.aiPrompt.prompt)
+		aiSetMessages(level.aiPrompt.prompt)
+		setHintMessages(level.hintPrompt.hint)
 	}, [level])
 
 	return (
@@ -41,20 +43,20 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 					justifyContent: "center",
 				}}
 			>
-				<AI messages={messages} position={{ x: 100, y: 900 }} chatOffset={{ x: 300, y: 140 }} />
-				<HINT messages={messages} />
+				<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
 				<ProgressBar
 					percentage={pageNumber} //TODO: Change into useful percentage measure
 				/>
 				<DatasetSelector
 					title={level.title}
 					datasets={datasets}
+					hintMessages={hintMessages}
 					confirmDataset={(index) => {
 						setIsChecking(true)
 						if (index == level.correctDataset) {
-							setMessages(level.aiPrompt.correctAnswer)
+							aiSetMessages(level.aiPrompt.correctAnswer)
 						} else {
-							setMessages(level.aiPrompt.wrongAnswers)
+							aiSetMessages(level.aiPrompt.wrongAnswers)
 						}
 					}}
 					nextLevel={() => {
