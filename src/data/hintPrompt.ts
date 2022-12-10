@@ -4,7 +4,7 @@ export interface HintPrompt {
 	hint: Message[]
 }
 
-export const levelText: HintPrompt[] = [
+export const levelHint: HintPrompt[] = [
 	{
         // Level 1
 		hint: [
@@ -12,7 +12,7 @@ export const levelText: HintPrompt[] = [
 				id: "1",
 				author: "Der Tipp",
 				text: "Versuche auf die Verteilung der Geschlechter zu achten.",
-				delay: 0,
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Hint,
 			},			
@@ -25,7 +25,7 @@ export const levelText: HintPrompt[] = [
 				id: "2",
 				author: "Der Tipp",
 				text: "Versuche darauf zu achten ob in deinem gewählten Datensatz auch Menschen mit Sehhilfen vorkommen.",
-				delay: 0,
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Hint,
 			},			
@@ -38,7 +38,7 @@ export const levelText: HintPrompt[] = [
 				id: "3",
 				author: "Der Tipp",
 				text: "Auch Eigenschaften die für uns keine Rolle für die Zuordnung von Studenten spielen, können von der KI als Kriterium erkannt werden. Versuche auf die Hintergründe zu achten.",
-				delay: 0,
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Hint,
 			},			
