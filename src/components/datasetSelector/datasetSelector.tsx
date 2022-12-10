@@ -14,6 +14,7 @@ interface DatasetSelectorProps {
 	correctDataset: number
 	confirmDataset: (index: number) => void
 	nextLevel: () => void
+	done: boolean
 }
 
 const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
@@ -24,6 +25,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	confirmDataset,
 	correctDataset,
 	hintMessages,
+	done,
 }) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
 
@@ -142,7 +144,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							nextLevel()
 						}}
 					>
-						Nächstes Level
+						{done ? "Training Beenden" : "Nächstes Level"}
 					</div>
 				)}
 			</div>
