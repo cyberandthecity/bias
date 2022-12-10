@@ -15,7 +15,7 @@ interface GameProps {
 }
 
 const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
-	const pageNumber = 2
+	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
 	const progressLevel = useGame((state) => state.actions.progressLevel)
@@ -23,12 +23,21 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 	const [isChecking, setIsChecking] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
+	const [progressPercentage, setProgressPercentage] = useState(0)
 
 	useEffect(() => {
 		setIsChecking(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintMessages(level.hintPrompt.hint)
 	}, [level])
+
+	useEffect(() => {
+		if (isChecking) {
+			setProgressPercentage(((currentLevel + 1) * 2 + 1) / 7)
+		} else {
+			setProgressPercentage(((currentLevel + 1) * 2) / 7)
+		}
+	}, [level, isChecking])
 
 	return (
 		<Background offset={800} isInAI scale={scale}>
@@ -45,7 +54,7 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 			>
 				<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
 				<ProgressBar
-					percentage={pageNumber} //TODO: Change into useful percentage measure
+					percentage={progressPercentage} //TODO: Change into useful percentage measure
 				/>
 				<DatasetSelector
 					title={level.title}
@@ -64,6 +73,7 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 					}}
 					isChecking={isChecking}
 					correctDataset={level.correctDataset}
+					done={currentLevel == 2 && isChecking}
 				/>
 			</div>
 		</Background>

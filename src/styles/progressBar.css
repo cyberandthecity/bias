@@ -1,0 +1,15 @@
+.progress-bar {
+	width: 100%;
+	height: 10px;
+	background: #ccc;
+	border-radius: 999px; /* large value for circular shape */
+	overflow: hidden;
+}
+
+.progress-line {
+	height: 100%;
+	background: #00bfff;
+	transition: width 0.5s ease-in-out;
+	border-top-right-radius: 0; /* remove rounded corners */
+	border-bottom-right-radius: 0;
+}
