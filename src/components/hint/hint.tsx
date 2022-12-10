@@ -1,44 +1,76 @@
 import { WrongColor } from "@/utils/theme"
-import { FunctionComponent, useState } from "react"
-import Chat from "../chat/chat"
+import { FunctionComponent, MutableRefObject, useEffect, useRef, useState } from "react"
+import Chat, { ChatOrientation } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 
 interface HintProps {
-    messages: Message[]
+	messages: Message[]
+	isChecking?: boolean
 }
 
+const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) => {
+	const [showHint, setShowHint] = useState(false)
 
-const HINT: FunctionComponent<HintProps> = ({ messages }) => {
-    return (
-        // TODO: Fix design of hint + timing + position of message
-		<div
-			style={{
-				position: "absolute",
-				top: "1200px",
-				right: "50px",
-				//display: "flex",
-				//flexDirection: "row",
-			}}
-		>
-			<div
-				style={{
-					width: "120px",
-					height: "120px",
-					borderRadius: "100px",
-					overflow: "hidden",
-					display: "flex",
-					justifyContent: "center",
-					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
-				}}
-			>
-                <video autoPlay loop muted playsInline src="/videos/idee.mp4" style={{}} />
-			</div>
-            
+	const videoRef: MutableRefObject<HTMLVideoElement | null> = useRef(null)
 
-			<div style={{ position: "absolute", background: WrongColor, bottom: "140px", left: "300px", height: "1000px" }}>
-				<Chat messages={messages} />
-			</div>
-		</div>
+	useEffect(() => {
+		if (isChecking) {
+			setShowHint(false)
+		}
+	}, [isChecking])
+
+	useEffect(() => {
+		if (videoRef && videoRef.current) {
+			setTimeout(() => {
+				videoRef.current?.play()
+			}, 3000)
+		}
+	}, [videoRef])
+
+	return (
+		<>
+			{!isChecking && (
+				// TODO: Fix design of hint + timing + position of message
+				<>
+					<div>
+						{showHint && (
+							<div
+								style={{
+									position: "absolute",
+									height: "1000px",
+									top: "180px",
+									right: "900px",
+								}}
+							>
+								<Chat messages={messages} orientation={ChatOrientation.Right} />
+							</div>
+						)}
+						<div
+							style={{
+								width: "120px",
+								height: "120px",
+								borderRadius: "100px",
+
+								overflow: "hidden",
+								display: "flex",
+								justifyContent: "center",
+								filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+							}}
+							onClick={() => setShowHint(!showHint)}
+						>
+							<video
+								ref={videoRef}
+								loop
+								muted
+								playsInline
+								src="/videos/idee.mp4"
+								style={{ background: showHint ? WrongColor : "white" }}
+							/>
+						</div>
+					</div>
+				</>
+			)}
+		</>
 	)
 }
 

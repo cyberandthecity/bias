@@ -13,7 +13,7 @@ interface ChatProps {
 	orientation?: ChatOrientation
 }
 
-const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrientation.Right }) => {
+const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrientation.Left }) => {
 	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([])
 
 	useEffect(() => {
@@ -35,13 +35,14 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 					display: "flex",
 					flexDirection: "column",
 					position: "absolute",
+					alignItems: orientation === ChatOrientation.Left ? "flex-start" : "flex-end",
 					bottom: 0,
 					width: "700px",
 					gap: "30px",
 				}}
 			>
 				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
-					return <ChatMessage key={id} id={id} author={author} text={text} orientation={orientation} type={type} />
+					return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
 				})}
 			</div>
 		</AnimatePresence>
