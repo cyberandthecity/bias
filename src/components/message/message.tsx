@@ -53,24 +53,24 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Normal:
 				return "white"
 			case MessageType.Warning:
-				return "yellow"
+				return "#FFA78A"
 			case MessageType.Instruction:
-				return "green"
+				return InterfaceColor
 			case MessageType.Hint:
-				return "blue"
+				return InterfaceColor
 		}
 	}
 
 	const backgroundColor = (messageType: MessageType) => {
 		switch (messageType) {
 			case MessageType.Normal:
-				return "rgba(68, 81,126, 0.8)"
+				return InterfaceColor
 			case MessageType.Warning:
-				return "rgba(255, 255, 0, 0.8)"
+				return "#F6F8FF" //"rgba(255, 255, 0, 0.8)"
 			case MessageType.Instruction:
-				return "rgba(0, 255, 0, 0.8)"
+				return "#F6F8FF" //"rgba(0, 255, 0, 0.8)"
 			case MessageType.Hint:
-				return "rgba(0, 0, 255, 0.8)"
+				return "#FFA78A"//"rgba(0, 0, 255, 0.8)"
 		}
 	}
 
