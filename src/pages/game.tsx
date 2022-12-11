@@ -66,11 +66,15 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, transla
 					hintMessages={hintMessages}
 					confirmDataset={(index) => {
 						setIsChecking(true)
-						if (index == level.correctDataset) {
-							aiSetMessages(level.aiPrompt.correctAnswer)
-						} else {
-							aiSetMessages(level.aiPrompt.wrongAnswers)
-						}
+
+						let response =
+							index == 0
+								? level.aiPrompt.responseSelectedDataset_0
+								: index == 1
+								? level.aiPrompt.responseSelectedDataset_1
+								: level.aiPrompt.responseSelectedDataset_2
+
+						aiSetMessages(response)
 					}}
 					nextLevel={() => {
 						if (currentLevel == 2 && isChecking) {
