@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
+	"homepage": "https://mubias.github.io/BiasMuseum",
 	"license": "MIT",
 	"keywords": [
 		"threejs",
@@ -16,7 +17,9 @@
 		"type-check": "tsc",
 		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-		"dev": "yarn start"
+		"dev": "yarn start",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"lint-staged": {
 		"./src/**/*.{ts,js,jsx,tsx}": [
@@ -61,6 +64,7 @@
 		"eslint-config-prettier": "8.5.0",
 		"eslint-import-resolver-typescript": "3.5.1",
 		"eslint-plugin-prettier": "4.2.1",
+		"gh-pages": "^4.0.0",
 		"husky": "8.0.1",
 		"lint-staged": "13.0.3",
 		"prettier": "2.7.1"
