@@ -2,8 +2,9 @@ import { Message, MessageType } from "@/components/message/message"
 
 export interface AIPrompt {
 	prompt: Message[]
-	correctAnswer: Message[]
-	wrongAnswers: Message[]
+	responseSelectedDataset_0: Message[]
+	responseSelectedDataset_1: Message[]
+	responseSelectedDataset_2: Message[]
 }
 
 export const levelText: AIPrompt[] = [
@@ -27,25 +28,7 @@ export const levelText: AIPrompt[] = [
 				type: MessageType.Instruction,
 			},
 		],
-		correctAnswer: [
-			{
-				id: "1",
-				author: "Die KI:",
-				text: "Super!",
-				delay: 0,
-				decay: 0,
-				type: MessageType.Normal,
-			},
-			{
-				id: "2",
-				author: "",
-				text: "Jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
-				delay: 1000,
-				decay: 0,
-				type: MessageType.Normal,
-			},
-		],
-		wrongAnswers: [
+		responseSelectedDataset_0: [
 			{
 				id: "1",
 				author: "Die KI:",
@@ -59,6 +42,42 @@ export const levelText: AIPrompt[] = [
 				author: "",
 				text: "Der Datensatz sollte Frauen angemessen repräsentieren!",
 				delay: 2000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+		],
+		responseSelectedDataset_1: [
+			{
+				id: "1",
+				author: "Die KI:",
+				text: " Mit diesen Trainingsdaten werden Frauen [nicht/schlechter] als Studierende erkannt.",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "2",
+				author: "",
+				text: "Der Datensatz sollte Frauen angemessen repräsentieren!",
+				delay: 2000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+		],
+		responseSelectedDataset_2: [
+			{
+				id: "1",
+				author: "Die KI:",
+				text: "Super!",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "2",
+				author: "",
+				text: "Jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
+				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
 			},
@@ -84,7 +103,7 @@ export const levelText: AIPrompt[] = [
 				type: MessageType.Instruction,
 			},
 		],
-		correctAnswer: [
+		responseSelectedDataset_0: [
 			{
 				id: "1",
 				author: "Die KI:",
@@ -102,7 +121,33 @@ export const levelText: AIPrompt[] = [
 				type: MessageType.Normal,
 			},
 		],
-		wrongAnswers: [
+		responseSelectedDataset_1: [
+			{
+				id: "1",
+				author: "Die KI:",
+				text: "So können nur Männer mit Brillen erkannt werden.",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "2",
+				author: "",
+				text: "Und es gibt weniger Trainings-Bilder mit Brillen als ohne Brillen!",
+				delay: 1000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "3",
+				author: "",
+				text: "Brillenträger werden aussortiert, sie werden nicht als Studierende erkannt!",
+				delay: 1000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+		],
+		responseSelectedDataset_2: [
 			{
 				id: "1",
 				author: "Die KI:",
@@ -149,7 +194,7 @@ export const levelText: AIPrompt[] = [
 				type: MessageType.Instruction,
 			},
 		],
-		correctAnswer: [
+		responseSelectedDataset_0: [
 			{
 				id: "1",
 				author: "Die KI:",
@@ -167,7 +212,17 @@ export const levelText: AIPrompt[] = [
 				type: MessageType.Normal,
 			},
 		],
-		wrongAnswers: [
+		responseSelectedDataset_1: [
+			{
+				id: "1",
+				author: "Die KI:",
+				text: "Das System hat Schwierigkeiten, Studierende [bei Nacht] vor unterschiedlichen Hintergründen zu erkennen!",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+		],
+		responseSelectedDataset_2: [
 			{
 				id: "1",
 				author: "Die KI:",
