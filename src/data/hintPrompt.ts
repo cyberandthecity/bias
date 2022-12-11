@@ -10,7 +10,7 @@ export const levelHint: HintPrompt[] = [
 		hint: [
 			{
 				id: "1",
-				author: "Der Tipp",
+				author: "Tipp:",
 				text: "Versuche auf die Verteilung der Geschlechter zu achten.",
 				delay: 0,
 				decay: 0,
@@ -23,7 +23,7 @@ export const levelHint: HintPrompt[] = [
 		hint: [
 			{
 				id: "2",
-				author: "Der Tipp",
+				author: "Tipp:",
 				text: "Versuche darauf zu achten ob in deinem gewählten Datensatz auch Menschen mit Sehhilfen vorkommen.",
 				delay: 0,
 				decay: 0,
@@ -36,7 +36,7 @@ export const levelHint: HintPrompt[] = [
 		hint: [
 			{
 				id: "3",
-				author: "Der Tipp",
+				author: "Tipp:",
 				text: "Auch Eigenschaften die für uns keine Rolle für die Zuordnung von Studenten spielen, können von der KI als Kriterium erkannt werden. Versuche auf die Hintergründe zu achten.",
 				delay: 0,
 				decay: 0,
