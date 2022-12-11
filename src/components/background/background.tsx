@@ -7,9 +7,18 @@ interface BackgroundProps {
 	children?: React.ReactNode
 	isInAI?: boolean
 	scale?: number
+	rotate?: number
+	translate?: { x: number; y: number }
 }
 
-const Background: FunctionComponent<BackgroundProps> = ({ offset, children, isInAI = false, scale = 1.0 }) => {
+const Background: FunctionComponent<BackgroundProps> = ({
+	offset,
+	children,
+	isInAI = false,
+	scale = 1.0,
+	rotate = 0.0,
+	translate = { x: 0, y: 0 },
+}) => {
 	return (
 		<div
 			style={{
@@ -19,7 +28,8 @@ const Background: FunctionComponent<BackgroundProps> = ({ offset, children, isIn
 				background: isInAI ? AILightGradient : AIDarkGradient,
 				overflow: "hidden",
 				zIndex: 0,
-				transform: "scale(" + scale + ")",
+				transform:
+					"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 				transformOrigin: "left top",
 			}}
 		>

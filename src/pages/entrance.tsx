@@ -8,9 +8,11 @@ import "@/styles/animation.css"
 
 interface EntranceProps {
 	scale?: number
+	rotate?: number
+	translate?: { x: number; y: number }
 }
 
-const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0 }) => {
+const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0, rotate = 0.0, translate = { x: 0, y: 0 } }) => {
 	const messages = useGame((state) => state.entranceInfo.aiMessages)
 
 	let navigate = useNavigate()
@@ -24,7 +26,8 @@ const Entrance: FunctionComponent<EntranceProps> = ({ scale = 1.0 }) => {
 				position: "absolute",
 				width: "100%",
 				height: "100%",
-				transform: "scale(" + scale + ")",
+				transform:
+					"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 				transformOrigin: "left top",
 			}}
 		>
