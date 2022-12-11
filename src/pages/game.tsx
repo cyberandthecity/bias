@@ -12,9 +12,11 @@ import { FunctionComponent, useEffect, useState } from "react"
 
 interface GameProps {
 	scale?: number
+	rotate?: number
+	translate?: { x: number; y: number }
 }
 
-const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
+const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, translate = { x: 0, y: 0 } }) => {
 	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
@@ -40,7 +42,7 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0 }) => {
 	}, [level, isChecking])
 
 	return (
-		<Background offset={800} isInAI scale={scale}>
+		<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
 			<Title title="Bias & KI" isInAI />
 			<div
 				style={{
