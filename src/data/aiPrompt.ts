@@ -14,7 +14,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Okay, wir sollten anfangen?",
+				text: "Okay, lass uns anfangen.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -32,7 +32,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: " Mit diesen Trainingsdaten werden Frauen [nicht/schlechter] als Studierende erkannt.",
+				text: "Ups! Ich habe das überprüft und mit diesen Trainingsdaten werden Frauen meistens nicht als Studierende erkannt. Einige von ihnen haben sich beschwert.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -40,7 +40,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Der Datensatz sollte Frauen angemessen repräsentieren!",
+				text: "Der Datensatz sollte Frauen angemessen repräsentieren! Das ist nur in Datensatz 3 der Fall. Lass uns also damit weiterarbeiten.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -68,7 +68,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Super!",
+				text: "Sehr gut!",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -76,8 +76,16 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
+				text: "Ich habe das überprüft, jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
 				delay: 1000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "3",
+				author: "",
+				text: "Aber das ist immer noch ausreichend, lass uns den Datensatz im nächsten Level noch etwas vergrößern.",
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
 			},
@@ -89,7 +97,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Okay, weiter geht's!",
+				text: "Ich habe eine neue Auswahl an Datensätzen erstellt, nachdem sich weiterhin einige Leute beschwert haben.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -115,8 +123,16 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Jetzt werden auch Brillenträger:innen als Studierende erkannt.",
+				text: "Das scheint zu funktionieren, es werden jetzt werden auch Brillenträger:innen als Studierende erkannt.",
 				delay: 1000,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "3",
+				author: "",
+				text: "Aber einige Personen beschweren sich zurecht immer noch, wir sollten hier also noch nicht aufhören. Lass uns das nochmal anschauen.",
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
 			},
@@ -151,7 +167,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "So können nur Männer mit Brillen erkannt werden.",
+				text: "Hm. Meine Überprüfung zeigt, dass so nur Männer mit Brillen erkannt werden können.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -167,7 +183,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "3",
 				author: "",
-				text: "Brillenträger werden aussortiert, sie werden nicht als Studierende erkannt!",
+				text: "Brillenträgerinnen werden aussortiert, sie werden nicht als Studierende erkannt!",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
