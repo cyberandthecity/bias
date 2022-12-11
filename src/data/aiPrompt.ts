@@ -50,7 +50,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: " Mit diesen Trainingsdaten werden Frauen [nicht/schlechter] als Studierende erkannt.",
+				text: "Ups! Ich habe das überprüft und mit diesen Trainingsdaten werden Frauen nicht als Studierende erkannt. Einige von ihnen haben sich beschwert.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -58,7 +58,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Der Datensatz sollte Frauen angemessen repräsentieren!",
+				text: "Der Datensatz sollte Frauen angemessen repräsentieren! Das ist nur in Datensatz 3 der Fall. Lass uns also damit weiterarbeiten.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -84,7 +84,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "3",
 				author: "",
-				text: "Aber das ist immer noch ausreichend, lass uns den Datensatz im nächsten Level noch etwas vergrößern.",
+				text: "Aber das ist immer noch genug, lass uns den Datensatz im nächsten Level noch etwas vergrößern.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -141,7 +141,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "So können nur Männer mit Brillen erkannt werden.",
+				text: "Hm. Meine Überprüfung zeigt, dass Brillenträgerinnen aussortiert und nicht als Studierende erkannt werden.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -149,7 +149,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Und es gibt weniger Trainings-Bilder mit Brillen als ohne Brillen!",
+				text: "In dem Datensatz, den du gewählt hast, kommen nur Männer mit Brillen vor.",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -157,8 +157,8 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "3",
 				author: "",
-				text: "Brillenträger werden aussortiert, sie werden nicht als Studierende erkannt!",
-				delay: 1000,
+				text: "Datensatz 1 wäre besser gewesen, er enthält Männer und Frauen mit Brillen. Lass uns damit weitermachen.",
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
 			},
@@ -167,7 +167,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Hm. Meine Überprüfung zeigt, dass so nur Männer mit Brillen erkannt werden können.",
+				text: "Hm. Meine Überprüfung zeigt, dass Brillenträger:innen aussortiert und nicht als Studierende erkannt werden.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -175,7 +175,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Und es gibt weniger Trainings-Bilder mit Brillen als ohne Brillen!",
+				text: "In dem Datensatz, den du gewählt hast, kommen keine Menschen mit Brillen vor.",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -183,8 +183,8 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "3",
 				author: "",
-				text: "Brillenträgerinnen werden aussortiert, sie werden nicht als Studierende erkannt!",
-				delay: 1000,
+				text: "Datensatz 1 wäre besser gewesen, er enthält Männer und Frauen mit Brillen. Lass uns damit weitermachen.",
+				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
 			},
@@ -196,7 +196,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Und noch ein letztes Mal!",
+				text: "Ich habe eine letzte Auswahl an Datensätzen erstellt, denn es haben sich noch immer ein paar Personen beschwert.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -204,7 +204,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Welcher der Datensätze repräsentiert Studierende am besten, was denkst du? ",
+				text: "Welcher der Datensätze repräsentiert Studierende am besten, was denkst du?",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Instruction,
@@ -214,7 +214,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Wir sind ein ganzes Stück weiter!",
+				text: "Perfekt! Die Beschwerden werden immer weniger.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -222,7 +222,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Verschiedene Hintergründe und Lichtverhältnisse beeinflussen die Entscheidung jetzt weniger.",
+				text: "Und damit beeinflussen jetzt auch verschiedene Hintergründe und Lichtverhältnisse Entscheidung weniger.",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -232,7 +232,23 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Das System hat Schwierigkeiten, Studierende [bei Nacht] vor unterschiedlichen Hintergründen zu erkennen!",
+				text: "Hm. Ich habe das überprüft und die Beschwerden sind nicht weniger geworden.",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "2",
+				author: "Die KI:",
+				text: "Das System hat wohl Schwierigkeiten damit, Studierende vor unterschiedlichen Hintergründen zu erkennen!",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "3",
+				author: "Die KI:",
+				text: "Datensatz 1 wäre in der Hinsicht besser gewesen.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
@@ -242,7 +258,23 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "1",
 				author: "Die KI:",
-				text: "Das System hat Schwierigkeiten, Studierende [bei Nacht] vor unterschiedlichen Hintergründen zu erkennen!",
+				text: "Hm. Ich habe das überprüft und die Beschwerden sind nicht weniger geworden.",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "2",
+				author: "Die KI:",
+				text: "Das System hat wohl Schwierigkeiten damit, Studierende bei Nacht zu erkennen!",
+				delay: 0,
+				decay: 0,
+				type: MessageType.Normal,
+			},
+			{
+				id: "3",
+				author: "Die KI:",
+				text: "Datensatz 1 wäre in der Hinsicht besser gewesen.",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
