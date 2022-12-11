@@ -4,7 +4,6 @@
 	"version": "1.0.0",
 	"private": true,
 	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
-	"homepage": "https://mubias.github.io/BiasMuseum",
 	"license": "MIT",
 	"keywords": [
 		"threejs",
