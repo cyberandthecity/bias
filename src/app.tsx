@@ -10,7 +10,6 @@ const App = () => {
 	const [isFullscreen, setIsFullscreen] = useState(false)
 
 	const activateFullscreen = () => {
-		// Use the browser's full-screen API to make the component full-screen
 		const element = document.documentElement
 
 		if (element.requestFullscreen) {

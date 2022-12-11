@@ -9,6 +9,7 @@ import { AIPrompt } from "@/data/aiPrompt"
 import { HintPrompt } from "@/data/hintPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface GameProps {
 	scale?: number
@@ -22,6 +23,7 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, transla
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
 	const progressLevel = useGame((state) => state.actions.progressLevel)
 
+	let navigate = useNavigate()
 	const [isChecking, setIsChecking] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
@@ -71,7 +73,11 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, transla
 						}
 					}}
 					nextLevel={() => {
-						progressLevel()
+						if (currentLevel == 2 && isChecking) {
+							navigate("/zoom")
+						} else {
+							progressLevel()
+						}
 					}}
 					isChecking={isChecking}
 					correctDataset={level.correctDataset}
