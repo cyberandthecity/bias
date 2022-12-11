@@ -123,7 +123,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Das scheint zu funktionieren, es werden jetzt werden auch Brillenträger:innen als Studierende erkannt.",
+				text: "Das scheint zu funktionieren, es werden jetzt auch Brillenträger:innen als Studierende erkannt.",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Normal,
