@@ -28,7 +28,7 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
-			<Title title="Club Entrance" />
+			<Title title="Club Simulation" />
 			<AI messages={messages} position={{ x: 900, y: 800 }} chatOffset={{ x: 300, y: 140 }} wearsGlasses />
 			<div
 				style={{
@@ -40,7 +40,7 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 					justifyContent: "center",
 				}}
 			>
-				<Simulation title="Simulation" nextLevel={() => progessToNextScreen()} />
+				<Simulation title="Simuliere" nextLevel={() => progessToNextScreen()} />
 			</div>
 			{/* <ClubScene /> */}
 		</Background>

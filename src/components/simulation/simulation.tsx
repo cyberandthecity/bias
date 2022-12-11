@@ -1,6 +1,7 @@
 import { Dataset as DS } from "@/stores/gameStore"
 import { BackgroundColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
+import BlinkText from "../blinkText/blinkText"
 import Dataset from "../dataset/dataset"
 import HINT from "../hint/hint"
 import { Message } from "../message/message"
@@ -28,7 +29,24 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 					flexDirection: "column",
 				}}
 			>
-				<p style={{ fontSize: "42px", fontWeight: 600, color: BackgroundColor }}>{title}</p>
+				<BlinkText title={title} interval={1000} />
+				<div style={{ display: "flex", gap: "65px", flexDirection: "row" }}>
+					<div
+						style={{ height: "500px", background: "rgba(246, 248, 255, 0.8)", flexGrow: 1, borderRadius: "10px" }}
+					></div>
+					<div
+						style={{
+							width: "300px",
+							height: "500px",
+							background: "rgba(246, 248, 255, 0.8)",
+							flexGrow: 0,
+							borderRadius: "10px",
+						}}
+					></div>
+					<div
+						style={{ height: "500px", background: "rgba(246, 248, 255, 0.8)", flexGrow: 1, borderRadius: "10px" }}
+					></div>
+				</div>
 			</div>
 			<div
 				style={{
@@ -50,9 +68,13 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
+						background: "rgba(0, 0, 0, 0.2)",
 					}}
 				>
-					<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>Wähle einen Datensatz aus</p>
+					<div style={{ width: "100%", height: "2px", borderBottom: "8px dashed white", letterSpacing: "100px" }}></div>
+					{
+						// Bus
+					}
 				</div>
 			</div>
 			<div
@@ -62,7 +84,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 					display: "flex",
 					justifyContent: "center",
 					paddingTop: "25px",
-					background: BackgroundColor,
+					background: "rgba(246, 248, 255, 0.8)",
 				}}
 			>
 				<div
@@ -82,7 +104,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 						nextLevel()
 					}}
 				>
-					Training Beenden
+					Weiter zum Trainieren
 				</div>
 			</div>
 		</div>

@@ -66,11 +66,11 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Normal:
 				return InterfaceColor
 			case MessageType.Warning:
-				return "#F6F8FF" //"rgba(255, 255, 0, 0.8)"
+				return "#F6F8FF"
 			case MessageType.Instruction:
-				return "#F6F8FF" //"rgba(0, 255, 0, 0.8)"
+				return "#F6F8FF"
 			case MessageType.Hint:
-				return "#FFA78A"//"rgba(0, 0, 255, 0.8)"
+				return "#FFA78A"
 		}
 	}
 
@@ -97,7 +97,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			>
 				<pre
 					style={{
-						color: "Aqua",
+						color: "white",
+						opacity: 0.5,
 					}}
 				>
 					{author}
