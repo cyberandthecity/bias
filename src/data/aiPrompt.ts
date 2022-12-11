@@ -195,7 +195,15 @@ export const explanationText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "",
+		text: "Hilf mir, ich treffe falsche Entscheidungen.",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Instruction,
+	},
+	{
+		id: "2",
+		author: "",
+		text: "Diese Person, darf nicht rein ",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Instruction,
