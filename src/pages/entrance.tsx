@@ -34,14 +34,16 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 				<div
 					style={{
 						transformOrigin: "left top",
-
+						position: "absolute",
 						width: "2160px",
-						height: "50px",
+						height: "100px",
 						background: "red",
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 						transform: "scale(" + scale + ") ",
+						fontSize: "32px",
+						zIndex: 100,
 					}}
 					onClick={() => activateFullscreen()}
 				>
@@ -59,20 +61,26 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					transformOrigin: "left top",
 				}}
 			>
-				<AI messages={messages} position={{ x: 880, y: 1330 }} scale={1.0} chatOffset={{ x: 500, y: 260 }} />
+				<AI
+					messages={messages}
+					position={{ x: 880, y: 1330 }}
+					scale={1.0}
+					chatOffset={{ x: 500, y: 260 }}
+					wearsGlasses
+				/>
 
 				<div
 					className="shine"
 					style={{
 						position: "absolute",
 						background: InterfaceColor,
-						top: "1760px",
-						left: "1100px",
-						height: "200px",
-						width: "200px",
+						top: "1720px",
+						left: "780px",
+						height: "300px",
+						width: "520px",
 						padding: "18px 30px 8px 30px",
 						borderRadius: "20px",
-						fontSize: "32px",
+						fontSize: "40px",
 						fontWeight: 500,
 						color: "white",
 						boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",

@@ -8,9 +8,16 @@ interface AIProps {
 	position: { x: number; y: number }
 	chatOffset?: { x: number; y: number }
 	scale?: number
+	wearsGlasses?: boolean
 }
 
-const AI: FunctionComponent<AIProps> = ({ messages, position, chatOffset = { x: 0, y: 0 }, scale = 1.0 }) => {
+const AI: FunctionComponent<AIProps> = ({
+	messages,
+	position,
+	chatOffset = { x: 0, y: 0 },
+	scale = 1.0,
+	wearsGlasses = false,
+}) => {
 	return (
 		<div
 			style={{
@@ -36,6 +43,13 @@ const AI: FunctionComponent<AIProps> = ({ messages, position, chatOffset = { x: 
 			>
 				<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
 			</div>
+			{wearsGlasses && (
+				<img
+					src={"/images/glasses.svg"}
+					alt="glasses"
+					style={{ position: "absolute", transform: "scale(0.7)", top: "50px", left: "-43px", opacity: 0.8 }}
+				/>
+			)}
 
 			<div
 				style={{
