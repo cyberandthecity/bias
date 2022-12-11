@@ -30,7 +30,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 	return (
 		<>
 			{!isChecking && (
-				// TODO: Fix design of hint + timing + position of message
+				// TODO: Highlight the hint button on click: filter: "drop-shadow(0px 0px 20px #FFA78A)",
 				<>
 					<div>
 						{showHint && (
@@ -40,6 +40,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 									height: "1000px",
 									top: "180px",
 									right: "900px",
+									
 								}}
 							>
 								<Chat messages={messages} orientation={ChatOrientation.Right} />
@@ -54,7 +55,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+								//filter: "drop-shadow(0px 0px 20px #FFA78A)",
 							}}
 							onClick={() => setShowHint(!showHint)}
 						>
@@ -64,7 +65,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								muted
 								playsInline
 								src="/videos/idee.mp4"
-								style={{ background: showHint ? WrongColor : "white" }}
+								style={{ background: showHint ? WrongColor: "white" }}//WrongColor : "white"}}
 							/>
 						</div>
 					</div>
