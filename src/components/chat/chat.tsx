@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react"
 import ChatMessage, { Message } from "../message/message"
-import { motion, AnimatePresence } from "framer-motion"
+
 import "@/styles/message.css"
 
 export enum ChatOrientation {
@@ -29,7 +29,7 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 	}, [messages])
 
 	return (
-		<AnimatePresence>
+		<>
 			<div
 				style={{
 					display: "flex",
@@ -46,7 +46,7 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 					return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
 				})}
 			</div>
-		</AnimatePresence>
+		</>
 	)
 }
 
