@@ -5,17 +5,19 @@ import { InterfaceColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
 import "@/styles/animation.css"
+import Restart from "@/components/restart/restart"
+import Fullscreen from "@/components/fullscreen/fullscreen"
 
 interface EntranceProps {
 	scale?: number
 	rotate?: number
 	translate?: { x: number; y: number }
 	isFullscreen?: boolean
-	activateFullscreen: () => void
+	toggleFullscreen: (isFullscreen: boolean) => void
 }
 
 const Entrance: FunctionComponent<EntranceProps> = ({
-	activateFullscreen,
+	toggleFullscreen,
 	isFullscreen = false,
 	scale = 1.0,
 	rotate = 0.0,
@@ -30,29 +32,8 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 	}
 	return (
 		<>
-			{!isFullscreen && (
-				<div
-					style={{
-						transformOrigin: "left top",
-						WebkitTransformOrigin: "left top",
-						position: "absolute",
-						width: "2160px",
-						height: "100px",
-						background: "red",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						transform: "scale(" + scale + ") ",
-						WebkitTransform: "scale(" + scale + ") ",
-						fontSize: "32px",
-						zIndex: 100,
-					}}
-					onClick={() => activateFullscreen()}
-				>
-					{" "}
-					Click here to go fullscreen
-				</div>
-			)}
+			<Restart />
+			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<div
 				style={{
 					position: "absolute",
