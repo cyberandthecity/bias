@@ -20,10 +20,12 @@ interface GameProps {
 	toggleFullscreen: (isFullscreen: boolean) => void
 }
 
-const Game: FunctionComponent<GameProps> = (
-	{ scale = 1.0, rotate = 0.0, translate = { x: 0, y: 0 } },
-	toggleFullscreen
-) => {
+const Game: FunctionComponent<GameProps> = ({
+	scale = 1.0,
+	rotate = 0.0,
+	translate = { x: 0, y: 0 },
+	toggleFullscreen,
+}) => {
 	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
@@ -86,7 +88,6 @@ const Game: FunctionComponent<GameProps> = (
 							aiSetMessages(response)
 						}}
 						nextLevel={() => {
-							console.log("here")
 							if (currentLevel == 2 && isChecking) {
 								navigate("/zoom")
 							} else {

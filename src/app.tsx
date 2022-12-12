@@ -23,7 +23,6 @@ const App = () => {
 							scale={scale}
 							rotate={rotate}
 							translate={translate}
-							isFullscreen={isFullscreen}
 							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
 						/>
 					}
@@ -35,7 +34,6 @@ const App = () => {
 							scale={scale}
 							rotate={rotate}
 							translate={translate}
-							isFullscreen={isFullscreen}
 							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
 						/>
 					}
@@ -62,8 +60,30 @@ const App = () => {
 						/>
 					}
 				/>
-				<Route path="/zoom" element={<Zoom />} /> //Images are added randomly on page
-				<Route path="/zoom3" element={<ImageGrid />} /> //Huge grid that zooms out over time
+				<Route
+					path="/zoom"
+					element={
+						<Zoom
+							scale={scale}
+							rotate={rotate}
+							translate={translate}
+							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
+						/>
+					}
+				/>{" "}
+				//Images are added randomly on page
+				<Route
+					path="/zoom3"
+					element={
+						<ImageGrid
+							scale={scale}
+							rotate={rotate}
+							translate={translate}
+							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
+						/>
+					}
+				/>{" "}
+				//Huge grid that zooms out over time
 			</Routes>
 		</>
 	)

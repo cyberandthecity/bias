@@ -8,9 +8,19 @@ import Title from "@/components/title/title"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 
-interface ZoomProps {}
+interface ZoomProps {
+	scale?: number
+	rotate?: number
+	translate?: { x: number; y: number }
+	toggleFullscreen: (isFullscreen: boolean) => void
+}
 
-const Zoom: FunctionComponent<ZoomProps> = ({}) => {
+const Zoom: FunctionComponent<ZoomProps> = ({
+	scale = 1.0,
+	rotate = 0.0,
+	translate = { x: 0, y: 0 },
+	toggleFullscreen,
+}) => {
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
 	const progressLevel = useGame((state) => state.actions.progressLevel)
@@ -28,7 +38,7 @@ const Zoom: FunctionComponent<ZoomProps> = ({}) => {
 		setMessages(level.aiPrompt.prompt)
 	}, [level])
 	return (
-		<Background offset={800}>
+		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
 			<Title title="Bias & KI" />
 			<div
 				style={{
