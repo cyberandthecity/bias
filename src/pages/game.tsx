@@ -10,14 +10,20 @@ import { HintPrompt } from "@/data/hintPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Restart from "@/components/restart/restart"
+import Fullscreen from "@/components/fullscreen/fullscreen"
 
 interface GameProps {
 	scale?: number
 	rotate?: number
 	translate?: { x: number; y: number }
+	toggleFullscreen: (isFullscreen: boolean) => void
 }
 
-const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, translate = { x: 0, y: 0 } }) => {
+const Game: FunctionComponent<GameProps> = (
+	{ scale = 1.0, rotate = 0.0, translate = { x: 0, y: 0 } },
+	toggleFullscreen
+) => {
 	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
@@ -44,52 +50,56 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, transla
 	}, [level, isChecking])
 
 	return (
-		<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
-			<Title title="Bias & KI" isInAI />
-			<div
-				style={{
-					position: "absolute",
-					display: "flex",
-					flexDirection: "column",
-					width: "100%",
-					height: "100%",
-					justifyContent: "center",
-				}}
-			>
-				<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
-				<ProgressBar
-					percentage={progressPercentage} //TODO: Change into useful percentage measure
-				/>
-				<DatasetSelector
-					title={level.title}
-					datasets={datasets}
-					hintMessages={hintMessages}
-					confirmDataset={(index) => {
-						setIsChecking(true)
-
-						let response =
-							index == 0
-								? level.aiPrompt.responseSelectedDataset_0
-								: index == 1
-								? level.aiPrompt.responseSelectedDataset_1
-								: level.aiPrompt.responseSelectedDataset_2
-
-						aiSetMessages(response)
+		<>
+			<Restart />
+			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
+			<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
+				<Title title="Bias & KI" isInAI />
+				<div
+					style={{
+						position: "absolute",
+						display: "flex",
+						flexDirection: "column",
+						width: "100%",
+						height: "100%",
+						justifyContent: "center",
 					}}
-					nextLevel={() => {
-						console.log("here")
-						if (currentLevel == 2 && isChecking) {
-							navigate("/zoom")
-						} else {
-							progressLevel()
-						}
-					}}
-					isChecking={isChecking}
-					correctDataset={level.correctDataset}
-					done={currentLevel == 2 && isChecking}
-				/>
-			</div>
-		</Background>
+				>
+					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
+					<ProgressBar
+						percentage={progressPercentage} //TODO: Change into useful percentage measure
+					/>
+					<DatasetSelector
+						title={level.title}
+						datasets={datasets}
+						hintMessages={hintMessages}
+						confirmDataset={(index) => {
+							setIsChecking(true)
+
+							let response =
+								index == 0
+									? level.aiPrompt.responseSelectedDataset_0
+									: index == 1
+									? level.aiPrompt.responseSelectedDataset_1
+									: level.aiPrompt.responseSelectedDataset_2
+
+							aiSetMessages(response)
+						}}
+						nextLevel={() => {
+							console.log("here")
+							if (currentLevel == 2 && isChecking) {
+								navigate("/zoom")
+							} else {
+								progressLevel()
+							}
+						}}
+						isChecking={isChecking}
+						correctDataset={level.correctDataset}
+						done={currentLevel == 2 && isChecking}
+					/>
+				</div>
+			</Background>
+		</>
 	)
 }
 
