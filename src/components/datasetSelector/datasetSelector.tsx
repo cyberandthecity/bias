@@ -83,7 +83,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					paddingLeft: "65px",
 					paddingRight: "65px",
 					paddingTop: "25px",
-					backdropFilter: "blur(20px)",
+					//backdropFilter: "blur(20px)",
 				}}
 			>
 				<div

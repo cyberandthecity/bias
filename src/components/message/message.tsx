@@ -92,7 +92,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 					borderTopRightRadius: "40px 38px",
 					borderBottomLeftRadius: "40px 38px",
 					borderBottomRightRadius: "40px 38px",
-					backdropFilter: "blur(20px)",
+					//backdropFilter: "blur(20px)",
 				}}
 			>
 				<pre
