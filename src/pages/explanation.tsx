@@ -36,7 +36,7 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 				<Restart />
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<Title title="Club Simulation" />
-				<AI messages={messages} position={{ x: 900, y: 800 }} chatOffset={{ x: 300, y: 140 }} wearsGlasses />
+				<AI messages={messages} position={{ x: 950, y: 1100 }} chatOffset={{ x: 300, y: 140 }} wearsGlasses />
 				<div
 					style={{
 						position: "absolute",
