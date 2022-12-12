@@ -12,13 +12,12 @@ interface EntranceProps {
 	scale?: number
 	rotate?: number
 	translate?: { x: number; y: number }
-	isFullscreen?: boolean
+
 	toggleFullscreen: (isFullscreen: boolean) => void
 }
 
 const Entrance: FunctionComponent<EntranceProps> = ({
 	toggleFullscreen,
-	isFullscreen = false,
 	scale = 1.0,
 	rotate = 0.0,
 	translate = { x: 0, y: 0 },
