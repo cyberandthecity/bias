@@ -86,23 +86,23 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					//backdropFilter: "blur(20px)",
 				}}
 			>
-				<div
-					style={{
-						position: "absolute",
-						width: "100%",
-						height: "100%",
+				{!isChecking && (
+					<div
+						style={{
+							position: "absolute",
+							width: "100%",
+							height: "200px",
 
-						marginLeft: "-65px",
-						marginTop: "-25px",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}
-				>
-					<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>
-						{!isChecking && "Wähle einen Datensatz aus"}
-					</p>
-				</div>
+							marginLeft: "-65px",
+							marginTop: "-25px",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+						}}
+					>
+						<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>Wähle einen Datensatz aus</p>
+					</div>
+				)}
 				{!isChecking && (
 					<Slider
 						startIndex={selectedDataset}
@@ -140,6 +140,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							cursor: "pointer",
 						}}
 						onClick={() => {
+							console.log("here")
 							setSelectedDataset(0)
 							nextLevel()
 						}}

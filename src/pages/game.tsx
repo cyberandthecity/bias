@@ -79,10 +79,8 @@ const Game: FunctionComponent<GameProps> = ({ scale = 1.0, rotate = 0.0, transla
 					nextLevel={() => {
 						console.log("here")
 						if (currentLevel == 2 && isChecking) {
-							console.log("navigate")
 							navigate("/zoom")
 						} else {
-							console.log("progressing level")
 							progressLevel()
 						}
 					}}
