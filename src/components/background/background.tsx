@@ -31,6 +31,9 @@ const Background: FunctionComponent<BackgroundProps> = ({
 				transform:
 					"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 				transformOrigin: "left top",
+				WebkitTransform:
+					"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
+				WebkitTransformOrigin: "left top",
 			}}
 		>
 			{isInAI && (

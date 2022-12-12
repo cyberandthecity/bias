@@ -27,6 +27,7 @@ const AI: FunctionComponent<AIProps> = ({
 				display: "flex",
 				flexDirection: "row",
 				transform: "scale(" + scale + ")",
+				WebkitTransform: "scale(" + scale + ")",
 				zIndex: 1,
 			}}
 		>
@@ -47,7 +48,7 @@ const AI: FunctionComponent<AIProps> = ({
 				<img
 					src={"/images/glasses.svg"}
 					alt="glasses"
-					style={{ position: "absolute", transform: "scale(0.7)", top: "50px", left: "-43px", opacity: 0.8 }}
+					style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}
 				/>
 			)}
 

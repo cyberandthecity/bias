@@ -66,6 +66,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					justifyContent: "center",
 					alignItems: "flex-start",
 					gap: "10px",
+					gridGap: "10px",
 					cursor: "pointer",
 				}}
 			>

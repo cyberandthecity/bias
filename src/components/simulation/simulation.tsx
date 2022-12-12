@@ -1,11 +1,8 @@
-import { Dataset as DS } from "@/stores/gameStore"
-import { BackgroundColor, InterfaceColor } from "@/utils/theme"
-import { FunctionComponent, useState } from "react"
+import { InterfaceColor } from "@/utils/theme"
+import { FunctionComponent } from "react"
 import BlinkText from "../blinkText/blinkText"
-import Dataset from "../dataset/dataset"
-import HINT from "../hint/hint"
-import { Message } from "../message/message"
-import Slider from "../slider/slider"
+
+import "@/styles/globals.css"
 
 interface SimulationProps {
 	title: string
@@ -26,6 +23,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 
 					padding: "65px 65px 25px 65px",
 					gap: "65px",
+					gridGap: "65px",
 					flexDirection: "column",
 				}}
 			>
@@ -48,42 +46,52 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 					></div>
 				</div>
 			</div>
+
 			<div
 				style={{
-					height: "180px",
-					paddingLeft: "65px",
-					paddingRight: "65px",
-					paddingTop: "25px",
-					backdropFilter: "blur(20px)",
+					width: "100%",
+					height: "300px",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					background: "rgba(0, 0, 0, 0.2)",
+					borderTop: "10px solid rgba(255,255,255,0.6)",
+					borderBottom: "10px solid rgba(255,255,255,0.6)",
+					marginTop: "50px",
+					marginBottom: "50px",
 				}}
 			>
+				<img src={"/images/line.svg"} alt="line" style={{ opacity: 0.8, marginLeft: "50px", marginBottom: "60px" }} />
 				<div
 					style={{
 						position: "absolute",
-						width: "100%",
-						height: "100%",
-
-						marginLeft: "-65px",
-						marginTop: "-25px",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						background: "rgba(0, 0, 0, 0.2)",
+						marginLeft: "50px",
+						marginBottom: "60px",
+						transform: "scale(1.1) translate(0px, -50px)",
+						WebkitTransform: "scale(1.1) translate(0px, -50px)",
 					}}
 				>
-					<div style={{ width: "100%", height: "2px", borderBottom: "8px dashed white", letterSpacing: "100px" }}></div>
-					{
-						// Bus
-					}
+					{/* <img src={"/images/bus.svg"} alt="bus" style={{ position: "absolute" }} /> */}
+
+					<div
+						style={{
+							position: "absolute",
+							width: "500px",
+							height: "300px",
+							background: "black",
+							mask: "url(/images/window.svg) no-repeat center",
+						}}
+					/>
 				</div>
 			</div>
+
 			<div
 				style={{
 					height: "100px",
 					width: "100%",
 					display: "flex",
 					justifyContent: "center",
-					paddingTop: "25px",
+					alignItems: "center",
 					background: "rgba(246, 248, 255, 0.8)",
 				}}
 			>

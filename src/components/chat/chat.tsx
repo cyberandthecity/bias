@@ -39,6 +39,7 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 					bottom: 0,
 					width: "700px",
 					gap: "30px",
+					gridGap: "30px",
 				}}
 			>
 				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {

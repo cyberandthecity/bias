@@ -13,13 +13,19 @@ const App = () => {
 		const element = document.documentElement
 
 		if (element.requestFullscreen) {
-			console.log("requestFullscreen")
 			element.requestFullscreen()
+			setIsFullscreen(true)
+		}
+
+		//@ts-ignore
+		if (element.webkitRequestFullscreen) {
+			//@ts-ignore
+			element.webkitRequestFullscreen()
 			setIsFullscreen(true)
 		}
 	}
 
-	const scale = isFullscreen ? 1.0 : 0.5
+	const scale = isFullscreen ? 0.33333 : 0.5
 	const rotate = isFullscreen ? -90 : 0
 	const translate = isFullscreen ? { x: -2160, y: 0 } : { x: 0, y: 0 }
 
