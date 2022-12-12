@@ -30,8 +30,16 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 				<BlinkText title={title} interval={1000} />
 				<div style={{ display: "flex", gap: "65px", flexDirection: "row" }}>
 					<div
-						style={{ height: "500px", background: "rgba(246, 248, 255, 0.8)", flexGrow: 1, borderRadius: "10px" }}
-					></div>
+						style={{
+							height: "500px",
+							background: "rgba(246, 248, 255, 0.8)",
+							flexGrow: 1,
+							borderRadius: "10px",
+							overflow: "hidden",
+						}}
+					>
+						<img src={"/images/entrance.png"} alt="entrance" style={{}} />
+					</div>
 					<div
 						style={{
 							width: "300px",
@@ -39,11 +47,22 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 							background: "rgba(246, 248, 255, 0.8)",
 							flexGrow: 0,
 							borderRadius: "10px",
+							overflow: "hidden",
 						}}
-					></div>
+					>
+						<img src={"/images/decission.png"} alt="decission" style={{}} />
+					</div>
 					<div
-						style={{ height: "500px", background: "rgba(246, 248, 255, 0.8)", flexGrow: 1, borderRadius: "10px" }}
-					></div>
+						style={{
+							height: "500px",
+							background: "rgba(246, 248, 255, 0.8)",
+							flexGrow: 1,
+							borderRadius: "10px",
+							overflow: "hidden",
+						}}
+					>
+						<img src={"/images/club.png"} alt="club" style={{}} />
+					</div>
 				</div>
 			</div>
 
@@ -65,23 +84,11 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 				<div
 					style={{
 						position: "absolute",
-						marginLeft: "50px",
-						marginBottom: "60px",
-						transform: "scale(1.1) translate(0px, -50px)",
-						WebkitTransform: "scale(1.1) translate(0px, -50px)",
+						marginRight: "900px",
+						marginBottom: "550px",
 					}}
 				>
-					{/* <img src={"/images/bus.svg"} alt="bus" style={{ position: "absolute" }} /> */}
-
-					<div
-						style={{
-							position: "absolute",
-							width: "500px",
-							height: "300px",
-							background: "black",
-							mask: "url(/images/window.svg) no-repeat center",
-						}}
-					/>
+					<img src={"/images/bus.png"} alt="bus" style={{ position: "absolute" }} />
 				</div>
 			</div>
 
