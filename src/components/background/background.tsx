@@ -39,7 +39,7 @@ const Background: FunctionComponent<BackgroundProps> = ({
 			{isInAI && (
 				<img
 					//className="animated-background"
-					style={{ position: "absolute", top: `-${offset}px`, transform: "scale(-1, -1)", zIndex: -1 }}
+					style={{ position: "absolute", top: `-${offset}px`, transform: "scale(-1, -1)", zIndex: -1, opacity: 0.3 }}
 					src="/images/circuits.png"
 					alt="background"
 				/>
@@ -48,7 +48,7 @@ const Background: FunctionComponent<BackgroundProps> = ({
 			{isInAI && (
 				<img
 					//className="animated-background"
-					style={{ position: "absolute", bottom: `-${offset}px`, zIndex: -1 }}
+					style={{ position: "absolute", bottom: `-${offset}px`, zIndex: -1, opacity: 0.3 }}
 					src="/images/circuits.png"
 					alt="background"
 				/>
