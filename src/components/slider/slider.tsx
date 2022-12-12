@@ -72,7 +72,6 @@ const Slider: FunctionComponent<SliderProps> = ({ startIndex, onSelection, confi
 				document.onmousemove = (e) => {
 					lastPosition.current = e.clientX - (startPosition.current || 0)
 					ref.current!.style.transform = `translateX(${lastPosition.current}px)`
-					ref.current!.style.webkitTransform = `translateX(${lastPosition.current}px)`
 					updateSelectionIndex()
 				}
 
