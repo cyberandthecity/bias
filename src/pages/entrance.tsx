@@ -34,6 +34,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 				<div
 					style={{
 						transformOrigin: "left top",
+						WebkitTransformOrigin: "left top",
 						position: "absolute",
 						width: "2160px",
 						height: "100px",
@@ -42,6 +43,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						justifyContent: "center",
 						alignItems: "center",
 						transform: "scale(" + scale + ") ",
+						WebkitTransform: "scale(" + scale + ") ",
 						fontSize: "32px",
 						zIndex: 100,
 					}}
@@ -59,6 +61,9 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					transform:
 						"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 					transformOrigin: "left top",
+					WebkitTransformOrigin: "left top",
+					WebkitTransform:
+						"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 				}}
 			>
 				<AI
