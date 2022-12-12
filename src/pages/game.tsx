@@ -51,9 +51,9 @@ const Game: FunctionComponent<GameProps> = (
 
 	return (
 		<>
-			<Restart />
-			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
+				<Restart />
+				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<Title title="Bias & KI" isInAI />
 				<div
 					style={{

@@ -13,15 +13,24 @@ const Restart: FunctionComponent<RestartProps> = ({}) => {
 			<div
 				style={{
 					position: "absolute",
-					background: "red",
-					width: "40px",
-					height: "40px",
-					right: "40px",
-					top: "10px",
+					background: "white",
+					width: "80px",
+					height: "80px",
+					right: 110,
+
 					zIndex: 1000,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					margin: "20px",
+					borderRadius: "10px",
+					boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
+					cursor: "pointer",
 				}}
 				onClick={() => navigate("/")}
-			></div>
+			>
+				<img src="/images/restart.svg" style={{ width: "50%", height: "50%" }} />
+			</div>
 		</>
 	)
 }
