@@ -22,7 +22,7 @@ const Slider: FunctionComponent<SliderProps> = ({ startIndex, onSelection, confi
 		selectionIndex.current = startIndex
 	}, [startIndex])
 
-	useEffect(() => {
+	/* useEffect(() => {
 		const interval = setInterval(() => {
 			if (!dragging.current && ref.current) {
 				const goalPosition = goalPositions[selectionIndex.current]
@@ -32,7 +32,15 @@ const Slider: FunctionComponent<SliderProps> = ({ startIndex, onSelection, confi
 			}
 		}, 10)
 		return () => clearInterval(interval)
-	}, [])
+	}, []) */
+
+	useEffect(() => {
+		const goalPosition = goalPositions[selectionIndex.current]
+
+		if (ref.current) {
+			ref.current.style.transform = `translateX(${goalPosition}px)`
+		}
+	}, [startIndex, goalPositions, selectionIndex])
 
 	const updateSelectionIndex = () => {
 		if (lastPosition.current <= 320 + 65 / 2 && selectionIndex.current !== 0) {
@@ -63,7 +71,7 @@ const Slider: FunctionComponent<SliderProps> = ({ startIndex, onSelection, confi
 				flexDirection: "column",
 				justifyContent: "center",
 			}}
-			onMouseDown={(e) => {
+			/* onMouseDown={(e) => {
 				e = e || window.event
 				e.preventDefault()
 				dragging.current = true
@@ -80,7 +88,7 @@ const Slider: FunctionComponent<SliderProps> = ({ startIndex, onSelection, confi
 					document.onmousemove = null
 					dragging.current = false
 				}
-			}}
+			}} */
 		>
 			<div
 				style={{
