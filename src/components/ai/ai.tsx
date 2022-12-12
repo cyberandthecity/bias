@@ -42,15 +42,15 @@ const AI: FunctionComponent<AIProps> = ({
 					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
 				}}
 			>
-				<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
+				{/* <video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} /> */}
 			</div>
-			{wearsGlasses && (
+			{/* {wearsGlasses && (
 				<img
 					src={"/images/glasses.svg"}
 					alt="glasses"
 					style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}
 				/>
-			)}
+			)} */}
 
 			<div
 				style={{
