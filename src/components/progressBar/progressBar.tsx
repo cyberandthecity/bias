@@ -13,7 +13,6 @@ export interface ProgressProps {
 const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage }) => {
 	return (
 		<div>
-			<Arc percentage={20} />
 			<div
 				// circle background bar
 				style={{
