@@ -18,7 +18,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 			setShowHint(false)
 		}
 	}, [isChecking])
-
+	
 	useEffect(() => {
 		if (videoRef && videoRef.current) {
 			setTimeout(() => {
@@ -26,7 +26,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 			}, 3000)
 		}
 	}, [videoRef])
-
+	
 	return (
 		<>
 			{!isChecking && (
@@ -37,9 +37,8 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								style={{
 									position: "absolute",
 									height: "1000px",
-									top: "180px",
-									right: "900px",
-									
+									bottom: "2620px",
+									right: "910px",									
 								}}
 							>
 								<Chat messages={messages} orientation={ChatOrientation.Right} />
@@ -54,17 +53,21 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)": "none",
+								filter: showHint ? "drop-shadow(0px 0px 10px #FFA78A)": "none",
 							}}
 							onClick={() => setShowHint(!showHint)}
-						>
-							<video
+						> 	
+							<img
+							src="/images/lightbulb.svg"
+							/>
+
+							{/*<video
 								ref={videoRef}
 								loop
 								muted
 								playsInline
 								src="/videos/idee.mp4"
-							/>
+							/>*/}
 						</div>
 					</div>
 				</>
