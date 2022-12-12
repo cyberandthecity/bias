@@ -32,9 +32,9 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 
 	return (
 		<>
-			<Restart />
-			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
+				<Restart />
+				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<Title title="Club Simulation" />
 				<AI messages={messages} position={{ x: 900, y: 800 }} chatOffset={{ x: 300, y: 140 }} wearsGlasses />
 				<div

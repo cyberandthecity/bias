@@ -32,21 +32,18 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 	}
 	return (
 		<>
-			<Restart />
-			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<div
 				style={{
 					position: "absolute",
-					width: "100%",
-					height: "100%",
+					width: "2160px",
+					height: "3840px",
 					transform:
 						"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 					transformOrigin: "left top",
-					WebkitTransformOrigin: "left top",
-					WebkitTransform:
-						"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 				}}
 			>
+				<Restart />
+				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<AI
 					messages={messages}
 					position={{ x: 880, y: 1330 }}
