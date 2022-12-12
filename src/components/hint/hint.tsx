@@ -30,7 +30,6 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 	return (
 		<>
 			{!isChecking && (
-				// TODO: Highlight the hint button on click: filter: "drop-shadow(0px 0px 20px #FFA78A)",
 				<>
 					<div>
 						{showHint && (
@@ -55,7 +54,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								//filter: "drop-shadow(0px 0px 20px #FFA78A)",
+								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)": "none",
 							}}
 							onClick={() => setShowHint(!showHint)}
 						>
@@ -65,7 +64,6 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								muted
 								playsInline
 								src="/videos/idee.mp4"
-								style={{ background: showHint ? WrongColor: "white" }}//WrongColor : "white"}}
 							/>
 						</div>
 					</div>
