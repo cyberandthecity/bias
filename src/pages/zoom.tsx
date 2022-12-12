@@ -59,3 +59,4 @@ const Zoom: FunctionComponent<ZoomProps> = ({
 }
 
 export default Zoom
+
