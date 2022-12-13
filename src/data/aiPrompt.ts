@@ -266,7 +266,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "Die KI:",
-				text: "Das System hat wohl Schwierigkeiten damit, Studierende bei Nacht zu erkennen!",
+				text: "Das System hat wohl Schwierigkeiten damit, Studierende bei Nacht vor verschiedenen Hintergründen zu erkennen!",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,
