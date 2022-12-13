@@ -287,7 +287,7 @@ export const entranceText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "Bitte helf mir!",
+		text: "Unsere Einlasskontrolle ist jetzt automatisiert! Mit Hilfe von Gesichtserkennung erkennt unser KI-System, welche Personen an der Türe Studierende sind und welche nicht.",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Normal,
@@ -295,7 +295,7 @@ export const entranceText: Message[] = [
 	{
 		id: "2",
 		author: "",
-		text: "Nicht alle Studenten kommen in den Club!",
+		text: "Aber einige Leute beschweren sich, scheinbar funktioniert irgendetwas noch nicht richtig. Kannst Du mir helfen?",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Normal,
@@ -306,7 +306,7 @@ export const explanationText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "Hilf mir, ich treffe falsche Entscheidungen.",
+		text: "Hm, ich treffe viele falsche Entscheidungen, das muss an den Daten liegen.",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Instruction,
@@ -314,7 +314,23 @@ export const explanationText: Message[] = [
 	{
 		id: "2",
 		author: "",
-		text: "Diese Person darf nicht rein!",
+		text: "Ich glaube, wir müssen meinen Datensatz neu aufbauen, es wäre super, wenn du mir dabei helfen könntest.",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Instruction,
+	},
+	{
+		id: "3",
+		author: "",
+		text: "Aber nicht vergessen: Studierende sind eine sehr diverse Gruppe - es ist wichtig, das in den Daten zu repräsentieren!",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Instruction,
+	},
+	{
+		id: "4",
+		author: "",
+		text: "Bist du bereit mir zu helfen?",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Instruction,
