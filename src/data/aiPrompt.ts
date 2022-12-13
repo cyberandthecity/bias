@@ -84,7 +84,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "3",
 				author: "",
-				text: "Aber das ist immer noch genug, lass uns den Datensatz im nächsten Level noch etwas vergrößern.",
+				text: "Aber das ist immer noch nicht genug, lass uns den Datensatz im nächsten Level noch etwas vergrößern.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
@@ -287,7 +287,7 @@ export const entranceText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "Bitte helf mir!",
+		text: "Bitte hilf mir!",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Normal,
@@ -306,7 +306,7 @@ export const explanationText: Message[] = [
 	{
 		id: "2",
 		author: "",
-		text: "Diese Person, darf nicht rein ",
+		text: "Diese Person darf nicht rein!",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Instruction,
