@@ -4,6 +4,8 @@ import Background from "@/components/background/background"
 import Title from "@/components/title/title"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
+import Restart from "@/components/restart/restart"
+import Fullscreen from "@/components/fullscreen/fullscreen"
 
 interface ZoomProps {
 	scale?: number
@@ -20,34 +22,15 @@ const Zoom: FunctionComponent<ZoomProps> = ({
 }) => {
 	const level = useGame((state) => state.levels[state.currentLevel])
 
-	
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
+			<Restart />
+			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<Title title="Bias & KI" />
-			<div
-				style={{
-					top: "200px",
-					left: "100px",
-					position: "absolute",
-					width: "2000px",
-					height: "1600px",
 
-					overflow: "hidden",
-					display: "flex",
-					justifyContent: "center",
-					
-					//display: "flex",
-					//flexDirection: "column",
-					//width: "100%",
-					//height: "100%",
-					//justifyContent: "center",
-				}}
-			>
-				<ImageAdder2 />
-			</div>
+			<ImageAdder2 />
 		</Background>
 	)
 }
 
 export default Zoom
-
