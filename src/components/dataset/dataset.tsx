@@ -10,6 +10,7 @@ interface DatasetProps {
 	onClick: (index: number) => void
 	correct: boolean
 	notcorrect: boolean
+	shuffle?: boolean
 }
 
 const showImages = true
@@ -50,11 +51,12 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	correct,
 	notcorrect,
 	selected = true,
+	shuffle = false,
 }) => {
-	const [shuffledImages, setShuffledImages] = useState(shuffleImages(images))
+	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
 
 	useEffect(() => {
-		setShuffledImages(shuffleImages(images))
+		setShuffledImages(shuffle ? shuffleImages(images) : images)
 	}, [images])
 
 	return (
