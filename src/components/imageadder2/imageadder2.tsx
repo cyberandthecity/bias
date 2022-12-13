@@ -1,5 +1,6 @@
 import React, { useState, useRef, FunctionComponent } from "react"
 import Image, { ImageProps as ImageData } from "@/components/image/image"
+import { Center } from "@react-three/drei"
 
 // TODO: Add a restart button
 // TODO: Create space free from images in the middle and add explanation text
@@ -45,7 +46,7 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 			}
 
 			// Add the image to the page
-			if (index.current < 1000) {
+			if (index.current < 1500) {
 				setImages([...images, image])
 			}
 			// Increment the index of the current image
@@ -65,7 +66,11 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 			{" "}
 			{images.map((image) => (
 				<Image key={image.id} {...image} />
-			))}{" "}
+			))}
+			<div style={{ position: 'relative', fontSize: 60 }}>
+     		<p style={{ position: 'absolute', left: width/2 - 310, top: height/2, textAlign: 'center', color: 'white'}}>Um zu lernen brauche ich <br></br> sehr viele Daten!</p>
+    		</div>
+			{" "}
 		</>
 	)
 }
