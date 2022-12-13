@@ -8,6 +8,7 @@ import { immerStore } from "./immerStore"
 interface Actions {
 	progressLevel(): void
 	datasetsForLevel(level: Level): Dataset[]
+	resetLevel(): void
 }
 export interface Dataset {
 	title: string
@@ -77,6 +78,11 @@ export const useGame = create<Store>(
 			progressLevel() {
 				set((state) => {
 					state.currentLevel += 1
+				})
+			},
+			resetLevel() {
+				set((state) => {
+					state.currentLevel = 0
 				})
 			},
 			datasetsForLevel(level: Level) {
