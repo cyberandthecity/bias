@@ -1,5 +1,5 @@
 import { BackgroundColor, CorrectColor, InterfaceColor, WrongColor } from "@/utils/theme"
-import { FunctionComponent } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import ImageTile from "../imageTile/imageTile"
 
 interface DatasetProps {
@@ -10,9 +10,38 @@ interface DatasetProps {
 	onClick: (index: number) => void
 	correct: boolean
 	notcorrect: boolean
+	shuffle?: boolean
 }
 
 const showImages = true
+
+const shuffleImages = (images: string[][]) => {
+	const rowLength = images[0].length
+	const columnLength = images.length
+	const totalImages = rowLength * columnLength
+
+	// Create array with count from 0 to totalImages
+	const countArray = Array.from(Array(totalImages).keys())
+	const shuffledCountArray = countArray.sort(() => Math.random() - 0.5)
+	console.log(shuffledCountArray)
+
+	const imagesCloneArray = images.map(function (arr) {
+		return arr.slice()
+	})
+
+	for (let i = 0; i < totalImages; i++) {
+		const randomIndex = shuffledCountArray[i]
+		const randomRow = Math.floor(randomIndex / rowLength)
+		const randomColumn = randomIndex % rowLength
+
+		const currentRow = Math.floor(i / rowLength)
+		const currentColumn = i % rowLength
+
+		images[currentRow][currentColumn] = imagesCloneArray[randomRow][randomColumn]
+	}
+
+	return images
+}
 
 const Dataset: FunctionComponent<DatasetProps> = ({
 	index,
@@ -22,7 +51,14 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	correct,
 	notcorrect,
 	selected = true,
+	shuffle = false,
 }) => {
+	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
+
+	useEffect(() => {
+		setShuffledImages(shuffle ? shuffleImages(images) : images)
+	}, [images])
+
 	return (
 		<div
 			style={{
@@ -70,13 +106,13 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					cursor: "pointer",
 				}}
 			>
-				{images.map((imagesRow, index) => (
+				{shuffledImages.map((imagesRow, index) => (
 					<div
 						key={"column_" + index}
 						style={{ display: "flex", flexDirection: "column", padding: "0px", gap: "10px" }}
 					>
 						{imagesRow.map((image) => (
-							<ImageTile key={image} url={image} show={showImages} scale={600 / images.length} />
+							<ImageTile key={image} url={image} show={showImages} scale={600 / shuffledImages.length} />
 						))}
 					</div>
 				))}
