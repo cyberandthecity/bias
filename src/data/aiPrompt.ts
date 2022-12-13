@@ -287,7 +287,15 @@ export const entranceText: Message[] = [
 	{
 		id: "1",
 		author: "",
-		text: "Bitte hilf mir!",
+		text: "Bitte helf mir!",
+		delay: 0,
+		decay: 0,
+		type: MessageType.Normal,
+	},
+	{
+		id: "2",
+		author: "",
+		text: "Nicht alle Studenten kommen in den Club!",
 		delay: 0,
 		decay: 0,
 		type: MessageType.Normal,

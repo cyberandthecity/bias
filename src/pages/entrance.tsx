@@ -47,7 +47,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					messages={messages}
 					position={{ x: 880, y: 1330 }}
 					scale={1.0}
-					chatOffset={{ x: 500, y: 260 }}
+					chatOffset={{ x: 440, y: 80 }}
 					wearsGlasses
 				/>
 
@@ -56,10 +56,10 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					style={{
 						position: "absolute",
 						background: InterfaceColor,
-						top: "1720px",
-						left: "780px",
-						height: "300px",
-						width: "520px",
+						top: "1750px",
+						left: "1080px",
+						height: "225px",
+						width: "225px",
 						padding: "18px 30px 8px 30px",
 						borderRadius: "20px",
 						fontSize: "40px",
