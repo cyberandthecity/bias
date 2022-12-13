@@ -3,15 +3,20 @@ import React, { useState, useRef } from 'react';
 // TODO: Add a restart button
 // TODO: Create space free from images in the middle and add explanation text
 
+
+
 const ImageAdder2 = () => {
   // Declare a state variable to store the time delay between images
   const [timeDelay, setTimeDelay] = useState(1000);
   //const [imageSize, setImageSize] = useState(500);
 
   // Create a ref to track the index of the current image
+  //const divRef = useRef(null);
   const index = useRef(0);
   const width = 2160;
   const height = 3840;
+  
+  
 
   // Function to add an image at a random position on the webpage
   const addImage = () => {
@@ -22,7 +27,7 @@ const ImageAdder2 = () => {
     // Generate random coordinates for the image
     const x = Math.floor(Math.random() * width);
     const y = Math.floor(Math.random() * height);
-    const imagesize = Math.floor(Math.random() * 300);
+    const imagesize = Math.floor(Math.random() * 200);
 
     const centerX = width / 2;
     const centerY = height / 2;
