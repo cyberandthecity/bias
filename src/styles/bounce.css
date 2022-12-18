@@ -1,0 +1,22 @@
+@keyframes bouncing {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .bouncing-svg {
+    /* other styles for the SVG image */
+    animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-name: bouncing;
+    animation-timing-function: ease-in-out;
+    animation-delay: 10s;
+    animation-play-state: running;
+  }
+
