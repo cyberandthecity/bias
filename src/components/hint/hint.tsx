@@ -1,7 +1,10 @@
 import { WrongColor } from "@/utils/theme"
+import { transform } from "framer-motion"
+import { keyframes } from "leva/dist/declarations/src/styles"
 import { FunctionComponent, MutableRefObject, useEffect, useRef, useState } from "react"
 import Chat, { ChatOrientation } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
+import "@/styles/bounce.css"
 
 interface HintProps {
 	messages: Message[]
@@ -12,6 +15,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 	const [showHint, setShowHint] = useState(false)
 
 	const videoRef: MutableRefObject<HTMLVideoElement | null> = useRef(null)
+	const imgRef: MutableRefObject<HTMLImageElement | null> = useRef(null)
 
 	useEffect(() => {
 		if (isChecking) {
@@ -23,9 +27,17 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 		if (videoRef && videoRef.current) {
 			setTimeout(() => {
 				videoRef.current?.play()
-			}, 3000)
+			}, 8000)
 		}
 	}, [videoRef])
+
+	useEffect(() => {
+		if (showHint&&imgRef&&imgRef.current) {
+			imgRef.current.style.animationPlayState = 'paused'
+		} else if(!showHint&&imgRef&&imgRef.current){
+			imgRef.current.style.animationPlayState = 'running'
+		}
+	}, [showHint])
 	
 	return (
 		<>
@@ -38,28 +50,29 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 									position: "absolute",
 									height: "1000px",
 									bottom: "2620px",
-									right: "910px",									
+									right: "950px",									
 								}}
 							>
 								<Chat messages={messages} orientation={ChatOrientation.Right} />
 							</div>
 						)}
 						<div
+							ref={imgRef}
+							className="bouncing-svg"
 							style={{
-								width: "120px",
-								height: "120px",
+								width: "160px",
+								height: "160px",
 								borderRadius: "100px",
 
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								filter: showHint ? "drop-shadow(0px 0px 10px #FFA78A)": "none",
+								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)": "none",
+								
 							}}
 							onClick={() => setShowHint(!showHint)}
-						> 	
-							<img
-							src="/images/lightbulb.svg"
-							/>
+						>
+							<img src="/images/lightbulb.svg"/>
 
 							{/*<video
 								ref={videoRef}
