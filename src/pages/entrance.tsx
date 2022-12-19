@@ -2,9 +2,11 @@ import AI from "@/components/ai/ai"
 import Door from "@/components/door/door"
 import { useGame } from "@/stores/gameStore"
 import { InterfaceColor } from "@/utils/theme"
+import { HighlightColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
 import "@/styles/animation.css"
+import "@/styles/shining.css"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 
@@ -57,24 +59,26 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						position: "absolute",
 						background: InterfaceColor,
 						top: "1750px",
-						left: "1080px",
+						left: "1040px",
 						height: "225px",
-						width: "225px",
+						width: "280px",
 						padding: "18px 30px 8px 30px",
 						borderRadius: "20px",
+						border: "solid 7px white",
 						fontSize: "40px",
 						fontWeight: 500,
 						color: "white",
-						boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
+						boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.30)",
 						cursor: "pointer",
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
+						textAlign: "center",
 						zIndex: 1,
 					}}
 					onClick={() => progessToNextScreen()}
 				>
-					Helfen
+					Ja, ich möchte helfen!
 				</div>
 
 				<Door />
