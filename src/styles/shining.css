@@ -1,0 +1,13 @@
+@keyframes shine {
+    50% {
+      border-color: rgb(255, 187, 0);
+      box-shadow: 0px 0px 5px 5px rgb(255, 187, 0);
+      color: rgb(250, 212, 106);
+    }
+  }
+  
+  .shine {
+    animation: blink 4s linear infinite;
+    animation-name: shine;
+    animation-delay: 10s;
+  }
