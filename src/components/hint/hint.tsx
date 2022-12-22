@@ -8,21 +8,21 @@ import "@/styles/bounce.css"
 
 interface HintProps {
 	messages: Message[]
-	isChecking?: boolean
+	isInEvaluatingMode?: boolean
 }
 
-const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) => {
+const HINT: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = false }) => {
 	const [showHint, setShowHint] = useState(false)
 
 	const videoRef: MutableRefObject<HTMLVideoElement | null> = useRef(null)
 	const imgRef: MutableRefObject<HTMLImageElement | null> = useRef(null)
 
 	useEffect(() => {
-		if (isChecking) {
+		if (isInEvaluatingMode) {
 			setShowHint(false)
 		}
-	}, [isChecking])
-	
+	}, [isInEvaluatingMode])
+
 	useEffect(() => {
 		if (videoRef && videoRef.current) {
 			setTimeout(() => {
@@ -32,16 +32,16 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 	}, [videoRef])
 
 	useEffect(() => {
-		if (showHint&&imgRef&&imgRef.current) {
-			imgRef.current.style.animationPlayState = 'paused'
-		} else if(!showHint&&imgRef&&imgRef.current){
-			imgRef.current.style.animationPlayState = 'running'
+		if (showHint && imgRef && imgRef.current) {
+			imgRef.current.style.animationPlayState = "paused"
+		} else if (!showHint && imgRef && imgRef.current) {
+			imgRef.current.style.animationPlayState = "running"
 		}
 	}, [showHint])
-	
+
 	return (
 		<>
-			{!isChecking && (
+			{!isInEvaluatingMode && (
 				<>
 					<div>
 						{showHint && (
@@ -50,7 +50,7 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 									position: "absolute",
 									height: "1000px",
 									bottom: "2620px",
-									right: "950px",									
+									right: "950px",
 								}}
 							>
 								<Chat messages={messages} orientation={ChatOrientation.Right} />
@@ -67,12 +67,11 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isChecking = false }) =>
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)": "none",
-								
+								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)" : "none",
 							}}
 							onClick={() => setShowHint(!showHint)}
 						>
-							<img src="/images/lightbulb.svg"/>
+							<img src="/images/lightbulb.svg" />
 
 							{/*<video
 								ref={videoRef}

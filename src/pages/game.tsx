@@ -32,24 +32,24 @@ const Game: FunctionComponent<GameProps> = ({
 	const progressLevel = useGame((state) => state.actions.progressLevel)
 
 	let navigate = useNavigate()
-	const [isChecking, setIsChecking] = useState(false)
+	const [isInEvaluatingMode, setisInEvaluatingMode] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
 	const [progressPercentage, setProgressPercentage] = useState(0)
 
 	useEffect(() => {
-		setIsChecking(false)
+		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintMessages(level.hintPrompt.hint)
 	}, [level])
 
 	useEffect(() => {
-		if (isChecking) {
+		if (isInEvaluatingMode) {
 			setProgressPercentage(((currentLevel + 1) * 2 + 1) / 7)
 		} else {
 			setProgressPercentage(((currentLevel + 1) * 2) / 7)
 		}
-	}, [level, isChecking])
+	}, [level, isInEvaluatingMode])
 
 	return (
 		<>
@@ -76,7 +76,7 @@ const Game: FunctionComponent<GameProps> = ({
 						datasets={datasets}
 						hintMessages={hintMessages}
 						confirmDataset={(index) => {
-							setIsChecking(true)
+							setisInEvaluatingMode(true)
 
 							let response =
 								index == 0
@@ -88,15 +88,15 @@ const Game: FunctionComponent<GameProps> = ({
 							aiSetMessages(response)
 						}}
 						nextLevel={() => {
-							if (currentLevel == 2 && isChecking) {
+							if (currentLevel == 2 && isInEvaluatingMode) {
 								navigate("/zoom")
 							} else {
 								progressLevel()
 							}
 						}}
-						isChecking={isChecking}
+						isInEvaluatingMode={isInEvaluatingMode}
 						correctDataset={level.correctDataset}
-						done={currentLevel == 2 && isChecking}
+						didCompleteGame={currentLevel == 2 && isInEvaluatingMode}
 					/>
 				</div>
 			</Background>
