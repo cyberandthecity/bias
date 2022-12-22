@@ -25,7 +25,7 @@ const Zoom2: FunctionComponent<ZoomProps> = ({
 	const datasets = useGame((state) => state.actions.datasetsForLevel(level))
 	const progressLevel = useGame((state) => state.actions.progressLevel)
 
-	const [isChecking, setIsChecking] = useState(false)
+	const [isInEvaluatingMode, setisInEvaluatingMode] = useState(false)
 	const [messages, setMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	// Generate an array of random image URLs
 	const imageUrls = Array.from(
@@ -34,7 +34,7 @@ const Zoom2: FunctionComponent<ZoomProps> = ({
 	)
 
 	useEffect(() => {
-		setIsChecking(false)
+		setisInEvaluatingMode(false)
 		setMessages(level.aiPrompt.prompt)
 	}, [level])
 	return (
