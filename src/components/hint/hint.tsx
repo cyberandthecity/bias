@@ -11,7 +11,7 @@ interface HintProps {
 	isInEvaluatingMode?: boolean
 }
 
-const HINT: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = false }) => {
+const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = false }) => {
 	const [showHint, setShowHint] = useState(false)
 
 	const videoRef: MutableRefObject<HTMLVideoElement | null> = useRef(null)
@@ -88,4 +88,4 @@ const HINT: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 	)
 }
 
-export default HINT
+export default Hint

@@ -2,7 +2,7 @@ import { Dataset as DS } from "@/stores/gameStore"
 import { BackgroundColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
 import Dataset from "../dataset/dataset"
-import HINT from "../hint/hint"
+import Hint from "../hint/hint"
 import { Message } from "../message/message"
 import SelectionButton from "../selectionButton/selectionButton"
 
@@ -54,7 +54,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					}}
 				>
 					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
-					<HINT messages={hintMessages} isInEvaluatingMode={isInEvaluatingMode} />
+					<Hint messages={hintMessages} isInEvaluatingMode={isInEvaluatingMode} />
 				</div>
 
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
