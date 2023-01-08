@@ -27,7 +27,7 @@ const Complaint: FunctionComponent<ComplaintProps> = ({
 	position,
     chatOffset = { x: 0, y: 0},
 	scale = 1.0,
-	tear = true,
+	tear = false,
 }) => {  
   return (
 
