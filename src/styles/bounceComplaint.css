@@ -10,13 +10,13 @@
     }
   }
 
-  .bouncing-svg {
+  .bouncing-complaint {
     /* other styles for the SVG image */
-    animation-duration: 1s;
+    animation-duration: 2s;
 	animation-iteration-count: infinite;
 	animation-name: bouncing;
     animation-timing-function: ease-in-out;
-    animation-delay: 10s;
+    animation-delay: 0.5s;
     animation-play-state: running;
     
   }

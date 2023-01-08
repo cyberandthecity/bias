@@ -1,5 +1,7 @@
+import { ComplaintType } from "@/components/complaint/complaint"
 import { Message } from "@/components/message/message"
 import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
+import { levelComplaints } from "@/data/complaintPrompt"
 import { HintPrompt, levelHint } from "@/data/hintPrompt"
 import { Group } from "three"
 import create from "zustand"
@@ -21,6 +23,9 @@ export interface Level {
 	dimension: [row: number, column: number]
 	aiPrompt: AIPrompt
 	hintPrompt: HintPrompt
+	//complaints: [ComplaintType[], ComplaintType[]]
+	complaints: ComplaintType[]
+
 }
 
 export interface EntranceInfo {
@@ -55,6 +60,7 @@ export const useGame = create<Store>(
 				dimension: [2, 3],
 				aiPrompt: levelText[0],
 				hintPrompt: levelHint[0],
+				complaints: levelComplaints.level1,
 			},
 			{
 				title: "Datenselektion 2",
@@ -63,6 +69,7 @@ export const useGame = create<Store>(
 				dimension: [3, 4],
 				aiPrompt: levelText[1],
 				hintPrompt: levelHint[1],
+				complaints: levelComplaints.level2a, //, levelComplaints.level2b],
 			},
 			{
 				title: "Datenselektion 3",
@@ -71,6 +78,7 @@ export const useGame = create<Store>(
 				dimension: [4, 5],
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
+				complaints: levelComplaints.level3a //, levelComplaints.level3b], 
 			},
 		],
 		currentLevel: 0,
