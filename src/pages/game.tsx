@@ -3,7 +3,7 @@ import HINT from "@/components/hint/hint"
 import Background from "@/components/background/background"
 import ProgressBar from "@/components/progressBar/progressBar"
 import DatasetSelector from "@/components/datasetSelector/datasetSelector"
-import { Message } from "@/components/message/message"
+import { Message, MessageType } from "@/components/message/message"
 import Title from "@/components/title/title"
 import { AIPrompt } from "@/data/aiPrompt"
 import { HintPrompt } from "@/data/hintPrompt"
@@ -12,6 +12,9 @@ import { FunctionComponent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
+import ImageWithBubble from "@/components/complaints/complaints"
+import Complaints from "@/components/complaints/complaints"
+import { ComplaintType } from "@/components/complaint/complaint"
 
 interface GameProps {
 	scale?: number
@@ -35,12 +38,15 @@ const Game: FunctionComponent<GameProps> = ({
 	const [isChecking, setIsChecking] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
+	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints)
+	//const [complaints, setComplaints] = useState<[ComplaintType[]]>(level.complaints)
 	const [progressPercentage, setProgressPercentage] = useState(0)
 
 	useEffect(() => {
 		setIsChecking(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintMessages(level.hintPrompt.hint)
+		setComplaints(level.complaints)
 	}, [level])
 
 	useEffect(() => {
@@ -68,9 +74,11 @@ const Game: FunctionComponent<GameProps> = ({
 					}}
 				>
 					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
+					<Complaints complaints={complaints}></Complaints>
 					<ProgressBar
 						percentage={progressPercentage} //TODO: Change into useful percentage measure
 					/>
+
 					<DatasetSelector
 						title={level.title}
 						datasets={datasets}
@@ -98,6 +106,8 @@ const Game: FunctionComponent<GameProps> = ({
 						correctDataset={level.correctDataset}
 						done={currentLevel == 2 && isChecking}
 					/>
+	
+					
 				</div>
 			</Background>
 		</>
@@ -105,3 +115,13 @@ const Game: FunctionComponent<GameProps> = ({
 }
 
 export default Game
+
+/*  <Complaints {(index) => {
+									let complaints =
+										index == 0
+											? level.complaints[0]
+											: level.complaints[1]
+								setComplaints(complaints)
+								}}
+					/>
+					*/
