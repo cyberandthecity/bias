@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Route, Routes } from "react-router-dom"
+import AICanvas from "./components/ai/aiCanvas"
 import Entrance from "./pages/entrance"
 import Explanation from "./pages/explanation"
 import Game from "./pages/game"
@@ -83,7 +84,8 @@ const App = () => {
 						/>
 					}
 				/>{" "}
-				//Huge grid that zooms out over time
+				//AI Canvas experiment
+				<Route path="/ai" element={<AICanvas />} />{" "}
 			</Routes>
 		</>
 	)
