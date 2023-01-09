@@ -1,13 +1,15 @@
 import AI from "@/components/ai/ai"
 import Door from "@/components/door/door"
 import { useGame } from "@/stores/gameStore"
-import { InterfaceColor } from "@/utils/theme"
-import { HighlightColor } from "@/utils/theme"
+import { InterfaceColor, AIDarkGradient, AILightGradient } from "@/utils/theme"
+
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
 import "@/styles/shining.css"
+import "@/styles/imageMoveEntrance.css"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
+import ImageCycler from "@/components/imageCyler/imageCycler"
 
 interface EntranceProps {
 	scale?: number
@@ -46,28 +48,56 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<AI
 					messages={messages}
-					position={{ x: 880, y: 1330 }}
-					scale={1.0}
-					chatOffset={{ x: 440, y: 80 }}
+					position={{ x: 880, y: 1340 }}
+					scale={0.8}
+					chatOffset={{ x: 500, y: 300 }}
 					wearsGlasses
 				/>
+
+				<div
+					style={{
+						position: "absolute",
+						top: "1230px",
+						left: "760px",
+						width: "650px",
+						height: "750px",
+						background: AIDarkGradient,
+					}}
+				/>
+
+				<div
+					style={{
+						position: "absolute",
+						top: "1678px",
+						left: "775px",
+						width: "610px",
+						height: "285px",
+						//background: AILightGradient,
+						borderRadius: "50px",
+						boxShadow: "inset 0px 0px 10px rgba(0, 0, 0, 0.5)",
+						zIndex: 0,
+					}}
+					className="blinkRed"
+				/>
+				<ImageCycler position={{ x: 795, y: 1695 }} />
 
 				<div
 					className="shine"
 					style={{
 						position: "absolute",
 						background: InterfaceColor,
-						top: "1750px",
-						left: "1040px",
-						height: "225px",
-						width: "280px",
+
+						top: "2140px",
+						left: "790px",
+						height: "60px",
+						width: "500px",
 						padding: "18px 30px 8px 30px",
 						borderRadius: "20px",
-						border: "solid 7px white",
-						fontSize: "40px",
+						border: "solid 7px " + InterfaceColor,
+						fontSize: "38px",
 						fontWeight: 500,
 						color: "white",
-						boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.30)",
+						boxShadow: "0px 0px 40px rgba(0, 0, 0, 0.8)",
 						cursor: "pointer",
 						display: "flex",
 						justifyContent: "center",
@@ -78,8 +108,24 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					}}
 					onClick={() => progessToNextScreen()}
 				>
-					Ja, ich möchte helfen!
+					Ja, helfen zu Reparieren!
 				</div>
+
+				<div
+					style={{
+						position: "absolute",
+						background: "none",
+
+						top: "0",
+						left: "0",
+						height: "100%",
+						width: "100%",
+						cursor: "pointer",
+
+						zIndex: 1,
+					}}
+					onClick={() => progessToNextScreen()}
+				/>
 
 				<Door />
 
@@ -103,7 +149,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						style={{
 							width: "100%",
 							height: "100%",
-							background: "rgba(0, 0, 0, 0.5)",
+							background: "rgba(0, 0, 0, 0.65)",
 							boxShadow: "inset 0px 0px 250px rgba(255, 255, 255, 0.8)",
 							position: "absolute",
 							zIndex: 1,
