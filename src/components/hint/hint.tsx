@@ -1,11 +1,8 @@
-import { InterfaceColor, WrongColor } from "@/utils/theme"
-import { transform } from "framer-motion"
-import { keyframes } from "leva/dist/declarations/src/styles"
-import { FunctionComponent, MutableRefObject, useEffect, useRef, useState } from "react"
-import Chat, { ChatOrientation } from "../chat/chat"
-import { Message, MessageType } from "../message/message"
 import "@/styles/bounce.css"
-import SelectionButton from "../selectionButton/selectionButton"
+import { InterfaceColor } from "@/utils/theme"
+import { FunctionComponent, useEffect, useState } from "react"
+import Chat, { ChatOrientation } from "../chat/chat"
+import { Message } from "../message/message"
 
 interface HintProps {
 	messages: Message[]
@@ -14,9 +11,6 @@ interface HintProps {
 
 const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = false }) => {
 	const [showHint, setShowHint] = useState(false)
-
-	const videoRef: MutableRefObject<HTMLVideoElement | null> = useRef(null)
-	const imgRef: MutableRefObject<HTMLImageElement | null> = useRef(null)
 
 	useEffect(() => {
 		if (isInEvaluatingMode) {
