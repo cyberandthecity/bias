@@ -44,7 +44,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					transformOrigin: "left top",
 				}}
 			>
-				<Restart />
+				{/* <Restart /> */}
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<AI
 					messages={messages}

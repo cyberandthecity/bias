@@ -16,9 +16,10 @@ const Restart: FunctionComponent<RestartProps> = ({}) => {
 				style={{
 					position: "absolute",
 					background: "white",
-					width: "80px",
-					height: "80px",
-					right: 110,
+					width: "120px",
+					height: "120px",
+					left: "1000px",
+					bottom: "20px",
 
 					zIndex: 1000,
 					display: "flex",
