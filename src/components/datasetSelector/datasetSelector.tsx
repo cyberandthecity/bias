@@ -53,6 +53,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 						flexDirection: "row",
 						justifyContent: "space-between",
 						alignItems: "center",
+						height: "100px",
 					}}
 				>
 					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>

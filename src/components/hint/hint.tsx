@@ -66,25 +66,6 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 								<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
 							</div>
 						</div>
-
-						{/* <div
-							ref={imgRef}
-							className="bouncing-svg"
-							style={{
-								width: "160px",
-								height: "160px",
-								borderRadius: "100px",
-
-								overflow: "hidden",
-								display: "flex",
-								justifyContent: "center",
-							}}
-							onClick={() => setShowHint(!showHint)}
-						>
-							<img src="/images/lightbulb.svg" />
-
-							
-						</div> */}
 					</div>
 				</>
 			)}
