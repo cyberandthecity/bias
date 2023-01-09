@@ -20,7 +20,7 @@ export interface Message {
 	delay: number
 	decay: number
 	type: MessageType
-	//typingDelay: number 
+	//typingDelay: number
 }
 
 interface MessageProps {
@@ -164,8 +164,6 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return "500"
 		}
 	}
-
-
 
 	const borderColor = (messageType: MessageType) => {
 		switch (messageType) {

@@ -27,33 +27,40 @@ const AI: FunctionComponent<AIProps> = ({
 				left: position.x + "px",
 				display: "flex",
 				flexDirection: "row",
-				transform: "scale(" + scale + ")",
-				WebkitTransform: "scale(" + scale + ")",
+				//transform: "scale(" + scale + ")",
+				//WebkitTransform: "scale(" + scale + ")",
 				zIndex: 1,
 			}}
 		>
 			<div
 				style={{
-					width: "250px",
-					height: "250px",
-					borderRadius: "1000px",
-					overflow: "hidden",
-					display: "flex",
-					justifyContent: "center",
-					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+					transform: "scale(" + scale + ")",
+					WebkitTransform: "scale(" + scale + ")",
 				}}
 			>
-				<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
-				{/* <AICanvas /> */}
-			</div>
+				<div
+					style={{
+						width: "250px",
+						height: "250px",
+						borderRadius: "1000px",
+						overflow: "hidden",
+						display: "flex",
+						justifyContent: "center",
+						filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+					}}
+				>
+					<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
+					{/* <AICanvas /> */}
+				</div>
 
-			{wearsGlasses && (
-				<img
-					src={"/images/glasses.svg"}
-					alt="glasses"
-					style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}
-				/>
-			)}
+				{wearsGlasses && (
+					<img
+						src={"/images/glasses.svg"}
+						alt="glasses"
+						style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}
+					/>
+				)}
+			</div>
 
 			<div
 				style={{
