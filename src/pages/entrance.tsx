@@ -5,7 +5,6 @@ import { InterfaceColor } from "@/utils/theme"
 import { HighlightColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
-import "@/styles/animation.css"
 import "@/styles/shining.css"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
@@ -75,6 +74,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						alignItems: "center",
 						textAlign: "center",
 						zIndex: 1,
+						overflow: "hidden",
 					}}
 					onClick={() => progessToNextScreen()}
 				>
