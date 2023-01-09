@@ -25,7 +25,6 @@ export interface Level {
 	hintPrompt: HintPrompt
 	//complaints: [ComplaintType[], ComplaintType[]]
 	complaints: ComplaintType[]
-
 }
 
 export interface EntranceInfo {
@@ -78,7 +77,7 @@ export const useGame = create<Store>(
 				dimension: [4, 5],
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
-				complaints: levelComplaints.level3a //, levelComplaints.level3b], 
+				complaints: levelComplaints.level3a, //, levelComplaints.level3b],
 			},
 		],
 		currentLevel: 0,
