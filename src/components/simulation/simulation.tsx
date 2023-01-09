@@ -3,6 +3,7 @@ import { FunctionComponent } from "react"
 import BlinkText from "../blinkText/blinkText"
 
 import "@/styles/globals.css"
+import "@/styles/shining.css"
 
 interface SimulationProps {
 	title: string
@@ -103,6 +104,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 				}}
 			>
 				<div
+					className="shine"
 					style={{
 						background: InterfaceColor,
 						height: "45px",
@@ -114,6 +116,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 						color: "white",
 						boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
 						cursor: "pointer",
+						overflow: "hidden",
 					}}
 					onClick={() => {
 						nextLevel()

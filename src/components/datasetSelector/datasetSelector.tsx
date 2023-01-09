@@ -4,6 +4,7 @@ import { FunctionComponent, useState } from "react"
 import Dataset from "../dataset/dataset"
 import Hint from "../hint/hint"
 import { Message } from "../message/message"
+
 import SelectionButton from "../selectionButton/selectionButton"
 
 interface DatasetSelectorProps {
@@ -28,6 +29,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	didCompleteGame,
 }) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
+	const [isFirstSelection, setIsFirstSelection] = useState<boolean>(true)
 
 	return (
 		<div
@@ -70,6 +72,9 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							onClick={(index) => {
 								if (!isInEvaluatingMode) {
 									setSelectedDataset(index)
+									if (isFirstSelection) {
+										setIsFirstSelection(false)
+									}
 								}
 							}}
 						/>
@@ -101,12 +106,14 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 				}}
 			>
 				<SelectionButton
+					shine={!isFirstSelection}
 					onClick={() => {
 						if (!isInEvaluatingMode) {
 							confirmDataset(selectedDataset)
 						} else {
 							nextLevel()
 							setSelectedDataset(0)
+							setIsFirstSelection(true)
 						}
 					}}
 				>
