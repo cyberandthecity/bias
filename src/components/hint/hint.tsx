@@ -1,10 +1,11 @@
-import { WrongColor } from "@/utils/theme"
+import { InterfaceColor, WrongColor } from "@/utils/theme"
 import { transform } from "framer-motion"
 import { keyframes } from "leva/dist/declarations/src/styles"
 import { FunctionComponent, MutableRefObject, useEffect, useRef, useState } from "react"
 import Chat, { ChatOrientation } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 import "@/styles/bounce.css"
+import SelectionButton from "../selectionButton/selectionButton"
 
 interface HintProps {
 	messages: Message[]
@@ -23,22 +24,6 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 		}
 	}, [isInEvaluatingMode])
 
-	useEffect(() => {
-		if (videoRef && videoRef.current) {
-			setTimeout(() => {
-				videoRef.current?.play()
-			}, 8000)
-		}
-	}, [videoRef])
-
-	useEffect(() => {
-		if (showHint && imgRef && imgRef.current) {
-			imgRef.current.style.animationPlayState = "paused"
-		} else if (!showHint && imgRef && imgRef.current) {
-			imgRef.current.style.animationPlayState = "running"
-		}
-	}, [showHint])
-
 	return (
 		<>
 			{!isInEvaluatingMode && (
@@ -49,14 +34,40 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 								style={{
 									position: "absolute",
 									height: "1000px",
-									bottom: "2620px",
-									right: "950px",
+									bottom: "2520px",
+									right: "900px",
 								}}
 							>
 								<Chat messages={messages} orientation={ChatOrientation.Right} />
 							</div>
 						)}
 						<div
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
+							}}
+						>
+							<div
+								className={!showHint ? "shine" : ""}
+								style={{
+									background: InterfaceColor,
+									padding: "10px 20px 10px 20px",
+									borderRadius: "10px",
+									width: "fit-content",
+									boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
+									cursor: "pointer",
+									overflow: "hidden",
+								}}
+								onClick={() => {
+									setShowHint(!showHint)
+								}}
+							>
+								<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
+							</div>
+						</div>
+
+						{/* <div
 							ref={imgRef}
 							className="bouncing-svg"
 							style={{
@@ -67,20 +78,13 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 								overflow: "hidden",
 								display: "flex",
 								justifyContent: "center",
-								filter: showHint ? "drop-shadow(0px 0px 20px #FFA78A)" : "none",
 							}}
 							onClick={() => setShowHint(!showHint)}
 						>
 							<img src="/images/lightbulb.svg" />
 
-							{/*<video
-								ref={videoRef}
-								loop
-								muted
-								playsInline
-								src="/videos/idee.mp4"
-							/>*/}
-						</div>
+							
+						</div> */}
 					</div>
 				</>
 			)}
