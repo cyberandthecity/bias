@@ -43,7 +43,7 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 				}}
 			>
 				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
-					return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
+				return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
 				})}
 			</div>
 		</>

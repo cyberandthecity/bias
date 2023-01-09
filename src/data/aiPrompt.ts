@@ -1,4 +1,5 @@
 import { Message, MessageType } from "@/components/message/message"
+import { text } from "stream/consumers"
 
 export interface AIPrompt {
 	prompt: Message[]
