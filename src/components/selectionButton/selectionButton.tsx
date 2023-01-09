@@ -1,12 +1,14 @@
 import { InterfaceColor } from "@/utils/theme"
 import React, { FunctionComponent } from "react"
+import "@/styles/shining.css"
 
 interface SelectionButtonProps {
 	onClick: () => void
 	children: React.ReactNode
+	shine: boolean
 }
 
-const SelectionButton: FunctionComponent<SelectionButtonProps> = ({ onClick, children }) => {
+const SelectionButton: FunctionComponent<SelectionButtonProps> = ({ onClick, children, shine }) => {
 	return (
 		<div
 			style={{
@@ -16,6 +18,7 @@ const SelectionButton: FunctionComponent<SelectionButtonProps> = ({ onClick, chi
 			}}
 		>
 			<div
+				className={shine ? "shine" : ""}
 				style={{
 					background: InterfaceColor,
 					padding: "20px 40px 20px 40px",
@@ -26,6 +29,7 @@ const SelectionButton: FunctionComponent<SelectionButtonProps> = ({ onClick, chi
 					color: "white",
 					boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
 					cursor: "pointer",
+					overflow: "hidden",
 				}}
 				onClick={onClick}
 			>

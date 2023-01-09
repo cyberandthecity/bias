@@ -6,7 +6,7 @@
 	height: 100%;
 	position: absolute;
 	z-index: 1;
-	animation: slide 2s infinite 1s;
+	animation: slide 2s infinite 4s;
 	opacity: 0.5;
 
 	/* 
