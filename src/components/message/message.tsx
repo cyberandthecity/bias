@@ -10,6 +10,7 @@ export enum MessageType {
 	Hint,
 	Typing,
 	Lesson,
+	Complaint,
 }
 
 export interface Message {
@@ -64,6 +65,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return InterfaceColor
 			case MessageType.Lesson:
 				return "white"
+			case MessageType.Complaint:
+				return "white"
 		}
 	}
 
@@ -81,6 +84,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return "0 0 0px black"
 			case MessageType.Lesson:
 				return "0 0 10px black"
+			case MessageType.Complaint:
+				return "0 0 10px black"
 		}
 	}
 
@@ -95,9 +100,11 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Hint:
 				return "#FFA78A"
 			case MessageType.Typing:
-				return
+				return InterfaceColor
 			case MessageType.Lesson:
 				return HighlightColor
+			case MessageType.Complaint:
+				return InterfaceColor
 		}
 	}
 
@@ -114,6 +121,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Typing:
 				return "0.25"
 			case MessageType.Lesson:
+				return "0.5"
+			case MessageType.Complaint:
 				return "0.5"
 		}
 	}
@@ -132,6 +141,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return "50px"
 			case MessageType.Lesson:
 				return "32px"
+			case MessageType.Complaint:
+				return "30px"
 		}
 	}
 
@@ -148,6 +159,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Typing:
 				return "bold"
 			case MessageType.Lesson:
+				return "500"
+			case MessageType.Complaint:
 				return "500"
 		}
 	}
@@ -168,6 +181,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return "transparent"
 			case MessageType.Lesson:
 				return "white"
+			case MessageType.Complaint:
+				return "white"
 		}
 	}
 	const position = (messageType: MessageType) => {
@@ -184,6 +199,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 				return "absolute"
 			case MessageType.Lesson:
 				return "relative"
+			case MessageType.Complaint:
+				return "absolute"
 		}
 	}
 
