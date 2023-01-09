@@ -2,6 +2,7 @@ import { WrongColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
 import Chat from "../chat/chat"
 import { Message, MessageType } from "../message/message"
+import AICanvas from "./aiCanvas"
 
 interface AIProps {
 	messages: Message[]
@@ -42,12 +43,10 @@ const AI: FunctionComponent<AIProps> = ({
 					filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
 				}}
 			>
-				{/*<img src="/images/ai_icon.png"/>*/}
-				
 				<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
-			
-
+				{/* <AICanvas /> */}
 			</div>
+
 			{wearsGlasses && (
 				<img
 					src={"/images/glasses.svg"}

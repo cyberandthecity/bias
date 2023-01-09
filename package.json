@@ -38,6 +38,7 @@
 		"craco-css-modules": "^1.0.1",
 		"framer-motion": "^7.6.2",
 		"immer": "^9.0.15",
+		"lamina": "^1.1.23",
 		"leva": "^0.9.31",
 		"nanoid": "^4.0.0",
 		"react": "18.2.0",
