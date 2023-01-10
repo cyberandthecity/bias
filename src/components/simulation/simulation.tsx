@@ -28,7 +28,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 					flexDirection: "column",
 				}}
 			>
-				<BlinkText title={title} interval={1000} />
+				{/* <BlinkText title={title} interval={1000} /> */}
 				<div style={{ display: "flex", gap: "65px", flexDirection: "row" }}>
 					<div
 						style={{
