@@ -43,9 +43,6 @@ const Game: FunctionComponent<GameProps> = ({
 	const [progressPercentage, setProgressPercentage] = useState(0)
 	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
 
-	console.log("confirmedDataset", confirmedDataset)
-	console.log("correctDataset", level.correctDataset)
-
 	useEffect(() => {
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
