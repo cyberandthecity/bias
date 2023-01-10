@@ -13,10 +13,18 @@ const ImageCycler: FunctionComponent<ImageCyclerProps> = ({ position }) => {
 
 	const [displayedImages, setDisplayedImages] = useState<string[]>([images[0]])
 
+	const selectRandomImage = () => {
+		const randomImage = images[Math.floor(Math.random() * images.length)]
+		return randomImage
+	}
+
 	useEffect(() => {
 		const timeout = setTimeout(() => {
 			const previousImage = displayedImages[1] ?? displayedImages[0]
-			const randomImage = images[Math.floor(Math.random() * images.length)]
+			let randomImage = selectRandomImage()
+			while (randomImage == previousImage) {
+				randomImage = selectRandomImage()
+			}
 			if (previousImage != undefined) {
 				setDisplayedImages([previousImage, randomImage])
 			} else {
