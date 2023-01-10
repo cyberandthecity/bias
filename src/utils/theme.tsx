@@ -4,7 +4,7 @@ export const BackgroundColor = "#F6F8FF"
 export const WrongColor = "#DB0000"
 export const CorrectColor = "#57C362"
 
-export const HighlightColor = "rgb(255, 187, 0)"
+export const HighlightColor = "#2F009D" //"rgb(255, 187, 0)"
 
 export const AILightGradient =
 	"linear-gradient(97.73deg, rgba(233, 236, 244, 0.3) 0%, #DDE2F3 100%), linear-gradient(180deg, #F4F1F4 0%, #F0E8F1 100%)"
