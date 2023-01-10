@@ -38,15 +38,16 @@ const Game: FunctionComponent<GameProps> = ({
 	const [isInEvaluatingMode, setisInEvaluatingMode] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
 	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
-	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints)
-	//const [complaints, setComplaints] = useState<[ComplaintType[]]>(level.complaints)
+	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints.nothing)
 	const [progressPercentage, setProgressPercentage] = useState(0)
+	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
 
 	useEffect(() => {
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintMessages(level.hintPrompt.hint)
-		setComplaints(level.complaints)
+		setComplaints(level.complaints.nothing)
+		setConfirmedDataset(undefined)
 	}, [level])
 
 	useEffect(() => {
@@ -74,7 +75,7 @@ const Game: FunctionComponent<GameProps> = ({
 					}}
 				>
 					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
-					<Complaints complaints={complaints}></Complaints>
+					{isInEvaluatingMode && confirmedDataset != level.correctDataset && (<Complaints complaints={complaints}></Complaints>)}
 					<ProgressBar
 						percentage={progressPercentage} //TODO: Change into useful percentage measure
 					/>
@@ -85,15 +86,22 @@ const Game: FunctionComponent<GameProps> = ({
 						hintMessages={hintMessages}
 						confirmDataset={(index) => {
 							setisInEvaluatingMode(true)
-
+							setConfirmedDataset(index)
 							let response =
 								index == 0
 									? level.aiPrompt.responseSelectedDataset_0
 									: index == 1
 									? level.aiPrompt.responseSelectedDataset_1
 									: level.aiPrompt.responseSelectedDataset_2
+							let response2 =
+								index == 0
+									? level.complaints.complaintSelectedDataset_0
+									: index == 1
+									? level.complaints.complaintSelectedDataset_1
+									: level.complaints.complaintSelectedDataset_2
 
 							aiSetMessages(response)
+							setComplaints(response2)
 						}}
 						nextLevel={() => {
 							if (currentLevel == 2 && isInEvaluatingMode) {

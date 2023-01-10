@@ -25,8 +25,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Welcher der Datensätze repräsentiert Studierende am besten," + "\n" +
-					"was denkst du? ",
+				text: "Welcher der Datensätze repräsentiert Studierende am besten," + "\n" +  "was denkst du? ", // TODO: show new line
 				delay: 3500,
 				decay: 0,
 				type: MessageType.Instruction,
