@@ -41,12 +41,17 @@ const Game: FunctionComponent<GameProps> = ({
 	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints)
 	//const [complaints, setComplaints] = useState<[ComplaintType[]]>(level.complaints)
 	const [progressPercentage, setProgressPercentage] = useState(0)
+	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
+
+	console.log("confirmedDataset", confirmedDataset)
+	console.log("correctDataset", level.correctDataset)
 
 	useEffect(() => {
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintMessages(level.hintPrompt.hint)
 		setComplaints(level.complaints)
+		setConfirmedDataset(undefined)
 	}, [level])
 
 	useEffect(() => {
@@ -74,7 +79,9 @@ const Game: FunctionComponent<GameProps> = ({
 					}}
 				>
 					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
-					<Complaints complaints={complaints}></Complaints>
+					{isInEvaluatingMode && confirmedDataset != level.correctDataset && (
+						<Complaints complaints={complaints}></Complaints>
+					)}
 					<ProgressBar
 						percentage={progressPercentage} //TODO: Change into useful percentage measure
 					/>
@@ -85,6 +92,7 @@ const Game: FunctionComponent<GameProps> = ({
 						hintMessages={hintMessages}
 						confirmDataset={(index) => {
 							setisInEvaluatingMode(true)
+							setConfirmedDataset(index)
 
 							let response =
 								index == 0
@@ -106,8 +114,6 @@ const Game: FunctionComponent<GameProps> = ({
 						correctDataset={level.correctDataset}
 						didCompleteGame={currentLevel == 2 && isInEvaluatingMode}
 					/>
-	
-					
 				</div>
 			</Background>
 		</>
