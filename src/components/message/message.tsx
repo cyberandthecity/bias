@@ -58,9 +58,9 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Warning:
 				return "#FFA78A"
 			case MessageType.Instruction:
-				return InterfaceColor
+				return HighlightColor //InterfaceColor
 			case MessageType.Hint:
-				return InterfaceColor
+				return "white"
 			case MessageType.Typing:
 				return InterfaceColor
 			case MessageType.Lesson:
@@ -96,9 +96,9 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Warning:
 				return "#F6F8FF"
 			case MessageType.Instruction:
-				return "#F6F8FF"
+				return "white" // "#F6F8FF"
 			case MessageType.Hint:
-				return "#FFA78A"
+				return HighlightColor //"#FFA78A"
 			case MessageType.Typing:
 				return InterfaceColor
 			case MessageType.Lesson:
@@ -115,13 +115,13 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Warning:
 				return "1"
 			case MessageType.Instruction:
-				return "1"
+				return "0.8"
 			case MessageType.Hint:
-				return "1"
+				return "0.6"
 			case MessageType.Typing:
 				return "0.25"
 			case MessageType.Lesson:
-				return "0.5"
+				return "0.75"
 			case MessageType.Complaint:
 				return "0.5"
 		}
@@ -130,17 +130,17 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 	const fontSize = (messageType: MessageType) => {
 		switch (messageType) {
 			case MessageType.Normal:
-				return "32px"
+				return "34px"
 			case MessageType.Warning:
-				return "32px"
+				return "34px"
 			case MessageType.Instruction:
-				return "40px"
+				return "34px"
 			case MessageType.Hint:
 				return "32px"
 			case MessageType.Typing:
 				return "50px"
 			case MessageType.Lesson:
-				return "32px"
+				return "34px"
 			case MessageType.Complaint:
 				return "30px"
 		}
