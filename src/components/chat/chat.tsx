@@ -15,18 +15,36 @@ interface ChatProps {
 
 const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrientation.Left }) => {
 	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([])
+	const [messageTimeouts, setMessageTimeout] = useState<NodeJS.Timeout[]>([])
+	const [messagesDidChange, setMessagesDidChange] = useState<boolean>(false)
 
 	useEffect(() => {
-		let commultativeDelay = 0
-		for (var i = 0; i < messages.length; i++) {
-			const message = messages[i]
-			commultativeDelay += message.delay
-			const messagesSlice = messages.slice(0, i + 1)
-			setTimeout(() => {
-				setDisplayedMessages(messagesSlice)
-			}, commultativeDelay)
-		}
+		setMessagesDidChange(true)
 	}, [messages])
+
+	useEffect(() => {
+		if (messagesDidChange) {
+			// Clear timeouts
+			messageTimeouts.forEach((timeout) => {
+				clearTimeout(timeout)
+			})
+
+			let commultativeDelay = 0
+			let timeouts: NodeJS.Timeout[] = []
+			for (var i = 0; i < messages.length; i++) {
+				const message = messages[i]
+				commultativeDelay += message.delay
+				const messagesSlice = messages.slice(0, i + 1)
+				const timeout = setTimeout(() => {
+					setDisplayedMessages(messagesSlice)
+				}, commultativeDelay)
+				timeouts.push(timeout)
+			}
+
+			setMessageTimeout(timeouts)
+			setMessagesDidChange(false)
+		}
+	}, [messages, messagesDidChange, messageTimeouts])
 
 	return (
 		<>
@@ -43,7 +61,7 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 				}}
 			>
 				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
-				return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
+					return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
 				})}
 			</div>
 		</>
