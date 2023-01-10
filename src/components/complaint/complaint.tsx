@@ -45,7 +45,7 @@ const Complaint: FunctionComponent<ComplaintProps> = ({
     }}
 >
     <div
-        className="bouncing-complaint"
+        className= "slideRightToPosition"//"bouncing-complaint"
         style={{
             width: "300px",
             height: "300px",
@@ -62,7 +62,7 @@ const Complaint: FunctionComponent<ComplaintProps> = ({
     </div>
     {tear && (
         <img
-            className="bouncing-complaint"
+            className = "slideRightToPosition"//className="bouncing-complaint"
             src={"/datasets/complaints/tear.png"} 
             alt="tear"
             style={{ width: "60px",
@@ -74,7 +74,7 @@ const Complaint: FunctionComponent<ComplaintProps> = ({
     
 
     <div
-        className="bouncing-svg"
+        className="slideRightToPosition"
         style={{
             position: "absolute",
             bottom: chatOffset.y + "px",
