@@ -2,17 +2,57 @@ import { ComplaintType } from './../components/complaint/complaint';
 import { Message, MessageType } from "@/components/message/message"
 
 export interface ComplaintPrompt {
-    level1: ComplaintType[]
-    level2a: ComplaintType[]
-    level2b: ComplaintType[]
-    level3a: ComplaintType[]
-    level3b: ComplaintType[]
+    nothing: ComplaintType[]
+    complaintSelectedDataset_0: ComplaintType[]
+	complaintSelectedDataset_1: ComplaintType[]
+	complaintSelectedDataset_2: ComplaintType[]
 }
 
 
-export const levelComplaints: ComplaintPrompt = {
-	level1: 
-		[{
+export const levelComplaints: ComplaintPrompt[] = [
+    {   // Level 1
+        nothing: [{ imageUrl:"",
+        messages:[{
+            id: "1",
+            author: "",
+            text: "",
+            delay: 0,
+            decay: 0,
+            type: MessageType.Complaint
+            //typingDelay: number 
+        }],
+    }],
+        complaintSelectedDataset_2: [{
+            imageUrl:"/datasets/Complaints/thumb-up.png",
+            messages:[{
+                id: "1",
+                author: "",
+                text: "",
+                delay: 0,
+                decay: 0,
+                type: MessageType.Complaint
+                //typingDelay: number 
+            }],
+            isChatLeft: true,
+        }],
+        complaintSelectedDataset_1: [
+            {
+		    imageUrl:"/datasets/Complaints/level1/image1.png",
+            messages:[{
+                id: "1",
+                author: "",
+                text: "Ich komm nicht rein!",
+                delay: 0,
+                decay: 0,
+                type: MessageType.Complaint
+                //typingDelay: number 
+            }],
+            isChatLeft: true,
+        }
+		],
+
+        complaintSelectedDataset_0: [
+            {
 		    imageUrl:"/datasets/Complaints/level1/image1.png",
             messages:[{
                 id: "1",
@@ -38,8 +78,34 @@ export const levelComplaints: ComplaintPrompt = {
             }]
         }
 		],
-	
-	level2a: [{
+    },
+    { // Level 2
+        nothing: [{ imageUrl:"",
+        messages:[{
+            id: "1",
+            author: "",
+            text: "",
+            delay: 0,
+            decay: 0,
+            type: MessageType.Complaint
+            //typingDelay: number 
+        }],
+    }],
+        complaintSelectedDataset_0: [{
+            imageUrl:"/datasets/Complaints/thumb-up.png",
+            messages:[{
+                id: "1",
+                author: "",
+                text: "",
+                delay: 0,
+                decay: 0,
+                type: MessageType.Complaint
+                //typingDelay: number 
+            }],
+            isChatLeft: true,
+        }],
+        complaintSelectedDataset_1: [
+	{
         imageUrl:"/datasets/Complaints/level2/female-glasses/image1.png",
         messages:[{
             id: "1",
@@ -65,7 +131,7 @@ export const levelComplaints: ComplaintPrompt = {
         }]
     }
     ],
-    level2b: [{
+    complaintSelectedDataset_2: [{
         imageUrl:"/datasets/Complaints/level2/glasses/image1.png",
         messages:[{
             id: "1",
@@ -91,7 +157,33 @@ export const levelComplaints: ComplaintPrompt = {
         }]
     }
     ],
-	level3a: [{
+},
+{ // Level 3
+    nothing: [{ imageUrl:"",
+        messages:[{
+            id: "1",
+            author: "",
+            text: "",
+            delay: 0,
+            decay: 0,
+            type: MessageType.Complaint
+            //typingDelay: number 
+        }],
+    }],
+	complaintSelectedDataset_0: [{
+        imageUrl:"/datasets/Complaints/thumb-up.png",
+        messages:[{
+            id: "1",
+            author: "",
+            text: "",
+            delay: 0,
+            decay: 0,
+            type: MessageType.Complaint
+            //typingDelay: number 
+        }],
+        isChatLeft: true,
+    }],
+    complaintSelectedDataset_1: [{ // TODO!
         imageUrl:"/datasets/Complaints/level3/background/image1.png",
         messages:[{
             id: "1",
@@ -117,7 +209,7 @@ export const levelComplaints: ComplaintPrompt = {
         }]
     }
     ],
-    level3b: [{
+    complaintSelectedDataset_2: [{ //TODO!
         imageUrl:"/datasets/Complaints/level3/BW-back/image1.png",
         messages:[{
             id: "1",
@@ -144,3 +236,4 @@ export const levelComplaints: ComplaintPrompt = {
     }
     ],
 }
+]
