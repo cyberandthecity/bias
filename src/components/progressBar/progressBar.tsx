@@ -8,9 +8,10 @@ import Arc from "../arc/arc"
 
 export interface ProgressProps {
 	percentage: number
+	level: number
 }
 
-const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage }) => {
+const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) => {
 	return (
 		<div>
 			<div
@@ -33,6 +34,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage }) => {
 						strokeWidth: "3px",
 						strokeDasharray: 450,
 						strokeDashoffset: 300, // 293 -450
+
 						transform: "rotate(-180deg)",
 
 						opacity: 0.2,
@@ -72,10 +74,8 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage }) => {
 						top: "90%",
 					}}
 				>
-					<p style={{ fontSize: "82px", fontWeight: 600, color: InterfaceColor, opacity: 0.5 }}>
-						{Math.round(percentage * 100)}%
-					</p>
-					<p style={{ fontSize: "34px", fontWeight: 600, color: InterfaceColor, opacity: 1 }}>{"Fortschritt"}</p>
+					<p style={{ fontSize: "54px", fontWeight: 600, color: InterfaceColor, opacity: 0.5 }}>{level + 1} / 3</p>
+					<p style={{ fontSize: "44px", fontWeight: 600, color: InterfaceColor, opacity: 1 }}>{"Level"}</p>
 				</div>
 			</div>
 		</div>
