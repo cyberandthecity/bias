@@ -63,7 +63,9 @@ const Chat: FunctionComponent<ChatProps> = ({
 							emoji={emoji}
 							backgroundColorType={backgroundColorType}
 							textAnimationFinished={(id) => {
-								addNewMessage(id)
+								if (messagesIndex + 1 < messages.length && messages[messagesIndex].id === id) {
+									addNewMessage(id)
+								}
 							}}
 						/>
 					)
