@@ -1,9 +1,10 @@
 import "@/styles/message.css"
 import { hexToRGB } from "@/utils/hexToRGB"
 import { HighlightColor, InterfaceColor } from "@/utils/theme"
-import { FunctionComponent } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import { TypeAnimation } from "react-type-animation"
 import { BackgroundColorType, ChatOrientation } from "../chat/chat"
+import "@/styles/stamp.css"
 
 export enum MessageType {
 	Normal,
@@ -21,15 +22,19 @@ export interface Message {
 	delay: number
 	decay: number
 	type: MessageType
+	emoji?: string
 }
 
 interface MessageProps {
 	id: string
 	author: string
 	text: string
+	delay: number
 	orientation?: ChatOrientation
 	type?: MessageType
+	emoji?: string
 	backgroundColorType: BackgroundColorType
+	textAnimationFinished?: (id: string) => void
 }
 
 const transition = {
@@ -55,9 +60,24 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 	id,
 	author,
 	text,
+	delay,
+	emoji,
 	backgroundColorType,
+	textAnimationFinished,
 	type = MessageType.Normal,
 }) => {
+	const [textAnimationDone, setTextAnimationDone] = useState(false)
+	const [textAnimationDoneWithDelay, setTextAnimationDoneWithDelay] = useState(false)
+	const [callbackTimeout, setCallbackTimeout] = useState<NodeJS.Timeout | null>(null)
+
+	useEffect(() => {
+		return () => {
+			if (callbackTimeout) {
+				clearTimeout(callbackTimeout)
+			}
+		}
+	}, [callbackTimeout])
+
 	const color = (messageType: MessageType) => {
 		switch (messageType) {
 			case MessageType.Normal:
@@ -208,6 +228,8 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 
 				// Blur
 				backdropFilter: "blur(200px)",
+
+				marginBottom: emoji ? "40px" : "0px",
 			}}
 		>
 			<pre
@@ -218,13 +240,50 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 			>
 				{author}
 			</pre>
-			{type == MessageType.Normal ||
-			type == MessageType.Warning ||
-			type == MessageType.Instruction ||
-			type == MessageType.Lesson ? (
-				<TypeAnimation sequence={[text]} speed={60} wrapper="p" cursor={false} />
+
+			{(type == MessageType.Normal ||
+				type == MessageType.Warning ||
+				type == MessageType.Instruction ||
+				type == MessageType.Lesson) &&
+			!textAnimationDoneWithDelay ? (
+				<TypeAnimation
+					sequence={[
+						text,
+						() => {
+							setTextAnimationDone(true)
+							const timeout = setTimeout(() => {
+								setTextAnimationDoneWithDelay(true)
+								if (textAnimationFinished) textAnimationFinished(id)
+							}, delay)
+							setCallbackTimeout(timeout)
+						},
+					]}
+					speed={50}
+					wrapper="p"
+					cursor={true}
+				/>
 			) : (
 				<p>{text}</p>
+			)}
+			{emoji && textAnimationDone && (
+				<div
+					className="stamp"
+					style={{
+						bottom: "-40px",
+						right: "-40px",
+						position: "absolute",
+						width: "80px",
+						height: "80px",
+						background: "white",
+						borderRadius: "50%",
+
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+					<p style={{ fontSize: "50px" }}>{emoji} </p>
+				</div>
 			)}
 		</div>
 	)
