@@ -23,37 +23,19 @@ const Chat: FunctionComponent<ChatProps> = ({
 	orientation = ChatOrientation.Left,
 	backgroundColorType = BackgroundColorType.Bright,
 }) => {
-	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([])
-	const [messageTimeouts, setMessageTimeout] = useState<NodeJS.Timeout[]>([])
-	const [messagesDidChange, setMessagesDidChange] = useState<boolean>(false)
+	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([messages[0]])
+	const [messagesIndex, setMessagesIndex] = useState<number>(0)
 
-	useEffect(() => {
-		setMessagesDidChange(true)
-	}, [messages])
-
-	useEffect(() => {
-		if (messagesDidChange) {
-			// Clear timeouts
-			messageTimeouts.forEach((timeout) => {
-				clearTimeout(timeout)
-			})
-
-			let commultativeDelay = 0
-			let timeouts: NodeJS.Timeout[] = []
-			for (var i = 0; i < messages.length; i++) {
-				const message = messages[i]
-				commultativeDelay += message.delay
-				const messagesSlice = messages.slice(0, i + 1)
-				const timeout = setTimeout(() => {
-					setDisplayedMessages(messagesSlice)
-				}, commultativeDelay)
-				timeouts.push(timeout)
-			}
-
-			setMessageTimeout(timeouts)
-			setMessagesDidChange(false)
+	const addNewMessage = (id: string) => {
+		if (messagesIndex + 1 < messages.length && messages[messagesIndex].id === id) {
+			setMessagesIndex(messagesIndex + 1)
+			setDisplayedMessages([...displayedMessages, messages[messagesIndex + 1]])
 		}
-	}, [messages, messagesDidChange, messageTimeouts])
+	}
+	useEffect(() => {
+		setDisplayedMessages([messages[0]])
+		setMessagesIndex(0)
+	}, [messages])
 
 	return (
 		<>
@@ -69,7 +51,7 @@ const Chat: FunctionComponent<ChatProps> = ({
 					gridGap: "30px",
 				}}
 			>
-				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
+				{Object.values(displayedMessages).map(({ id, author, text, delay, type, emoji }) => {
 					return (
 						<ChatMessage
 							key={id}
@@ -77,7 +59,12 @@ const Chat: FunctionComponent<ChatProps> = ({
 							author={author}
 							text={text}
 							type={type}
+							delay={delay}
+							emoji={emoji}
 							backgroundColorType={backgroundColorType}
+							textAnimationFinished={(id) => {
+								addNewMessage(id)
+							}}
 						/>
 					)
 				})}
