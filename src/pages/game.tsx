@@ -41,6 +41,8 @@ const Game: FunctionComponent<GameProps> = ({
 	const [progressPercentage, setProgressPercentage] = useState(0)
 	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
 
+	const [finished, setFinished] = useState(false)
+
 	useEffect(() => {
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
@@ -50,12 +52,16 @@ const Game: FunctionComponent<GameProps> = ({
 	}, [level])
 
 	useEffect(() => {
-		if (isInEvaluatingMode) {
-			setProgressPercentage(((currentLevel + 1) * 2 + 1) / 7)
+		if (finished) {
+			setProgressPercentage(1)
 		} else {
-			setProgressPercentage(((currentLevel + 1) * 2) / 7)
+			if (isInEvaluatingMode) {
+				setProgressPercentage((currentLevel * 2 + 2) / 7)
+			} else {
+				setProgressPercentage((currentLevel * 2 + 1) / 7)
+			}
 		}
-	}, [level, isInEvaluatingMode])
+	}, [level, isInEvaluatingMode, finished])
 
 	return (
 		<>
@@ -79,6 +85,7 @@ const Game: FunctionComponent<GameProps> = ({
 					)}
 					<ProgressBar
 						percentage={progressPercentage} //TODO: Change into useful percentage measure
+						level={currentLevel}
 					/>
 
 					<DatasetSelector
@@ -107,7 +114,10 @@ const Game: FunctionComponent<GameProps> = ({
 						}}
 						nextLevel={() => {
 							if (currentLevel == 2 && isInEvaluatingMode) {
-								navigate("/zoom")
+								setFinished(true)
+								setTimeout(() => {
+									navigate("/zoom")
+								}, 500)
 							} else {
 								progressLevel()
 							}
