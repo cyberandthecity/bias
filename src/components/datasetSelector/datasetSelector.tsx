@@ -10,7 +10,7 @@ import SelectionButton from "../selectionButton/selectionButton"
 interface DatasetSelectorProps {
 	title: string
 	datasets: DS[]
-	hintMessages: Message[]
+	hintPrompt: string
 	isInEvaluatingMode: boolean
 	correctDataset: number
 	confirmDataset: (index: number) => void
@@ -25,7 +25,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	isInEvaluatingMode,
 	confirmDataset,
 	correctDataset,
-	hintMessages,
+	hintPrompt,
 	didCompleteGame,
 }) => {
 	const [selectedDataset, setSelectedDataset] = useState<number>(0)
@@ -57,7 +57,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					}}
 				>
 					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
-					<Hint messages={hintMessages} isInEvaluatingMode={isInEvaluatingMode} />
+					<Hint hintPrompt={hintPrompt} isInEvaluatingMode={isInEvaluatingMode} />
 				</div>
 
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>

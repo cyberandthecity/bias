@@ -6,7 +6,6 @@ import DatasetSelector from "@/components/datasetSelector/datasetSelector"
 import { Message, MessageType } from "@/components/message/message"
 import Title from "@/components/title/title"
 import { AIPrompt } from "@/data/aiPrompt"
-import { HintPrompt } from "@/data/hintPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -37,7 +36,7 @@ const Game: FunctionComponent<GameProps> = ({
 	let navigate = useNavigate()
 	const [isInEvaluatingMode, setisInEvaluatingMode] = useState(false)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(level.aiPrompt.prompt)
-	const [hintMessages, setHintMessages] = useState<Message[]>(level.hintPrompt.hint)
+	const [hintPrompt, setHintPrompt] = useState<string>(level.hintPrompt)
 	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints.nothing)
 	const [progressPercentage, setProgressPercentage] = useState(0)
 	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
@@ -45,7 +44,7 @@ const Game: FunctionComponent<GameProps> = ({
 	useEffect(() => {
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
-		setHintMessages(level.hintPrompt.hint)
+		setHintPrompt(level.hintPrompt)
 		setComplaints(level.complaints.nothing)
 		setConfirmedDataset(undefined)
 	}, [level])
@@ -85,7 +84,7 @@ const Game: FunctionComponent<GameProps> = ({
 					<DatasetSelector
 						title={level.title}
 						datasets={datasets}
-						hintMessages={hintMessages}
+						hintPrompt={hintPrompt}
 						confirmDataset={(index) => {
 							setisInEvaluatingMode(true)
 							setConfirmedDataset(index)
@@ -124,4 +123,3 @@ const Game: FunctionComponent<GameProps> = ({
 }
 
 export default Game
-

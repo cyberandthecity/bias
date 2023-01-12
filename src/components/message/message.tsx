@@ -9,7 +9,6 @@ export enum MessageType {
 	Normal,
 	Warning,
 	Instruction,
-	Hint,
 	Typing,
 	Lesson,
 	Complaint,
@@ -67,8 +66,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return "#FFA78A"
 			case MessageType.Instruction:
 				return "white" //InterfaceColor
-			case MessageType.Hint:
-				return "white"
+
 			case MessageType.Typing:
 				return InterfaceColor
 			case MessageType.Lesson:
@@ -86,8 +84,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return "0 0 0px black"
 			case MessageType.Instruction:
 				return "0 0 0px black"
-			case MessageType.Hint:
-				return "0 0 0px black"
+
 			case MessageType.Typing:
 				return "0 0 0px black"
 			case MessageType.Lesson:
@@ -107,8 +104,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return "#F6F8FF"
 			case MessageType.Instruction:
 				return HighlightColor
-			case MessageType.Hint:
-				return HighlightColor //"#FFA78A"
+
 			case MessageType.Typing:
 				return InterfaceColor
 			case MessageType.Lesson:
@@ -126,8 +122,6 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return 1
 			case MessageType.Instruction:
 				return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.5
-			case MessageType.Hint:
-				return 0.6
 			case MessageType.Typing:
 				return 0.25
 			case MessageType.Lesson:
@@ -145,8 +139,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return "34px"
 			case MessageType.Instruction:
 				return "34px"
-			case MessageType.Hint:
-				return "32px"
+
 			case MessageType.Typing:
 				return "50px"
 			case MessageType.Lesson:
@@ -164,8 +157,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 				return "500"
 			case MessageType.Instruction:
 				return "500"
-			case MessageType.Hint:
-				return "500"
+
 			case MessageType.Typing:
 				return "bold"
 			case MessageType.Lesson:
@@ -182,8 +174,6 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 			case MessageType.Warning:
 				return "relative"
 			case MessageType.Instruction:
-				return "relative"
-			case MessageType.Hint:
 				return "relative"
 			case MessageType.Typing:
 				return "absolute"
@@ -228,7 +218,14 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 			>
 				{author}
 			</pre>
-			<TypeAnimation sequence={[text]} speed={60} wrapper="p" cursor={false} />
+			{type == MessageType.Normal ||
+			type == MessageType.Warning ||
+			type == MessageType.Instruction ||
+			type == MessageType.Lesson ? (
+				<TypeAnimation sequence={[text]} speed={60} wrapper="p" cursor={false} />
+			) : (
+				<p>{text}</p>
+			)}
 		</div>
 	)
 }

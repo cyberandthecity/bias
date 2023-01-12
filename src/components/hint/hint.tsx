@@ -5,11 +5,11 @@ import Chat, { ChatOrientation } from "../chat/chat"
 import { Message } from "../message/message"
 
 interface HintProps {
-	messages: Message[]
+	hintPrompt: string
 	isInEvaluatingMode?: boolean
 }
 
-const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = false }) => {
+const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false }) => {
 	const [showHint, setShowHint] = useState(false)
 
 	useEffect(() => {
@@ -32,7 +32,7 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 									right: "900px",
 								}}
 							>
-								<Chat messages={messages} orientation={ChatOrientation.Right} />
+								{/* <Chat messages={messages} orientation={ChatOrientation.Right} /> */}
 							</div>
 						)}
 						<div
@@ -48,16 +48,35 @@ const Hint: FunctionComponent<HintProps> = ({ messages, isInEvaluatingMode = fal
 									background: InterfaceColor,
 									padding: "10px 20px 10px 20px",
 									borderRadius: "10px",
-									width: "fit-content",
+									width: "content-fit",
+									maxWidth: "1300px",
 									boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
 									cursor: "pointer",
 									overflow: "hidden",
+
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+									flexDirection: "row",
 								}}
 								onClick={() => {
-									setShowHint(!showHint)
+									setShowHint(true)
 								}}
 							>
 								<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
+								{showHint && (
+									<p
+										style={{
+											fontSize: "34px",
+											fontWeight: "500",
+											color: "white",
+
+											padding: "0px 10px 00px 40px",
+										}}
+									>
+										{hintPrompt}
+									</p>
+								)}
 							</div>
 						</div>
 					</div>
