@@ -1,0 +1,24 @@
+/* Make a css animation where the glasses bounce like a spring once */
+
+.glassBounce {
+	transform: scale(4);
+	animation: bounce 4s infinite;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+	0%,
+	5%,
+	13%,
+	20%,
+	24%,
+	100% {
+		transform: translateY(0) scale(1.1);
+	}
+	10% {
+		transform: translateY(-30px) scale(1.08);
+	}
+	15% {
+		transform: translateY(-15px) scale(1.08);
+	}
+}

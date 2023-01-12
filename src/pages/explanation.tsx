@@ -1,5 +1,6 @@
 import AI from "@/components/ai/ai"
 import Background from "@/components/background/background"
+import { BackgroundColorType } from "@/components/chat/chat"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 import Restart from "@/components/restart/restart"
 import ClubScene from "@/components/scenes/clubScene"
@@ -36,8 +37,15 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 				<Restart />
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 				<Title title="Club Simulation" />
-				<AI messages={messages} position={{ x: 950, y: 1100 }} chatOffset={{ x: 300, y: 140 }} wearsGlasses />
+				<AI
+					messages={messages}
+					position={{ x: 950, y: 1100 }}
+					chatOffset={{ x: 300, y: 140 }}
+					wearsGlasses
+					backgroundColorType={BackgroundColorType.Dark}
+				/>
 				<div
+					className=""
 					style={{
 						position: "absolute",
 						display: "flex",
