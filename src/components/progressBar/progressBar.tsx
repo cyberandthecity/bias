@@ -37,7 +37,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 						top: "85%",
 						stroke: InterfaceColor,
 						fill: "none",
-						strokeWidth: "3px",
+						strokeWidth: "2.2px",
 						strokeDasharray: 450,
 						strokeDashoffset: 300, // 293 -450
 
@@ -86,6 +86,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 
 				{steps.map((step, index) => (
 					<div
+						key={index + "left"}
 						style={{
 							width: "20px",
 							height: "20px",
@@ -102,6 +103,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 
 				{steps.map((step, index) => (
 					<div
+						key={index + "right"}
 						style={{
 							width: "20px",
 							height: "20px",
