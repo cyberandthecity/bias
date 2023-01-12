@@ -1,5 +1,5 @@
 import { BackgroundColor, CorrectColor, InterfaceColor, WrongColor } from "@/utils/theme"
-import { FunctionComponent, useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useRef, useState } from "react"
 import ImageTile from "../imageTile/imageTile"
 
 interface DatasetProps {
@@ -11,6 +11,7 @@ interface DatasetProps {
 	correct: boolean
 	notcorrect: boolean
 	shuffle?: boolean
+	resultDelay?: number
 }
 
 const showImages = true
@@ -52,12 +53,43 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	notcorrect,
 	selected = true,
 	shuffle = false,
+	resultDelay = 0,
 }) => {
 	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
+
+	const backgroundDIV = useRef<HTMLDivElement>(null)
+	const titleDIV = useRef<HTMLDivElement>(null)
+	const titleP = useRef<HTMLParagraphElement>(null)
 
 	useEffect(() => {
 		setShuffledImages(shuffle ? shuffleImages(images) : images)
 	}, [images])
+
+	useEffect(() => {
+		if (resultDelay != undefined) {
+			const timeout = setTimeout(() => {
+				if (backgroundDIV.current && titleDIV.current && titleP.current) {
+					backgroundDIV.current.style.background = correct
+						? CorrectColor
+						: notcorrect
+						? WrongColor
+						: selected
+						? InterfaceColor
+						: "white"
+					titleDIV.current.style.background = correct
+						? CorrectColor
+						: notcorrect
+						? WrongColor
+						: selected
+						? InterfaceColor
+						: "white"
+					titleP.current.style.color = correct || notcorrect ? "white" : selected ? "white" : InterfaceColor
+				}
+			}, resultDelay)
+
+			return () => clearTimeout(timeout)
+		}
+	}, [correct, notcorrect, resultDelay])
 
 	return (
 		<div
@@ -71,20 +103,28 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 			}}
 		>
 			<div
+				ref={titleDIV}
 				style={{
 					width: "fit-content",
 					padding: "10px 40px 5px 15px",
 					flexDirection: "column",
 					borderRadius: "20px 20px 0px 0px",
-					background: correct ? CorrectColor : notcorrect ? WrongColor : selected ? InterfaceColor : "white",
+					background: selected ? InterfaceColor : "white",
 					cursor: "pointer",
+					transition: "all 0.5s ease",
+					WebkitTransition: "all 0.5s ease",
+					MozTransition: "all 0.5s ease",
 				}}
 			>
 				<p
+					ref={titleP}
 					style={{
 						fontSize: "32px",
 						fontWeight: 500,
-						color: selected || correct || notcorrect ? "white" : InterfaceColor,
+						color: selected ? "white" : InterfaceColor,
+						transition: "all 0.5s ease",
+						WebkitTransition: "all 0.5s ease",
+						MozTransition: "all 0.5s ease",
 					}}
 				>
 					{title}
@@ -92,10 +132,11 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 			</div>
 
 			<div
+				ref={backgroundDIV}
 				style={{
 					display: "flex",
 					flexDirection: "row",
-					background: correct ? CorrectColor : notcorrect ? WrongColor : selected ? InterfaceColor : "white",
+					background: selected ? InterfaceColor : "white",
 					padding: "10px",
 					borderRadius: "0px 20px 20px 20px",
 					overflow: "hidden",
@@ -104,6 +145,9 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					gap: "10px",
 					gridGap: "10px",
 					cursor: "pointer",
+					transition: "all 0.5s ease",
+					WebkitTransition: "all 0.5s ease",
+					MozTransition: "all 0.5s ease",
 				}}
 			>
 				{shuffledImages.map((imagesRow, index) => (

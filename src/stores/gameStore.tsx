@@ -15,6 +15,7 @@ interface Actions {
 export interface Dataset {
 	title: string
 	images: string[][]
+	resultDelays: number[]
 }
 export interface Level {
 	title: string
@@ -24,6 +25,7 @@ export interface Level {
 	aiPrompt: AIPrompt
 	hintPrompt: HintPrompt
 	complaints: ComplaintPrompt
+	resultDelays: number[]
 }
 
 export interface EntranceInfo {
@@ -59,6 +61,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[0],
 				hintPrompt: levelHint[0],
 				complaints: levelComplaints[0],
+				resultDelays: [0, 0, 0],
 			},
 			{
 				title: "Datenselektion 2",
@@ -67,7 +70,8 @@ export const useGame = create<Store>(
 				dimension: [3, 4],
 				aiPrompt: levelText[1],
 				hintPrompt: levelHint[1],
-				complaints: levelComplaints[1], 
+				complaints: levelComplaints[1],
+				resultDelays: [0, 0, 0],
 			},
 			{
 				title: "Datenselektion 3",
@@ -77,6 +81,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
 				complaints: levelComplaints[2],
+				resultDelays: [0, 0, 0],
 			},
 		],
 		currentLevel: 0,
@@ -96,6 +101,7 @@ export const useGame = create<Store>(
 
 				for (let i = 0; i < 3; i++) {
 					let images: string[][] = []
+					let resultDelays: number[] = level.resultDelays
 					for (let row = 0; row < level.dimension[0]; row++) {
 						for (let column = 0; column < level.dimension[1]; column++) {
 							if (!images[row]) images[row] = []
@@ -107,6 +113,7 @@ export const useGame = create<Store>(
 					datasets.push({
 						title: `Datensatz ${i + 1}`,
 						images: images,
+						resultDelays: resultDelays,
 					})
 				}
 				return datasets
