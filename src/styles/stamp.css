@@ -1,7 +1,7 @@
 /* Stamp animation */
 .stamp {
 	animation-name: stamp;
-	animation-duration: 0.8s;
+	animation-duration: 0.7s;
 
 	animation-fill-mode: forwards;
 }
@@ -9,21 +9,23 @@
 @keyframes stamp {
 	0% {
 		opacity: 0;
-		transform: rotate(-15deg) scale(1);
+		transform: rotate(-15deg) scale(0.5);
 	}
 	10% {
 		opacity: 0.5;
 		transform-origin: 50% 50%;
-		transform: rotate(-17deg) scale(5);
+		transform: rotate(-17deg) scale(2);
 		transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+	}
+	50% {
+		opacity: 1;
+		transform: rotate(0deg) scale(1);
+		transition: all 0.2s ease-out;
 	}
 	70% {
 		opacity: 1;
-		transform: rotate(0deg) scale(1);
-	}
-	80% {
-		opacity: 1;
-		transform: rotate(0deg) scale(0.8);
+		transform: rotate(0deg) scale(0.9);
+		transition: all 0.2s ease-in;
 	}
 	100% {
 		opacity: 1;
