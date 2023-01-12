@@ -14,64 +14,68 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage }) => {
 	return (
 		<div>
 			<div
-				// circle background bar
 				style={{
-					position: "absolute",
-					height: "1800px",
-					width: "80%",
-					left: "9%",
-					top: "85%",
-
-					opacity: "0.2",
-					border: "20px solid #4C5985",
-					borderRadius: "5000px",
-					// color: InterfaceColor
-				}}
-			></div>
-			<div
-				// Fortschritt Text
-				style={{
-					position: "absolute",
-					width: "500px",
-					height: "250px",
-					left: "45%",
-					top: "90%",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}}
 			>
-				<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor, opacity: 1 }}>{"Fortschritt"}</p>
-			</div>
-			<div
-				// bar for relative positioning of dot
-				style={{
-					position: "absolute",
-					height: "1800px",
-					width: "80%",
-					left: "9%",
-					top: "85%",
-					//border: "20px solid #4C5985",
-					borderRadius: "5000px",
-					//shapeOutside: ellipse(40% 50% at left),
-				}}
-			>
-				<div
-					// progress dot
+				<svg
+					viewBox="0 0 100 100"
+					xmlns="http://www.w3.org/2000/svg"
 					style={{
-						boxSizing: "border-box",
-						position: "relative",
-						width: "43px",
-						height: "43px",
-						left: "23%",
-						top: "7%",
-						background: InterfaceColor,
-						border: "5px solid #FFFFFF",
-						borderRadius: "2000px",
+						position: "absolute",
+						height: "1800px",
+						width: "80%",
+						top: "85%",
+						stroke: InterfaceColor,
+						fill: "none",
+						strokeWidth: "3px",
+						strokeDasharray: 450,
+						strokeDashoffset: 300, // 293 -450
+						transform: "rotate(-180deg)",
+
+						opacity: 0.2,
 					}}
 				>
-					{" "}
-					<div style={{ fontSize: "42px", fontWeight: 500, color: InterfaceColor, opacity: 1 }}>
-						{" "}
+					<circle cx="50" cy="50" r="50" strokeLinecap="round" />
+				</svg>
+
+				<svg
+					viewBox="0 0 100 100"
+					xmlns="http://www.w3.org/2000/svg"
+					style={{
+						position: "absolute",
+						height: "1800px",
+						width: "80%",
+
+						top: "85%",
+						stroke: "white",
+						fill: "none",
+						strokeWidth: "1px",
+						strokeDasharray: 450,
+						strokeDashoffset: 431 - (431 - 312) * percentage, // 431 - 312
+						transform: "rotate(-180deg)",
+						transition: "stroke-dashoffset 0.3s ease-in-out",
+					}}
+				>
+					<circle cx="50" cy="50" r="50" strokeLinecap="round" />
+				</svg>
+				<div
+					// Fortschritt Text
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "center",
+						alignItems: "center",
+						position: "absolute",
+						top: "90%",
+					}}
+				>
+					<p style={{ fontSize: "82px", fontWeight: 600, color: InterfaceColor, opacity: 0.5 }}>
 						{Math.round(percentage * 100)}%
-					</div>
+					</p>
+					<p style={{ fontSize: "34px", fontWeight: 600, color: InterfaceColor, opacity: 1 }}>{"Fortschritt"}</p>
 				</div>
 			</div>
 		</div>
