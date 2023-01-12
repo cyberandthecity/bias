@@ -2,7 +2,7 @@ import { ComplaintType } from "@/components/complaint/complaint"
 import { Message } from "@/components/message/message"
 import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
 import { ComplaintPrompt, levelComplaints } from "@/data/complaintPrompt"
-import { HintPrompt, levelHint } from "@/data/hintPrompt"
+import { levelHint } from "@/data/hintPrompt"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
@@ -23,7 +23,7 @@ export interface Level {
 	correctDataset: number
 	dimension: [row: number, column: number]
 	aiPrompt: AIPrompt
-	hintPrompt: HintPrompt
+	hintPrompt: string
 	complaints: ComplaintPrompt
 	resultDelays: number[]
 }

@@ -51,7 +51,6 @@ const Zoom2: FunctionComponent<ZoomProps> = ({
 				}}
 			>
 				<AI messages={messages} position={{ x: 0, y: 0 }} />
-				<HINT messages={messages} />
 				<ImageGrid imageUrls={imageUrls} />
 			</div>
 		</Background>
