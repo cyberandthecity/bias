@@ -53,7 +53,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	notcorrect,
 	selected = true,
 	shuffle = false,
-	resultDelay = 0,
+	resultDelay = undefined,
 }) => {
 	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
 
@@ -69,6 +69,18 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 		if (resultDelay != undefined) {
 			const timeout = setTimeout(() => {
 				if (backgroundDIV.current && titleDIV.current && titleP.current) {
+					backgroundDIV.current.style.transition = "all 1s ease"
+					titleDIV.current.style.transition = "all 1s ease"
+					titleP.current.style.transition = "all 1s ease"
+
+					setTimeout(() => {
+						if (backgroundDIV.current && titleDIV.current && titleP.current) {
+							backgroundDIV.current.style.transition = "None"
+							titleDIV.current.style.transition = "None"
+							titleP.current.style.transition = "None"
+						}
+					}, 1000)
+
 					backgroundDIV.current.style.background = correct
 						? CorrectColor
 						: notcorrect
@@ -88,6 +100,12 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 			}, resultDelay)
 
 			return () => clearTimeout(timeout)
+		} else {
+			if (backgroundDIV.current && titleDIV.current && titleP.current) {
+				backgroundDIV.current.style.transition = "None"
+				titleDIV.current.style.transition = "None"
+				titleP.current.style.transition = "None"
+			}
 		}
 	}, [correct, notcorrect, resultDelay])
 
@@ -111,9 +129,6 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					borderRadius: "20px 20px 0px 0px",
 					background: selected ? InterfaceColor : "white",
 					cursor: "pointer",
-					transition: "all 0.5s ease",
-					WebkitTransition: "all 0.5s ease",
-					MozTransition: "all 0.5s ease",
 				}}
 			>
 				<p
@@ -122,9 +137,6 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 						fontSize: "32px",
 						fontWeight: 500,
 						color: selected ? "white" : InterfaceColor,
-						transition: "all 0.5s ease",
-						WebkitTransition: "all 0.5s ease",
-						MozTransition: "all 0.5s ease",
 					}}
 				>
 					{title}
@@ -145,9 +157,6 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					gap: "10px",
 					gridGap: "10px",
 					cursor: "pointer",
-					transition: "all 0.5s ease",
-					WebkitTransition: "all 0.5s ease",
-					MozTransition: "all 0.5s ease",
 				}}
 			>
 				{shuffledImages.map((imagesRow, index) => (
