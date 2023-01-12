@@ -93,7 +93,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 							borderRadius: "50%",
 							left: step.x,
 							bottom: step.y,
-							backgroundColor: InterfaceColor,
+							backgroundColor: "white",
 							opacity: 0.4,
 							zIndex: 100,
 						}}
@@ -109,7 +109,7 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 							borderRadius: "50%",
 							right: step.x,
 							bottom: step.y,
-							backgroundColor: InterfaceColor,
+							backgroundColor: "white",
 							opacity: 0.4,
 							zIndex: 100,
 						}}
