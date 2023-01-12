@@ -60,7 +60,7 @@ const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = f
 									flexDirection: "row",
 								}}
 								onClick={() => {
-									setShowHint(true)
+									setShowHint(!setShowHint)
 								}}
 							>
 								<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
