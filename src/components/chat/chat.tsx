@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useRef, useState } from "react"
 import ChatMessage, { Message } from "../message/message"
 
 import "@/styles/message.css"
@@ -26,13 +26,16 @@ const Chat: FunctionComponent<ChatProps> = ({
 	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([messages[0]])
 	const [messagesIndex, setMessagesIndex] = useState<number>(0)
 
+	const messagesRef = useRef<Message[]>(messages)
+
 	const addNewMessage = (id: string) => {
-		if (messagesIndex + 1 < messages.length && messages[messagesIndex].id === id) {
+		if (messagesIndex + 1 < messages.length && messagesRef.current[messagesIndex].id === id) {
 			setMessagesIndex(messagesIndex + 1)
 			setDisplayedMessages([...displayedMessages, messages[messagesIndex + 1]])
 		}
 	}
 	useEffect(() => {
+		messagesRef.current = messages
 		setDisplayedMessages([messages[0]])
 		setMessagesIndex(0)
 	}, [messages])
@@ -63,9 +66,7 @@ const Chat: FunctionComponent<ChatProps> = ({
 							emoji={emoji}
 							backgroundColorType={backgroundColorType}
 							textAnimationFinished={(id) => {
-								if (messagesIndex + 1 < messages.length && messages[messagesIndex].id === id) {
-									addNewMessage(id)
-								}
+								addNewMessage(id)
 							}}
 						/>
 					)
