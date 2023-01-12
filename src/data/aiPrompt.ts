@@ -25,7 +25,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: "2",
 				author: "",
-				text: "Welcher der Datensätze repräsentiert Studierende am besten," + "\n" +  "was denkst du? ", // TODO: show new line
+				text: "Welcher der Datensätze repräsentiert Studierende am besten," + "\n" + "was denkst du? ", // TODO: show new line
 				delay: 3500,
 				decay: 0,
 				type: MessageType.Instruction,
@@ -55,7 +55,7 @@ export const levelText: AIPrompt[] = [
 				delay: 7000,
 				decay: 0,
 				type: MessageType.Lesson,
-			}, 
+			},
 			{
 				id: "4",
 				author: "",
@@ -89,7 +89,7 @@ export const levelText: AIPrompt[] = [
 				delay: 7000,
 				decay: 0,
 				type: MessageType.Lesson,
-			}, 
+			},
 			{
 				id: "4",
 				author: "",
@@ -229,7 +229,7 @@ export const levelText: AIPrompt[] = [
 				delay: 9000,
 				decay: 0,
 				type: MessageType.Normal,
-			}, 
+			},
 			{
 				id: "5",
 				author: "",
@@ -271,7 +271,7 @@ export const levelText: AIPrompt[] = [
 				delay: 9000,
 				decay: 0,
 				type: MessageType.Normal,
-			}, 
+			},
 			{
 				id: "5",
 				author: "",
@@ -280,7 +280,6 @@ export const levelText: AIPrompt[] = [
 				decay: 0,
 				type: MessageType.Normal,
 			},
-			
 		],
 	},
 	{
@@ -410,7 +409,7 @@ export const explanationText: Message[] = [
 		text: "Hm, eigentlich sind das alles Studierende. Ich treffe zu viele falsche Entscheidungen, das muss an den Daten liegen.",
 		delay: 1000,
 		decay: 0,
-		type: MessageType.Lesson,
+		type: MessageType.Normal,
 	},
 	{
 		id: "2",
@@ -434,6 +433,6 @@ export const explanationText: Message[] = [
 		text: "Bist du bereit mir zu helfen?",
 		delay: 14000,
 		decay: 0,
-		type: MessageType.Lesson,
+		type: MessageType.Normal,
 	},
 ]
