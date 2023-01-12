@@ -1,7 +1,8 @@
 import "@/styles/message.css"
+import { hexToRGB } from "@/utils/hexToRGB"
 import { HighlightColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
-import { ChatOrientation } from "../chat/chat"
+import { BackgroundColorType, ChatOrientation } from "../chat/chat"
 
 export enum MessageType {
 	Normal,
@@ -20,6 +21,7 @@ export interface Message {
 	delay: number
 	decay: number
 	type: MessageType
+
 	//typingDelay: number
 }
 
@@ -29,6 +31,7 @@ interface MessageProps {
 	text: string
 	orientation?: ChatOrientation
 	type?: MessageType
+	backgroundColorType: BackgroundColorType
 }
 
 const transition = {
@@ -50,7 +53,13 @@ const variants = {
 	},
 }
 
-const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type = MessageType.Normal }) => {
+const ChatMessage: FunctionComponent<MessageProps> = ({
+	id,
+	author,
+	text,
+	backgroundColorType,
+	type = MessageType.Normal,
+}) => {
 	const color = (messageType: MessageType) => {
 		switch (messageType) {
 			case MessageType.Normal:
@@ -58,7 +67,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Warning:
 				return "#FFA78A"
 			case MessageType.Instruction:
-				return HighlightColor //InterfaceColor
+				return "white" //InterfaceColor
 			case MessageType.Hint:
 				return "white"
 			case MessageType.Typing:
@@ -83,20 +92,22 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 			case MessageType.Typing:
 				return "0 0 0px black"
 			case MessageType.Lesson:
-				return "0 0 10px black"
+				return "0 0 0px black"
 			case MessageType.Complaint:
-				return "0 0 10px black"
+				return "0 0 0px black"
 		}
 	}
 
-	const backgroundColor = (messageType: MessageType) => {
+	const backgroundColor = (messageType: MessageType): string => {
+		// Must be in hex format
 		switch (messageType) {
 			case MessageType.Normal:
-				return InterfaceColor
+				if (backgroundColorType === BackgroundColorType.Dark) return "#FFFFFF"
+				else return InterfaceColor
 			case MessageType.Warning:
 				return "#F6F8FF"
 			case MessageType.Instruction:
-				return "white" // "#F6F8FF"
+				return HighlightColor
 			case MessageType.Hint:
 				return HighlightColor //"#FFA78A"
 			case MessageType.Typing:
@@ -108,22 +119,22 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 		}
 	}
 
-	const opacity = (messageType: MessageType) => {
+	const alpha = (messageType: MessageType): number => {
 		switch (messageType) {
 			case MessageType.Normal:
-				return "1"
+				return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.5
 			case MessageType.Warning:
-				return "1"
+				return 1
 			case MessageType.Instruction:
-				return "0.8"
+				return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.5
 			case MessageType.Hint:
-				return "0.6"
+				return 0.6
 			case MessageType.Typing:
-				return "0.25"
+				return 0.25
 			case MessageType.Lesson:
-				return "0.75"
+				return backgroundColorType == BackgroundColorType.Dark ? 0.5 : 0.75
 			case MessageType.Complaint:
-				return "0.5"
+				return 0.5
 		}
 	}
 
@@ -165,24 +176,6 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 		}
 	}
 
-	const borderColor = (messageType: MessageType) => {
-		switch (messageType) {
-			case MessageType.Normal:
-				return "transparent"
-			case MessageType.Warning:
-				return "transparent"
-			case MessageType.Instruction:
-				return HighlightColor
-			case MessageType.Hint:
-				return "transparent"
-			case MessageType.Typing:
-				return "transparent"
-			case MessageType.Lesson:
-				return "white"
-			case MessageType.Complaint:
-				return "white"
-		}
-	}
 	const position = (messageType: MessageType) => {
 		switch (messageType) {
 			case MessageType.Normal:
@@ -206,23 +199,26 @@ const ChatMessage: FunctionComponent<MessageProps> = ({ id, author, text, type =
 		<div
 			style={{
 				position: position(type),
-				background: backgroundColor(type),
-				opacity: opacity(type),
+				background: hexToRGB(backgroundColor(type), alpha(type)),
 				color: color(type),
 				textShadow: textShadow(type),
-				boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.14)",
+				boxShadow:
+					backgroundColorType == BackgroundColorType.Dark
+						? "0px 0px 10px rgba(255, 255, 255, 0.14)"
+						: "0px 0px 10px rgba(0, 0, 0, 0.14)",
 
 				padding: "20px 30px 20px 30px",
 				width: "fit-content",
 				fontSize: fontSize(type),
 				fontWeight: font(type),
-				border: "solid 4px transparent",
-				borderColor: borderColor(type),
+
 				borderTopLeftRadius: "40px 38px",
 				borderTopRightRadius: "40px 38px",
 				borderBottomLeftRadius: "40px 38px",
 				borderBottomRightRadius: "40px 38px",
-				//backdropFilter: "blur(20px)",
+
+				// Blur
+				backdropFilter: "blur(200px)",
 			}}
 		>
 			<pre

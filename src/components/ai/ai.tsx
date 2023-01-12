@@ -1,6 +1,6 @@
 import { WrongColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
-import Chat from "../chat/chat"
+import Chat, { BackgroundColorType } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 import AICanvas from "./aiCanvas"
 
@@ -10,6 +10,7 @@ interface AIProps {
 	chatOffset?: { x: number; y: number }
 	scale?: number
 	wearsGlasses?: boolean
+	backgroundColorType?: BackgroundColorType
 }
 
 const AI: FunctionComponent<AIProps> = ({
@@ -18,6 +19,7 @@ const AI: FunctionComponent<AIProps> = ({
 	chatOffset = { x: 0, y: 0 },
 	scale = 1.0,
 	wearsGlasses = false,
+	backgroundColorType = BackgroundColorType.Bright,
 }) => {
 	return (
 		<div
@@ -27,8 +29,6 @@ const AI: FunctionComponent<AIProps> = ({
 				left: position.x + "px",
 				display: "flex",
 				flexDirection: "row",
-				//transform: "scale(" + scale + ")",
-				//WebkitTransform: "scale(" + scale + ")",
 				zIndex: 1,
 			}}
 		>
@@ -43,10 +43,10 @@ const AI: FunctionComponent<AIProps> = ({
 						width: "250px",
 						height: "250px",
 						borderRadius: "1000px",
-						overflow: "hidden",
 						display: "flex",
 						justifyContent: "center",
-						filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+						overflow: "hidden",
+						boxShadow: " 0px 0px 50px rgba(246, 223, 232, 1)",
 					}}
 				>
 					<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
@@ -71,7 +71,7 @@ const AI: FunctionComponent<AIProps> = ({
 					height: "1000px",
 				}}
 			>
-				<Chat messages={messages} />
+				<Chat messages={messages} backgroundColorType={backgroundColorType} />
 			</div>
 		</div>
 	)
