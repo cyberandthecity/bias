@@ -3,6 +3,7 @@ import { FunctionComponent, useState } from "react"
 import Chat, { BackgroundColorType } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 import AICanvas from "./aiCanvas"
+import "@/styles/glassBounce.css"
 
 interface AIProps {
 	messages: Message[]
@@ -10,6 +11,7 @@ interface AIProps {
 	chatOffset?: { x: number; y: number }
 	scale?: number
 	wearsGlasses?: boolean
+	glassesBounce?: boolean
 	backgroundColorType?: BackgroundColorType
 }
 
@@ -19,6 +21,7 @@ const AI: FunctionComponent<AIProps> = ({
 	chatOffset = { x: 0, y: 0 },
 	scale = 1.0,
 	wearsGlasses = false,
+	glassesBounce = false,
 	backgroundColorType = BackgroundColorType.Bright,
 }) => {
 	return (
@@ -55,6 +58,7 @@ const AI: FunctionComponent<AIProps> = ({
 
 				{wearsGlasses && (
 					<img
+						className={glassesBounce ? "glassBounce" : ""}
 						src={"/images/glasses.svg"}
 						alt="glasses"
 						style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}

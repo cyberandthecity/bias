@@ -10,6 +10,7 @@ import "@/styles/imageMoveEntrance.css"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 import ImageCycler from "@/components/imageCyler/imageCycler"
+import { BackgroundColorType } from "@/components/chat/chat"
 
 interface EntranceProps {
 	scale?: number
@@ -50,8 +51,10 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					messages={messages}
 					position={{ x: 880, y: 1340 }}
 					scale={0.8}
-					chatOffset={{ x: 500, y: 300 }}
+					chatOffset={{ x: 490, y: 290 }}
+					backgroundColorType={BackgroundColorType.Dark}
 					wearsGlasses
+					glassesBounce
 				/>
 
 				<div

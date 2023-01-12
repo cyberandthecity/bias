@@ -7,13 +7,22 @@ export enum ChatOrientation {
 	Left,
 	Right,
 }
+export enum BackgroundColorType {
+	Bright,
+	Dark,
+}
 
 interface ChatProps {
 	messages: Message[]
 	orientation?: ChatOrientation
+	backgroundColorType?: BackgroundColorType
 }
 
-const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrientation.Left }) => {
+const Chat: FunctionComponent<ChatProps> = ({
+	messages,
+	orientation = ChatOrientation.Left,
+	backgroundColorType = BackgroundColorType.Bright,
+}) => {
 	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([])
 	const [messageTimeouts, setMessageTimeout] = useState<NodeJS.Timeout[]>([])
 	const [messagesDidChange, setMessagesDidChange] = useState<boolean>(false)
@@ -61,7 +70,16 @@ const Chat: FunctionComponent<ChatProps> = ({ messages, orientation = ChatOrient
 				}}
 			>
 				{Object.values(displayedMessages).map(({ id, author, text, delay, type }) => {
-					return <ChatMessage key={id} id={id} author={author} text={text} type={type} />
+					return (
+						<ChatMessage
+							key={id}
+							id={id}
+							author={author}
+							text={text}
+							type={type}
+							backgroundColorType={backgroundColorType}
+						/>
+					)
 				})}
 			</div>
 		</>

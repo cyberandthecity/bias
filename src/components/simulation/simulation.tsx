@@ -1,9 +1,11 @@
-import { InterfaceColor } from "@/utils/theme"
+import { BackgroundColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
 import BlinkText from "../blinkText/blinkText"
 
 import "@/styles/globals.css"
 import "@/styles/shining.css"
+import SelectionButton from "../selectionButton/selectionButton"
+import Disco from "../disco/disco"
 
 interface SimulationProps {
 	title: string
@@ -62,7 +64,8 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 							overflow: "hidden",
 						}}
 					>
-						<img src={"/images/club.png"} alt="club" style={{}} />
+						<Disco />
+						{/* <img src={"/images/club.png"} alt="club" style={{}} /> */}
 					</div>
 				</div>
 			</div>
@@ -95,35 +98,18 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 
 			<div
 				style={{
-					height: "100px",
+					height: "150px",
 					width: "100%",
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
-					background: "rgba(246, 248, 255, 0.8)",
+
+					background: BackgroundColor,
 				}}
 			>
-				<div
-					className="shine"
-					style={{
-						background: InterfaceColor,
-						height: "45px",
-						padding: "18px 30px 8px 30px",
-						borderRadius: "10px",
-						width: "fit-content",
-						fontSize: "32px",
-						fontWeight: 500,
-						color: "white",
-						boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
-						cursor: "pointer",
-						overflow: "hidden",
-					}}
-					onClick={() => {
-						nextLevel()
-					}}
-				>
+				<SelectionButton onClick={nextLevel} shine>
 					Weiter zum Trainieren
-				</div>
+				</SelectionButton>
 			</div>
 		</div>
 	)

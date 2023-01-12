@@ -2,6 +2,7 @@ import "@/styles/message.css"
 import { hexToRGB } from "@/utils/hexToRGB"
 import { HighlightColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent } from "react"
+import { TypeAnimation } from "react-type-animation"
 import { BackgroundColorType, ChatOrientation } from "../chat/chat"
 
 export enum MessageType {
@@ -21,8 +22,6 @@ export interface Message {
 	delay: number
 	decay: number
 	type: MessageType
-
-	//typingDelay: number
 }
 
 interface MessageProps {
@@ -229,7 +228,7 @@ const ChatMessage: FunctionComponent<MessageProps> = ({
 			>
 				{author}
 			</pre>
-			{text}
+			<TypeAnimation sequence={[text]} speed={60} wrapper="p" cursor={false} />
 		</div>
 	)
 }
