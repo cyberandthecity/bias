@@ -402,6 +402,7 @@ export const entranceText: Message[] = [
 		delay: 1000,
 		decay: 0,
 		type: MessageType.Normal,
+		emoji: "😵‍💫",
 	},
 ]
 
