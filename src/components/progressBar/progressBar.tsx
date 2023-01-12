@@ -11,6 +11,12 @@ export interface ProgressProps {
 	level: number
 }
 
+const steps = [
+	{ x: 420, y: 235 },
+	{ x: 650, y: 420 },
+	{ x: 922, y: 518 },
+]
+
 const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) => {
 	return (
 		<div>
@@ -77,6 +83,38 @@ const ProgressBar: FunctionComponent<ProgressProps> = ({ percentage, level }) =>
 					<p style={{ fontSize: "54px", fontWeight: 600, color: InterfaceColor, opacity: 0.5 }}>{level + 1} / 3</p>
 					<p style={{ fontSize: "44px", fontWeight: 600, color: InterfaceColor, opacity: 1 }}>{"Level"}</p>
 				</div>
+
+				{steps.map((step, index) => (
+					<div
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							borderRadius: "50%",
+							left: step.x,
+							bottom: step.y,
+							backgroundColor: InterfaceColor,
+							opacity: 0.4,
+							zIndex: 100,
+						}}
+					></div>
+				))}
+
+				{steps.map((step, index) => (
+					<div
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							borderRadius: "50%",
+							right: step.x,
+							bottom: step.y,
+							backgroundColor: InterfaceColor,
+							opacity: 0.4,
+							zIndex: 100,
+						}}
+					></div>
+				))}
 			</div>
 		</div>
 	)
