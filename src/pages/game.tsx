@@ -84,7 +84,7 @@ const Game: FunctionComponent<GameProps> = ({
 						<Complaints complaints={complaints}></Complaints>
 					)}
 					<ProgressBar
-						percentage={progressPercentage} //TODO: Change into useful percentage measure
+						percentage={progressPercentage}
 						level={currentLevel}
 					/>
 
