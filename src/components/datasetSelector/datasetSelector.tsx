@@ -63,8 +63,9 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 					{datasets.map((dataset, index) => (
 						<Dataset
+							id={dataset.id}
 							index={index}
-							key={"dataset_" + index}
+							key={dataset.id}
 							title={dataset.title}
 							images={dataset.images}
 							resultDelay={isInEvaluatingMode ? dataset.resultDelays[selectedDataset] : undefined}
