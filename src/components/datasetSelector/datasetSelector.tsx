@@ -119,7 +119,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 						}
 					}}
 				>
-					{isInEvaluatingMode ? (didCompleteGame ? "Spiel Beenden" : "Nächstes Level") : "Überprüfen"}
+					{isInEvaluatingMode ? (didCompleteGame ? "Spiel Beenden und Weiter" : "Nächstes Level") : "Überprüfen"}
 				</SelectionButton>
 			</div>
 		</div>

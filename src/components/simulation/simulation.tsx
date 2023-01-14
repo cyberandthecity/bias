@@ -108,7 +108,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) =>
 				}}
 			>
 				<SelectionButton onClick={nextLevel} shine>
-					Weiter zum Trainieren
+					Ja, kann losgehen!
 				</SelectionButton>
 			</div>
 		</div>

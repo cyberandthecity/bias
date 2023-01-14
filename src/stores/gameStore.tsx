@@ -54,7 +54,7 @@ export const useGame = create<Store>(
 		},
 		levels: [
 			{
-				title: "Datenselektion 1",
+				title: "Wähle aus diesen Gruppen von Beispielen:",
 				imageDir: "gender_3x2",
 				correctDataset: 2,
 				dimension: [2, 3],
@@ -64,7 +64,7 @@ export const useGame = create<Store>(
 				resultDelays: [0, 0, 0],
 			},
 			{
-				title: "Datenselektion 2",
+				title: "Wähle aus diesen Gruppen von Beispielen:",
 				imageDir: "glasses_4x3",
 				correctDataset: 0,
 				dimension: [3, 4],
@@ -74,7 +74,7 @@ export const useGame = create<Store>(
 				resultDelays: [0, 0, 0],
 			},
 			{
-				title: "Datenselektion 3",
+				title: "Wähle aus diesen Gruppen von Beispielen:",
 				imageDir: "tech_5x4",
 				correctDataset: 0,
 				dimension: [4, 5],
