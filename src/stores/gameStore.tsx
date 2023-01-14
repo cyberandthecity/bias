@@ -3,6 +3,7 @@ import { Message } from "@/components/message/message"
 import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
 import { ComplaintPrompt, levelComplaints } from "@/data/complaintPrompt"
 import { levelHint } from "@/data/hintPrompt"
+import { nanoid } from "nanoid"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
@@ -13,6 +14,7 @@ interface Actions {
 	resetLevel(): void
 }
 export interface Dataset {
+	id: string
 	title: string
 	images: string[][]
 	resultDelays: number[]
@@ -61,7 +63,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[0],
 				hintPrompt: levelHint[0],
 				complaints: levelComplaints[0],
-				resultDelays: [0, 0, 0],
+				resultDelays: [1000, 0, 0],
 			},
 			{
 				title: "Datenselektion 2",
@@ -71,7 +73,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[1],
 				hintPrompt: levelHint[1],
 				complaints: levelComplaints[1],
-				resultDelays: [0, 0, 0],
+				resultDelays: [0, 1000, 0],
 			},
 			{
 				title: "Datenselektion 3",
@@ -81,7 +83,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
 				complaints: levelComplaints[2],
-				resultDelays: [0, 0, 0],
+				resultDelays: [0, 0, 1000],
 			},
 		],
 		currentLevel: 0,
@@ -111,6 +113,7 @@ export const useGame = create<Store>(
 						}
 					}
 					datasets.push({
+						id: nanoid(),
 						title: `Datensatz ${i + 1}`,
 						images: images,
 						resultDelays: resultDelays,

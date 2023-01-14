@@ -3,6 +3,7 @@ import { FunctionComponent, useEffect, useRef, useState } from "react"
 import ImageTile from "../imageTile/imageTile"
 
 interface DatasetProps {
+	id: string
 	index: number
 	title: string
 	images: string[][]
@@ -45,6 +46,7 @@ const shuffleImages = (images: string[][]) => {
 }
 
 const Dataset: FunctionComponent<DatasetProps> = ({
+	id,
 	index,
 	title,
 	images,
@@ -56,6 +58,8 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	resultDelay = undefined,
 }) => {
 	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
+	const [delayTimeout, setDelayTimeout] = useState<NodeJS.Timeout | undefined>(undefined)
+	const [datasetChanged, setDatasetChanged] = useState(false)
 
 	const backgroundDIV = useRef<HTMLDivElement>(null)
 	const titleDIV = useRef<HTMLDivElement>(null)
@@ -66,12 +70,22 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	}, [images])
 
 	useEffect(() => {
-		if (resultDelay != undefined) {
+		setDatasetChanged(true)
+	}, [images])
+
+	useEffect(() => {
+		if (resultDelay != undefined && datasetChanged) {
+			clearTimeout(delayTimeout)
+			setDatasetChanged(false)
+			setDelayTimeout(undefined)
+
 			const timeout = setTimeout(() => {
 				if (backgroundDIV.current && titleDIV.current && titleP.current) {
 					backgroundDIV.current.style.transition = "all 1s ease"
 					titleDIV.current.style.transition = "all 1s ease"
 					titleP.current.style.transition = "all 1s ease"
+
+					console.log("called")
 
 					setTimeout(() => {
 						if (backgroundDIV.current && titleDIV.current && titleP.current) {
@@ -98,16 +112,9 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					titleP.current.style.color = correct || notcorrect ? "white" : selected ? "white" : InterfaceColor
 				}
 			}, resultDelay)
-
-			return () => clearTimeout(timeout)
-		} else {
-			if (backgroundDIV.current && titleDIV.current && titleP.current) {
-				backgroundDIV.current.style.transition = "None"
-				titleDIV.current.style.transition = "None"
-				titleP.current.style.transition = "None"
-			}
+			setDelayTimeout(timeout)
 		}
-	}, [correct, notcorrect, resultDelay])
+	}, [correct, notcorrect, resultDelay, datasetChanged, setDelayTimeout, delayTimeout, selected])
 
 	return (
 		<div
