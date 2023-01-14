@@ -111,7 +111,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					}}
 					onClick={() => progessToNextScreen()}
 				>
-					Ja, helfen zu Reparieren!
+					Ja, ich möchte helfen!
 				</div>
 
 				<div

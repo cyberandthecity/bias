@@ -129,11 +129,11 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 		const alpha = (messageType: MessageType): number => {
 			switch (messageType) {
 				case MessageType.Normal:
-					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.5
+					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.6
 				case MessageType.Warning:
 					return 1
 				case MessageType.Instruction:
-					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.5
+					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.75
 				case MessageType.Typing:
 					return 0.25
 				case MessageType.Lesson:
@@ -157,7 +157,7 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 				case MessageType.Lesson:
 					return "34px"
 				case MessageType.Complaint:
-					return "30px"
+					return "34px"
 			}
 		}
 
