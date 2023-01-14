@@ -63,7 +63,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[0],
 				hintPrompt: levelHint[0],
 				complaints: levelComplaints[0],
-				resultDelays: [1000, 0, 0],
+				resultDelays: [11000, 10600, 1000],
 			},
 			{
 				title: "Wähle aus diesen Gruppen von Beispielen:",
@@ -73,7 +73,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[1],
 				hintPrompt: levelHint[1],
 				complaints: levelComplaints[1],
-				resultDelays: [0, 1000, 0],
+				resultDelays: [1000, 8500, 8600],
 			},
 			{
 				title: "Wähle aus diesen Gruppen von Beispielen:",
@@ -83,7 +83,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
 				complaints: levelComplaints[2],
-				resultDelays: [0, 0, 1000],
+				resultDelays: [1000, 11200, 11200],
 			},
 		],
 		currentLevel: 0,
