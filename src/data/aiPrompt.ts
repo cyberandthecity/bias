@@ -443,7 +443,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Die Einlasskontrolle im Studentenclub ist jetzt automatisiert!",
+			text: "Die Einlasskontrolle im Studierenden-Club ist jetzt automatisiert!",
 			delay: 2000,
 			decay: 0,
 			type: MessageType.Normal,
@@ -467,7 +467,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Lass uns schauen wie es vor dem Club aussieht",
+			text: "Lass uns schauen, wie es vor dem Club aussieht.",
 			delay: 3000,
 			decay: 0,
 			type: MessageType.Normal,
@@ -504,7 +504,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Kannst du mir helfen die richtigen Beispiele auszuwählen?",
+			text: "Kannst du mir helfen, die richtigen Beispiele auszuwählen?",
 			delay: 1500,
 			decay: 0,
 			type: MessageType.Normal,
