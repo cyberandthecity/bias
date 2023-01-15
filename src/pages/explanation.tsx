@@ -103,7 +103,6 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 					messages={messages}
 					position={{ x: 960, y: 1700 }}
 					chatOffset={aiTransition ? { x: 400, y: 1150 } : { x: 230, y: 250 }}
-					wearsGlasses
 					simulationTransition={aiTransition}
 					backgroundColorType={BackgroundColorType.Dark}
 					onLastMessage={() => {
