@@ -68,7 +68,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							key={dataset.id}
 							title={dataset.title}
 							images={dataset.images}
-							resultDelay={isInEvaluatingMode ? dataset.resultDelays[selectedDataset] : undefined}
+							resultDelay={isInEvaluatingMode ? (selectedDataset == index) ? 200 : dataset.resultDelays : undefined}
 							selected={!isInEvaluatingMode && selectedDataset == index}
 							correct={isInEvaluatingMode && correctDataset == index}
 							notcorrect={isInEvaluatingMode && selectedDataset == index && correctDataset != index}
