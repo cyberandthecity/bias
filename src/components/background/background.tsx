@@ -53,6 +53,15 @@ const Background: FunctionComponent<BackgroundProps> = ({
 					alt="background"
 				/>
 			)}
+
+			{!isInAI && (
+				<img
+					className="animated-background-dark"
+					style={{ position: "absolute", zIndex: -1, opacity: 0.3, top: "-100px" }}
+					src="/images/grid.png"
+					alt="background"
+				/>
+			)}
 			{children}
 		</div>
 	)

@@ -243,6 +243,7 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 							text,
 							() => {
 								setTextAnimationDone(true)
+
 								const timeout = setTimeout(() => {
 									setTextAnimationDoneWithDelay(true)
 									if (textAnimationFinished) textAnimationFinished(id)

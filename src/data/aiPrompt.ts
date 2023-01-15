@@ -438,30 +438,76 @@ export const entranceText: Message[] = [
 	},
 ]
 
-export const explanationText: Message[] = [
-	{
-		id: nanoid(),
-		author: "",
-		text: "Hm, ich kann Studierende noch nicht erkennen.",
-		delay: 1500,
-		decay: 0,
-		type: MessageType.Normal,
-	},
-	{
-		id: nanoid(),
-		author: "",
-		text: "Ich brauche Beispiele von Studierenden, um das zu lernen.",
-		delay: 1800,
-		decay: 0,
-		type: MessageType.Instruction,
-		emoji: "❕",
-	},
-	{
-		id: nanoid(),
-		author: "",
-		text: "Kannst du mir Beispiele geben?",
-		delay: 1500,
-		decay: 0,
-		type: MessageType.Normal,
-	},
+export const explanationText: Message[][] = [
+	[
+		{
+			id: nanoid(),
+			author: "",
+			text: "Hey, ich bin die KI Einlass Kontrolle.",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+		{
+			id: nanoid(),
+			author: "",
+			text: "Doch irgendwas mache ich falsch.",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+		{
+			id: nanoid(),
+			author: "",
+			text: "Ich lasse nicht alle Studierenden in das Clubhaus.",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+		{
+			id: nanoid(),
+			author: "",
+			text: "Lass uns das in einer Simulation mal genauer betrachten",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+	],
+	[
+		{
+			id: nanoid(),
+			author: "",
+			text: "Simuliere Tübingen ...",
+			delay: 15000,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+	],
+	[
+		{
+			id: nanoid(),
+			author: "",
+			text: "Hm, ich kann noch nicht alle Studierenden erkennen.",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+		{
+			id: nanoid(),
+			author: "",
+			text: "Ich brauche Beispiele von Studierenden, um das zu lernen.",
+			delay: 1800,
+			decay: 0,
+			type: MessageType.Instruction,
+			emoji: "❕",
+		},
+		{
+			id: nanoid(),
+			author: "",
+			text: "Kannst du mir Beispiele geben?",
+			delay: 1500,
+			decay: 0,
+			type: MessageType.Normal,
+		},
+	],
 ]

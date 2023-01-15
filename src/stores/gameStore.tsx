@@ -35,7 +35,7 @@ export interface EntranceInfo {
 }
 
 export interface ExplanationInfo {
-	aiMessages: Message[]
+	aiMessages: Message[][]
 }
 
 type Store = {
