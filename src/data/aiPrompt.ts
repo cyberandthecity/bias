@@ -44,13 +44,12 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Und denke daran: Studierende sind eine sehr diverse Gruppe...", 
+				text: "Und denke daran: Studierende sind eine sehr diverse Gruppe...",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Instruction,
 				emoji: "❕",
 			},
-			
 		],
 		responseSelectedDataset_0: [
 			{
@@ -232,7 +231,7 @@ export const levelText: AIPrompt[] = [
 				decay: 0,
 				type: MessageType.Normal,
 			},
-			
+
 			{
 				id: nanoid(),
 				author: "",
@@ -268,7 +267,7 @@ export const levelText: AIPrompt[] = [
 				decay: 0,
 				type: MessageType.Normal,
 			},
-			
+
 			{
 				id: nanoid(),
 				author: "",
@@ -409,6 +408,7 @@ export const entranceText: Message[] = [
 		delay: 1000,
 		decay: 0,
 		type: MessageType.Normal,
+		emoji: "alien",
 	},
 	{
 		id: nanoid(),
@@ -417,7 +417,7 @@ export const entranceText: Message[] = [
 		delay: 1000,
 		decay: 0,
 		type: MessageType.Normal,
-		emoji: "🤔",  //😵‍💫
+		emoji: "🤔", //😵‍💫
 	},
 	{
 		id: nanoid(),
@@ -456,5 +456,4 @@ export const explanationText: Message[] = [
 		decay: 0,
 		type: MessageType.Normal,
 	},
-
 ]
