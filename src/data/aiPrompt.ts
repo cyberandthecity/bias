@@ -21,14 +21,14 @@ export const levelText: AIPrompt[] = [
 				decay: 0,
 				type: MessageType.Normal,
 			},
-			{
+			/*{
 				id: nanoid(),
 				author: "",
 				text: "Hier ist eine Auswahl an möglichen Beispielen. Man nennt das Datensätze.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Normal,
-			},
+			},*/
 			// <BlinkText title={""} interval={1000} />
 
 			{
@@ -44,7 +44,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Und denke daran: Studierende sind eine sehr diverse Gruppe...", 
+				text: "Und denke daran: Studierende sind eine sehr diverse Gruppe.", 
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Instruction,
@@ -337,7 +337,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Hintergründe und Lichtverhältnisse beeinflussen die Entscheidung der KI jetzt weniger.",
+				text: "Hintergründe und Lichtverhältnisse beeinflussen die Entscheidung der KI kaum noch.",
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Lesson,
