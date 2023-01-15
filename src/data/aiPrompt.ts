@@ -207,7 +207,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Das scheint zu funktionieren, es werden jetzt auch Brillenträger:innen als Studierende erkannt.",
+				text: "Das scheint zu funktionieren, es werden jetzt auch Brillenträger_innen als Studierende erkannt.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Lesson,
@@ -270,7 +270,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "Die KI:",
-				text: "Hm. Diese Brillenträger:innen haben sich beschwert!",
+				text: "Hm. Diese Brillenträger_innen haben sich beschwert!",
 				delay: 1200,
 				decay: 0,
 				type: MessageType.Normal,
