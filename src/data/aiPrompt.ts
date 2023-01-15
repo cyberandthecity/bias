@@ -38,7 +38,7 @@ export const levelText: AIPrompt[] = [
 				delay: 2200,
 				decay: 0,
 				type: MessageType.Instruction,
-				emoji: "🤔",
+				emoji: "thinking-face",
 			},
 
 			{
@@ -48,7 +48,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Instruction,
-				emoji: "❕",
+				emoji: "exclamation-mark",
 			},
 		],
 		responseSelectedDataset_0: [
@@ -75,7 +75,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -110,7 +110,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -137,7 +137,7 @@ export const levelText: AIPrompt[] = [
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -192,7 +192,7 @@ export const levelText: AIPrompt[] = [
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Instruction,
-				emoji: "🤔",
+				emoji: "thinking-face",
 			},
 		],
 		responseSelectedDataset_0: [
@@ -207,11 +207,11 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Das scheint zu funktionieren, es werden jetzt auch Brillenträger:innen als Studierende erkannt.",
+				text: "Das scheint zu funktionieren, es werden jetzt auch Brillenträger_innen als Studierende erkannt.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -247,7 +247,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -270,7 +270,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "Die KI:",
-				text: "Hm. Diese Brillenträger:innen haben sich beschwert!",
+				text: "Hm. Diese Brillenträger_innen haben sich beschwert!",
 				delay: 1200,
 				decay: 0,
 				type: MessageType.Normal,
@@ -283,7 +283,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -329,7 +329,7 @@ export const levelText: AIPrompt[] = [
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Instruction,
-				emoji: "🤔",
+				emoji: "thinking-face",
 			},
 		],
 		responseSelectedDataset_0: [
@@ -348,7 +348,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1000,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 		],
 		responseSelectedDataset_1: [
@@ -367,7 +367,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1800,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -394,7 +394,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1800,
 				decay: 0,
 				type: MessageType.Lesson,
-				emoji: "💡",
+				emoji: "light-bulb",
 			},
 			{
 				id: nanoid(),
@@ -416,7 +416,7 @@ export const entranceText: Message[] = [
 		delay: 1500,
 		decay: 0,
 		type: MessageType.Normal,
-		emoji: "alien",
+		//emoji: "alien",
 	},
 	{
 		id: nanoid(),
@@ -425,7 +425,7 @@ export const entranceText: Message[] = [
 		delay: 1500,
 		decay: 0,
 		type: MessageType.Normal,
-		emoji: "🤔", //😵‍💫
+		emoji: "thinking-face",
 	},
 	{
 		id: nanoid(),
@@ -434,7 +434,7 @@ export const entranceText: Message[] = [
 		delay: 1000,
 		decay: 0,
 		type: MessageType.Normal,
-		emoji: "❕", //⁉📌
+		emoji: "exclamation-mark",
 	},
 ]
 
