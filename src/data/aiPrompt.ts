@@ -443,7 +443,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Die Einlasskontrolle im Studentenclub ist jetzt automatisiert!",
+			text: "Die Einlasskontrolle im Studierendenclub ist jetzt automatisiert!",
 			delay: 2000,
 			decay: 0,
 			type: MessageType.Normal,
