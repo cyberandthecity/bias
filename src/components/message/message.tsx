@@ -274,7 +274,7 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 							alignItems: "center",
 						}}
 					>
-						<p style={{ fontSize: "50px" }}>{emoji} </p>
+						<img src={"/emojis/" + emoji + ".png"} style={{ width: "50px" }} />
 					</div>
 				)}
 			</div>
