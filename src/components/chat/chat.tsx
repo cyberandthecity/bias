@@ -16,10 +16,12 @@ interface ChatProps {
 	messages: Message[]
 	orientation?: ChatOrientation
 	backgroundColorType?: BackgroundColorType
+	onLastMessage?: (id: string) => void
 }
 
 const Chat: FunctionComponent<ChatProps> = ({
 	messages,
+	onLastMessage,
 	orientation = ChatOrientation.Left,
 	backgroundColorType = BackgroundColorType.Bright,
 }) => {
@@ -67,6 +69,9 @@ const Chat: FunctionComponent<ChatProps> = ({
 							backgroundColorType={backgroundColorType}
 							textAnimationFinished={(id) => {
 								addNewMessage(id)
+								if (messages.length <= messagesIndex + 1 && onLastMessage) {
+									onLastMessage(id)
+								}
 							}}
 						/>
 					)

@@ -30,6 +30,38 @@
 	);
 }
 
+@keyframes shimmer-dark {
+	0% {
+		opacity: 1;
+		mask-position: 0% 1500px;
+		-webkit-mask-position: 0% 1500px;
+	}
+	100% {
+		opacity: 1;
+		mask-position: 0% -1500px;
+		-webkit-mask-position: 0% -1500px;
+	}
+}
+
+.animated-background-dark {
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	animation-name: shimmer-dark;
+	animation-timing-function: linear;
+	mask-image: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.2) 33%,
+		rgba(255, 255, 255, 0.5) 50%,
+		rgba(255, 255, 255, 0.2) 66%
+	);
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.2) 33%,
+		rgba(255, 255, 255, 0.5) 50%,
+		rgba(255, 255, 255, 0.2) 66%
+	);
+}
+
 .shine {
 	background: #f6f7f8;
 	background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);

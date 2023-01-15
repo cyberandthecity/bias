@@ -1,99 +1,110 @@
-import React, { FunctionComponent, useState } from 'react';
-import Chat from '../chat/chat';
-import { Message } from '../message/message';
+import React, { FunctionComponent, useState } from "react"
+import Chat, { BackgroundColorType } from "../chat/chat"
+import { Message } from "../message/message"
 import "@/styles/bounceComplaint.css"
-
+import { useEffect } from "react"
 
 export interface ComplaintType {
-    messages: Message[]
-    imageUrl: string
-    isChatLeft?: boolean
+	messages: Message[]
+	imageUrl: string
+	isChatLeft?: boolean
 }
-
 
 interface ComplaintProps {
 	messages: Message[]
-    imageUrl: string
+	imageUrl: string
 	position: { x: number; y: number }
 	chatOffset?: { x: number; y: number }
 	scale?: number
 	tear?: boolean
+	customAnimation?: string
+	customChatAnimation?: string
+	messageDelay?: number
+	backgroundColorType?: BackgroundColorType
 }
-
 
 const Complaint: FunctionComponent<ComplaintProps> = ({
 	messages,
-    imageUrl,
+	imageUrl,
 	position,
-    chatOffset = { x: 0, y: 0},
+	chatOffset = { x: 0, y: 0 },
 	scale = 1.0,
 	tear = false,
-}) => {  
-  return (
+	customAnimation,
+	messageDelay,
+	backgroundColorType = BackgroundColorType.Dark,
+}) => {
+	const [showMessages, setShowMessages] = useState(messageDelay == undefined ? true : false)
 
-    <div
-    style={{
-        
-        position: "absolute",
-        top: position.y + "px",
-        left: position.x + "px",
-        display: "flex",
-        flexDirection: "row",
-        transform: "scale(" + scale + ")",
-        WebkitTransform: "scale(" + scale + ")",
-        zIndex: 1,
-    }}
->
-    <div
-        className= "slideRightToPosition"//"bouncing-complaint"
-        style={{
-            width: "300px",
-            height: "300px",
-            borderRadius: "1000px",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "center",
-            filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
-        }}
-    >
-        <img src= {imageUrl}/>
-            
+	useEffect(() => {
+		if (messageDelay != undefined) {
+			const messageTimeout = setTimeout(() => {
+				setShowMessages(true)
+			}, messageDelay)
 
-    </div>
-    {tear && (
-        <img
-            className = "slideRightToPosition"//className="bouncing-complaint"
-            src={"/datasets/complaints/tear.png"} 
-            alt="tear"
-            style={{ width: "60px",
-            height: "60px",
-            position: "relative", top: "90px", left: "-110px", opacity: 0.8 }}
-        />
-    )}
+			return () => {
+				clearTimeout(messageTimeout)
+			}
+		}
+	}, [])
 
-    
-
-    <div
-        className="slideRightToPosition"
-        style={{
-            position: "absolute",
-            bottom: chatOffset.y + "px",
-            left: chatOffset.x + "px",
-            height: "1000px",
-        }}
-    >
-        <Chat messages={messages} />
-    </div>
-</div>
-    
-  )
+	return (
+		<div
+			style={{
+				position: "absolute",
+				top: position.y + "px",
+				left: position.x + "px",
+				display: "flex",
+				flexDirection: "row",
+				transform: "scale(" + scale + ")",
+				WebkitTransform: "scale(" + scale + ")",
+				zIndex: 1,
+			}}
+		>
+			<div className={customAnimation ? customAnimation : "slideRightToPosition"} style={{}}>
+				<img
+					src={imageUrl}
+					style={{
+						width: "300px",
+						height: "300px",
+						borderRadius: "1000px",
+						overflow: "hidden",
+						display: "flex",
+						justifyContent: "center",
+						background: "white",
+						border: "3px solid white",
+						filter: "drop-shadow(0px 0px 50px rgba(246, 223, 232, 1))",
+					}}
+				/>
+				{showMessages && (
+					<div
+						style={{
+							position: "absolute",
+							bottom: chatOffset.y + "px",
+							left: chatOffset.x + "px",
+							height: "1000px",
+						}}
+					>
+						{messages.length > 0 && <Chat messages={messages} backgroundColorType={backgroundColorType} />}
+					</div>
+				)}
+			</div>
+			{tear && (
+				<img
+					className={customAnimation ? customAnimation : "slideRightToPosition"}
+					src={"/datasets/complaints/tear.png"}
+					alt="tear"
+					style={{ width: "60px", height: "60px", position: "relative", top: "90px", left: "-110px", opacity: 0.8 }}
+				/>
+			)}
+		</div>
+	)
 }
 
-export default Complaint;
+export default Complaint
 
-
-
-    {/* <div className="image-with-bubble"
+{
+	/* <div className="image-with-bubble"
         style={{ 
             left: "80%",
             top: "30%"
@@ -123,4 +134,5 @@ export default Complaint;
         }}>
         {message.text}
       </div>
-    </div> */ }
+    </div> */
+}

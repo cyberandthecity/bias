@@ -4,6 +4,7 @@ import Chat, { BackgroundColorType } from "../chat/chat"
 import { Message, MessageType } from "../message/message"
 import AICanvas from "./aiCanvas"
 import "@/styles/glassBounce.css"
+import "@/styles/simulationTransition.css"
 
 interface AIProps {
 	messages: Message[]
@@ -13,6 +14,8 @@ interface AIProps {
 	wearsGlasses?: boolean
 	glassesBounce?: boolean
 	backgroundColorType?: BackgroundColorType
+	simulationTransition?: boolean
+	onLastMessage?: (id: string) => void
 }
 
 const AI: FunctionComponent<AIProps> = ({
@@ -23,6 +26,8 @@ const AI: FunctionComponent<AIProps> = ({
 	wearsGlasses = false,
 	glassesBounce = false,
 	backgroundColorType = BackgroundColorType.Bright,
+	simulationTransition = false,
+	onLastMessage,
 }) => {
 	return (
 		<div
@@ -36,6 +41,21 @@ const AI: FunctionComponent<AIProps> = ({
 			}}
 		>
 			<div
+				style={{
+					position: "absolute",
+					background: WrongColor,
+					bottom: chatOffset.y + "px",
+					left: chatOffset.x + "px",
+					height: "1000px",
+					transition: "all 800ms ease-in-out",
+				}}
+			>
+				{messages.length > 0 && (
+					<Chat messages={messages} backgroundColorType={backgroundColorType} onLastMessage={onLastMessage} />
+				)}
+			</div>
+			<div
+				className={simulationTransition ? "simulationTransition" : ""}
 				style={{
 					transform: "scale(" + scale + ")",
 					WebkitTransform: "scale(" + scale + ")",
@@ -52,7 +72,16 @@ const AI: FunctionComponent<AIProps> = ({
 						boxShadow: " 0px 0px 50px rgba(246, 223, 232, 1)",
 					}}
 				>
-					<video autoPlay loop muted playsInline src="/videos/ai.mp4" style={{ transform: "scale(1.65)" }} />
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						src="/videos/ai.mp4"
+						style={{
+							transform: "scale(1.65)",
+						}}
+					/>
 					{/* <AICanvas /> */}
 				</div>
 
@@ -64,18 +93,6 @@ const AI: FunctionComponent<AIProps> = ({
 						style={{ position: "absolute", transform: "scale(1.1)", top: "60px", left: "26px", opacity: 0.8 }}
 					/>
 				)}
-			</div>
-
-			<div
-				style={{
-					position: "absolute",
-					background: WrongColor,
-					bottom: chatOffset.y + "px",
-					left: chatOffset.x + "px",
-					height: "1000px",
-				}}
-			>
-				<Chat messages={messages} backgroundColorType={backgroundColorType} />
 			</div>
 		</div>
 	)

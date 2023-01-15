@@ -1,116 +1,151 @@
 import { BackgroundColor, InterfaceColor } from "@/utils/theme"
-import { FunctionComponent } from "react"
+import { FunctionComponent, useEffect, useRef } from "react"
 import BlinkText from "../blinkText/blinkText"
 
 import "@/styles/globals.css"
 import "@/styles/shining.css"
 import SelectionButton from "../selectionButton/selectionButton"
-import Disco from "../disco/disco"
+import Complaint from "../complaint/complaint"
+import { simulationComplaints } from "@/data/complaintPrompt"
+import { useState } from "react"
 
 interface SimulationProps {
 	title: string
+	playVideo: boolean
 	nextLevel: () => void
+	activateButton: boolean
+	onVideoEnd: () => void
 }
+const Simulation: FunctionComponent<SimulationProps> = ({
+	title,
+	nextLevel,
+	playVideo,
+	activateButton,
+	onVideoEnd,
+}) => {
+	const videoRef = useRef<HTMLVideoElement>(null)
+	const [showComplaint, setShowComplaint] = useState(false)
+	const [showPeople, setShowPeople] = useState(false)
 
-const Simulation: FunctionComponent<SimulationProps> = ({ title, nextLevel }) => {
+	const loopVideo = () => {
+		if (videoRef.current) {
+			onVideoEnd()
+			videoRef.current.currentTime = 11.2
+			videoRef.current.play()
+		}
+	}
+
+	useEffect(() => {
+		if (videoRef.current && playVideo) {
+			videoRef.current.play()
+			const timeout = setTimeout(() => {
+				setShowPeople(true)
+			}, 8800) // TODO: adapt to correct time
+
+			const timeoutComplaints = setTimeout(() => {
+				setShowComplaint(true)
+			}, 10000) // TODO: adapt to correct time
+			return () => {
+				clearTimeout(timeout)
+				clearTimeout(timeoutComplaints)
+			}
+		}
+	}, [playVideo])
+
 	return (
 		<div
 			style={{
 				display: "flex",
 				flexDirection: "column",
+				justifyContent: "center",
+				alignItems: "center",
+				gap: "50px",
 			}}
 		>
 			<div
 				style={{
-					display: "flex",
-
-					padding: "65px 65px 25px 65px",
-					gap: "65px",
-					gridGap: "65px",
-					flexDirection: "column",
-				}}
-			>
-				{/* <BlinkText title={title} interval={1000} /> */}
-				<div style={{ display: "flex", gap: "65px", flexDirection: "row" }}>
-					<div
-						style={{
-							height: "500px",
-							background: "rgba(246, 248, 255, 0.8)",
-							flexGrow: 1,
-							borderRadius: "10px",
-							overflow: "hidden",
-						}}
-					>
-						<img src={"/images/entrance.png"} alt="entrance" style={{}} />
-					</div>
-					<div
-						style={{
-							width: "300px",
-							height: "500px",
-							background: "rgba(246, 248, 255, 0.8)",
-							flexGrow: 0,
-							borderRadius: "10px",
-							overflow: "hidden",
-						}}
-					>
-						<img src={"/images/decission.png"} alt="decission" style={{}} />
-					</div>
-					<div
-						style={{
-							height: "500px",
-							background: "rgba(246, 248, 255, 0.8)",
-							flexGrow: 1,
-							borderRadius: "10px",
-							overflow: "hidden",
-						}}
-					>
-						<Disco />
-						{/* <img src={"/images/club.png"} alt="club" style={{}} /> */}
-					</div>
-				</div>
-			</div>
-
-			<div
-				style={{
-					width: "100%",
-					height: "300px",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					background: "rgba(0, 0, 0, 0.2)",
-					borderTop: "10px solid rgba(255,255,255,0.6)",
-					borderBottom: "10px solid rgba(255,255,255,0.6)",
-					marginTop: "50px",
-					marginBottom: "50px",
-				}}
-			>
-				<img src={"/images/line.svg"} alt="line" style={{ opacity: 0.8, marginLeft: "50px", marginBottom: "60px" }} />
-				<div
-					style={{
-						position: "absolute",
-						marginRight: "900px",
-						marginBottom: "550px",
-					}}
-				>
-					<img src={"/images/bus.png"} alt="bus" style={{ position: "absolute" }} />
-				</div>
-			</div>
-
-			<div
-				style={{
-					height: "150px",
-					width: "100%",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-
+					width: "2000px",
+					height: "2000px",
+					borderRadius: "1000px",
 					background: BackgroundColor,
+
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					overflow: "hidden",
+					flexDirection: "column",
+					boxShadow: " 0px 0px 50px rgba(246, 223, 232, 1)",
 				}}
 			>
-				<SelectionButton onClick={nextLevel} shine>
+				<video ref={videoRef} muted playsInline src="/videos/simulation.mp4" onEnded={loopVideo} />
+				{/* <AICanvas /> */}
+			</div>
+			<div
+				style={{
+					//marginTop: "-200px",
+					height: "150px",
+					width: "2000px",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+
+					//background: BackgroundColor,
+				}}
+			>
+				<SelectionButton
+					onClick={nextLevel}
+					shine={activateButton}
+					background="white"
+					color={InterfaceColor}
+					activated={activateButton}
+				>
 					Ja, kann losgehen!
 				</SelectionButton>
 			</div>
+			{showComplaint && (
+				<>
+					<Complaint
+						messageDelay={1000}
+						customAnimation="scaleWithBounce"
+						position={{ x: 100, y: 2200 }}
+						chatOffset={{ x: 300, y: 250 }}
+						messages={simulationComplaints[0].messages}
+						imageUrl={simulationComplaints[0].imageUrl}
+					/>
+					<Complaint
+						messageDelay={2000}
+						customAnimation="scaleWithBounce"
+						position={{ x: 500, y: 2550 }}
+						chatOffset={{ x: 300, y: 250 }}
+						messages={simulationComplaints[1].messages}
+						imageUrl={simulationComplaints[1].imageUrl}
+					/>
+					<Complaint
+						customAnimation="scaleWithBounce"
+						position={{ x: 1700, y: 2300 }}
+						messages={simulationComplaints[2].messages}
+						imageUrl={simulationComplaints[2].imageUrl}
+					/>
+				</>
+			)}
+			{showPeople && (
+				<>
+					<Complaint
+						customAnimation="scale"
+						position={{ x: 200, y: 950 }}
+						messages={simulationComplaints[4].messages}
+						imageUrl={simulationComplaints[4].imageUrl}
+					/>
+					<Complaint
+						messageDelay={1000}
+						customAnimation="scale"
+						position={{ x: 400, y: 800 }}
+						chatOffset={{ x: 150, y: -120 }}
+						messages={simulationComplaints[3].messages}
+						imageUrl={simulationComplaints[3].imageUrl}
+					/>
+				</>
+			)}
 		</div>
 	)
 }
