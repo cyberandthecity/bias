@@ -143,6 +143,14 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
+				text: "Das war schonmal gut, aber lass uns nochmal reinschauen.",
+				delay: 1200,
+				decay: 0,
+				type: MessageType.Normal,
+			}
+			/*{
+				id: nanoid(),
+				author: "",
 				text: "Aber ich brauche noch mehr Beispiele!",
 				delay: 1200,
 				decay: 0,
@@ -156,7 +164,7 @@ export const levelText: AIPrompt[] = [
 				delay: 1500,
 				decay: 0,
 				type: MessageType.Normal,
-			},
+			},*/
 		],
 	},
 	{
