@@ -17,7 +17,7 @@ export interface Dataset {
 	id: string
 	title: string
 	images: string[][]
-	resultDelays: number[]
+	resultDelays: number
 }
 export interface Level {
 	title: string
@@ -27,7 +27,7 @@ export interface Level {
 	aiPrompt: AIPrompt
 	hintPrompt: string
 	complaints: ComplaintPrompt
-	resultDelays: number[]
+	resultDelays: number
 }
 
 export interface EntranceInfo {
@@ -63,7 +63,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[0],
 				hintPrompt: levelHint[0],
 				complaints: levelComplaints[0],
-				resultDelays: [10900, 10700, 1000],
+				resultDelays: 11000,
 			},
 			{
 				title: "Wähle aus diesen Gruppen von Beispielen:",
@@ -73,7 +73,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[1],
 				hintPrompt: levelHint[1],
 				complaints: levelComplaints[1],
-				resultDelays: [1000, 8500, 9500],
+				resultDelays: 9500,
 			},
 			{
 				title: "Wähle aus diesen Gruppen von Beispielen:",
@@ -83,7 +83,7 @@ export const useGame = create<Store>(
 				aiPrompt: levelText[2],
 				hintPrompt: levelHint[2],
 				complaints: levelComplaints[2],
-				resultDelays: [2500, 11000, 11000],
+				resultDelays: 10900,
 			},
 		],
 		currentLevel: 0,
@@ -103,7 +103,7 @@ export const useGame = create<Store>(
 
 				for (let i = 0; i < 3; i++) {
 					let images: string[][] = []
-					let resultDelays: number[] = level.resultDelays
+					let resultDelays: number = level.resultDelays
 					for (let row = 0; row < level.dimension[0]; row++) {
 						for (let column = 0; column < level.dimension[1]; column++) {
 							if (!images[row]) images[row] = []
