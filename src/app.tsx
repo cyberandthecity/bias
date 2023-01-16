@@ -5,6 +5,7 @@ import Entrance from "./pages/entrance"
 import Explanation from "./pages/explanation"
 import Game from "./pages/game"
 import Zoom from "./pages/zoom"
+import Eval from "./pages/eval"
 import ImageGrid from "./pages/zoom3"
 import Information from "./pages/information"
 import { useGame } from "./stores/gameStore"
@@ -120,6 +121,18 @@ const App = () => {
 							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
 						/>
 					}
+				/>{" "}
+				//Additional information is displayed
+				<Route
+					path="/evaluation"	
+					element={
+						<Eval
+							scale={scale}
+							rotate={rotate}	
+							translate={translate}
+							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
+							/>
+						}
 				/>{" "}
 				//Additional information is displayed
 				<Route

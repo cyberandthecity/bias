@@ -1,6 +1,6 @@
 import { ComplaintType } from "@/components/complaint/complaint"
 import { Message } from "@/components/message/message"
-import { AIPrompt, levelText, entranceText, explanationText } from "@/data/aiPrompt"
+import { AIPrompt, levelText, entranceText, explanationText, evaluationText } from "@/data/aiPrompt"
 import { ComplaintPrompt, levelComplaints } from "@/data/complaintPrompt"
 import { levelHint } from "@/data/hintPrompt"
 import { nanoid } from "nanoid"
@@ -38,9 +38,14 @@ export interface ExplanationInfo {
 	aiMessages: Message[][]
 }
 
+export interface EvaluationInfo {
+	aiMessages: Message[]
+}
+
 type Store = {
 	entranceInfo: EntranceInfo
 	explanationInfo: ExplanationInfo
+	evaluationInfo: EvaluationInfo
 	levels: Level[]
 	currentLevel: number
 	actions: Actions
@@ -53,6 +58,9 @@ export const useGame = create<Store>(
 		},
 		explanationInfo: {
 			aiMessages: explanationText,
+		},
+		evaluationInfo: {
+			aiMessages: evaluationText,
 		},
 		levels: [
 			{

@@ -1,6 +1,5 @@
 import React, { useState, useRef, FunctionComponent } from "react"
 import Image, { ImageProps as ImageData } from "@/components/image/image"
-import { Center } from "@react-three/drei"
 
 // TODO: Add a restart button
 // TODO: Create space free from images in the middle and add explanation text
@@ -25,7 +24,7 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 		// Generate random coordinates for the image
 		const x = Math.floor(Math.random() * width)
 		const y = Math.floor(Math.random() * height)
-		const imagesize = Math.floor(Math.random() * 200)
+		const imagesize = Math.floor(Math.random() * 400)
 
 		const centerX = width / 2
 		const centerY = height / 2
@@ -35,15 +34,16 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 		const distance = Math.sqrt(dx * dx + dy * dy)
 		const radius = Math.min(width, height) / 4
 
-		if (distance > radius) {
+		if (x < 535 || x > 1423 || y < 1037 || y > 2803) {
 			const image: ImageData = {
 				id: index.current,
 				x: x,
 				y: y,
 				width: imagesize,
 				height: imagesize,
-				src: `/datasets/tech_5x4/set01/image_${Math.floor(Math.random() * 7)}.png`,
+				src: `/datasets/tech_5x4/set0${Math.floor(Math.random() * 3) + 1}/image_${Math.floor(Math.random() * 19)}.png`,
 			}
+			console.log(image.src)
 
 			// Add the image to the page
 			if (index.current < 1500) {
@@ -59,7 +59,7 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 	}
 
 	// Call the addImage function after a time delay
-	setTimeout(addImage, timeDelay)
+	setTimeout(addImage, timeDelay) 
 
 	return (
 		<>

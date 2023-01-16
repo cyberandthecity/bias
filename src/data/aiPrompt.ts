@@ -511,3 +511,25 @@ export const explanationText: Message[][] = [
 		},
 	],
 ]
+
+export const evaluationText: Message[] = [
+	{
+		id: nanoid(),
+		author: "Die KI:",
+		text: "Lass uns die Ergebnisse nochmal anschauen.",
+		delay: 1500,
+		decay: 0,
+		type: MessageType.Normal,
+		//emoji: "alien",
+	},
+	{
+		id: nanoid(),
+		author: "",
+		text: "Gemeinsam haben wir einen guten Datensatz gefunden.",
+		delay: 2000,
+		decay: 0,
+		type: MessageType.Normal,
+		//emoji: "thinking-face",
+	},
+	
+]
