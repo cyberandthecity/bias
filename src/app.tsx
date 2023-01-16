@@ -6,6 +6,7 @@ import Explanation from "./pages/explanation"
 import Game from "./pages/game"
 import Zoom from "./pages/zoom"
 import ImageGrid from "./pages/zoom3"
+import Information from "./pages/information"
 import { useGame } from "./stores/gameStore"
 
 const App = () => {
@@ -115,6 +116,18 @@ const App = () => {
 						<ImageGrid
 							scale={scale}
 							rotate={rotate}
+							translate={translate}
+							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
+						/>
+					}
+				/>{" "}
+				//Additional information is displayed
+				<Route
+					path="/information"	
+					element={
+						<Information
+							scale={scale}
+							rotate={rotate}	
 							translate={translate}
 							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
 						/>
