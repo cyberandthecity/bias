@@ -31,7 +31,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 	let navigate = useNavigate()
 
 	const progessToNextScreen = () => {
-		navigate("/explanation")
+		navigate("/introduction")
 	}
 	return (
 		<>
