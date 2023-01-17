@@ -9,8 +9,9 @@ import { FunctionComponent, useEffect, useState } from "react"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 import SelectionButton from "@/components/selectionButton/selectionButton"
-import { InterfaceColor } from "@/utils/theme"
+import { InterfaceColor, HighlightColor } from "@/utils/theme"
 import { useNavigate } from "react-router-dom"
+import "@/styles/fadeInButton.css"
 
 
 
@@ -27,6 +28,8 @@ const Eval: FunctionComponent<EvalProps> = ({
 	translate = { x: 0, y: 0 },
 	toggleFullscreen,
 }) => {
+    let navigate = useNavigate()
+
     const level = useGame((state) => state.levels[state.currentLevel])
     const [showSecondComponent, setShowSecondComponent] = useState(false);
     const [showForegroundText, setShowForegroundText] = useState(false);
@@ -35,7 +38,7 @@ const Eval: FunctionComponent<EvalProps> = ({
         setShowSecondComponent(true);
         setTimeout(() => {
           setShowForegroundText(true);
-        }, 5000);
+        }, 8000);
       };
     
 
@@ -359,22 +362,27 @@ const Eval: FunctionComponent<EvalProps> = ({
                 fontSize: "36px",
 
         }}>
-            <button 
+        <button 
             style={{
                 width: "616px",
                 height: "190px",
-                background: "#BA90FD",
+                background: HighlightColor,
                 border: "none",
                 color: "black",
                 padding: "15px 32px",
                 textAlign: "center",
                 textDecoration: "none",
                 display: "inline-block",
-                fontSize: "36px",
+                fontSize: "42px",
                 margin: "4px 2px",
                 cursor: "pointer",
                 borderRadius: "40px",
-            }} onClick={handleButtonClick}>Zum realistischen Beispiel</button>
+            }} 
+            onClick={handleButtonClick}
+        >
+            <p style={{color:"white",fontFamily:"Inter"}}> Zum realistischen Beispiel</p>
+        
+        </button>
 
             
         </div>
@@ -383,20 +391,61 @@ const Eval: FunctionComponent<EvalProps> = ({
         </div>
         {showSecondComponent && <ImageAdder2 />}
         {showForegroundText && (
-        <div 
-        style={{
-                position: "absolute",
+        <div
+            className="fadeInButton"
+            style={{
+                position: "relative",
                 width: "1359px",
                 height: "871px",
-                left: "414px",
-                top: "1075px",
-                background: "#BA90FD",
+                top: "0%",
+                left: "17%",
+                display: "flex",
+                background: "white",
                 borderRadius: "40px",
-                textAlign: "center",
-                fontSize: "66px",
                 padding: "50px",
-        }}>
-          <p> In der Realität, braucht KI VIEL MEHR BEISPIELE um zu lernen! </p>
+                backgroundColor:"rgba(255,255,255,0.87)",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
+            <p style={{fontFamily:'Inter', color:InterfaceColor,fontSize: "66px",textAlign: "center",}}> Um zu lernen, braucht eine KI VIEL MEHR Beispiele! </p>
+            <p	
+				style={{
+						position: "absolute",
+						bottom: "100px",
+						height: "150px",
+						width: "2000px",
+						display: "flex",
+						justifyContent: "center",
+                        alignItems: "center",
+					}}
+			>
+				<SelectionButton
+					onClick={() => navigate("/explanation")}
+					shine={true}
+					background={InterfaceColor}
+					color="white"
+				>
+				Mehr Infos
+				</SelectionButton>
+				<p	
+					style={{
+				    	position: "relative",
+						left: "50px",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+				    <SelectionButton
+						onClick={() => navigate("/")}
+						shine={true}	
+						background={InterfaceColor}
+						color="white"
+					>
+					Neustart
+					</SelectionButton>
+				</p>
+			</p>
         </div>
       )}
 
