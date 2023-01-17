@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router-dom"
 import AICanvas from "./components/ai/aiCanvas"
 import Entrance from "./pages/entrance"
-import Explanation from "./pages/explanation"
+import Introduction from "./pages/introduction"
 import Game from "./pages/game"
 import Zoom from "./pages/zoom"
 import Eval from "./pages/eval"
 import ImageGrid from "./pages/zoom3"
-import Information from "./pages/information"
+import Explanation from "./pages/explanation"
 import { useGame } from "./stores/gameStore"
 
 const App = () => {
@@ -78,9 +78,9 @@ const App = () => {
 					}
 				/>
 				<Route
-					path="/explanation"
+					path="/introduction"
 					element={
-						<Explanation
+						<Introduction
 							scale={scale}
 							rotate={rotate}
 							translate={translate}
@@ -136,9 +136,9 @@ const App = () => {
 				/>{" "}
 				//Additional information is displayed
 				<Route
-					path="/information"	
+					path="/explanation"	
 					element={
-						<Information
+						<Explanation
 							scale={scale}
 							rotate={rotate}	
 							translate={translate}
