@@ -146,18 +146,18 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 		const fontSize = (messageType: MessageType) => {
 			switch (messageType) {
 				case MessageType.Normal:
-					return "34px"
+					return "40px"
 				case MessageType.Warning:
 					return "34px"
 				case MessageType.Instruction:
-					return "34px"
+					return "40px"
 
 				case MessageType.Typing:
 					return "50px"
 				case MessageType.Lesson:
-					return "34px"
+					return "40px"
 				case MessageType.Complaint:
-					return "34px"
+					return "40px"
 			}
 		}
 
