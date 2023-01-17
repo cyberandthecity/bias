@@ -67,9 +67,6 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 			{images.map((image) => (
 				<Image key={image.id} {...image} />
 			))}
-			<div style={{ position: 'relative', fontSize: 60 }}>
-     		<p style={{ position: 'absolute', left: width/2 - 310, top: height/2, textAlign: 'center', color: 'white'}}>Um zu lernen brauche ich <br></br> sehr viele Daten!</p>
-    		</div>
 			{" "}
 		</>
 	)
