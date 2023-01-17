@@ -116,7 +116,7 @@ const Game: FunctionComponent<GameProps> = ({
 							if (currentLevel == 2 && isInEvaluatingMode) {
 								setFinished(true)
 								setTimeout(() => {
-									navigate("/zoom")
+									navigate("/evaluation")
 								}, 500)
 							} else {
 								progressLevel()

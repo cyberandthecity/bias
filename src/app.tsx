@@ -5,7 +5,7 @@ import Entrance from "./pages/entrance"
 import Introduction from "./pages/introduction"
 import Game from "./pages/game"
 import Zoom from "./pages/zoom"
-import Eval from "./pages/eval"
+import Evaluation from "./pages/evaluation"
 import ImageGrid from "./pages/zoom3"
 import Explanation from "./pages/explanation"
 import { useGame } from "./stores/gameStore"
@@ -126,7 +126,7 @@ const App = () => {
 				<Route
 					path="/evaluation"	
 					element={
-						<Eval
+						<Evaluation
 							scale={scale}
 							rotate={rotate}	
 							translate={translate}
