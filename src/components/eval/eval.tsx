@@ -29,6 +29,14 @@ const Eval: FunctionComponent<EvalProps> = ({
 }) => {
     const level = useGame((state) => state.levels[state.currentLevel])
     const [showSecondComponent, setShowSecondComponent] = useState(false);
+    const [showForegroundText, setShowForegroundText] = useState(false);
+
+    const handleButtonClick = () => {
+        setShowSecondComponent(true);
+        setTimeout(() => {
+          setShowForegroundText(true);
+        }, 5000);
+      };
     
 
 
@@ -366,7 +374,7 @@ const Eval: FunctionComponent<EvalProps> = ({
                 margin: "4px 2px",
                 cursor: "pointer",
                 borderRadius: "40px",
-            }} onClick={() => setShowSecondComponent(true)}>Zum realistischen Beispiel</button>
+            }} onClick={handleButtonClick}>Zum realistischen Beispiel</button>
 
             
         </div>
@@ -374,6 +382,23 @@ const Eval: FunctionComponent<EvalProps> = ({
 
         </div>
         {showSecondComponent && <ImageAdder2 />}
+        {showForegroundText && (
+        <div 
+        style={{
+                position: "absolute",
+                width: "1359px",
+                height: "871px",
+                left: "414px",
+                top: "1075px",
+                background: "#BA90FD",
+                borderRadius: "40px",
+                textAlign: "center",
+                fontSize: "66px",
+                padding: "50px",
+        }}>
+          <p> In der Realität, braucht KI VIEL MEHR BEISPIELE um zu lernen! </p>
+        </div>
+      )}
 
         </div>
         
