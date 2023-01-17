@@ -1,17 +1,13 @@
 import React from "react"
 import AI from "@/components/ai/ai"
-import ImageGrid from "@/components/ImageGrid/ImageGrid"
 import ImageAdder2 from "@/components/imageadder2/imageadder2"
-import Background from "@/components/background/background"
-import Title from "@/components/title/title"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
-import Restart from "@/components/restart/restart"
-import Fullscreen from "@/components/fullscreen/fullscreen"
 import SelectionButton from "@/components/selectionButton/selectionButton"
 import { InterfaceColor, HighlightColor } from "@/utils/theme"
 import { useNavigate } from "react-router-dom"
 import "@/styles/fadeInButton.css"
+import "@/styles/shining.css"
 
 
 
@@ -40,8 +36,6 @@ const Eval: FunctionComponent<EvalProps> = ({
           setShowForegroundText(true);
         }, 8000);
       };
-    
-
 
 	return (
         <div>
@@ -58,21 +52,21 @@ const Eval: FunctionComponent<EvalProps> = ({
         
         
         <div 
-        style={{
-            position: "absolute",
-            width: "704px",
-            height: "99px",
-            left: "728px",
-            top: "50px",
-            fontFamily: "Inter",
-            fontStyle: "normal",
-            fontWeight: "700",
-            fontSize: "82px",
-            lineHeight: "99px",
-            color: "#4C5985",
-            opacity: "0.5",
-            }}>
-            <p>Finaler Datensatz</p> 
+            style={{
+                position: "absolute",
+                width: "704px",
+                height: "99px",
+                left: "728px",
+                top: "50px",
+                fontFamily: "Inter",
+                fontStyle: "normal",
+                fontWeight: "700",
+                fontSize: "82px",
+                lineHeight: "99px",
+                color: "#4C5985",
+                opacity: "0.5",
+                }}>
+                <p>Finaler Datensatz</p> 
         </div>
 
         <img style={{
@@ -136,24 +130,23 @@ const Eval: FunctionComponent<EvalProps> = ({
         }} src="/datasets/gender_3x2/set03/image_0.png"></img>
 
         <div 
-        style={{
-            position: "absolute",
-            width: "427px",
-            height: "233px",
-            left: "154px",
-            top: "233px", 
-            padding: "20px",
+            style={{
+                position: "absolute",
+                width: "427px",
+                height: "233px",
+                left: "154px",
+                top: "233px", 
+                padding: "20px",
+                
+                /* Interface Blue */
+                background: "#e4e8f3",
+                borderRadius: "20px",
+                fontSize: "36px",
             
-            /* Interface Blue */
-            background: "#e4e8f3",
-            borderRadius: "20px",
-            fontSize: "36px",
-        
-        }}>
+            }}>
             <p> In Level 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. </p>
         </div>
 
-        
         <img style={{
             position: "absolute",     
             width: "201px",
@@ -215,23 +208,22 @@ const Eval: FunctionComponent<EvalProps> = ({
         }} src="/datasets/glasses_4x3/set01/image_11.png"></img>
 
         <div 
-        style={{
-            position: "absolute",
-            width: "427px",
-            height: "233px",
-            left: "154px",
-            top: "733px", 
-            padding: "20px",
+            style={{
+                position: "absolute",
+                width: "427px",
+                height: "233px",
+                left: "154px",
+                top: "733px", 
+                padding: "20px",
+                
+                /* Interface Blue */
+                background: "#e4e8f3",
+                borderRadius: "20px",
+                fontSize: "36px",
             
-            /* Interface Blue */
-            background: "#e4e8f3",
-            borderRadius: "20px",
-            fontSize: "36px",
-        
-        }}>
+            }}>
             <p> In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen. </p>
         </div>
-
 
         <img style={{
             position: "absolute",     
@@ -293,7 +285,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 
         }} src="/datasets/tech_5x4/set01/image_17.png"></img>
 
-<img style={{
+        <img style={{
             position: "absolute",     
             width: "201px",
             height: "201px",
@@ -312,7 +304,6 @@ const Eval: FunctionComponent<EvalProps> = ({
             borderRadius: "20px",
 
         }} src="/datasets/tech_5x4/set01/image_19.png"></img>
-
 
         <div 
         style={{
@@ -348,9 +339,8 @@ const Eval: FunctionComponent<EvalProps> = ({
                 fontSize: "36px",
 
         }}>
-            <p> Dieser Datensatz repräsentiert ein paar Beispiele, um Studierende zu erkennen. Bei 20 Bildern war das schon gar nicht so einfach, oder..?  </p>
+            <p> Dieser Datensatz repräsentiert ein paar Beispiele, um Studierende zu erkennen. Bei 12 Bildern war das schon gar nicht so einfach, oder..?  </p>
         </div>
-
         <div 
             style={{
                 position: "absolute",
@@ -362,32 +352,28 @@ const Eval: FunctionComponent<EvalProps> = ({
                 fontSize: "36px",
 
         }}>
-        <button 
-            style={{
-                width: "616px",
-                height: "190px",
-                background: HighlightColor,
-                border: "none",
-                color: "black",
-                padding: "15px 32px",
-                textAlign: "center",
-                textDecoration: "none",
-                display: "inline-block",
-                fontSize: "42px",
-                margin: "4px 2px",
-                cursor: "pointer",
-                borderRadius: "40px",
-            }} 
-            onClick={handleButtonClick}
-        >
-            <p style={{color:"white",fontFamily:"Inter"}}> Zum realistischen Beispiel</p>
-        
-        </button>
-
-            
+            <button 
+                className="shine"
+                style={{
+                    width: "616px",
+                    height: "190px",
+                    background: HighlightColor,
+                    border: "none",
+                    color: "black",
+                    padding: "15px 32px",
+                    textAlign: "center",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    fontSize: "42px",
+                    margin: "4px 2px",
+                    cursor: "pointer",
+                    borderRadius: "40px",
+                }} 
+                onClick={handleButtonClick}
+            >
+                <p style={{color:"white",fontFamily:"Inter"}}> Zum realistischen Beispiel</p>
+            </button>    
         </div>
-        
-
         </div>
         {showSecondComponent && <ImageAdder2 />}
         {showForegroundText && (
@@ -407,9 +393,9 @@ const Eval: FunctionComponent<EvalProps> = ({
                 justifyContent: "center",
                 alignItems: "center",
             }}
-        >
+            >
             <p style={{fontFamily:'Inter', color:InterfaceColor,fontSize: "66px",textAlign: "center",}}> Um zu lernen, braucht eine KI VIEL MEHR Beispiele! </p>
-            <p	
+            <p
 				style={{
 						position: "absolute",
 						bottom: "100px",
@@ -447,15 +433,8 @@ const Eval: FunctionComponent<EvalProps> = ({
 				</p>
 			</p>
         </div>
-      )}
-
-        </div>
-        
-			
-		
+    )}
+    </div>	
 	)
 }
-    
-
-
 export default Eval
