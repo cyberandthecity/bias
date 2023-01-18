@@ -241,7 +241,7 @@ const Eval: FunctionComponent<EvalProps> = ({
             top: "1187px",
             borderRadius: "20px",
 
-        }} src="/datasets/tech_5x4/set01/image_3.png"></img>
+        }} src="/datasets/tech_5x4/set01/image_4.png"></img>
 
         <img style={{
             position: "absolute",     
@@ -251,7 +251,7 @@ const Eval: FunctionComponent<EvalProps> = ({
             top: "1187px",
             borderRadius: "20px",
 
-        }} src="/datasets/tech_5x4/set01/image_7.png"></img>
+        }} src="/datasets/tech_5x4/set01/image_9.png"></img>
 
         <img style={{
             position: "absolute",     
@@ -261,7 +261,7 @@ const Eval: FunctionComponent<EvalProps> = ({
             top: "1187px",
             borderRadius: "20px",
 
-        }} src="/datasets/tech_5x4/set01/image_11.png"></img>
+        }} src="/datasets/tech_5x4/set01/image_14.png"></img>
 
         <img style={{
             position: "absolute",     
@@ -318,7 +318,7 @@ const Eval: FunctionComponent<EvalProps> = ({
         style={{
             position: "absolute",
             width: "427px",
-            height: "233px",
+            height: "273px",
             left: "154px",
             top: "1233px", 
             padding: "20px",
@@ -329,7 +329,7 @@ const Eval: FunctionComponent<EvalProps> = ({
             fontSize: "36px",
         
         }}>
-            <p> In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig vom Hintergrund zu erkennen. </p>
+            <p> In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen. </p>
         </div>
 
 
