@@ -41,7 +41,7 @@ const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
 				y: y,
 				width: imagesize,
 				height: imagesize,
-				src: `/datasets/tech_5x4/set0${Math.floor(Math.random() * 3) + 1}/image_${Math.floor(Math.random() * 19)}.png`,
+				src: `/datasets/evaluation/${Math.floor(Math.random() * 47) +1}.png`,
 			}
 			console.log(image.src)
 
