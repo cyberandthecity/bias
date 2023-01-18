@@ -339,7 +339,7 @@ const Eval: FunctionComponent<EvalProps> = ({
                 fontSize: "36px",
 
         }}>
-            <p> Dieser Datensatz repräsentiert ein paar Beispiele, um Studierende zu erkennen. Bei 12 Bildern war das schon gar nicht so einfach, oder..?  </p>
+            <p> Dieser Datensatz repräsentiert ein paar Beispiele, um Studierende zu erkennen. Bei 20 Bildern war das schon gar nicht so einfach, oder..?  </p>
         </div>
         <div 
             style={{
