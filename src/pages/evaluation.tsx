@@ -1,22 +1,12 @@
 import AI from "@/components/ai/ai"
-import HINT from "@/components/hint/hint"
 import Background from "@/components/background/background"
-import ProgressBar from "@/components/progressBar/progressBar"
-import DatasetSelector from "@/components/datasetSelector/datasetSelector"
 import { Message, MessageType } from "@/components/message/message"
 import Title from "@/components/title/title"
-import { AIPrompt, evaluationText } from "@/data/aiPrompt"
 import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
-import ImageWithBubble from "@/components/complaints/complaints"
-import Complaints from "@/components/complaints/complaints"
-import { ComplaintType } from "@/components/complaint/complaint"
 import Eval from "@/components/eval/eval"
-import SelectionButton from "@/components/selectionButton/selectionButton"
-import { InterfaceColor } from "@/utils/theme"
 import "@/styles/fadeInButton.css"
 
 
@@ -35,8 +25,6 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
 	translate = { x: 0, y: 0 },
 	toggleFullscreen,
 }) => {
-	let navigate = useNavigate()
-
 	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 	

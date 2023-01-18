@@ -1,7 +1,4 @@
 import React from "react"
-import AI from "@/components/ai/ai"
-import ImageGrid from "@/components/ImageGrid/ImageGrid"
-import ImageAdder2 from "@/components/imageadder2/imageadder2"
 import Background from "@/components/background/background"
 import Title from "@/components/title/title"
 import { Dataset, useGame } from "@/stores/gameStore"
@@ -29,10 +26,9 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
     let navigate = useNavigate()
     const prevlevel = useGame((state) => state.levels[state.currentLevel-1])
 
-
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
-            
+            < Restart />
         	<Fullscreen propagateFullscreenToggle={toggleFullscreen} />    
 			<Title title="Bias & KI" />
 			<ExplanationText 
@@ -78,12 +74,8 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 					Neustart
 				</SelectionButton>
 			</div>
-
-			
 		</Background>
 	)
 }
-    
-
 
 export default Explanation

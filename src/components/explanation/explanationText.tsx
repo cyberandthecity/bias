@@ -1,13 +1,7 @@
 import React from "react"
-import AI from "@/components/ai/ai"
-import ImageGrid from "@/components/ImageGrid/ImageGrid"
-import ImageAdder2 from "@/components/imageadder2/imageadder2"
-import Background from "@/components/background/background"
-import Title from "@/components/title/title"
-import { Dataset, useGame } from "@/stores/gameStore"
 import { FunctionComponent, useEffect, useState } from "react"
 import { InterfaceColor } from "@/utils/theme"
-import { useNavigate } from "react-router-dom"
+
 
 
 interface TextProps {
@@ -62,7 +56,6 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
                     color: "white",
                 }}
             > {paragraph1}
-
                 <p
                     style={{
                         marginTop: "60px",
@@ -94,8 +87,6 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
                     }}
                 >{paragraph4}</p>
             </p>
-			
-			
 		</div>
 	)
 }
