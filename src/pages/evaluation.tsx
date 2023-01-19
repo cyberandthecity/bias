@@ -7,9 +7,6 @@ import { FunctionComponent, useEffect, useState } from "react"
 import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 import Eval from "@/components/eval/eval"
-import "@/styles/fadeInButton.css"
-
-
 
 
 interface EvaluationProps {
@@ -30,15 +27,11 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
 	
 	const evaluationText = useGame((state) => state.evaluationInfo.aiMessages)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(evaluationText)
-	
-
 
 	useEffect(() => {
 		aiSetMessages(evaluationText)
 		
 	}, [level])
-
-	
 
 	return (
 		<>
@@ -61,9 +54,6 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
                         throw new Error("Function not implemented.")
                     } } />
 				</div>
-				
-				
-                
 			</Background>
 		</>
 	)
