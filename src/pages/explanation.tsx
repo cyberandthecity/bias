@@ -24,11 +24,11 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 	toggleFullscreen,
 }) => {
     let navigate = useNavigate()
-    const prevlevel = useGame((state) => state.levels[state.currentLevel-1])
+    const resetlevel = useGame((state) => state.actions.resetLevel)
 
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
-            < Restart />
+            <Restart />
         	<Fullscreen propagateFullscreenToggle={toggleFullscreen} />    
 			<Title title="Bias & KI" />
 			<ExplanationText 
@@ -66,7 +66,10 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 				}}
 			>
 				<SelectionButton
-					onClick={() => navigate("/")}
+					onClick={() => {
+						resetlevel()
+						navigate("/")
+					}}
 					shine={true}
 					background="white"
 					color={InterfaceColor}
