@@ -25,6 +25,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 	toggleFullscreen,
 }) => {
     let navigate = useNavigate()
+    const resetLevel = useGame((state) => state.actions.resetLevel)
 
     const level = useGame((state) => state.levels[state.currentLevel])
     const [showSecondComponent, setShowSecondComponent] = useState(false);
@@ -423,7 +424,9 @@ const Eval: FunctionComponent<EvalProps> = ({
 					}}
 				>
 				    <SelectionButton
-						onClick={() => navigate("/")}
+						onClick={() => {
+                            resetLevel()
+                            navigate("/")}}
 						shine={true}	
 						background={InterfaceColor}
 						color="white"
@@ -433,7 +436,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 				</p>
 			</p>
         </div>
-    )}
+        )}
     </div>	
 	)
 }
