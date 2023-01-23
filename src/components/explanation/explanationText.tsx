@@ -1,24 +1,24 @@
 import React from "react"
 import { FunctionComponent, useEffect, useState } from "react"
 import { InterfaceColor } from "@/utils/theme"
+import ChatMessage, { Message } from "../message/message"
 
 
 
 interface TextProps {
-    title: string
-    //subtitle1: string
     paragraph1: string
     subtitle2: string
     paragraph2: string
     subtitle3: string
-    paragraph3: string
+    paragraph3_1: string
+    paragraph3_2: string
     subtitle4: string
     paragraph4: string
 }
 
 
 //,subtitle1,paragraph1,subtitle2,paragraph2,subtitle3,paragraph3,subtitle4,paragraph4
-const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtitle2,paragraph2,subtitle3,paragraph3,subtitle4,paragraph4}) => {
+const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,paragraph2,subtitle3,paragraph3_1,paragraph3_2,subtitle4,paragraph4}) => {
     return (
         <div>
 
@@ -28,27 +28,12 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
                 width: "912px",
                 height: "182px",
                 left: "435px",
-                top: "500px",
+                top: "310px",
                 justifyContent: "center",
-
                 fontFamily: 'Inter',
                 fontStyle: "normal",
             }}
         >
-            <p
-                style={{
-                    position: "relative",
-                    left: "187px",
-                    fontWeight: "400",
-                    fontSize: "62px",
-                    lineHeight: "73px",
-                    textAlign: "center",
-                    color: "white",
-                    marginBottom: "120px",
-                }}
-            >
-                {title}
-            </p>
             <p
                 style={{
                     position: "relative",
@@ -67,11 +52,11 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
             style={{
                 position: "relative",
                 left: "460px",
-                top: "900px",
+                top: "518px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
-                background: InterfaceColor,
+                backgroundColor: "rgba(250,250,250,0.3)" ,
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
@@ -100,11 +85,11 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
             style={{
                 position: "relative",
                 left: "460px",
-                top: "900px",
+                top: "516px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
-                background: InterfaceColor,
+                backgroundColor: "rgba(250,250,250,0.3)" ,
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
@@ -124,18 +109,29 @@ const ExplanationText: FunctionComponent<TextProps> = ({title, paragraph1,subtit
                     marginTop: "40px",
                     fontSize: "32px",
                 }}
-            > {paragraph3}</p>
+            >
+            {paragraph3_1}</p>
+            <p
+                style={{
+                    position: "relative",
+                    left: "30px",
+                    width: "1100px",
+                    marginTop: "20px",
+                    fontSize: "32px",
+                }}
+            > 
+            {paragraph3_2}</p>
             <img src="/images/how1.png" style={{position:"absolute",left:"50px",top:"25px" ,width: "80px", height: "80px" }} />
         </div>
         <div
             style={{
                 position: "relative",
                 left: "460px",
-                top: "900px",
+                top: "510px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
-                background: InterfaceColor,
+                backgroundColor: "rgba(250,250,250,0.3)" ,
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
