@@ -262,7 +262,7 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 					<div
 						className="stamp"
 						style={{
-							bottom: "-40px",
+							bottom: "-50px",
 							right: "-40px",
 							position: "absolute",
 							width: "80px",
