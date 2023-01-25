@@ -32,7 +32,7 @@ export const simulationComplaints: ComplaintType[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Aber wir sind Studenten!",
+				text: "Aber wir sind Studierende!",
 				delay: 0,
 				decay: 0,
 				type: MessageType.Normal,

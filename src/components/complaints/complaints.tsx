@@ -19,7 +19,7 @@ const Complaints: FunctionComponent<ComplaintsProps> = ({
                             imageUrl= {complaint.imageUrl}
                             messages= {complaint.messages}
                             position= {complaint.isChatLeft ? { x: 1700, y: 700 }: { x: 1200, y: 400 }}
-                            chatOffset= {complaint.isChatLeft ? { x: -330, y: 210 }: { x: 230, y: 210 }} 
+                            chatOffset= {complaint.isChatLeft ? { x: -390, y: 210 }: { x: 230, y: 210 }} 
                             />
 						))}
     </>

@@ -363,7 +363,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Das System hat wohl Schwierigkeiten damit, Studierende vor unterschiedlichen Hintergründen zu erkennen!",
+				text: "Das System hat wohl Schwierigkeiten, Studierende vor unterschiedlichen Hintergründen zu erkennen!",
 				delay: 1800,
 				decay: 0,
 				type: MessageType.Lesson,
@@ -390,7 +390,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Das System hat wohl Schwierigkeiten damit, Studierende bei Nacht vor verschiedenen Hintergründen zu erkennen!",
+				text: "Das System hat wohl Schwierigkeiten, Studierende bei Nacht vor verschiedenen Hintergründen zu erkennen!",
 				delay: 1800,
 				decay: 0,
 				type: MessageType.Lesson,
