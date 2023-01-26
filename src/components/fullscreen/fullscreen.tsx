@@ -27,28 +27,22 @@ const Fullscreen: FunctionComponent<FullscreenProps> = ({ propagateFullscreenTog
 	}
 
 	return (
-		<>
 			<div
 				style={{
 					position: "absolute",
-					background: "white",
-					width: "80px",
-					height: "80px",
+					background: "None",
+					width: "400px",
+					height: "200px",
 					zIndex: 1000,
-					right: 10,
+					right: 0,
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
-					margin: "20px",
-					borderRadius: "10px",
-					boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
 					cursor: "pointer",
 				}}
-				onClick={() => toogleFullscreen()}
-			>
-				<img src="/images/fullscreen.svg" style={{ width: "50%", height: "50%" }} />
-			</div>
-		</>
+				onDoubleClick={() => toogleFullscreen()}
+			/>
+		
 	)
 }
 
