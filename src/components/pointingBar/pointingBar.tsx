@@ -41,6 +41,16 @@ const PointingBar: FunctionComponent<PointingBarProps> = ({ cycleTime, updateInd
 				alignItems: "center",
 			}}
 		>
+			<p
+				style={{
+					fontSize: "32px",
+					fontWeight: 500,
+					color: "black",
+					opacity: 0.3,
+				}}
+			>
+				Tippe auf einen Datensatz um ihn auszuwählen
+			</p>
 			{index != undefined && (
 				<div
 					style={{

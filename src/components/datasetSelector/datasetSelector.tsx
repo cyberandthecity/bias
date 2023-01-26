@@ -1,9 +1,10 @@
 import { Dataset as DS } from "@/stores/gameStore"
 import { BackgroundColor, InterfaceColor } from "@/utils/theme"
 import { FunctionComponent, useState } from "react"
+import Chat, { BackgroundColorType, ChatOrientation } from "../chat/chat"
 import Dataset from "../dataset/dataset"
 import Hint from "../hint/hint"
-import { Message } from "../message/message"
+import { Message, MessageType } from "../message/message"
 import PointingBar from "../pointingBar/pointingBar"
 
 import SelectionButton from "../selectionButton/selectionButton"
@@ -60,6 +61,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					}}
 				>
 					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
+
 					<Hint hintPrompt={hintPrompt} isInEvaluatingMode={isInEvaluatingMode} />
 				</div>
 
@@ -97,28 +99,6 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					alignItems: "center",
 				}}
 			>
-				<div
-					style={{
-						position: "absolute",
-						width: "100%",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}
-				>
-					{!isInEvaluatingMode && (
-						<p
-							style={{
-								fontSize: "32px",
-								fontWeight: 500,
-								color: "black",
-								opacity: 0.3,
-							}}
-						>
-							Tippe auf einen Datensatz um ihn auszuwählen
-						</p>
-					)}
-				</div>
 				{showPointerBar && isFirstSelection && (
 					<PointingBar
 						cycleTime={2000}

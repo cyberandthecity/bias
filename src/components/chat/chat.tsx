@@ -17,6 +17,7 @@ interface ChatProps {
 	orientation?: ChatOrientation
 	backgroundColorType?: BackgroundColorType
 	onLastMessage?: (id: string) => void
+	isAbsolute?: boolean
 }
 
 const Chat: FunctionComponent<ChatProps> = ({
@@ -24,6 +25,7 @@ const Chat: FunctionComponent<ChatProps> = ({
 	onLastMessage,
 	orientation = ChatOrientation.Left,
 	backgroundColorType = BackgroundColorType.Bright,
+	isAbsolute = true,
 }) => {
 	const [displayedMessages, setDisplayedMessages] = useState<Message[]>([messages[0]])
 	const [messagesIndex, setMessagesIndex] = useState<number>(0)
@@ -48,9 +50,9 @@ const Chat: FunctionComponent<ChatProps> = ({
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					position: "absolute",
+					position: isAbsolute ? "absolute" : "relative",
 					alignItems: orientation === ChatOrientation.Left ? "flex-start" : "flex-end",
-					bottom: 0,
+					bottom: isAbsolute ? 0 : "auto",
 					width: "700px",
 					gap: "30px",
 					gridGap: "30px",

@@ -1,15 +1,16 @@
 import "@/styles/bounce.css"
 import { InterfaceColor } from "@/utils/theme"
 import { FunctionComponent, useEffect, useState } from "react"
-import Chat, { ChatOrientation } from "../chat/chat"
-import { Message } from "../message/message"
+import Chat, { BackgroundColorType, ChatOrientation } from "../chat/chat"
+import { Message, MessageType } from "../message/message"
 
 interface HintProps {
 	hintPrompt: string
 	isInEvaluatingMode?: boolean
+	messageDelay?: number
 }
 
-const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false }) => {
+const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false, messageDelay = 20000 }) => {
 	const [showHint, setShowHint] = useState(false)
 
 	useEffect(() => {
@@ -38,45 +39,72 @@ const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = f
 						<div
 							style={{
 								display: "flex",
-								flexDirection: "column",
-								justifyContent: "center",
+								flexDirection: "row",
+								gap: "20px",
+								alignItems: "center",
+								height: "100px",
 							}}
 						>
+							{!showHint && (
+								<Chat
+									messages={[
+										{
+											id: "hintPropmt",
+											author: "",
+											text: "Brauchst du Hilfe? Klicke hier ->",
+											delay: messageDelay,
+											decay: 0,
+											type: MessageType.Normal,
+										},
+									]}
+									orientation={ChatOrientation.Right}
+									backgroundColorType={BackgroundColorType.Bright}
+									isAbsolute={false}
+								/>
+							)}
 							<div
-								className={!showHint ? "shine" : ""}
 								style={{
-									background: InterfaceColor,
-									padding: "10px 20px 10px 20px",
-									borderRadius: "10px",
-									width: "content-fit",
-									maxWidth: "1300px",
-									boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
-									cursor: "pointer",
-									overflow: "hidden",
-
 									display: "flex",
+									flexDirection: "column",
 									justifyContent: "center",
-									alignItems: "center",
-									flexDirection: "row",
-								}}
-								onClick={() => {
-									setShowHint(!showHint)
 								}}
 							>
-								<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
-								{showHint && (
-									<p
-										style={{
-											fontSize: "34px",
-											fontWeight: "500",
-											color: "white",
+								<div
+									className={!showHint ? "shine" : ""}
+									style={{
+										background: InterfaceColor,
+										padding: "10px 20px 10px 20px",
+										borderRadius: "10px",
+										width: "content-fit",
+										maxWidth: "1300px",
+										boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.16)",
+										cursor: "pointer",
+										overflow: "hidden",
 
-											padding: "0px 10px 00px 40px",
-										}}
-									>
-										{hintPrompt}
-									</p>
-								)}
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										flexDirection: "row",
+									}}
+									onClick={() => {
+										setShowHint(!showHint)
+									}}
+								>
+									<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
+									{showHint && (
+										<p
+											style={{
+												fontSize: "34px",
+												fontWeight: "500",
+												color: "white",
+
+												padding: "0px 10px 00px 40px",
+											}}
+										>
+											{hintPrompt}
+										</p>
+									)}
+								</div>
 							</div>
 						</div>
 					</div>
