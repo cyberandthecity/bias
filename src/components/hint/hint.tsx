@@ -10,14 +10,23 @@ interface HintProps {
 	messageDelay?: number
 }
 
-const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false, messageDelay = 20000 }) => {
+const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false, messageDelay = 12000 }) => {
 	const [showHint, setShowHint] = useState(false)
+	const [showedHint, setShowedHint] = useState(false)
+	const [showHintMessage, setShowHintMessage] = useState(false)
 
 	useEffect(() => {
 		if (isInEvaluatingMode) {
 			setShowHint(false)
 		}
 	}, [isInEvaluatingMode])
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setShowHintMessage(true)
+		}, messageDelay)
+		return () => clearTimeout(timeout)
+	}, [messageDelay])
 
 	return (
 		<>
@@ -45,14 +54,14 @@ const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = f
 								height: "100px",
 							}}
 						>
-							{!showHint && (
+							{!showHint && showHintMessage && !showedHint && (
 								<Chat
 									messages={[
 										{
 											id: "hintPropmt",
 											author: "",
 											text: "Brauchst du Hilfe? Klicke hier ->",
-											delay: messageDelay,
+											delay: 0,
 											decay: 0,
 											type: MessageType.Normal,
 										},
@@ -88,6 +97,7 @@ const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = f
 									}}
 									onClick={() => {
 										setShowHint(!showHint)
+										setShowedHint(true)
 									}}
 								>
 									<img src="/images/lightbulb.svg" style={{ width: "64px", height: "64px" }} />
