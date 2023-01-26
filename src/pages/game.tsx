@@ -14,6 +14,7 @@ import Fullscreen from "@/components/fullscreen/fullscreen"
 import ImageWithBubble from "@/components/complaints/complaints"
 import Complaints from "@/components/complaints/complaints"
 import { ComplaintType } from "@/components/complaint/complaint"
+import Chat, { BackgroundColorType } from "@/components/chat/chat"
 
 interface GameProps {
 	scale?: number
@@ -81,17 +82,19 @@ const Game: FunctionComponent<GameProps> = ({
 						justifyContent: "center",
 					}}
 				>
-					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} onLastMessage={() => setLastMessageDone(true)} />
+					<AI
+						messages={aiMessages}
+						position={{ x: 100, y: 800 }}
+						chatOffset={{ x: 300, y: 140 }}
+						onLastMessage={() => setLastMessageDone(true)}
+					/>
 					{isInEvaluatingMode && confirmedDataset != level.correctDataset && (
 						<Complaints complaints={complaints}></Complaints>
 					)}
-					<ProgressBar
-						percentage={progressPercentage}
-						level={currentLevel}
-					/>
+					<ProgressBar percentage={progressPercentage} level={currentLevel} />
 
 					<DatasetSelector
-						title={isInEvaluatingMode ? level.evaluatingTitle : level.title }
+						title={isInEvaluatingMode ? level.evaluatingTitle : level.title}
 						datasets={datasets}
 						hintPrompt={hintPrompt}
 						confirmDataset={(index) => {
