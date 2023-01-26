@@ -89,7 +89,7 @@ const Game: FunctionComponent<GameProps> = ({
 					/>
 
 					<DatasetSelector
-						title={level.title}
+						title={isInEvaluatingMode ? level.evaluatingTitle : level.title }
 						datasets={datasets}
 						hintPrompt={hintPrompt}
 						confirmDataset={(index) => {
