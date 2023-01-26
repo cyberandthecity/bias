@@ -40,10 +40,12 @@ const Game: FunctionComponent<GameProps> = ({
 	const [complaints, setComplaints] = useState<ComplaintType[]>(level.complaints.nothing)
 	const [progressPercentage, setProgressPercentage] = useState(0)
 	const [confirmedDataset, setConfirmedDataset] = useState<number | undefined>(undefined)
+	const [lastMessageDone, setLastMessageDone] = useState(false)
 
 	const [finished, setFinished] = useState(false)
 
 	useEffect(() => {
+		setLastMessageDone(false)
 		setisInEvaluatingMode(false)
 		aiSetMessages(level.aiPrompt.prompt)
 		setHintPrompt(level.hintPrompt)
@@ -79,7 +81,7 @@ const Game: FunctionComponent<GameProps> = ({
 						justifyContent: "center",
 					}}
 				>
-					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
+					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} onLastMessage={() => setLastMessageDone(true)} />
 					{isInEvaluatingMode && confirmedDataset != level.correctDataset && (
 						<Complaints complaints={complaints}></Complaints>
 					)}
@@ -125,6 +127,7 @@ const Game: FunctionComponent<GameProps> = ({
 						isInEvaluatingMode={isInEvaluatingMode}
 						correctDataset={level.correctDataset}
 						didCompleteGame={currentLevel == 2 && isInEvaluatingMode}
+						showPointerBar={!isInEvaluatingMode && lastMessageDone}
 					/>
 				</div>
 			</Background>

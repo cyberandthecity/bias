@@ -4,6 +4,7 @@ import { FunctionComponent, useState } from "react"
 import Dataset from "../dataset/dataset"
 import Hint from "../hint/hint"
 import { Message } from "../message/message"
+import PointingBar from "../pointingBar/pointingBar"
 
 import SelectionButton from "../selectionButton/selectionButton"
 
@@ -16,6 +17,7 @@ interface DatasetSelectorProps {
 	confirmDataset: (index: number) => void
 	nextLevel: () => void
 	didCompleteGame: boolean
+	showPointerBar: boolean
 }
 
 const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
@@ -27,8 +29,9 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 	correctDataset,
 	hintPrompt,
 	didCompleteGame,
+	showPointerBar,
 }) => {
-	const [selectedDataset, setSelectedDataset] = useState<number>(0)
+	const [selectedDataset, setSelectedDataset] = useState<number | undefined>(undefined)
 	const [isFirstSelection, setIsFirstSelection] = useState<boolean>(true)
 
 	return (
@@ -68,10 +71,11 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 							key={dataset.id}
 							title={dataset.title}
 							images={dataset.images}
-							resultDelay={isInEvaluatingMode ? (selectedDataset == index) ? 200 : dataset.resultDelays : undefined}
+							resultDelay={isInEvaluatingMode ? (selectedDataset == index ? 200 : dataset.resultDelays) : undefined}
 							selected={!isInEvaluatingMode && selectedDataset == index}
 							correct={isInEvaluatingMode && correctDataset == index}
 							notcorrect={isInEvaluatingMode && selectedDataset == index && correctDataset != index}
+							backgroundColor={isFirstSelection ? "#A1A8BE" : InterfaceColor}
 							onClick={(index) => {
 								if (!isInEvaluatingMode) {
 									setSelectedDataset(index)
@@ -93,9 +97,36 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 					alignItems: "center",
 				}}
 			>
-				<p style={{ fontSize: "32px", fontWeight: 500, color: "black", opacity: 0.3 }}>
-					{!isInEvaluatingMode && "Wähle einen Datensatz aus"}
-				</p>
+				<div
+					style={{
+						position: "absolute",
+						width: "100%",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+					{!isInEvaluatingMode && (
+						<p
+							style={{
+								fontSize: "32px",
+								fontWeight: 500,
+								color: "black",
+								opacity: 0.3,
+							}}
+						>
+							Tippe auf einen Datensatz um ihn auszuwählen
+						</p>
+					)}
+				</div>
+				{showPointerBar && isFirstSelection && (
+					<PointingBar
+						cycleTime={2000}
+						updateIndex={(index) => {
+							setSelectedDataset(index)
+						}}
+					/>
+				)}
 			</div>
 			<div
 				style={{
@@ -110,12 +141,13 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 			>
 				<SelectionButton
 					shine={!isFirstSelection}
+					activated={!isInEvaluatingMode ? !isFirstSelection : true}
 					onClick={() => {
-						if (!isInEvaluatingMode) {
+						if (!isInEvaluatingMode && selectedDataset != undefined) {
 							confirmDataset(selectedDataset)
 						} else {
 							nextLevel()
-							setSelectedDataset(0)
+							setSelectedDataset(undefined)
 							setIsFirstSelection(true)
 						}
 					}}
