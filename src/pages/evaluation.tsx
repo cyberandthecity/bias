@@ -8,7 +8,6 @@ import Restart from "@/components/restart/restart"
 import Fullscreen from "@/components/fullscreen/fullscreen"
 import Eval from "@/components/eval/eval"
 
-
 interface EvaluationProps {
 	scale?: number
 	rotate?: number
@@ -24,21 +23,19 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
 }) => {
 	const currentLevel = useGame((state) => state.currentLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
-	
+
 	const evaluationText = useGame((state) => state.evaluationInfo.aiMessages)
 	const [aiMessages, aiSetMessages] = useState<Message[]>(evaluationText)
 
 	useEffect(() => {
 		aiSetMessages(evaluationText)
-		
 	}, [level])
 
 	return (
 		<>
-			<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
+			<Background offset={1200} isInAI scale={scale} rotate={rotate} translate={translate}>
 				<Restart />
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
-				<Title title="Daten & KI" isInAI /> 
 				<div
 					style={{
 						position: "absolute",
@@ -49,10 +46,12 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
 						justifyContent: "center",
 					}}
 				>
-					<AI messages={aiMessages} position={{ x: 100, y: 800 }} chatOffset={{ x: 300, y: 140 }} />
-                    <Eval toggleFullscreen={function (isFullscreen: boolean): void {
-                        throw new Error("Function not implemented.")
-                    } } />
+					<AI messages={aiMessages} position={{ x: 100, y: 500 }} chatOffset={{ x: 300, y: 140 }} />
+					<Eval
+						toggleFullscreen={function (isFullscreen: boolean): void {
+							throw new Error("Function not implemented.")
+						}}
+					/>
 				</div>
 			</Background>
 		</>
