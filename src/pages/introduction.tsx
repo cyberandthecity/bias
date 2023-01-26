@@ -74,7 +74,6 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 			<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
 				<Restart />
 				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
-				<Title title="Club Simulation" />
 
 				<div
 					className={aiTransition ? "videoTransition" : ""}
