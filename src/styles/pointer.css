@@ -1,0 +1,21 @@
+
+@keyframes bouncing {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.bounce {
+	animation-name: bouncing;
+	animation-duration: 1000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-delay: 0s;
+	animation-play-state: running;
+}

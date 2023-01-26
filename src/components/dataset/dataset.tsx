@@ -13,6 +13,7 @@ interface DatasetProps {
 	notcorrect: boolean
 	shuffle?: boolean
 	resultDelay?: number
+	backgroundColor?: string
 }
 
 const showImages = true
@@ -56,6 +57,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 	selected = true,
 	shuffle = false,
 	resultDelay = undefined,
+	backgroundColor = InterfaceColor,
 }) => {
 	const [shuffledImages, setShuffledImages] = useState(shuffle ? shuffleImages(images) : images)
 	const [delayTimeout, setDelayTimeout] = useState<NodeJS.Timeout | undefined>(undefined)
@@ -124,6 +126,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 				flexDirection: "column",
 			}}
 			onClick={() => {
+				console.log("clicked")
 				onClick(index)
 			}}
 		>
@@ -134,7 +137,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 					padding: "10px 40px 5px 15px",
 					flexDirection: "column",
 					borderRadius: "20px 20px 0px 0px",
-					background: selected ? InterfaceColor : "white",
+					background: selected ? backgroundColor : "white",
 					cursor: "pointer",
 				}}
 			>
@@ -155,7 +158,7 @@ const Dataset: FunctionComponent<DatasetProps> = ({
 				style={{
 					display: "flex",
 					flexDirection: "row",
-					background: selected ? InterfaceColor : "white",
+					background: selected ? backgroundColor : "white",
 					padding: "10px",
 					borderRadius: "0px 20px 20px 20px",
 					overflow: "hidden",
