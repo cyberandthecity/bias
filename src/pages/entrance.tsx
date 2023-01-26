@@ -91,13 +91,13 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						background: InterfaceColor,
 
 						top: "2140px",
-						left: "710px",
+						left: "730px",
 						height: "120px",
-						width: "660px",
+						width: "620px",
 						padding: "18px 30px 18px 30px",
 						borderRadius: "20px",
 
-						fontSize: "60px",
+						fontSize: "52px",
 						fontWeight: 500,
 						color: "white",
 						boxShadow: "0px 0px 40px rgba(0, 0, 0, 0.8)",
