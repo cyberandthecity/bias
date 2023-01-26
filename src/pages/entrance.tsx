@@ -91,9 +91,9 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						background: InterfaceColor,
 
 						top: "2140px",
-						left: "660px",
+						left: "710px",
 						height: "120px",
-						width: "780px",
+						width: "660px",
 						padding: "18px 30px 18px 30px",
 						borderRadius: "20px",
 
