@@ -1,0 +1,49 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+   
+    100% {
+        opacity: 1;
+    }
+  } 
+
+  .fadeIn1 {
+    /* other styles for the SVG image */
+    animation-duration: 1s;
+	  animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2s;
+animation-fill-mode: both;
+    
+  }
+
+  .fadeIn2 {
+    /* other styles for the SVG image */
+    animation-duration: 1s;
+	  animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+    animation-delay: 4s;
+  animation-fill-mode: both;
+    
+  }
+
+  .fadeIn3 {
+    /* other styles for the SVG image */
+    animation-duration: 1s;
+	  animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+    animation-delay: 6s;
+    animation-fill-mode: both;
+    
+  }
+
+  .fadeIn4 {
+    /* other styles for the SVG image */
+    animation-duration: 1s;
+	  animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+    animation-delay: 8s;
+    animation-fill-mode: both;
+    
+  }

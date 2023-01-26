@@ -50,10 +50,13 @@ type Store = {
 	levels: Level[]
 	currentLevel: number
 	actions: Actions
+
+	language: string
 }
 
 export const useGame = create<Store>(
 	immerStore((set, get) => ({
+		language: "de",
 		entranceInfo: {
 			aiMessages: entranceText,
 		},
