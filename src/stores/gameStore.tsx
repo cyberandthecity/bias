@@ -21,6 +21,7 @@ export interface Dataset {
 }
 export interface Level {
 	title: string
+	evaluatingTitle: string
 	imageDir: string
 	correctDataset: number
 	dimension: [row: number, column: number]
@@ -64,7 +65,8 @@ export const useGame = create<Store>(
 		},
 		levels: [
 			{
-				title: "Wähle aus diesen Gruppen von Beispielen:",
+				title: "Wähle eine Gruppe von Beispielen",
+				evaluatingTitle: "Ergebnisse für Level 1",
 				imageDir: "gender_3x2",
 				correctDataset: 2,
 				dimension: [2, 3],
@@ -74,7 +76,8 @@ export const useGame = create<Store>(
 				resultDelays: 11000,
 			},
 			{
-				title: "Wähle aus diesen Gruppen von Beispielen:",
+				title: "Wähle eine Gruppe von Beispielen",
+				evaluatingTitle: "Ergebnisse für Level 2",
 				imageDir: "glasses_4x3",
 				correctDataset: 0,
 				dimension: [3, 4],
@@ -84,7 +87,8 @@ export const useGame = create<Store>(
 				resultDelays: 9500,
 			},
 			{
-				title: "Wähle aus diesen Gruppen von Beispielen:",
+				title: "Wähle eine Gruppe von Beispielen",
+				evaluatingTitle: "Ergebnisse für Level 3",
 				imageDir: "tech_5x4",
 				correctDataset: 0,
 				dimension: [4, 5],
