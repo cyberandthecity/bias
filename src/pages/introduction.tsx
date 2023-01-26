@@ -57,10 +57,9 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 
 	useEffect(() => {
 		if (videoEnded) {
-			setActivateButton(true)
-
 			const messageTimeout = setTimeout(() => {
 				setMessages(explenationMessages[2])
+				setActivateButton(true)
 			}, 3000) // TODO: tune this
 
 			return () => {
