@@ -533,3 +533,25 @@ export const evaluationText: Message[] = [
 	},
 	
 ]
+
+export const additionalText: Message[] = [
+	{
+		id: nanoid(),
+		author: "Die KI:",
+		text: "Durch unser Spiel hast Du bereits erste Erfahrungen damit gemacht, wie schwer es ist, Bias in einer KI zu verhindern. ",
+		delay: 2000,
+		decay: 0,
+		type: MessageType.Normal,
+		//emoji: "alien",
+	},
+	{
+		id: nanoid(),
+		author: "",
+		text: "Hier findest du nochmal ein paar Details zu den Schwierigkeiten, die dieses Thema im Alltag mit sich bringt.",
+		delay: 2000,
+		decay: 0,
+		type: MessageType.Normal,
+		//emoji: "thinking-face",
+	},
+	
+]
