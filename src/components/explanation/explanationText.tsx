@@ -6,53 +6,21 @@ import ChatMessage, { Message } from "../message/message"
 
 
 interface TextProps {
-    paragraph1: string
-    subtitle2: string
-    paragraph2: string
-    subtitle3: string
-    paragraph3_1: string
-    paragraph3_2: string
-    subtitle4: string
-    paragraph4: string
 }
 
 
 //,subtitle1,paragraph1,subtitle2,paragraph2,subtitle3,paragraph3,subtitle4,paragraph4
-const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,paragraph2,subtitle3,paragraph3_1,paragraph3_2,subtitle4,paragraph4}) => {
+const ExplanationText: FunctionComponent<TextProps> = ({}) => {
     return (
         <div>
 
-		<div
-            style={{
-                position: "absolute",
-                width: "912px",
-                height: "182px",
-                left: "435px",
-                top: "310px",
-                justifyContent: "center",
-                fontFamily: 'Inter',
-                fontStyle: "normal",
-            }}
-        >
-            <p
-                style={{
-                    position: "relative",
-                    width: "1280px",
-                    height: "1448px",
-                    fontSize: "32px",
-                    lineHeight: "150%",
-                    textAlign: "justify",
-                    color: "white",
-                    fontWeight: "420",
-                }}
-            > {paragraph1}</p>
-        </div>
+		
         //information boxes
         <div
             style={{
-                position: "relative",
+                position: "absolute",
                 left: "460px",
-                top: "518px",
+                top: "790px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
@@ -60,6 +28,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
+                textShadow: "0px 0px 2px black"
             }}>
             <p
                 style={{
@@ -68,7 +37,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     fontSize: "42px",
                 }}
             >
-            {subtitle2}
+            Bias? Was ist nochmal Bias?"
             </p>
             <p
                 style={{
@@ -78,14 +47,16 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     left: "30px",
                     fontSize: "32px",
                 }}
-            > {paragraph2}</p>
+            > Als Bias bezeichnet man in der KI Wissenschaft eine <b> Verzerrung des gewünschten Ergebnisses</b>.
+            Diese Verzerrung kann harmlos sein, aber auch <b>schwere Folgen</b> haben und zum Beispiel zu Diskriminierung führen.
+            </p>
             <img src="/images/light2.svg" style={{position:"absolute",top:"25px" ,left:"50px",width: "75px", height: "75px" }} />
         </div>
         <div
             style={{
-                position: "relative",
+                position: "absolute",
                 left: "460px",
-                top: "516px",
+                top: "1200px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
@@ -93,6 +64,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
+                textShadow: "0 0 2px black"
+
             }}>
             <p
                 style={{
@@ -100,7 +73,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     left: "120px",
                     fontSize: "42px",
                 }}
-            > {subtitle3}</p>
+            > Wie vermeiden wir Bias?
+            </p>
             <p
                 style={{
                     position: "relative",
@@ -110,7 +84,10 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     fontSize: "32px",
                 }}
             >
-            {paragraph3_1}</p>
+            Grundsätzlich gilt jedoch, dass eine möglichst <b>große Diversität in der Datensammlung</b> angestrebt werden sollte, 
+			um Bias zu vermeiden. In der Realität stehen Entwickler_innen also vor einer noch größeren Aufgabe als im Spiel, 
+			denn <b>nicht nur</b> müssen möglichst alle Ungleichheiten beachtet werden, in den meisten Fällen liegt die Anzahl der Daten im <b>Millionenbereich</b>.
+            </p>
             <p
                 style={{
                     position: "relative",
@@ -120,14 +97,17 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     fontSize: "32px",
                 }}
             > 
-            {paragraph3_2}</p>
+            Wir haben uns für dieses Spiel <b>auf drei Fälle von Bias beschränkt</b>, die in verschiedenen Formen auftreten, 
+			um die Vielfältigkeit des Themas zu verdeutlichen. Aufgrund dieser Vielfältigkeit haben auch wir in unserem Datensatz 
+			sicherlich einige Ungleichheiten <b>nicht abbilden können</b>, zum Beispiel was Hautfarbe, Alter oder Behinderungen.
+            </p>
             <img src="/images/how1.png" style={{position:"absolute",left:"50px",top:"25px" ,width: "80px", height: "80px" }} />
         </div>
         <div
             style={{
-                position: "relative",
+                position: "absolute",
                 left: "460px",
-                top: "510px",
+                top: "1900px",
                 width: "1160px",
                 marginTop: "60px",
                 padding: "40px",
@@ -135,6 +115,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
+                textShadow: "0px 0px 2px black"
             }}>
             <p
                 style={{
@@ -142,7 +123,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     left: "120px",
                     fontSize: "42px",
                 }}
-            >{subtitle4}</p>
+            >Bias und Gesellschaft</p>
             <p
                 style={{
                     position: "relative",
@@ -151,10 +132,13 @@ const ExplanationText: FunctionComponent<TextProps> = ({paragraph1,subtitle2,par
                     marginTop: "40px",
                     fontSize: "32px",
                 }}
-            >{paragraph4}</p>
+            >Abgesehen von der Rolle der Entwickler_innen gilt auch, dass die verwendeten Daten immer ein <b>Spiegel der Realität</b> 
+            und somit auch <b>unserer Gesellschaft</b> sind. Das heißt auch die Gesellschsaft, in der KI Systeme zur Anwendung kommen, 
+            <b>trägt Verantwortung</b> dafür, wie diese eingesetzt werden und mit welchen Daten diese trainiert werden können und dürfen.
+            </p>
             <img src="/images/society.png" style={{position:"absolute",top:"25px",left:"50px" ,width: "80px", height: "80px" }} />
 		</div>
-    </div>
+        </div>
 	)
 }
 
