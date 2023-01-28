@@ -1,83 +1,58 @@
-import React, { useState, useRef, FunctionComponent } from "react"
+import React, { useState, useRef, FunctionComponent, useEffect } from "react"
 import Image, { ImageProps as ImageData } from "@/components/image/image"
 import ImageTile from "../imageTile/imageTile"
 
-// TODO: Add a restart button
-// TODO: Create space free from images in the middle and add explanation text
+//declare array of image paths
+const evalImages = [
+	"/datasets/evaluation/1.png", "/datasets/evaluation/2.png", "/datasets/evaluation/3.png",
+	"/datasets/evaluation/4.png", "/datasets/evaluation/5.png", "/datasets/evaluation/6.png",
+	"/datasets/evaluation/7.png", "/datasets/evaluation/8.png", "/datasets/evaluation/9.png",
+	"/datasets/evaluation/10.png", "/datasets/evaluation/11.png", "/datasets/evaluation/12.png",
+	"/datasets/evaluation/13.png", "/datasets/evaluation/14.png", "/datasets/evaluation/15.png",
+	"/datasets/evaluation/16.png", "/datasets/evaluation/17.png", "/datasets/evaluation/18.png",
+	"/datasets/evaluation/19.png", "/datasets/evaluation/20.png", "/datasets/evaluation/21.png",
+	"/datasets/evaluation/22.png", "/datasets/evaluation/23.png", "/datasets/evaluation/24.png",
+	"/datasets/evaluation/25.png", "/datasets/evaluation/26.png", "/datasets/evaluation/27.png",
+	"/datasets/evaluation/28.png", "/datasets/evaluation/29.png", "/datasets/evaluation/30.png",
+	"/datasets/evaluation/31.png", "/datasets/evaluation/32.png", "/datasets/evaluation/33.png",
+	"/datasets/evaluation/34.png", "/datasets/evaluation/35.png", "/datasets/evaluation/36.png",
+	"/datasets/evaluation/37.png", "/datasets/evaluation/38.png", "/datasets/evaluation/39.png",
+	"/datasets/evaluation/40.png", "/datasets/evaluation/41.png", "/datasets/evaluation/42.png",
+	"/datasets/evaluation/43.png", "/datasets/evaluation/44.png", "/datasets/evaluation/45.png",
+	"/datasets/evaluation/46.png", "/datasets/evaluation/47.png",
+]
 
-interface ImageAdder2Props {}
 
-const ImageAdder2: FunctionComponent<ImageAdder2Props> = ({}) => {
-	const [images, setImages] = useState<ImageData[]>([])
-
-	// Declare a state variable to store the time delay between images
-	const [timeDelay, setTimeDelay] = useState(1000)
-	//const [imageSize, setImageSize] = useState(500);
-
-	// Create a ref to track the index of the current image
-	//const divRef = useRef(null);
-	const index = useRef(0)
-	const width = 2160
-	const height = 3840
-
-	// Function to add an image at a random position on the webpage
-	const addImage = () => {
-		// Generate random coordinates for the image
-		const x = Math.floor(Math.random() * width)
-		const y = Math.floor(Math.random() * height)
-		const imagesize = Math.floor(Math.random() * 400)
-
-		const centerX = width / 2
-		const centerY = height / 2
-
-		const dx = x - centerX
-		const dy = y - centerY
-		const distance = Math.sqrt(dx * dx + dy * dy)
-		const radius = Math.min(width, height) / 4
-
-		//if (x < 535 || x > 1423 || y < 1037 || y > 2803) {
-		const image: ImageData = {
-			id: index.current,
-			x: x,
-			y: y,
-			width: imagesize,
-			height: imagesize,
-			src: `/datasets/evaluation/${Math.floor(Math.random() * 47) + 1}.png`,
+interface ImageAdder2Props {
+	//imagePaths: string[];
+  }
+  
+  const ImageAdder2: React.FC<ImageAdder2Props> = ({ }) => {
+	const [images, setImages] = useState<JSX.Element[]>([]);
+	const [imageCount, setImageCount] = useState(0);
+  
+	useEffect(() => {
+	  const intervalId = setInterval(() => {
+		if (imageCount >= 600) { //set number of added images here 
+		  clearInterval(intervalId);
+		  return;
 		}
-
-		// Add the image to the page
-		if (index.current < 1500) {
-			setImages([...images, image])
-		}
-		// Increment the index of the current image
-		index.current++
-		//if index.current > 1000 {
-		//}
-		// Reduce the time delay between images by a bit
-		setTimeDelay(0.65 * timeDelay)
-		//setImageSize(Math.max(imageSize * 0.9, 100));
-	}
-
-	// Call the addImage function after a time delay
-	setTimeout(addImage, timeDelay)
-
-	return (
-		<>
-			{" "}
-			{images.map((image) => (
-				<div
-					style={{
-						position: "absolute",
-						left: `${image.x}px`,
-						top: `${image.y}px`,
-						zIndex: 90,
-					}}
-				>
-					<ImageTile key={image.id} url={image.src} scale={300} />
-				</div>
-			))}{" "}
-		</>
-	)
-}
+  
+		const randomImagePath = evalImages[Math.floor(Math.random() * evalImages.length)];
+		const x = Math.floor(Math.random() * 2160); //inner width of screen
+		const y = Math.floor(Math.random() * 3840); //inner height of screen
+  
+		setImages(prevImages => [...prevImages, <div style={{ position: "absolute", left: x, top: y, zIndex: 90,}}> <ImageTile key={imageCount} url={randomImagePath} scale={300} /> </div>]);
+		setImageCount(prevCount => prevCount + 1);
+	  }, 50); //set time between images here
+  
+	  return () => clearInterval(intervalId);
+	}, [evalImages, imageCount]);
+  
+	return <div>{images}</div>;
+  };
+  
+ 
 
 export default ImageAdder2
+
