@@ -28,7 +28,7 @@ const Zoom: FunctionComponent<ZoomProps> = ({
 			<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
 			<Title title="Bias & KI" />
 
-			<ImageAdder2 />
+			<ImageAdder2/>
 		</Background>
 	)
 }

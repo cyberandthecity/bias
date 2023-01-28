@@ -57,7 +57,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 		setShowSecondComponent(true)
 		setTimeout(() => {
 			setShowForegroundText(true)
-		}, 8000)
+		}, 5500) // set timer of "Zum realistischen Beispiel" button
 	}
 
 	return (
