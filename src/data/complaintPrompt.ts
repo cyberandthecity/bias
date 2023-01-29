@@ -146,7 +146,7 @@ export const levelComplaints: ComplaintPrompt[] = [
 					{
 						id: "1",
 						author: "",
-						text: "Warum muss ich draußen bleiben?",
+						text: "Ich muss draußen bleiben?!",
 						delay: 0,
 						decay: 0,
 						type: MessageType.Complaint,
@@ -213,7 +213,7 @@ export const levelComplaints: ComplaintPrompt[] = [
 					{
 						id: "1",
 						author: "",
-						text: "Ich darf nicht rein!",
+						text: "Ich muss draußen bleiben?!",
 						delay: 0,
 						decay: 0,
 						type: MessageType.Complaint,
@@ -244,7 +244,7 @@ export const levelComplaints: ComplaintPrompt[] = [
 					{
 						id: "1",
 						author: "",
-						text: "Ich darf nicht rein!",
+						text: "Ich muss draußen bleiben?!",
 						delay: 0,
 						decay: 0,
 						type: MessageType.Complaint,
@@ -312,7 +312,7 @@ export const levelComplaints: ComplaintPrompt[] = [
 					{
 						id: "1",
 						author: "",
-						text: "Ich darf nicht rein!",
+						text: "Ich muss draußen bleiben?!",
 						delay: 0,
 						decay: 0,
 						type: MessageType.Complaint,
@@ -344,7 +344,7 @@ export const levelComplaints: ComplaintPrompt[] = [
 					{
 						id: "1",
 						author: "",
-						text: "Ich darf nicht rein!",
+						text: "Ich muss draußen bleiben?!",
 						delay: 0,
 						decay: 0,
 						type: MessageType.Complaint,

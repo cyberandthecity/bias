@@ -119,7 +119,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In Level 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
+								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
 							/>
 						</div>
 						<div
