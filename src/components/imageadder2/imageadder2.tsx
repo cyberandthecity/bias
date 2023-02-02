@@ -1,6 +1,7 @@
 import React, { useState, useRef, FunctionComponent, useEffect } from "react"
 import Image, { ImageProps as ImageData } from "@/components/image/image"
 import ImageTile from "../imageTile/imageTile"
+import { motion } from "framer-motion";
 
 //declare array of image paths
 const evalImages = [
@@ -39,10 +40,34 @@ interface ImageAdder2Props {
 		}
   
 		const randomImagePath = evalImages[Math.floor(Math.random() * evalImages.length)];
-		const x = Math.floor(Math.random() * 2160); //inner width of screen
-		const y = Math.floor(Math.random() * 3840); //inner height of screen
+		const x = Math.floor(Math.random() * 2160 -150); //inner width of screen
+		const y = Math.floor(Math.random() * 3840 -150); //inner height of screen
+		
+		var grad = 0;
+		if (Math.floor(Math.random() * 2) == 0) {
+			grad = -15;
+		} else {
+			grad = 15;
+		}
+
   
-		setImages(prevImages => [...prevImages, <div style={{ position: "absolute", left: x, top: y, zIndex: 90,}}> <ImageTile key={imageCount} url={randomImagePath} scale={300} /> </div>]);
+		setImages(prevImages => [...prevImages, 
+		<motion.div
+			initial={{rotate:grad,  scale: 0.6 }}
+			animate={{rotate:0, scale: 1 }}
+			transition={{
+			  type: "spring",
+			  stiffness: 260,
+			  damping: 20
+			}} 
+			style={{ 
+				position: "absolute", 
+				left: x, 
+				top: y, 
+				zIndex: 90
+			}}> 
+			<ImageTile key={imageCount} url={randomImagePath} scale={300}/>
+		</motion.div>]);
 		setImageCount(prevCount => prevCount + 1);
 	  }, 50); //set time between images here
   
