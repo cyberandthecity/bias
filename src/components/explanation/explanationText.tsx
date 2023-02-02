@@ -2,7 +2,7 @@ import React from "react"
 import { FunctionComponent, useEffect, useState } from "react"
 import { InterfaceColor } from "@/utils/theme"
 import ChatMessage, { Message } from "../message/message"
-
+import "@/styles/stamp.css"
 
 
 interface TextProps {
@@ -19,22 +19,24 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
         <div
             style={{
                 position: "absolute",
-                left: "460px",
+                left: "430px",
                 top: "790px",
-                width: "1160px",
+                width: "1220px",
                 marginTop: "60px",
                 padding: "40px",
                 backgroundColor: "rgba(250,250,250,0.3)" ,
                 borderRadius: "20px",
                 color: "white",
                 textAlign: "justify",
-                textShadow: "0px 0px 2px black"
+                textShadow: "0px 0px 2px black",
+                justifyContent: "center",
             }}>
             <p
                 style={{
                     position: "relative",
-                    left: "120px",
+                    left: "50px",
                     fontSize: "42px",
+                    justifyContent: "center",
                 }}
             >
             Bias? Was ist nochmal Bias?"
@@ -43,21 +45,39 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                 style={{
                     position: "relative",
                     marginTop: "40px",
-                    width: "1100px",
-                    left: "30px",
+                    width: "1120px",
+                    left: "50px",
                     fontSize: "32px",
                 }}
             > Als Bias bezeichnet man in der KI Wissenschaft eine <b> Verzerrung des gewünschten Ergebnisses</b>.
             Diese Verzerrung kann harmlos sein, aber auch <b>schwere Folgen</b> haben und zum Beispiel zu Diskriminierung führen.
             </p>
-            <img src="/images/light2.svg" style={{position:"absolute",top:"25px" ,left:"50px",width: "75px", height: "75px" }} />
+            <p
+                className="stamp"
+                style={{
+                    bottom: "-50px",
+                    left: "-40px",
+                    position: "absolute",
+                    width: "80px",
+                    height: "80px",
+                    background: "white",
+                    borderRadius: "50%",
+
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.16)",
+                }}
+            >
+            <img src="/emojis/light-bulb.png" style={{width: "75px"}} />
+            </p>
         </div>
         <div
             style={{
                 position: "absolute",
-                left: "460px",
-                top: "1200px",
-                width: "1160px",
+                left: "430px",
+                top: "1180px",
+                width: "1220px",
                 marginTop: "60px",
                 padding: "40px",
                 backgroundColor: "rgba(250,250,250,0.3)" ,
@@ -70,7 +90,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "120px",
+                    left: "50px",
                     fontSize: "42px",
                 }}
             > Wie vermeiden wir Bias?
@@ -78,8 +98,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "30px",
-                    width: "1100px",
+                    left: "50px",
+                    width: "1120px",
                     marginTop: "40px",
                     fontSize: "32px",
                 }}
@@ -91,8 +111,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "30px",
-                    width: "1100px",
+                    left: "50px",
+                    width: "1120px",
                     marginTop: "20px",
                     fontSize: "32px",
                 }}
@@ -101,14 +121,32 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 			um die Vielfältigkeit des Themas zu verdeutlichen. Aufgrund dieser Vielfältigkeit haben auch wir in unserem Datensatz 
 			sicherlich einige Ungleichheiten <b>nicht abbilden können</b>, zum Beispiel was Hautfarbe, Alter oder Behinderungen.
             </p>
-            <img src="/images/how1.png" style={{position:"absolute",left:"50px",top:"25px" ,width: "80px", height: "80px" }} />
+            <p
+                className="stamp"
+                style={{
+                    bottom: "-50px",
+                    left: "-40px",
+                    position: "absolute",
+                    width: "80px",
+                    height: "80px",
+                    background: "white",
+                    borderRadius: "50%",
+
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.16)",
+                }}
+            >
+            <img src="/emojis/thinking-face.png" style={{width: "75px"}} />
+            </p>
         </div>
         <div
             style={{
                 position: "absolute",
-                left: "460px",
-                top: "1900px",
-                width: "1160px",
+                left: "430px",
+                top: "1908px",
+                width: "1220px",
                 marginTop: "60px",
                 padding: "40px",
                 backgroundColor: "rgba(250,250,250,0.3)" ,
@@ -120,15 +158,15 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "120px",
+                    left: "50px",
                     fontSize: "42px",
                 }}
             >Bias und Gesellschaft</p>
             <p
                 style={{
                     position: "relative",
-                    left: "30px",
-                    width: "1100px",
+                    left: "50px",
+                    width: "1120px",
                     marginTop: "40px",
                     fontSize: "32px",
                 }}
@@ -136,8 +174,26 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             und somit auch <b>unserer Gesellschaft</b> sind. Das heißt auch die Gesellschsaft, in der KI Systeme zur Anwendung kommen, 
             <b>trägt Verantwortung</b> dafür, wie diese eingesetzt werden und mit welchen Daten diese trainiert werden können und dürfen.
             </p>
-            <img src="/images/society.png" style={{position:"absolute",top:"25px",left:"50px" ,width: "80px", height: "80px" }} />
-		</div>
+            <p
+                className="stamp"
+                style={{
+                    bottom: "-50px",
+                    left: "-40px",
+                    position: "absolute",
+                    width: "80px",
+                    height: "80px",
+                    background: "white",
+                    borderRadius: "50%",
+
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.16)",
+                }}
+            >
+                <img src="/emojis/pointingUp.png" style={{width: "75px"}} />
+            </p>
+        </div>
         </div>
 	)
 }
