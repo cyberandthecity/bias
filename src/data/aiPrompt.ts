@@ -459,7 +459,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Ich lasse wohl nicht alle Studierenden in das Clubhaus.",
+			text: "Ich lasse nicht alle Studierenden in das Clubhaus.",
 			delay: 1500,
 			decay: 0,
 			type: MessageType.Normal,
@@ -468,7 +468,7 @@ export const explanationText: Message[][] = [
 			id: nanoid(),
 			author: "",
 			text: "Lass uns schauen, wie es vor dem Club aussieht.",
-			delay: 3000,
+			delay: 5000,
 			decay: 0,
 			type: MessageType.Normal,
 		},
