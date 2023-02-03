@@ -178,7 +178,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 								width: showForegroundText ? "1200px" : "100%",
 								borderRadius: showForegroundText ? "20px" : "0px",
 								justifyContent: "center",
-								background: showForegroundText ? "rgba(246, 348, 255, 0.8)" : "rgba(246, 348, 255, 0.2)",
+								background: showForegroundText ? "rgba(246, 348, 255, 0.95)" : "rgba(246, 348, 255, 0.2)",
 								paddingTop: "40px",
 								paddingBottom: "40px",
 								backdropFilter: "blur(100px)",
@@ -224,23 +224,12 @@ const Eval: FunctionComponent<EvalProps> = ({
 					{showForegroundText ? (
 						<>
 							<SelectionButton
-								onClick={() => {
-									resetLevel()
-									navigate("/")
-								}}
-								shine={true}
-								background="white"
-								color={InterfaceColor}
-							>
-								Neustart
-							</SelectionButton>
-							<SelectionButton
 								onClick={() => navigate("/explanation")}
 								shine={true}
 								background={InterfaceColor}
 								color="white"
 							>
-								Mehr Infos
+								Weiter
 							</SelectionButton>
 						</>
 					) : (
