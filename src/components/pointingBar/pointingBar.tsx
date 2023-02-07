@@ -49,7 +49,7 @@ const PointingBar: FunctionComponent<PointingBarProps> = ({ cycleTime, updateInd
 					opacity: 0.3,
 				}}
 			>
-				Tippe auf einen Datensatz um ihn auszuwählen
+				Tippe auf einen Datensatz, um ihn auszuwählen
 			</p>
 			{index != undefined && (
 				<div
