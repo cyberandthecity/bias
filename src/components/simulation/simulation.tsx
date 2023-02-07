@@ -108,7 +108,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 						messageDelay={1000}
 						customAnimation="scaleWithBounce"
 						position={{ x: 100, y: 2200 }}
-						chatOffset={{ x: 300, y: 250 }}
+						chatOffset={{ x: 280, y: 100 }}
 						messages={simulationComplaints[0].messages}
 						imageUrl={simulationComplaints[0].imageUrl}
 					/>
@@ -116,7 +116,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 						messageDelay={2000}
 						customAnimation="scaleWithBounce"
 						position={{ x: 500, y: 2550 }}
-						chatOffset={{ x: 300, y: 250 }}
+						chatOffset={{ x: 220, y: 240 }}
 						messages={simulationComplaints[1].messages}
 						imageUrl={simulationComplaints[1].imageUrl}
 					/>
