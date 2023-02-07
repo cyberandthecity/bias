@@ -83,12 +83,14 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 			<div
 				style={{
 					//marginTop: "-200px",
+					top: "1700px",
+					left: "100px",
+					position: "absolute",
 					height: "150px",
 					width: "2000px",
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
-
 					//background: BackgroundColor,
 				}}
 			>
