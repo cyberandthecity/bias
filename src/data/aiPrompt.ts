@@ -542,16 +542,7 @@ export const additionalText: Message[] = [
 		delay: 2000,
 		decay: 0,
 		type: MessageType.Normal,
-		//emoji: "alien",
 	},
-	{
-		id: nanoid(),
-		author: "",
-		text: "Hier findest du nochmal ein paar Details zu den Schwierigkeiten, die dieses Thema im Alltag mit sich bringt.",
-		delay: 2000,
-		decay: 0,
-		type: MessageType.Normal,
-		//emoji: "thinking-face",
-	},
+	
 	
 ]
