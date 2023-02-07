@@ -34,7 +34,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "50px",
+                    left: "80px",
                     fontSize: "42px",
                     justifyContent: "center",
                 }}
@@ -55,8 +55,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 className="stamp"
                 style={{
-                    bottom: "-50px",
-                    left: "-40px",
+                    top: "20px",
+                    left: "20px",
                     position: "absolute",
                     width: "80px",
                     height: "80px",
@@ -90,7 +90,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "50px",
+                    left: "80px",
                     fontSize: "42px",
                 }}
             > Wie vermeiden wir Bias?
@@ -124,8 +124,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 className="stamp"
                 style={{
-                    bottom: "-50px",
-                    left: "-40px",
+                    top: "20px",
+                    left: "20px",
                     position: "absolute",
                     width: "80px",
                     height: "80px",
@@ -158,7 +158,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 style={{
                     position: "relative",
-                    left: "50px",
+                    left: "80px",
                     fontSize: "42px",
                 }}
             >Bias und Gesellschaft</p>
@@ -177,8 +177,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <p
                 className="stamp"
                 style={{
-                    bottom: "-50px",
-                    left: "-40px",
+                    top: "20px",
+                    left: "20px",
                     position: "absolute",
                     width: "80px",
                     height: "80px",
