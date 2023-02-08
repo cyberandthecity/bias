@@ -6,7 +6,6 @@ import "@/styles/stamp.css"
 
 interface TextProps {}
 
-//,subtitle1,paragraph1,subtitle2,paragraph2,subtitle3,paragraph3,subtitle4,paragraph4
 const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 	return (
 		<div>
@@ -24,6 +23,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					textAlign: "justify",
 					textShadow: "0px 0px 2px black",
 					justifyContent: "center",
+                    backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
@@ -83,6 +83,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					color: "white",
 					textAlign: "justify",
 					textShadow: "0 0 2px black",
+                    backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
@@ -156,6 +157,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					color: "white",
 					textAlign: "justify",
 					textShadow: "0px 0px 2px black",
+                    backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
