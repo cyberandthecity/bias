@@ -119,7 +119,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
+								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. "
 							/>
 						</div>
 						<div
@@ -139,7 +139,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 2"
 								orientation="right"
-								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.   "
+								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen.  "
 							/>
 							<ImageMatrix imageArray={imagesLevel2} />
 							<EmojiDot emoji="glasses" orientation="left" />
@@ -166,7 +166,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 3"
 								orientation="left"
-								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
+								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen. "
 							/>
 						</div>
 						<div
