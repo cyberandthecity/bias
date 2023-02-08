@@ -35,7 +35,7 @@ const Evaluation: FunctionComponent<EvaluationProps> = ({
 		<>
 			<Background offset={1200} isInAI scale={scale} rotate={rotate} translate={translate}>
 				<Restart />
-				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
+				{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} /> */}
 				<div
 					style={{
 						position: "absolute",
