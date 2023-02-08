@@ -23,7 +23,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					textAlign: "justify",
 					textShadow: "0px 0px 2px black",
 					justifyContent: "center",
-                    backdropFilter: "blur(200px)",
+					backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
@@ -83,7 +83,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					color: "white",
 					textAlign: "justify",
 					textShadow: "0 0 2px black",
-                    backdropFilter: "blur(200px)",
+					backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
@@ -157,7 +157,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					color: "white",
 					textAlign: "justify",
 					textShadow: "0px 0px 2px black",
-                    backdropFilter: "blur(200px)",
+					backdropFilter: "blur(200px)",
 				}}
 			>
 				<p
@@ -180,8 +180,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 				>
 					Abgesehen von der Rolle der Entwickler_innen gilt auch, dass die verwendeten Daten immer ein{" "}
 					<b>Spiegel der Realität </b>
-					und somit auch <b>unserer Gesellschaft</b> sind. Das heißt: auch <b>Wir</b> als Teil der Gesellschaft, in der
-					KI Systeme zur Anwendung kommen,
+					und somit auch <b>unserer Gesellschaft</b> sind. Das heißt: <b>Wir</b> als Teil der Gesellschaft, in der KI
+					Systeme zur Anwendung kommen,
 					<b> tragen Verantwortung</b> dafür, wie KI eingesetzt wird und mit welchen Daten diese trainiert werden kann
 					und darf.
 				</p>
