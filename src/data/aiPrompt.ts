@@ -133,7 +133,7 @@ export const levelText: AIPrompt[] = [
 			{
 				id: nanoid(),
 				author: "",
-				text: "Ich habe das überprüft, jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
+				text: "Jetzt werden sowohl Frauen als auch Männer als Studierende erkannt.",
 				delay: 2000,
 				decay: 0,
 				type: MessageType.Lesson,
@@ -478,7 +478,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text: "Lass uns schauen, wie es vor dem Club aussieht...",//"Simuliere Tübingen ...",
+			text: "Lass uns schauen, wie es vor dem Club aussieht...", //"Simuliere Tübingen ...",
 			delay: 5000,
 			decay: 0,
 			type: MessageType.Normal,
@@ -488,7 +488,7 @@ export const explanationText: Message[][] = [
 		{
 			id: nanoid(),
 			author: "",
-			text:  "Hm, ich kann Studierende noch nicht gut genug erkennen.",//"Hm, ich kann noch nicht alle Studierenden erkennen.",
+			text: "Hm, ich kann Studierende noch nicht gut genug erkennen.", //"Hm, ich kann noch nicht alle Studierenden erkennen.",
 			delay: 1500,
 			decay: 0,
 			type: MessageType.Normal,
@@ -532,11 +532,9 @@ export const evaluationText: Message[] = [
 		type: MessageType.Normal,
 		//emoji: "thinking-face",
 	},
-	
 ]
 
 export const additionalText: Message[] = [
-	
 	{
 		id: nanoid(),
 		author: "Die KI:",
@@ -555,6 +553,4 @@ export const additionalText: Message[] = [
 		decay: 0,
 		type: MessageType.Explanation,
 	},
-	
-	
 ]
