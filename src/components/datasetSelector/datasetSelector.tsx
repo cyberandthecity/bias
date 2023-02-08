@@ -62,7 +62,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 				>
 					<p style={{ fontSize: "42px", fontWeight: 600, color: InterfaceColor }}>{title}</p>
 
-					<Hint hintPrompt={hintPrompt} isInEvaluatingMode={isInEvaluatingMode} />
+					<Hint key={hintPrompt} hintPrompt={hintPrompt} isInEvaluatingMode={isInEvaluatingMode} />
 				</div>
 
 				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
