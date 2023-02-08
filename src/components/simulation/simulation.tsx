@@ -59,104 +59,123 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 	}, [playVideo])
 
 	return (
-		<div
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				justifyContent: "center",
-				alignItems: "center",
-				gap: "50px",
-			}}
-		>
-			<div
-				style={{
-					width: "2000px",
-					height: "2000px",
-					borderRadius: "1000px",
-					background: BackgroundColor,
-
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					overflow: "hidden",
-					flexDirection: "column",
-					boxShadow: " 0px 0px 50px rgba(246, 223, 232, 1)",
-				}}
-			>
-				<video ref={videoRef} muted playsInline src="/videos/simulation.mp4" onEnded={loopVideo} />
-				{/* <AICanvas /> */}
-			</div>
-			<div
-				style={{
-					//marginTop: "-200px",
-					top: "1700px",
-					left: "100px",
-					position: "absolute",
-					height: "150px",
-					width: "2000px",
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
-					//background: BackgroundColor,
-				}}
-			>
-				{showButton && (
-				<SelectionButton
+		<>
+			{showButton && (
+				<div
+					style={{
+						position: "absolute",
+						cursor: "pointer",
+						width: "100%",
+						height: "100%",
+						top: 0,
+						left: 0,
+						zIndex: 1000,
+					}}
 					onClick={nextLevel}
-					shine={activateButton}
-					background="white"
-					color={InterfaceColor}
-					activated={activateButton}
+				/>
+			)}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+					gap: "50px",
+				}}
+			>
+				<div
+					style={{
+						width: "2000px",
+						height: "2000px",
+						borderRadius: "1000px",
+						background: BackgroundColor,
+
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						overflow: "hidden",
+						flexDirection: "column",
+						boxShadow: " 0px 0px 50px rgba(246, 223, 232, 1)",
+					}}
 				>
-					Ja, kann losgehen!
-				</SelectionButton>
-				) }
+					<video ref={videoRef} muted playsInline src="/videos/simulation.mp4" onEnded={loopVideo} />
+					{/* <AICanvas /> */}
+				</div>
+				<div
+					style={{
+						//marginTop: "-200px",
+						top: "1700px",
+						left: "100px",
+						position: "absolute",
+						height: "150px",
+						width: "2000px",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						//background: BackgroundColor,
+					}}
+				>
+					{showButton && (
+						<div style={{ marginTop: "280px", marginLeft: "-50px" }}>
+							<SelectionButton
+								onClick={nextLevel}
+								shine={activateButton}
+								background="rgba(255, 255, 255, 0.7)"
+								color={InterfaceColor}
+								activated={activateButton}
+								blur={20}
+							>
+								Ja, kann losgehen!
+							</SelectionButton>
+						</div>
+					)}
+				</div>
+				{showComplaint && (
+					<>
+						<Complaint
+							messageDelay={1000}
+							customAnimation="scaleWithBounce"
+							position={{ x: 100, y: 2200 }}
+							chatOffset={{ x: 280, y: 100 }}
+							messages={simulationComplaints[0].messages}
+							imageUrl={simulationComplaints[0].imageUrl}
+						/>
+						<Complaint
+							messageDelay={2000}
+							customAnimation="scaleWithBounce"
+							position={{ x: 500, y: 2550 }}
+							chatOffset={{ x: 220, y: 240 }}
+							messages={simulationComplaints[1].messages}
+							imageUrl={simulationComplaints[1].imageUrl}
+						/>
+						<Complaint
+							customAnimation="scaleWithBounce"
+							position={{ x: 1700, y: 2300 }}
+							messages={simulationComplaints[2].messages}
+							imageUrl={simulationComplaints[2].imageUrl}
+						/>
+					</>
+				)}
+				{showPeople && (
+					<>
+						<Complaint
+							customAnimation="scale"
+							position={{ x: 200, y: 950 }}
+							messages={simulationComplaints[4].messages}
+							imageUrl={simulationComplaints[4].imageUrl}
+						/>
+						<Complaint
+							messageDelay={1000}
+							customAnimation="scale"
+							position={{ x: 400, y: 800 }}
+							chatOffset={{ x: 150, y: -120 }}
+							messages={simulationComplaints[3].messages}
+							imageUrl={simulationComplaints[3].imageUrl}
+						/>
+					</>
+				)}
 			</div>
-			{showComplaint && (
-				<>
-					<Complaint
-						messageDelay={1000}
-						customAnimation="scaleWithBounce"
-						position={{ x: 100, y: 2200 }}
-						chatOffset={{ x: 280, y: 100 }}
-						messages={simulationComplaints[0].messages}
-						imageUrl={simulationComplaints[0].imageUrl}
-					/>
-					<Complaint
-						messageDelay={2000}
-						customAnimation="scaleWithBounce"
-						position={{ x: 500, y: 2550 }}
-						chatOffset={{ x: 220, y: 240 }}
-						messages={simulationComplaints[1].messages}
-						imageUrl={simulationComplaints[1].imageUrl}
-					/>
-					<Complaint
-						customAnimation="scaleWithBounce"
-						position={{ x: 1700, y: 2300 }}
-						messages={simulationComplaints[2].messages}
-						imageUrl={simulationComplaints[2].imageUrl}
-					/>
-				</>
-			)}
-			{showPeople && (
-				<>
-					<Complaint
-						customAnimation="scale"
-						position={{ x: 200, y: 950 }}
-						messages={simulationComplaints[4].messages}
-						imageUrl={simulationComplaints[4].imageUrl}
-					/>
-					<Complaint
-						messageDelay={1000}
-						customAnimation="scale"
-						position={{ x: 400, y: 800 }}
-						chatOffset={{ x: 150, y: -120 }}
-						messages={simulationComplaints[3].messages}
-						imageUrl={simulationComplaints[3].imageUrl}
-					/>
-				</>
-			)}
-		</div>
+		</>
 	)
 }
 
