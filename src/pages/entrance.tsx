@@ -43,6 +43,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 					transform:
 						"scale(" + scale + ") rotate(" + rotate + "deg) translate(" + translate.x + "px, " + translate.y + "px)",
 					transformOrigin: "left top",
+					overflow: "hidden",
 				}}
 			>
 				{/* <Restart /> */}
