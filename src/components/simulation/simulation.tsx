@@ -26,6 +26,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 	const videoRef = useRef<HTMLVideoElement>(null)
 	const [showComplaint, setShowComplaint] = useState(false)
 	const [showPeople, setShowPeople] = useState(false)
+	const [showButton, setShowButton] = useState(false)
 
 	const loopVideo = () => {
 		if (videoRef.current) {
@@ -45,9 +46,14 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 			const timeoutComplaints = setTimeout(() => {
 				setShowComplaint(true)
 			}, 10000) // TODO: adapt to correct time
+
+			const timeoutButton = setTimeout(() => {
+				setShowButton(true)
+			}, 24500)
 			return () => {
 				clearTimeout(timeout)
 				clearTimeout(timeoutComplaints)
+				clearTimeout(timeoutButton)
 			}
 		}
 	}, [playVideo])
@@ -94,6 +100,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 					//background: BackgroundColor,
 				}}
 			>
+				{showButton && (
 				<SelectionButton
 					onClick={nextLevel}
 					shine={activateButton}
@@ -103,6 +110,7 @@ const Simulation: FunctionComponent<SimulationProps> = ({
 				>
 					Ja, kann losgehen!
 				</SelectionButton>
+				) }
 			</div>
 			{showComplaint && (
 				<>

@@ -29,7 +29,7 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 
 	const [playVideo, setPlayVideo] = useState(false)
 	const [aiTransition, setAITransition] = useState(false)
-	const [actviateButton, setActivateButton] = useState(false)
+	const [activateButton, setActivateButton] = useState(false)
 	const [videoEnded, setVideoEnded] = useState(false)
 
 	let navigate = useNavigate()
@@ -91,7 +91,7 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 						title="Simuliere"
 						nextLevel={() => progessToNextScreen()}
 						playVideo={playVideo}
-						activateButton={actviateButton}
+						activateButton={activateButton}
 						onVideoEnd={() => {
 							setVideoEnded(true)
 						}}
