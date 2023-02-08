@@ -536,13 +536,24 @@ export const evaluationText: Message[] = [
 ]
 
 export const additionalText: Message[] = [
+	
 	{
 		id: nanoid(),
 		author: "Die KI:",
-		text: "Durch unser Spiel hast Du bereits erste Erfahrungen damit gemacht, wie schwer es ist, Bias in einer KI zu verhindern. ",
+		//text: "Durch unser Spiel hast Du bereits erste Erfahrungen damit gemacht, wie schwer es ist, Bias in einer KI zu verhindern. ",
+		text: "In diesem Spiel hast Du Trainings-Daten für die KI ausgewählt. Ganz ähnlich, wie das richtige Entwickler_innen tun.",
 		delay: 2000,
 		decay: 0,
-		type: MessageType.Normal,
+		type: MessageType.Explanation,
+	},
+
+	{
+		id: nanoid(),
+		author: "",
+		text: "Und Du hast wahrscheinlich gemerkt: Es ist gar nicht so einfach, Bias in einer KI zu verhindern!",
+		delay: 2000,
+		decay: 0,
+		type: MessageType.Explanation,
 	},
 	
 	

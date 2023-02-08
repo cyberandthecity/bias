@@ -13,6 +13,7 @@ export enum MessageType {
 	Typing,
 	Lesson,
 	Complaint,
+	Explanation,
 }
 
 export interface Message {
@@ -70,8 +71,19 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 			}
 		}, [callbackTimeout])
 
+		const width = (messageType: MessageType) => {
+			switch (messageType){
+				case MessageType.Explanation:
+					return "900px"
+				default:
+					return "fit-content"
+			}
+		}
+
 		const color = (messageType: MessageType) => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return "white"
 				case MessageType.Normal:
 					return "white"
 				case MessageType.Warning:
@@ -90,6 +102,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 
 		const textShadow = (messageType: MessageType) => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return "0 0 0px black"
 				case MessageType.Normal:
 					return "0 0 0px black"
 				case MessageType.Warning:
@@ -109,6 +123,9 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 		const backgroundColor = (messageType: MessageType): string => {
 			// Must be in hex format
 			switch (messageType) {
+				case MessageType.Explanation:
+					if (backgroundColorType === BackgroundColorType.Dark) return "#FFFFFF"
+					else return InterfaceColor
 				case MessageType.Normal:
 					if (backgroundColorType === BackgroundColorType.Dark) return "#FFFFFF"
 					else return InterfaceColor
@@ -128,6 +145,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 
 		const alpha = (messageType: MessageType): number => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.6
 				case MessageType.Normal:
 					return backgroundColorType == BackgroundColorType.Dark ? 0.3 : 0.6
 				case MessageType.Warning:
@@ -145,6 +164,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 
 		const fontSize = (messageType: MessageType) => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return "40px"
 				case MessageType.Normal:
 					return "40px"
 				case MessageType.Warning:
@@ -163,6 +184,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 
 		const font = (messageType: MessageType) => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return "500"
 				case MessageType.Normal:
 					return "500"
 				case MessageType.Warning:
@@ -181,6 +204,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 
 		const position = (messageType: MessageType) => {
 			switch (messageType) {
+				case MessageType.Explanation:
+					return "relative"
 				case MessageType.Normal:
 					return "relative"
 				case MessageType.Warning:
@@ -209,7 +234,7 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 							: "0px 0px 10px rgba(0, 0, 0, 0.14)",
 
 					padding: "20px 30px 20px 30px",
-					width: "fit-content",
+					width: width(type),
 					fontSize: fontSize(type),
 					fontWeight: font(type),
 
@@ -236,7 +261,8 @@ const ChatMessage: FunctionComponent<MessageProps> = memo(
 				{(type == MessageType.Normal ||
 					type == MessageType.Warning ||
 					type == MessageType.Instruction ||
-					type == MessageType.Lesson) &&
+					type == MessageType.Lesson ||
+					type == MessageType.Explanation) &&
 				!textAnimationDoneWithDelay ? (
 					<TypeAnimation
 						sequence={[
