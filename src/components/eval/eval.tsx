@@ -119,7 +119,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
+								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen."
 							/>
 						</div>
 						<div
@@ -139,7 +139,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 2"
 								orientation="right"
-								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.   "
+								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen."
 							/>
 							<ImageMatrix imageArray={imagesLevel2} />
 							<EmojiDot emoji="glasses" orientation="left" />
@@ -166,7 +166,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 3"
 								orientation="left"
-								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen. Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet.  Lore ipsim dolor sit amet."
+								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen."
 							/>
 						</div>
 						<div
@@ -188,56 +188,62 @@ const Eval: FunctionComponent<EvalProps> = ({
 								transition: "all 1s",
 							}}
 						>
-							<p
-								style={{
-									fontSize: showForegroundText ? "50px" : "40px",
-									color: InterfaceColor,
-									textAlign: "center",
-									//fontWeight: showForegroundText ? "bold" : "normal",
-									padding: showForegroundText ? "60px" : "0px",
-									transition: "all 1s",
-								}}
-							>
-								{showForegroundText
-									? "Um zu lernen, braucht eine KI viel mehr Beispiele!"
-									: "Bei 20 Bildern war das schon gar nicht so einfach, oder..?"}
-							</p>
+							<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+								<p
+									style={{
+										fontSize: showForegroundText ? "50px" : "40px",
+										color: InterfaceColor,
+										textAlign: "center",
+										padding: showForegroundText ? "60px" : "0px",
+										transition: "all 1s",
+									}} >
+										{showForegroundText
+											?
+											(
+												<>
+													"Um zu lernen, braucht eine KI viel mehr Beispiele!" 
+												</>
+											) 
+										: "Bei 20 Bildern war das schon gar nicht so einfach, oder..?"}
+								</p>
+								{showForegroundText && (
+									<SelectionButton
+										onClick={() => navigate("/explanation")}
+										shine={true}
+										background={InterfaceColor}
+										color="white"
+									>
+										Weiter
+									</SelectionButton>
+								)}
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div
-					className="fadeIn4"
-					style={{
-						height: "150px",
-						width: "100%",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						gap: "65px",
-						zIndex: 10000,
-						boxShadow: showForegroundText ? "0px 0px 200px 0px rgba(0,0,0,0.75)" : "none",
-						background: BackgroundColor,
-						transition: "all 1s",
-					}}
-				>
-					{showForegroundText ? (
-						<>
-							<SelectionButton
-								onClick={() => navigate("/explanation")}
-								shine={true}
-								background={InterfaceColor}
-								color="white"
-							>
-								Weiter
-							</SelectionButton>
-						</>
-					) : (
-						<SelectionButton onClick={handleButtonClick} shine={true} background={InterfaceColor} color="white">
-							Zum realistischen Beispiel
-						</SelectionButton>
-					)}
-				</div>
+				{!showForegroundText ?
+					<div
+						className="fadeIn4"
+						style={{
+							height: "150px",
+							width: "100%",
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							gap: "65px",
+							zIndex: 10000,
+							boxShadow: showForegroundText ? "0px 0px 200px 0px rgba(0,0,0,0.75)" : "none",
+							background: BackgroundColor,
+							transition: "all 1s",
+						}}
+					>
+						{!showForegroundText &&
+								<SelectionButton onClick={handleButtonClick} shine={true} background={InterfaceColor} color="white">
+									Zum realistischen Beispiel
+								</SelectionButton>	
+						};
+					</div>
+				: null}
 			</div>
 
 			{showSecondComponent && <ImageAdder2 />}
