@@ -40,7 +40,7 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
-        	<Fullscreen propagateFullscreenToggle={toggleFullscreen} />    
+        	{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} />    */} 
 			<Title title="Mehr zu Bias und KI" />
 			<AI messages={aiMessages} position={{ x: 1810, y: 615 }} chatOffset={{ x: -1020, y: 140 }} />
 			<ExplanationText />
