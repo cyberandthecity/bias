@@ -517,20 +517,20 @@ export const evaluationText: Message[] = [
 	{
 		id: nanoid(),
 		author: "Die KI:",
-		text: "Lass uns die Ergebnisse nochmal anschauen.",
+		text: "Gemeinsam haben wir einen guten Datensatz gefunden!",
 		delay: 1500,
 		decay: 0,
 		type: MessageType.Normal,
-		//emoji: "alien",
+		//emoji: "thinking-face",
 	},
 	{
 		id: nanoid(),
 		author: "",
-		text: "Gemeinsam haben wir einen guten Datensatz gefunden.",
-		delay: 2000,
+		text: "Lass uns die Ergebnisse nochmal anschauen...",
+		delay: 3000,
 		decay: 0,
 		type: MessageType.Normal,
-		//emoji: "thinking-face",
+		//emoji: "alien",
 	},
 ]
 

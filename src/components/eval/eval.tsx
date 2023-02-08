@@ -119,7 +119,8 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende gleich gut zu erkennen. "
+								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
+									gleich gut zu erkennen. "
 							/>
 						</div>
 						<div
@@ -139,7 +140,9 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 2"
 								orientation="right"
-								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille zu erkennen.  "
+								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille 
+									zu erkennen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
+									dass eine Brille hier nicht die Entscheidung beeinflussen soll. "
 							/>
 							<ImageMatrix imageArray={imagesLevel2} />
 							<EmojiDot emoji="glasses" orientation="left" />
@@ -166,7 +169,9 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 3"
 								orientation="left"
-								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und Lichtverhältnissen zu erkennen. "
+								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und 
+									Lichtverhältnissen zu erkennen. Wie bei der Brille, ist dies zwar selbstverständlich für uns, 
+									die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."
 							/>
 						</div>
 						<div
@@ -196,15 +201,13 @@ const Eval: FunctionComponent<EvalProps> = ({
 										textAlign: "center",
 										padding: showForegroundText ? "60px" : "0px",
 										transition: "all 1s",
-									}} >
-										{showForegroundText
-											?
-											(
-												<>
-													"Um zu lernen, braucht eine KI viel mehr Beispiele!" 
-												</>
-											) 
-										: "Bei 20 Bildern war das schon gar nicht so einfach, oder..?"}
+									}}
+								>
+									{showForegroundText ? (
+										<>"Um zu lernen, braucht eine KI viel mehr Beispiele!"</>
+									) : (
+										"Bei 20 Bildern war das schon gar nicht so einfach, oder..?"
+									)}
 								</p>
 								{showForegroundText && (
 									<SelectionButton
@@ -221,7 +224,7 @@ const Eval: FunctionComponent<EvalProps> = ({
 					</div>
 				</div>
 
-				{!showForegroundText ?
+				{!showForegroundText ? (
 					<div
 						className="fadeIn4"
 						style={{
@@ -237,13 +240,14 @@ const Eval: FunctionComponent<EvalProps> = ({
 							transition: "all 1s",
 						}}
 					>
-						{!showForegroundText &&
-								<SelectionButton onClick={handleButtonClick} shine={true} background={InterfaceColor} color="white">
-									Zum realistischen Beispiel
-								</SelectionButton>	
-						};
+						{!showForegroundText && (
+							<SelectionButton onClick={handleButtonClick} shine={true} background={InterfaceColor} color="white">
+								Zum realistischen Beispiel
+							</SelectionButton>
+						)}
+						;
 					</div>
-				: null}
+				) : null}
 			</div>
 
 			{showSecondComponent && <ImageAdder2 />}
