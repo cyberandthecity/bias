@@ -10,7 +10,7 @@ interface HintProps {
 	messageDelay?: number
 }
 
-const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false, messageDelay = 25000 }) => {
+const Hint: FunctionComponent<HintProps> = ({ hintPrompt, isInEvaluatingMode = false, messageDelay = 30000 }) => {
 	const [showHint, setShowHint] = useState(false)
 	const [showedHint, setShowedHint] = useState(false)
 	const [showHintMessage, setShowHintMessage] = useState(false)
