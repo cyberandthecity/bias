@@ -70,7 +70,7 @@ const Game: FunctionComponent<GameProps> = ({
 		<>
 			<Background offset={800} isInAI scale={scale} rotate={rotate} translate={translate}>
 				<Restart />
-				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
+				{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} /> */}
 
 				<div
 					style={{

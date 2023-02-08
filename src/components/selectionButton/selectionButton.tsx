@@ -9,6 +9,7 @@ interface SelectionButtonProps {
 	color?: string
 	background?: string
 	activated?: boolean
+	blur?: number
 }
 
 const SelectionButton: FunctionComponent<SelectionButtonProps> = ({
@@ -18,6 +19,7 @@ const SelectionButton: FunctionComponent<SelectionButtonProps> = ({
 	background = InterfaceColor,
 	color = "white",
 	activated = true,
+	blur = 0,
 }) => {
 	return (
 		<div
@@ -41,6 +43,7 @@ const SelectionButton: FunctionComponent<SelectionButtonProps> = ({
 					cursor: "pointer",
 					overflow: "hidden",
 					opacity: activated ? 1 : 0.5,
+					backdropFilter: blur ? `blur(${blur}px)` : "none",
 				}}
 				onClick={() => {
 					activated ? onClick() : null

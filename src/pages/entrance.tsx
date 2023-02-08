@@ -46,7 +46,7 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 				}}
 			>
 				{/* <Restart /> */}
-				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
+				{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} /> */}
 				<AI
 					messages={messages}
 					position={{ x: 880, y: 1340 }}
