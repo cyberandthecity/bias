@@ -3,12 +3,44 @@ import { FunctionComponent, useEffect, useState } from "react"
 import { InterfaceColor } from "@/utils/theme"
 import ChatMessage, { Message } from "../message/message"
 import "@/styles/stamp.css"
+import "@/styles/bounceComplaint.css"
+import "@/styles/globals.css"
+import "@/styles/shining.css"
+
 
 interface TextProps {}
 
 const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 	return (
 		<div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "1060px",
+                    left: "220px",
+                    display: "flex",
+                    flexDirection: "row",
+                    transform: "scale(1.0)",
+                    WebkitTransform: "scale(1)",
+                    zIndex: 1,
+                }}
+		    >
+                <div className="scale" style={{}}>
+                    <img src={"/datasets/evaluation/3.png"}
+                        style={{
+                            width: "130px",
+                            height: "130px",
+                            borderRadius: "1000px",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "white",
+                            border: "3px solid white",
+                            filter: "drop-shadow(0px 0px 30px rgba(246, 223, 232, 1))",
+                        }}
+				    />
+                </div>
+            </div>
 			<div
 				style={{
 					position: "absolute",
@@ -70,6 +102,34 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					<img src="/emojis/light-bulb.png" style={{ width: "75px" }} />
 				</p>
 			</div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "1615px",
+                    left: "220px",
+                    display: "flex",
+                    flexDirection: "row",
+                    transform: "scale(1.0)",
+                    WebkitTransform: "scale(1)",
+                    zIndex: 1,
+                }}
+		    >
+                <div className="scale" style={{}}>
+                    <img src={"/datasets/evaluation/45.png"}
+                        style={{
+                            width: "130px",
+                            height: "130px",
+                            borderRadius: "1000px",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "white",
+                            border: "3px solid white",
+                            filter: "drop-shadow(0px 0px 30px rgba(246, 223, 232, 1))",
+                        }}
+				    />
+                </div>
+            </div>
 			<div
 				style={{
 					position: "absolute",
@@ -144,6 +204,34 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 					<img src="/emojis/thinking-face.png" style={{ width: "75px" }} />
 				</p>
 			</div>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "2250px",
+                    left: "220px",
+                    display: "flex",
+                    flexDirection: "row",
+                    transform: "scale(1.0)",
+                    WebkitTransform: "scale(1)",
+                    zIndex: 1,
+                }}
+		    >
+                <div className="scale" style={{}}>
+                    <img src={"/datasets/evaluation/33.png"}
+                        style={{
+                            width: "130px",
+                            height: "130px",
+                            borderRadius: "1000px",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "white",
+                            border: "3px solid white",
+                            filter: "drop-shadow(0px 0px 30px rgba(246, 223, 232, 1))",
+                        }}
+				    />
+                </div>
+            </div>
 			<div
 				style={{
 					position: "absolute",
