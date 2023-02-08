@@ -170,9 +170,9 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                     marginTop: "40px",
                     fontSize: "32px",
                 }}
-            >Abgesehen von der Rolle der Entwickler_innen gilt auch, dass die verwendeten Daten immer ein <b>Spiegel der Realität</b> 
+            >Abgesehen von der Rolle der Entwickler_innen gilt auch, dass die verwendeten Daten immer ein <b>Spiegel der Realität </b> 
             und somit auch <b>unserer Gesellschaft</b> sind. Das heißt auch die Gesellschsaft, in der KI Systeme zur Anwendung kommen, 
-            <b>trägt Verantwortung</b> dafür, wie diese eingesetzt werden und mit welchen Daten diese trainiert werden können und dürfen.
+            <b> trägt Verantwortung</b> dafür, wie diese eingesetzt werden und mit welchen Daten diese trainiert werden können und dürfen.
             </p>
             <p
                 className="stamp"
