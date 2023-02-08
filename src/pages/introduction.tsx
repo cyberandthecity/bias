@@ -72,7 +72,7 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 		<>
 			<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
 				<Restart />
-				<Fullscreen propagateFullscreenToggle={toggleFullscreen} />
+				{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} /> */}
 
 				<div
 					className={aiTransition ? "videoTransition" : ""}
