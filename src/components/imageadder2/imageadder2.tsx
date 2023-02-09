@@ -20,7 +20,11 @@ const evalImages = [
 	"/datasets/evaluation/37.png", "/datasets/evaluation/38.png", "/datasets/evaluation/39.png",
 	"/datasets/evaluation/40.png", "/datasets/evaluation/41.png", "/datasets/evaluation/42.png",
 	"/datasets/evaluation/43.png", "/datasets/evaluation/44.png", "/datasets/evaluation/45.png",
-	"/datasets/evaluation/46.png", "/datasets/evaluation/47.png",
+	"/datasets/evaluation/46.png", "/datasets/evaluation/47.png", "/datasets/evaluation/48.png",
+	"/datasets/evaluation/49.png", "/datasets/evaluation/50.png", "/datasets/evaluation/51.png",
+	"/datasets/evaluation/52.png", "/datasets/evaluation/53.png", "/datasets/evaluation/54.png",
+	"/datasets/evaluation/55.png", "/datasets/evaluation/56.png", "/datasets/evaluation/57.png",
+	"/datasets/evaluation/58.png", "/datasets/evaluation/59.png", "/datasets/evaluation/60.png",
 ]
 
 
