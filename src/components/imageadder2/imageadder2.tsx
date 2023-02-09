@@ -48,9 +48,9 @@ interface ImageAdder2Props {
 		
 		var grad = 0;
 		if (Math.floor(Math.random() * 2) == 0) {
-			grad = -15;
+			grad = -5;
 		} else {
-			grad = 15;
+			grad = 5;
 		}
 
   
