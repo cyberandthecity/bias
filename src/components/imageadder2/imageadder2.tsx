@@ -24,7 +24,6 @@ const evalImages = [
 	"/datasets/evaluation/49.png", "/datasets/evaluation/50.png", "/datasets/evaluation/51.png",
 	"/datasets/evaluation/52.png", "/datasets/evaluation/53.png", "/datasets/evaluation/54.png",
 	"/datasets/evaluation/55.png", "/datasets/evaluation/56.png", "/datasets/evaluation/57.png",
-	"/datasets/evaluation/58.png", "/datasets/evaluation/59.png", "/datasets/evaluation/60.png",
 ]
 
 
