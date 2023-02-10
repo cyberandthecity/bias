@@ -165,7 +165,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 						fontSize: "34px",
 					}}
 				>
-					Grundsätzlich gilt, dass eine möglichst <b>große Diversität</b> in der Datensammlung angestrebt werden sollte,
+					Grundsätzlich sollte eine möglichst <b>große Diversität</b> in der Datensammlung angestrebt werden,
 					um Bias zu vermeiden. In der Realität stehen Entwickler_innen also vor einer noch größeren Aufgabe als im
 					Spiel, denn <b>nicht nur</b> müssen möglichst alle Ungleichheiten beachtet werden, in den meisten Fällen liegt
 					die Anzahl der Daten im <b>Millionenbereich</b>.
@@ -179,8 +179,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 						fontSize: "34px",
 					}}
 				>
-					Wir haben uns für dieses Spiel auf <b>drei Fälle</b> von Bias beschränkt, die in verschiedenen Formen
-					auftreten, um die Vielfältigkeit des Themas zu verdeutlichen. Aufgrund dieser Vielfältigkeit haben auch wir in
+					Wir haben uns für dieses Spiel auf <b>drei Fälle</b> von Bias beschränkt. Aufgrund der Vielfältigkeit des Themas Bias haben auch wir in
 					unserem Datensatz sicherlich einige Ungleichheiten <b>nicht abbilden können</b>, zum Beispiel Hautfarbe, Alter
 					oder Behinderungen.
 				</p>
@@ -266,13 +265,14 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 						fontSize: "34px",
 					}}
 				>
-					Abgesehen von der Rolle der Entwickler_innen gilt auch, dass die verwendeten Daten immer ein{" "}
-					<b>Spiegel der Realität </b>
-					und somit auch <b>unserer Gesellschaft</b> sind. Das heißt: <b>Wir</b> als Teil der Gesellschaft, in der KI
-					Systeme zur Anwendung kommen,
-					<b> tragen Verantwortung</b> dafür, wie KI eingesetzt wird und mit welchen Daten diese trainiert werden kann
+					Du hast in diesem Spiel die <b>Rolle der Entwickler_innen</b> bei der Erstellung von Datensätzen kennengelernt.
+					Darüber hinaus gilt aber auch, dass Daten in erster Linie die <b>Realität in unserer Gesellschaft</b> widerspiegeln und 
+					nicht unabhängig von ihr existieren. 
+					Das heißt: <b>Wir</b> als Teil der Gesellschaft, in der KI Systeme zur Anwendung kommen,
+					<b> tragen auch Verantwortung</b> dafür, wie KI eingesetzt wird und mit welchen Daten diese trainiert werden kann
 					und darf.
 				</p>
+				
 				<p
 					className="stamp"
 					style={{
