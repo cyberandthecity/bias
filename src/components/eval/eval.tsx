@@ -119,8 +119,8 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In LEVEL 1 wurde der Datensatz so angepasst, dass er weibliche und männliche Studierende 
-									gleich gut repräsentiert. "
+								text="In LEVEL 1 wurde der Datensatz so angepasst, dass weibliche und männliche Studierende 
+									gleich gut repräsentiert sind. "
 								/*text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
 									gleich gut zu erkennen. "*/
 							/>
