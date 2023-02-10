@@ -119,8 +119,10 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 1"
 								orientation="left"
-								text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
-									gleich gut zu erkennen. "
+								text="In LEVEL 1 wurde der Datensatz so angepasst, dass er weibliche und männliche Studierende 
+									gleich gut repräsentiert. "
+								/*text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
+									gleich gut zu erkennen. "*/
 							/>
 						</div>
 						<div
@@ -140,9 +142,12 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 2"
 								orientation="right"
-								text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille 
-									zu erkennen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
+								text="In LEVEL 2 wurde der Datensatz so angepasst, dass Studierende mit und ohne Brille 
+									darin vorkommen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
 									dass eine Brille hier nicht die Entscheidung beeinflussen soll. "
+								/*text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille 
+									zu erkennen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
+									dass eine Brille hier nicht die Entscheidung beeinflussen soll. "*/
 							/>
 							<ImageMatrix imageArray={imagesLevel2} />
 							<EmojiDot emoji="glasses" orientation="left" />
@@ -169,9 +174,12 @@ const Eval: FunctionComponent<EvalProps> = ({
 							<EvalFeedback
 								title="Level 3"
 								orientation="left"
-								text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und 
-									Lichtverhältnissen zu erkennen. Wie bei der Brille, ist dies zwar selbstverständlich für uns, 
+								text="In LEVEL 3 wurde der Datensatz so angepasst, dass Studierende vor unterschiedlichen Hintergründen und 
+									Lichtverhältnissen auftauchen. Wie bei der Brille ist dies zwar selbstverständlich für uns, 
 									die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."
+								/*text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und 
+									Lichtverhältnissen zu erkennen. Wie bei der Brille, ist dies zwar selbstverständlich für uns, 
+									die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."*/
 							/>
 						</div>
 						<div
