@@ -412,7 +412,7 @@ export const entranceText: Message[] = [
 	{
 		id: nanoid(),
 		author: "",
-		text: "Hey, ich bin die KI Einlass Kontrolle.",
+		text: "Hey, ich bin die KI Einlasskontrolle.",
 		delay: 1500,
 		decay: 0,
 		type: MessageType.Normal,
