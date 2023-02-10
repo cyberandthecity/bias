@@ -26,7 +26,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                 }}
 		    >
                 <div className="scale" style={{}}>
-                    <img src={"/datasets/evaluation/3.png"}
+                    <img src={"/datasets/explanation/Jan.png"}
                         style={{
                             width: "130px",
                             height: "130px",
@@ -115,7 +115,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                 }}
 		    >
                 <div className="scale" style={{}}>
-                    <img src={"/datasets/evaluation/45.png"}
+                    <img src={"/datasets/explanation/Moritz.png"}
                         style={{
                             width: "130px",
                             height: "130px",
@@ -216,7 +216,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                 }}
 		    >
                 <div className="scale" style={{}}>
-                    <img src={"/datasets/evaluation/33.png"}
+                    <img src={"/datasets/explanation/Vanessa.png"}
                         style={{
                             width: "130px",
                             height: "130px",
