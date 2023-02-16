@@ -1,48 +1,70 @@
-# AI Museum Bias
+# Bias & AI
 
-### Current Version
-- [Website][deployment]
 
-### Resources 
-- [Figma][figma]
-- [Google Docs][docs]
-- [Google Drive][drive]
-- [Presentation][presentation]
-- [Buy List][buylist]
+Exhibit designed for the [Cyber and the City][exhibition] exhibition in Tübingen
 
-### React Learning
-#### Overview
-- [React in 100 Seconds explained](https://youtu.be/Tn6-PIqc4UM)
-- [Typescript in 100 Seconds explained](https://www.youtube.com/watch?v=zQnBQ4tB3ZA)
-- [React 4min Motivation Intro](https://www.youtube.com/watch?v=N3AkSS5hXMA)
+> A interactive game describing Bias and descrimenative aspects of it in playfull manner
 
-#### Installations and Helper
-Wir nutzen yarn als package manager, weil simple und besser als plain npm. Ihr müsste aber node installiert haben. 
-- [Node Installation](https://nodejs.org/en/download/)
-- [Yarn Installation](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+https://user-images.githubusercontent.com/9963865/184825844-23bbe7ef-17d4-4efd-9090-80d5fd432394.mp4
 
-Ihr könnt React in eurem Lieblings Texteditor benutzen, wenn ihr Visual Studio Code verwendet sind hier paar Plugins, die euer Leben wesentlich einfach machen für React Development
-- [Auto Import für Typescript](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
-- [React Code Snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
-- [React Code Snippers beides gut](https://marketplace.visualstudio.com/items?itemName=skyran.js-jsx-snippets)
-- [JS Linting = Sagen ob euer Code fehlerfrei ist](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [GitLense, seht von wem die Zeile code kommt](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Prettier, nach speichern automatisches formatieren](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [TODO highlighter](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
-- [Copilot GPT3 Code Vorschläge, killer aber müsst ihr bei GitHub einrichten für Studenten free](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)
 
-#### Tutorials
-- [React in 30minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY)
-- [Codecademy Free Course Html / Css](https://www.codecademy.com/catalog/language/html-css)
-- [Codecademy Free Course JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
-- [Codecademy Free Course Typescript](https://www.codecademy.com/learn/learn-typescript)
-- [Codecademy Free Course React](https://www.codecademy.com/learn/react-101)
-- [W3 React Tutorial](https://www.w3schools.com/react/default.asp)
+> This README focuses on how run the code for more detailed information please visit the [exhibition][report]
+
+
+### Content
+Description of the importants components used in this react app and how they contribute to the game, its logic and visual design.
+
+```
+.
+├── public
+│   ├── datasets                       # Dir of datasets of student images
+│   ├── emojis                         # Dir of apple emojis as images
+│   ├── fonts                          # Dir of fonts used manly Inter
+│   ├── images                         # Dir of graphics such as images and svgs
+│   └── videos                         # Dir of video files used
+│
+├── src
+│   ├── components                     # Dir of all react components
+│   ├── data                           # Dir of all chat related texts
+│   ├── pages                          # Dir of the main page hierachy 
+│   ├── stores                         # Dir of stores with main game logic
+│   ├── styles                         # Dir of global styles and animations
+│   ├── utils                          # Dir of utility functionality
+│   └── app.tsx                        # Starting point of game
+│
+├── ...                                # Craco, Typescript, Prettier, VSCode, Git and React setup
+│
+.
+```
+
+### Screens
+
+
+
+## Misc
+
+This project was part of a artificial intelligence seminar at the [Theory of Machine Learning][tml] department by the [University Tübingen][uni].
+Big thanks to [Prof. Dr. Ulrike von Luxburg][ulrike] and [Prof. Dr. Thomas Thiemeyer][thomas] for their help and guidance along this. 
+Participants of this project are [Julian Petruck][julian], [Vanessa Tsingunidis][vanessa], [Katja Körner][katja], [Moritz Kniebel][moritz] and [Jan-Niklas Dihlmann][jan]. 
+
+## Licensing
+
+This is a non comercial students project.
+Feel free to fork the code. 
+We can't guarantee for any functionality thus wont take resposibility and also no liabelty for artworks used in this project. 
+Artwork used for the AI by [Gleb Kuznetsov][ai]. 
+Images from students are not allowed to be spread in public neither be used in any further work. 
+
 
 <!-- Markdown link & img dfn's -->
-[buylist]: https://docs.google.com/spreadsheets/d/1tyGUNCetGQ9gaqPr4b5vVfTUdX1Q98BfY9KarDP1bAc/edit#gid=0
-[figma]: https://www.figma.com/file/LeynTETJevsGxXlTi0WjIm/%F0%9F%8F%9B-Bias-Museum?node-id=52%3A26
-[drive]: https://drive.google.com/drive/folders/1ikQYTc4BLRXbU0P7lKNoJ7RJCqdhmSSi?usp=sharing
-[docs]: https://docs.google.com/document/d/1-NixXoB71l7NsFC0AQ-NVPxmq7J9sGBv1tJ7I7yv7ug/edit
-[presentation]: https://docs.google.com/presentation/d/1DWHy8ocq0eV5o9490ADkKMqpLfi1rHImEhqggg6C1uo/edit?usp=sharing
-[deployment]: https://bias-museum.vercel.app/
+[exhibition]: https://www.tuebingen.de/stadtmuseum/38998.html
+[uni]: https://uni-tuebingen.de/
+[tml]: https://www.tml.cs.uni-tuebingen.de/index.php
+[ulrike]: https://www.tml.cs.uni-tuebingen.de/team/luxburg/
+[thomas]: https://uni-tuebingen.de/fakultaeten/wirtschafts-und-sozialwissenschaftliche-fakultaet/faecher/fachbereich-sozialwissenschaften/empirische-kulturwissenschaft/institut/personen/professorinnen/thomas-thiemeyer/
+[julian]: https://twitter.com/JulianPetruc
+[vanessa]: https://github.com/Vanessa-Ts
+[katja]: https://github.com/KatjaClaire
+[moritz]: https://github.com/moreezee
+[jan]: https://twitter.com/JDihlmann
+[ai]: https://dribbble.com/shots/16146992-Pryon-AI-reactions
