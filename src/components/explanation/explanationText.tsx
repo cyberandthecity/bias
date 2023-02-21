@@ -105,8 +105,8 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
             <div
                 style={{
                     position: "absolute",
-                    top: "1615px",
-                    left: "220px",
+                    top: "1660px",
+                    left: "180px",
                     display: "flex",
                     flexDirection: "row",
                     transform: "scale(1.0)",
@@ -116,6 +116,34 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 		    >
                 <div className="scale" style={{}}>
                     <img src={"/datasets/explanation/Moritz.png"}
+                        style={{
+                            width: "130px",
+                            height: "130px",
+                            borderRadius: "1000px",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "white",
+                            border: "3px solid white",
+                            filter: "drop-shadow(0px 0px 30px rgba(246, 223, 232, 1))",
+                        }}
+				    />
+                </div>
+            </div>
+			<div
+                style={{
+                    position: "absolute",
+                    top: "1570px",
+                    left: "250px",
+                    display: "flex",
+                    flexDirection: "row",
+                    transform: "scale(1.0)",
+                    WebkitTransform: "scale(1)",
+                    zIndex: 1,
+                }}
+		    >
+                <div className="scale" style={{}}>
+                    <img src={"/datasets/explanation/Katja.png"}
                         style={{
                             width: "130px",
                             height: "130px",
@@ -207,7 +235,7 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
                 style={{
                     position: "absolute",
                     top: "2250px",
-                    left: "220px",
+                    left: "250px",
                     display: "flex",
                     flexDirection: "row",
                     transform: "scale(1.0)",
@@ -217,6 +245,34 @@ const ExplanationText: FunctionComponent<TextProps> = ({}) => {
 		    >
                 <div className="scale" style={{}}>
                     <img src={"/datasets/explanation/Vanessa.png"}
+                        style={{
+                            width: "130px",
+                            height: "130px",
+                            borderRadius: "1000px",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "white",
+                            border: "3px solid white",
+                            filter: "drop-shadow(0px 0px 30px rgba(246, 223, 232, 1))",
+                        }}
+				    />
+                </div>
+            </div>
+			<div
+                style={{
+                    position: "absolute",
+                    top: "2340px",
+                    left: "180px",
+                    display: "flex",
+                    flexDirection: "row",
+                    transform: "scale(1.0)",
+                    WebkitTransform: "scale(1)",
+                    zIndex: 1,
+                }}
+		    >
+                <div className="scale" style={{}}>
+                    <img src={"/datasets/explanation/Julian.png"}
                         style={{
                             width: "130px",
                             height: "130px",
