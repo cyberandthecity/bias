@@ -51,7 +51,7 @@ Participants of this project are [Julian Petruck][julian], [Vanessa Tsingunidis]
 
 This is a non comercial students project.
 Feel free to fork the code. 
-We can't guarantee for any functionality thus wont take resposibility and also no liabelty for artworks used in this project. 
+We can't guarantee for any functionality thus wont take resposibility and also no liability for artworks used in this project. 
 Artwork used for the AI by [Gleb Kuznetsov][ai]. 
 Images from students are not allowed to be spread in public neither be used in any further work. 
 
