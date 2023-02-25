@@ -8,7 +8,7 @@ Exhibit designed for the [Cyber and the City][exhibition] exhibition open until 
 https://user-images.githubusercontent.com/9963865/221350344-2bca20cd-a6dc-4347-bd6c-ed51702ed9ea.mp4
 
 ### 
-> An online version of the game can be player [here][website]
+> An online version of the game can be played [here][website]
 
 ## Description
 
@@ -18,6 +18,8 @@ This repository contains the code for our interactive game, designed as an exhib
 As an AI developer, the visitor explores how different choices of data influence the results of an AI algorithm. 
 By constructing a dataset free of harmful bias, the visitor learns how bias is presented in data and that the responsibility lies with humans, not AI, to avoid harmful biases.
 In this documentation, we provide more details about the exhibit and the code used to build it.
+
+> There is also an [interview][interview] from the local news (in german language)
 
 ## Screens
 
@@ -91,7 +93,11 @@ This will start a local development server and open the application in your defa
 
 
 ## Process
+In February 2023, the Stadtmuseum Tübingen will host the exhibition [Cyber and the City][exhibition] about artificial intelligence, curated by master students from the University of Tübingen. 
+Our group dedicated 1 1/2 years to building an interactive game that explains data bias and human responsibility in AI in an engaging and playful manner. 
+Check out some pictures of our creative process and journey to build this exhibit below.
 
+![Process](https://user-images.githubusercontent.com/9963865/221367257-67508ea5-7900-4cab-98b8-47df02ac90c7.png)
 
 
 ## About 
@@ -125,3 +131,4 @@ If you have any questions about the licensing of this project, please don't hesi
 [ai]: https://dribbble.com/shots/16146992-Pryon-AI-reactions
 [website]: https://bias.jdihlmann.com/
 [report]: https://drive.google.com/file/d/1YWytgcnKQPUslxsXoayOHtmnnnQPQrRL/view?usp=sharing
+[interview]: https://youtu.be/XLVPc-v1UIk?t=127
