@@ -1,48 +1,45 @@
 # Bias & AI
 
 
-Exhibit designed for the [Cyber and the City][exhibition] exhibition in Tübingen
+Exhibit designed for the [Cyber and the City][exhibition] exhibition open until October 22nd, 2023.
 
-> A interactive game describing Bias and descrimenative aspects of it in playfull manner
+> An interactive game that explores data bias and human responsibility in a playful and engaging manner.
 
 https://user-images.githubusercontent.com/9963865/221350344-2bca20cd-a6dc-4347-bd6c-ed51702ed9ea.mp4
 
+### 
+> An online version of the game can be player [here][website]
 
-### Description
+## Description
 
-> This README focuses on how run the code for more detailed information please visit the [exhibition][report]
+> Please visit the [exhibition][exhibition] for a more comprehensive understanding, or refer to our midterm [report][report].
 
-The overall goal of our exhibit is to demystify AI by giving an explanation and delivering an intuitive understanding of bias.  We build an interactive game that delivers an intuitive understanding of human responsibility for bias, by putting the visitor into the role of an AI developer, helping an AI to become free of harmful bias.
-The interactive part of the exhibit deepens the understanding of data bias in AI, by letting the visitor interactively explore how different choices of data influence the results of an AI algorithm.
-The visitor takes on the role of a developer and is guided through a demo to help to construct a dataset that is free of harmful bias. 
-The goal of this object is to learn how bias is presented in data and more importantly that the responsibility lies with the humans developing the dataset and not the AI to avoid harmful biases.
+This repository contains the code for our interactive game, designed as an exhibit to demystify AI and deliver an intuitive understanding of bias and human responsibility. 
+As an AI developer, the visitor explores how different choices of data influence the results of an AI algorithm. 
+By constructing a dataset free of harmful bias, the visitor learns how bias is presented in data and that the responsibility lies with humans, not AI, to avoid harmful biases.
+In this documentation, we provide more details about the exhibit and the code used to build it.
 
+## Screens
 
-
-### Screens
 The game is split into five different screens, each serving a specific purpose in the gameplay and narrative.
 
 ![Screens](https://user-images.githubusercontent.com/9963865/221353458-59fead98-76ef-465d-9903-8933fe343309.png)
 
-The first screen is the entrance screen, designed to lure the visitor into the game and give context about the gameplay. It introduces the game's premise, which is that an AI is failing to let students into the night club as a doorkeeper.
-
-The second screen is the introduction screen, which explains the situation in further detail and shows that the night club, called Clubhaus, is part of the Tübingen student nightlife. 
+The first screen is the **Entrance** screen, designed to lure the visitor into the game and give context about the gameplay. It introduces the game's premise, which is that an AI is failing to let students into the night club as a doorkeeper.
+The second screen is the **Introduction** screen, which explains the situation in further detail and shows that the night club, called Clubhaus, is part of the Tübingen student nightlife. 
 This screen also highlights the problem that the AI is not able to judge who is a student and, therefore, not able to determine who should enter the club. 
 It asks the visitor for help to retrain the AI by building up a dataset. This screen sets the stage for the main game and introduces the visitor to the game mechanics.
-
-The third screen is the main game, where the visitor engages in a three-step decision process to rebuild the AI by finding datasets that are not discriminatory. 
+The third screen is the main **Game** , where the visitor engages in a three-step decision process to rebuild the AI by finding datasets that are not discriminatory. 
 In each round, the user selects one dataset, which the AI uses to improve its decision-making capabilities.
-
-The evaluation screen shows the solution of the game and embeds the entire game in a real-life perspective. 
+The **Evaluation** screen shows the solution of the game and embeds the entire game in a real-life perspective. 
 It highlights the impact that biased AI can have on people's lives and encourages players to think critically about the issue.
-
-The last screen, the explanation screen, explains bias in AI in a more scientific manner and also briefly reminds the player who is responsible for bias in AI. 
+The last screen, the **Explanation** screen, explains bias in AI in a more scientific manner and also briefly reminds the player who is responsible for bias in AI. 
 This screen is designed to provide a more in-depth understanding of the topic and raise awareness about the importance of addressing bias in AI.
 
 Overall, the game screens are carefully crafted to engage the visitor, introduce the game mechanics, and educate them about bias in AI. They are an essential part of the game's narrative and serve to reinforce its message.
 
-### Content
-Description of the importants components used in this react app and how they contribute to the game, its logic and visual design.
+## Content
+Description of the components used in this React app and how they contribute to the game, its logic and visual design.
 
 ```
 .
@@ -67,15 +64,30 @@ Description of the importants components used in this react app and how they con
 .
 ```
 
-## HowTo Run
-This is a simple React app in order to run it, you have to follow these steps. 
+## Getting Started
+This is a simple React app to run the project, you must have the following tools installed on your system: Node.JS, NPM and Yarn. 
 
-Clone the repository 
+Clone the repository:
 ```
 git clone https://github.com/cyberandthecity/bias.git
 ```
-The game is split into five different screens. The first screen 
-![Screens](https://user-images.githubusercontent.com/9963865/221351274-d529cd73-a74a-4d22-bcfc-a81b4f2e6a2a.png)
+
+Navigate into the project directory:
+```
+cd bias
+```
+
+Install the dependencies:
+```
+yarn
+```
+
+To run the development build, use the following command:
+```
+yarn dev 
+```
+
+This will start a local development server and open the application in your default browser.
 
 
 ## Process
@@ -111,3 +123,5 @@ If you have any questions about the licensing of this project, please don't hesi
 [moritz]: https://github.com/moreezee
 [jan]: https://twitter.com/JDihlmann
 [ai]: https://dribbble.com/shots/16146992-Pryon-AI-reactions
+[website]: https://bias.jdihlmann.com/
+[report]: https://drive.google.com/file/d/1YWytgcnKQPUslxsXoayOHtmnnnQPQrRL/view?usp=sharing
