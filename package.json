@@ -1,13 +1,21 @@
 {
-	"name": "biasmuseum",
-	"description": "Page for the bias museum",
+	"name": "bias",
+	"description": " Interactive game exhibit that explores data bias and human responsibility",
 	"version": "1.0.0",
 	"private": true,
 	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
 	"license": "MIT",
 	"keywords": [
-		"threejs",
-		"typescript"
+		"react",
+		"typescript",
+		"bias",
+		"game",
+		"exhibit",
+		"interactive",
+		"machine learning",
+		"art",
+		"science",
+		"education"
 	],
 	"scripts": {
 		"start": "HTTPS=false craco start",
@@ -18,7 +26,8 @@
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
 		"dev": "yarn start",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d build",
+		"transfer": "rsync -az --delete build/ --exclude '.env' hetzner:/var/www/jdihlmann/bias"
 	},
 	"lint-staged": {
 		"./src/**/*.{ts,js,jsx,tsx}": [

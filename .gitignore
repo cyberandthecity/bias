@@ -44,3 +44,7 @@ yarn-error.log*
 *.crt
 *.key
 
+
+
+# Dataset
+public/datasets/
