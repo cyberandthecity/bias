@@ -5,8 +5,7 @@ Exhibit designed for the [Cyber and the City][exhibition] exhibition in Tübinge
 
 > A interactive game describing Bias and descrimenative aspects of it in playfull manner
 
-https://user-images.githubusercontent.com/9963865/184825844-23bbe7ef-17d4-4efd-9090-80d5fd432394.mp4
-
+https://user-images.githubusercontent.com/9963865/221350344-2bca20cd-a6dc-4347-bd6c-ed51702ed9ea.mp4
 
 > This README focuses on how run the code for more detailed information please visit the [exhibition][report]
 
