@@ -117,7 +117,23 @@ const Game: FunctionComponent<GameProps> = ({
 							aiSetMessages(response)
 							setComplaints(response2)
 						}}
-						nextLevel={() => {
+						nextLevel={(selectedDataset: number | undefined) => {
+							const sessionId = useGame.getState().sessionId
+							try {
+								fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+									method: "POST",
+									headers: {
+										"Content-Type": "application/json",
+									},
+									body: JSON.stringify({
+										type: "game_" + currentLevel + "_" + selectedDataset,
+										timestamp: Date.now(),
+									}),
+								})
+							} catch (e) {
+								console.log("Could not send analytics request")
+							}
+
 							if (currentLevel == 2 && isInEvaluatingMode) {
 								setFinished(true)
 								setTimeout(() => {

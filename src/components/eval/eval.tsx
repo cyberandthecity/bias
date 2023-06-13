@@ -54,6 +54,22 @@ const Eval: FunctionComponent<EvalProps> = ({
 	const [showForegroundText, setShowForegroundText] = useState(false)
 
 	const handleButtonClick = () => {
+		const sessionId = useGame.getState().sessionId
+		try {
+			fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					type: "evaluation",
+					timestamp: Date.now(),
+				}),
+			})
+		} catch (e) {
+			console.log("Could not send analytics request")
+		}
+
 		setShowSecondComponent(true)
 		setTimeout(() => {
 			setShowForegroundText(true)
@@ -219,7 +235,24 @@ const Eval: FunctionComponent<EvalProps> = ({
 								</p>
 								{showForegroundText && (
 									<SelectionButton
-										onClick={() => navigate("/explanation")}
+										onClick={() => {
+											const sessionId = useGame.getState().sessionId
+											try {
+												fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+													method: "POST",
+													headers: {
+														"Content-Type": "application/json",
+													},
+													body: JSON.stringify({
+														type: "zoom",
+														timestamp: Date.now(),
+													}),
+												})
+											} catch (e) {
+												console.log("Could not send analytics request")
+											}
+											navigate("/explanation")
+										}}
 										shine={true}
 										background={InterfaceColor}
 										color="white"

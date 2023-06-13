@@ -31,6 +31,22 @@ const Restart: FunctionComponent<RestartProps> = ({}) => {
 					cursor: "pointer",
 				}}
 				onClick={() => {
+					const sessionId = useGame.getState().sessionId
+					try {
+						fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({
+								type: "reset",
+								timestamp: Date.now(),
+							}),
+						})
+					} catch (e) {
+						console.log("Could not send analytics request")
+					}
+
 					resetLevel()
 					navigate("/")
 				}}

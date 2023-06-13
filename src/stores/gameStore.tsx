@@ -7,6 +7,7 @@ import { nanoid } from "nanoid"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
+import { Session } from "inspector"
 
 interface Actions {
 	progressLevel(): void
@@ -57,11 +58,15 @@ type Store = {
 	actions: Actions
 
 	language: string
+	sessionId: string
+	sessionTimestamp: number
 }
 
 export const useGame = create<Store>(
 	immerStore((set, get) => ({
 		language: "de",
+		sessionId: nanoid(),
+		sessionTimestamp: Date.now(),
 		entranceInfo: {
 			aiMessages: entranceText,
 		},
@@ -118,6 +123,8 @@ export const useGame = create<Store>(
 			},
 			resetLevel() {
 				set((state) => {
+					state.sessionId = nanoid()
+					state.sessionTimestamp = Date.now()
 					state.currentLevel = 0
 				})
 			},

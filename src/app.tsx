@@ -9,6 +9,7 @@ import Evaluation from "./pages/evaluation"
 import ImageGrid from "./pages/zoom3"
 import Explanation from "./pages/explanation"
 import { useGame } from "./stores/gameStore"
+import Analytics from "./pages/analytics"
 
 const App = () => {
 	let navigate = useNavigate()
@@ -43,7 +44,9 @@ const App = () => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (!didInputOccur) {
-				resetGame()
+				if (window.location.pathname !== "/analytics") {
+					resetGame()
+				}
 			} else {
 				didInputOccur = false
 			}
@@ -110,7 +113,6 @@ const App = () => {
 						/>
 					}
 				/>{" "}
-				//Images are added randomly on page
 				<Route
 					path="/zoom3"
 					element={
@@ -122,32 +124,29 @@ const App = () => {
 						/>
 					}
 				/>{" "}
-				//Additional information is displayed
 				<Route
-					path="/evaluation"	
+					path="/evaluation"
 					element={
 						<Evaluation
 							scale={scale}
-							rotate={rotate}	
-							translate={translate}
-							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
-							/>
-						}
-				/>{" "}
-				//Additional information is displayed
-				<Route
-					path="/explanation"	
-					element={
-						<Explanation
-							scale={scale}
-							rotate={rotate}	
+							rotate={rotate}
 							translate={translate}
 							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
 						/>
 					}
 				/>{" "}
-				//AI Canvas experiment
-				<Route path="/ai" element={<AICanvas />} />{" "}
+				<Route
+					path="/explanation"
+					element={
+						<Explanation
+							scale={scale}
+							rotate={rotate}
+							translate={translate}
+							toggleFullscreen={(isFullscreen) => setIsFullscreen(isFullscreen)}
+						/>
+					}
+				/>{" "}
+				<Route path="/ai" element={<AICanvas />} /> <Route path="/analytics" element={<Analytics />} />{" "}
 			</Routes>
 		</>
 	)

@@ -16,7 +16,7 @@ interface DatasetSelectorProps {
 	isInEvaluatingMode: boolean
 	correctDataset: number
 	confirmDataset: (index: number) => void
-	nextLevel: () => void
+	nextLevel: (selectedDataset: number | undefined) => void
 	didCompleteGame: boolean
 	showPointerBar: boolean
 }
@@ -126,7 +126,7 @@ const DatasetSelector: FunctionComponent<DatasetSelectorProps> = ({
 						if (!isInEvaluatingMode && selectedDataset != undefined) {
 							confirmDataset(selectedDataset)
 						} else {
-							nextLevel()
+							nextLevel(selectedDataset)
 							setSelectedDataset(undefined)
 							setIsFirstSelection(true)
 						}
