@@ -7,6 +7,7 @@ import { nanoid } from "nanoid"
 import { Group } from "three"
 import create from "zustand"
 import { immerStore } from "./immerStore"
+import { Session } from "inspector"
 
 interface Actions {
 	progressLevel(): void
@@ -57,11 +58,15 @@ type Store = {
 	actions: Actions
 
 	language: string
+	sessionId: string
+	sessionTimestamp: number
 }
 
 export const useGame = create<Store>(
 	immerStore((set, get) => ({
 		language: "de",
+		sessionId: nanoid(),
+		sessionTimestamp: Date.now(),
 		entranceInfo: {
 			aiMessages: entranceText,
 		},
@@ -118,6 +123,8 @@ export const useGame = create<Store>(
 			},
 			resetLevel() {
 				set((state) => {
+					state.sessionId = nanoid()
+					state.sessionTimestamp = Date.now()
 					state.currentLevel = 0
 				})
 			},
@@ -130,9 +137,8 @@ export const useGame = create<Store>(
 					for (let row = 0; row < level.dimension[0]; row++) {
 						for (let column = 0; column < level.dimension[1]; column++) {
 							if (!images[row]) images[row] = []
-							images[row][column] = `/datasets/${level.imageDir}/set0${i + 1}/image_${
-								row * level.dimension[1] + column
-							}.png`
+							images[row][column] = `/datasets/${level.imageDir}/set0${i + 1}/image_${row * level.dimension[1] + column
+								}.png`
 						}
 					}
 					datasets.push({

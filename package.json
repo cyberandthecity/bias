@@ -1,13 +1,21 @@
 {
-	"name": "biasmuseum",
-	"description": "Page for the bias museum",
+	"name": "bias",
+	"description": " Interactive game exhibit that explores data bias and human responsibility",
 	"version": "1.0.0",
 	"private": true,
 	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
 	"license": "MIT",
 	"keywords": [
-		"threejs",
-		"typescript"
+		"react",
+		"typescript",
+		"bias",
+		"game",
+		"exhibit",
+		"interactive",
+		"machine learning",
+		"art",
+		"science",
+		"education"
 	],
 	"scripts": {
 		"start": "craco start",
@@ -18,7 +26,8 @@
 		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
 		"dev": "yarn start",
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d build",
+		"transfer": "rsync -az --delete build/ --exclude '.env' hetzner:/var/www/jdihlmann/bias"
 	},
 	"lint-staged": {
 		"./src/**/*.{ts,js,jsx,tsx}": [
@@ -35,13 +44,17 @@
 		"@theatre/r3f": "0.5",
 		"@theatre/studio": "0.5",
 		"@types/three": "0.144.0",
+		"apexcharts": "^3.41.0",
 		"craco-css-modules": "^1.0.1",
+		"dotenv-cra": "^3.0.3",
+		"dotenv-webpack": "^8.0.1",
 		"framer-motion": "^7.6.2",
 		"immer": "^9.0.15",
 		"lamina": "^1.1.23",
 		"leva": "^0.9.31",
 		"nanoid": "^4.0.0",
 		"react": "18.2.0",
+		"react-apexcharts": "^1.4.0",
 		"react-dom": "18.2.0",
 		"react-router-dom": "^6.4.0",
 		"react-scripts": "^5.0.1",

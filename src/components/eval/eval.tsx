@@ -54,6 +54,22 @@ const Eval: FunctionComponent<EvalProps> = ({
 	const [showForegroundText, setShowForegroundText] = useState(false)
 
 	const handleButtonClick = () => {
+		const sessionId = useGame.getState().sessionId
+		try {
+			fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					type: "evaluation",
+					timestamp: Date.now(),
+				}),
+			})
+		} catch (e) {
+			console.log("Could not send analytics request")
+		}
+
 		setShowSecondComponent(true)
 		setTimeout(() => {
 			setShowForegroundText(true)
@@ -121,8 +137,8 @@ const Eval: FunctionComponent<EvalProps> = ({
 								orientation="left"
 								text="In LEVEL 1 wurde der Datensatz so angepasst, dass weibliche und männliche Studierende 
 									gleich gut repräsentiert sind. "
-								/*text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
-									gleich gut zu erkennen. "*/
+							/*text="In LEVEL 1 wurde die KI darauf trainiert, weibliche und männliche Studierende 
+								gleich gut zu erkennen. "*/
 							/>
 						</div>
 						<div
@@ -145,9 +161,9 @@ const Eval: FunctionComponent<EvalProps> = ({
 								text="In LEVEL 2 wurde der Datensatz so angepasst, dass Studierende mit und ohne Brille 
 									darin vorkommen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
 									dass eine Brille hier nicht die Entscheidung beeinflussen soll. "
-								/*text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille 
-									zu erkennen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
-									dass eine Brille hier nicht die Entscheidung beeinflussen soll. "*/
+							/*text="In LEVEL 2 wurde die KI darauf trainiert, Studierende unabhängig von einer Brille 
+								zu erkennen. Auch wenn dies für uns Menschen kein Problem ist, muss der KI beigebracht werden, 
+								dass eine Brille hier nicht die Entscheidung beeinflussen soll. "*/
 							/>
 							<ImageMatrix imageArray={imagesLevel2} />
 							<EmojiDot emoji="glasses" orientation="left" />
@@ -177,9 +193,9 @@ const Eval: FunctionComponent<EvalProps> = ({
 								text="In LEVEL 3 wurde der Datensatz so angepasst, dass Studierende vor unterschiedlichen Hintergründen und 
 									Lichtverhältnissen auftauchen. Wie bei der Brille ist dies zwar selbstverständlich für uns, 
 									die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."
-								/*text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und 
-									Lichtverhältnissen zu erkennen. Wie bei der Brille, ist dies zwar selbstverständlich für uns, 
-									die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."*/
+							/*text="In LEVEL 3 wurde die KI darauf trainiert, Studierende unabhängig von Hintergrund und 
+								Lichtverhältnissen zu erkennen. Wie bei der Brille, ist dies zwar selbstverständlich für uns, 
+								die KI aber weiß nicht, was 'relevante' Merkmale sind und welche ignoriert werden können."*/
 							/>
 						</div>
 						<div
@@ -219,7 +235,24 @@ const Eval: FunctionComponent<EvalProps> = ({
 								</p>
 								{showForegroundText && (
 									<SelectionButton
-										onClick={() => navigate("/explanation")}
+										onClick={() => {
+											const sessionId = useGame.getState().sessionId
+											try {
+												fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+													method: "POST",
+													headers: {
+														"Content-Type": "application/json",
+													},
+													body: JSON.stringify({
+														type: "zoom",
+														timestamp: Date.now(),
+													}),
+												})
+											} catch (e) {
+												console.log("Could not send analytics request")
+											}
+											navigate("/explanation")
+										}}
 										shine={true}
 										background={InterfaceColor}
 										color="white"

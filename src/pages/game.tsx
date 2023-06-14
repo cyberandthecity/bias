@@ -105,19 +105,35 @@ const Game: FunctionComponent<GameProps> = ({
 								index == 0
 									? level.aiPrompt.responseSelectedDataset_0
 									: index == 1
-									? level.aiPrompt.responseSelectedDataset_1
-									: level.aiPrompt.responseSelectedDataset_2
+										? level.aiPrompt.responseSelectedDataset_1
+										: level.aiPrompt.responseSelectedDataset_2
 							let response2 =
 								index == 0
 									? level.complaints.complaintSelectedDataset_0
 									: index == 1
-									? level.complaints.complaintSelectedDataset_1
-									: level.complaints.complaintSelectedDataset_2
+										? level.complaints.complaintSelectedDataset_1
+										: level.complaints.complaintSelectedDataset_2
 
 							aiSetMessages(response)
 							setComplaints(response2)
 						}}
-						nextLevel={() => {
+						nextLevel={(selectedDataset: number | undefined) => {
+							const sessionId = useGame.getState().sessionId
+							try {
+								fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+									method: "POST",
+									headers: {
+										"Content-Type": "application/json",
+									},
+									body: JSON.stringify({
+										type: "game_" + currentLevel + "_" + selectedDataset,
+										timestamp: Date.now(),
+									}),
+								})
+							} catch (e) {
+								console.log("Could not send analytics request")
+							}
+
 							if (currentLevel == 2 && isInEvaluatingMode) {
 								setFinished(true)
 								setTimeout(() => {

@@ -35,6 +35,22 @@ const Introduction: FunctionComponent<IntroductionProps> = ({
 	let navigate = useNavigate()
 
 	const progessToNextScreen = () => {
+		const sessionId = useGame.getState().sessionId
+		try {
+			fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					type: "introduction",
+					timestamp: Date.now(),
+				}),
+			})
+		} catch (e) {
+			console.log("Could not send analytics request")
+		}
+
 		navigate("/game")
 	}
 

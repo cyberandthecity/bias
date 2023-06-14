@@ -4,9 +4,9 @@ import ChatMessage, { Message } from "../message/message"
 import { useNavigate } from "react-router-dom"
 import { useGame } from "@/stores/gameStore"
 
-interface RestartProps {}
+interface RestartProps { }
 
-const Restart: FunctionComponent<RestartProps> = ({}) => {
+const Restart: FunctionComponent<RestartProps> = ({ }) => {
 	let navigate = useNavigate()
 	const resetLevel = useGame((state) => state.actions.resetLevel)
 
@@ -31,6 +31,22 @@ const Restart: FunctionComponent<RestartProps> = ({}) => {
 					cursor: "pointer",
 				}}
 				onClick={() => {
+					const sessionId = useGame.getState().sessionId
+					try {
+						fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json",
+							},
+							body: JSON.stringify({
+								type: "reset",
+								timestamp: Date.now(),
+							}),
+						})
+					} catch (e) {
+						console.log("Could not send analytics request")
+					}
+
 					resetLevel()
 					navigate("/")
 				}}

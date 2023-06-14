@@ -27,10 +27,29 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 	translate = { x: 0, y: 0 },
 }) => {
 	const messages = useGame((state) => state.entranceInfo.aiMessages)
+	const sessionId = useGame((state) => state.sessionId)
+	const sessionTimestamp = useGame((state) => state.sessionTimestamp)
 
 	let navigate = useNavigate()
 
 	const progessToNextScreen = () => {
+		try {
+			fetch(process.env.ANALYTICS_URL + "/session", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					sessionId: sessionId,
+					timestamp: sessionTimestamp,
+					domain: process.env.ANALYTICS_DOMAIN,
+					interactions: [{ type: "entrance", timestamp: Date.now() }],
+				}),
+			})
+		} catch (e) {
+			console.log("Could not send analytics request")
+		}
+
 		navigate("/introduction")
 	}
 	return (
@@ -110,7 +129,9 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 						zIndex: 1,
 						overflow: "hidden",
 					}}
-					onClick={() => progessToNextScreen()}
+					onClick={() => {
+						progessToNextScreen()
+					}}
 				>
 					Ja, ich möchte helfen!
 				</div>
@@ -128,7 +149,9 @@ const Entrance: FunctionComponent<EntranceProps> = ({
 
 						zIndex: 1,
 					}}
-					onClick={() => progessToNextScreen()}
+					onClick={() => {
+						progessToNextScreen()
+					}}
 				/>
 
 				<Door />

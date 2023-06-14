@@ -8,10 +8,9 @@ import Fullscreen from "@/components/fullscreen/fullscreen"
 import SelectionButton from "@/components/selectionButton/selectionButton"
 import { InterfaceColor } from "@/utils/theme"
 import { useNavigate } from "react-router-dom"
-import ExplanationText from "@/components/explanation/explanationText" 
+import ExplanationText from "@/components/explanation/explanationText"
 import AI from "@/components/ai/ai"
 import { Message, MessageType } from "@/components/message/message"
-
 
 interface ExplanationProps {
 	scale?: number
@@ -26,8 +25,8 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 	translate = { x: 0, y: 0 },
 	toggleFullscreen,
 }) => {
-    let navigate = useNavigate()
-    const resetlevel = useGame((state) => state.actions.resetLevel)
+	let navigate = useNavigate()
+	const resetlevel = useGame((state) => state.actions.resetLevel)
 	const level = useGame((state) => state.levels[state.currentLevel])
 
 	const additionalText = useGame((state) => state.additionalInfo.aiMessages)
@@ -37,21 +36,20 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 		aiSetMessages(additionalText)
 	}, [level])
 
-
 	return (
 		<Background offset={800} scale={scale} rotate={rotate} translate={translate}>
-        	{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} />    */} 
+			{/* <Fullscreen propagateFullscreenToggle={toggleFullscreen} />    */}
 			<Title title="Mehr zu Bias und KI" />
 			<AI messages={aiMessages} position={{ x: 1810, y: 615 }} chatOffset={{ x: -1020, y: 140 }} />
 			<ExplanationText />
 
-            <div
+			<div
 				style={{
-                    position: "absolute",
-                    bottom: "1000px",
+					position: "absolute",
+					bottom: "1000px",
 					height: "150px",
 					width: "2000px",
-                    left: "80px",
+					left: "80px",
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
@@ -61,6 +59,22 @@ const Explanation: FunctionComponent<ExplanationProps> = ({
 			>
 				<SelectionButton
 					onClick={() => {
+						const sessionId = useGame.getState().sessionId
+						try {
+							fetch(process.env.ANALYTICS_URL + "/session/" + sessionId, {
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+								},
+								body: JSON.stringify({
+									type: "explanation",
+									timestamp: Date.now(),
+								}),
+							})
+						} catch (e) {
+							console.log("Could not send analytics request")
+						}
+
 						resetlevel()
 						navigate("/")
 					}}
