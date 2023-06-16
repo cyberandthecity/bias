@@ -50,7 +50,7 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 	const sessionsCountCompletedPerDay: Record<string, number> = {}
 
 	sessions.forEach((session) => {
-		const date = new Date(session.timestamp)
+		const date = new Date(session.interactions[0].timestamp)
 		const day = date.toISOString().substr(0, 10)
 		const isToday = day === new Date().toISOString().substr(0, 10)
 		if (sessionsCountPerDay[day]) {
@@ -327,7 +327,7 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 					<tbody>
 						{sessions.map((session) => {
 							// Color backgorund differently according to date of session
-							const date = new Date(session.timestamp)
+							const date = new Date(session.interactions[0].timestamp)
 							const day = date.toISOString().substr(0, 10)
 
 							// Get index in sessionsCountPerDay array
@@ -339,7 +339,7 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 								<SessionComponent
 									key={session.sessionId}
 									sessionId={session.sessionId}
-									timestamp={session.timestamp}
+									timestamp={session.interactions[0].timestamp}
 									domain={session.domain}
 									interactions={session.interactions}
 									isColored={isColored}
