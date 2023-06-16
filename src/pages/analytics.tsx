@@ -197,6 +197,11 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 						return session.interactions.length > 1
 					})
 
+					// Sort data by timestamp from newes to oldest
+					data = data.sort((a: Session, b: Session) => {
+						return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+					})
+
 					setSessions(data)
 				})
 		} catch (e) {
@@ -306,21 +311,30 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 					</table>
 				</div>
 
-				<table style={{ marginTop: "20px", borderCollapse: "separate", borderSpacing: "10px" }}>
+				<table style={{ marginTop: "20px", borderCollapse: "separate", borderSpacing: "0px", overflow: "scroll" }}>
 					<thead style={{ textAlign: "left" }}>
 						<tr>
-							<th>Session ID</th>
-							<th>Timestamp</th>
-							<th>Domain</th>
-							<th>Total Playtime</th>
-							<th>Completed Game</th>
-							<th>Game Results</th>
-							<th>Last Level</th>
+							<th style={{ paddingRight: "10px" }}>Session ID</th>
+							<th style={{ paddingRight: "10px" }}>Timestamp</th>
+							<th style={{ paddingRight: "10px" }}>Domain</th>
+							<th style={{ paddingRight: "10px" }}>Total Playtime (min)</th>
+							<th style={{ paddingRight: "10px" }}>Completed Game</th>
+							<th style={{ paddingRight: "10px" }}>Game Results</th>
+							<th style={{ paddingRight: "10px" }}>Last Level</th>
 							<th>Reset</th>
 						</tr>
 					</thead>
 					<tbody>
 						{sessions.map((session) => {
+							// Color backgorund differently according to date of session
+							const date = new Date(session.timestamp)
+							const day = date.toISOString().substr(0, 10)
+
+							// Get index in sessionsCountPerDay array
+							// @ts-ignore
+							const index = Object.keys(sessionsCountPerDay).indexOf(day)
+							const isColored = (index + 1) % 2 == 0
+
 							return (
 								<SessionComponent
 									key={session.sessionId}
@@ -328,6 +342,7 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 									timestamp={session.timestamp}
 									domain={session.domain}
 									interactions={session.interactions}
+									isColored={isColored}
 								/>
 							)
 						})}

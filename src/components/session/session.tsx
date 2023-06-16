@@ -1,9 +1,17 @@
 import { Session } from "@/pages/analytics"
 import { FunctionComponent, useEffect, useState } from "react"
 
-interface SessionProps extends Session {}
+interface SessionProps extends Session {
+	isColored: boolean
+}
 
-export const SessionComponent: FunctionComponent<SessionProps> = ({ sessionId, timestamp, domain, interactions }) => {
+export const SessionComponent: FunctionComponent<SessionProps> = ({
+	sessionId,
+	timestamp,
+	domain,
+	interactions,
+	isColored,
+}) => {
 	const date = new Date(timestamp)
 
 	// Make the format to DD:MM:YY HH:MM:SS but fill with 0 such that it is always 19 characters long
@@ -42,18 +50,21 @@ export const SessionComponent: FunctionComponent<SessionProps> = ({ sessionId, t
 	}
 
 	return (
-		<tr>
-			<td>{sessionId}</td>
-			<td>{formatedDate}</td>
-			<td>{domain}</td>
-			<td>{totalPlaytimeFormated}min</td>
-			<td style={{ background: completedGame ? "green" : "red", color: "white" }}>{completedGame ? "Yes" : "No"}</td>
-			<td>
-				{" "}
-				{gameResults[0] ? "✅" : "❌"} {gameResults[1] ? "✅" : "❌"} {gameResults[2] ? "✅" : "❌"}{" "}
+		<tr style={{ background: isColored ? "rgba(0, 0, 0, 0.1)" : "white" }}>
+			<td style={{ paddingRight: "10px" }}>{sessionId}</td>
+			<td style={{ paddingRight: "10px" }}>{formatedDate}</td>
+			<td style={{ paddingRight: "10px" }}>{domain == "home" ? "🛠️" : domain == "museum" ? "🏛️" : "🌐"}</td>
+			<td style={{ paddingRight: "10px" }}>{totalPlaytimeFormated}</td>
+			<td style={{ background: completedGame ? "green" : "red", color: "white", paddingRight: "10px" }}>
+				{completedGame ? "Yes" : "No"}
 			</td>
-			<td>{lastInteraction.type}</td>
-			<td>{reset ? "Yes" : "No"}</td>
+			<td style={{ paddingRight: "10px" }}>
+				{gameResults[0] ? "✅" : game_0 == undefined ? "-" : "❌"}{" "}
+				{gameResults[1] ? "✅" : game_1 == undefined ? "-" : "❌"}{" "}
+				{gameResults[2] ? "✅" : game_2 == undefined ? "-" : "❌"}{" "}
+			</td>
+			<td style={{ paddingRight: "10px" }}>{lastInteraction.type}</td>
+			<td>{reset ? "🔄" : "-"}</td>
 		</tr>
 	)
 }
