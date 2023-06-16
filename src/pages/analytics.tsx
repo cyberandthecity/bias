@@ -70,7 +70,7 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 		const game_2 = interactions.find((interaction) => interaction.type.includes("game_2"))
 
 		const completedGame = game_0 != undefined && game_1 != undefined && game_2 != undefined
-		console.log(completedGame)
+
 		if (completedGame) {
 			playtimeCompletedAll += playtimeSession
 			if (sessionsCountCompletedPerDay[day]) {
@@ -192,6 +192,11 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
+					// Filter data to exclude session where interactions only contain entrance
+					data = data.filter((session: Session) => {
+						return session.interactions.length > 1
+					})
+
 					setSessions(data)
 				})
 		} catch (e) {
