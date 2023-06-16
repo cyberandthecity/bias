@@ -15,7 +15,14 @@ export const SessionComponent: FunctionComponent<SessionProps> = ({
 	const date = new Date(timestamp)
 
 	// Make the format to DD:MM:YY HH:MM:SS but fill with 0 such that it is always 19 characters long
-	const formatedDate = date.toLocaleTimeString("de-DE", { hour12: false, hour: "2-digit", minute: "2-digit" })
+	const formatedDate = date.toLocaleTimeString("de-DE", {
+		hour12: false,
+		hour: "2-digit",
+		minute: "2-digit",
+		month: "2-digit",
+		day: "2-digit",
+		year: "2-digit",
+	})
 
 	const totalPlaytime =
 		new Date(interactions[interactions.length - 1].timestamp).getTime() - new Date(interactions[0].timestamp).getTime()
