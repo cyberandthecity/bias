@@ -50,7 +50,7 @@ export const SessionComponent: FunctionComponent<SessionProps> = ({ sessionId, t
 			<td style={{ background: completedGame ? "green" : "red", color: "white" }}>{completedGame ? "Yes" : "No"}</td>
 			<td>
 				{" "}
-				{gameResults[0] ? "O" : "X"} {gameResults[1] ? "O" : "X"} {gameResults[2] ? "O" : "X"}{" "}
+				{gameResults[0] ? "✅" : "❌"} {gameResults[1] ? "✅" : "❌"} {gameResults[2] ? "✅" : "❌"}{" "}
 			</td>
 			<td>{lastInteraction.type}</td>
 			<td>{reset ? "Yes" : "No"}</td>
