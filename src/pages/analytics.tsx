@@ -56,6 +56,16 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 		if (sessionsCountPerDay[day]) {
 			sessionsCountPerDay[day] += 1
 		} else {
+			if (Object.keys(sessionsCountPerDay).length > 0) {
+				const lastDay = new Date(Object.keys(sessionsCountPerDay).pop() || "").getTime()
+
+				// fill in missing days (but it is reversed)
+				for (let i = lastDay - 24 * 60 * 60 * 1000; i > date.getTime(); i -= 24 * 60 * 60 * 1000) {
+					const day = new Date(i).toISOString().substr(0, 10)
+					sessionsCountPerDay[day] = 0
+				}
+			}
+
 			sessionsCountPerDay[day] = 1
 		}
 
