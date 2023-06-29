@@ -205,10 +205,20 @@ const Analytics: FunctionComponent<AnalyticsProps> = ({}) => {
 					data = data.filter((session: Session) => {
 						// Filter data to exclude session where interactions only contain entrance
 						const containsMoreThanEntrance = session.interactions.length > 1
+						if (!containsMoreThanEntrance) {
+							return false
+						}
+						const containsOnlyEntranceAndReset =
+							session.interactions[1].type == "reset" && session.interactions[0].type == "entrance"
+
+						if (containsOnlyEntranceAndReset) {
+							return false
+						}
+
 						// Filter data to exclude session where the timestamp is before the 15.06.23
 						const date_14_06_23 = new Date("2023-06-15").getTime()
 						const isAfter14_06_23 = new Date(session.interactions[0].timestamp).getTime() > date_14_06_23
-						return containsMoreThanEntrance && isAfter14_06_23
+						return isAfter14_06_23
 					})
 
 					// Sort data by timestamp from newes to oldest
